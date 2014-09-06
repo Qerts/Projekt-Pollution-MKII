@@ -48,9 +48,17 @@ namespace Pollution
         }
 
 
+        public static StatusName getStatus_NO2() { return NO2.Item2; }
+        public static StatusName getStatus_SO2() { return SO2.Item2; }
+        public static StatusName getStatus_O3() { return O3.Item2; }
+        public static StatusName getStatus_PM10() { return PM10.Item2; }
+        public static StatusName getStatus_CO() { return CO.Item2; }
 
-
-
+        public static int getValue_NO2() { return NO2.Item1; }
+        public static int getValue_SO2() { return SO2.Item1; }
+        public static int getValue_O3() { return O3.Item1; }
+        public static int getValue_PM10() { return PM10.Item1; }
+        public static int getValue_CO() { return CO.Item1; }
 
 
 
@@ -297,10 +305,10 @@ namespace Pollution
             
 
         }
-        /*
+        */
         public static Tuple<SolidColorBrush,string> GetSO2ColorAndStatus() 
         {
-            int value = SO2_VALUE;
+            int value = SO2.Item1;
             if (value < 120)
             {
                 if (value < 50)
@@ -345,7 +353,7 @@ namespace Pollution
             }
             
         }
-         * */
+         
         public static Tuple<SolidColorBrush, string> GetO3ColorAndStatus() 
         {
             int value = O3.Item1;

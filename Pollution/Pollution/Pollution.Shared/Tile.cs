@@ -12,53 +12,474 @@ namespace Pollution
 {
     public class Tile : UserControl
     {
-        
+        private static Random random = new Random();
+
 
         public static Grid testTile(int rowNum, int colNum)
         {
             return new Grid();
         }
-        public static Grid imageTile(int rowNum, int colNum)
+        public static Grid imageTile(int rowNum, int colNum, string uri)
         {
-            return new Grid();
-        }
-        public static Grid stringTile(int rowNum, int colNum)
-        {
-            return new Grid();
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("ms-appx:" + uri));
+            imageBrush.Stretch = Stretch.UniformToFill;
+            tile.Background = imageBrush;
+            
+
+            
+            tile.Name = "imageTile";
+
+            return tile;
         }
         public static Grid statusTile_SO2(int rowNum, int colNum)
         {
-            return new Grid();
+            //pro pripad nemoznosti nacist stav
+            string status = "error";
+
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+
+            tile.Background = Data.getColorAndStatus(Data.getStatus_SO2()).Item1;
+
+            RowDefinition rowdef1 = new RowDefinition();
+            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef1);
+            RowDefinition rowdef2 = new RowDefinition();
+            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef2);
+            RowDefinition rowdef3 = new RowDefinition();
+            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef3);
+            RowDefinition rowdef4 = new RowDefinition();
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef4);
+
+            ColumnDefinition coldef1 = new ColumnDefinition();
+            coldef1.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef1);
+            ColumnDefinition coldef2 = new ColumnDefinition();
+            coldef2.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef2);
+            ColumnDefinition coldef3 = new ColumnDefinition();
+            coldef3.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef3);
+            ColumnDefinition coldef4 = new ColumnDefinition();
+            coldef4.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef4);
+            ColumnDefinition coldef5 = new ColumnDefinition();
+            coldef5.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef5);
+
+            TextBlock ratingString = new TextBlock();
+            ratingString.Text = Data.getValue_SO2().ToString();
+            ratingString.Foreground = new SolidColorBrush(Colors.White);
+            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.TextAlignment = TextAlignment.Center;
+            ratingString.HorizontalAlignment = HorizontalAlignment.Center;
+            ratingString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(ratingString, 1);
+            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetRow(ratingString, 1);
+            tile.Children.Add(ratingString);
+
+            TextBlock stationString = new TextBlock();
+            status = Data.GetSO2ColorAndStatus().Item2;
+            stationString.Text = status;
+            stationString.Foreground = new SolidColorBrush(Colors.White);
+            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.TextAlignment = TextAlignment.Center;
+            stationString.HorizontalAlignment = HorizontalAlignment.Center;
+            stationString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(stationString, 5);
+            Grid.SetRow(stationString, 2);
+            tile.Children.Add(stationString);
+
+            TextBlock nameString = new TextBlock();
+            nameString.Text = "SO\x2082";
+            nameString.Foreground = new SolidColorBrush(Colors.White);
+            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.TextAlignment = TextAlignment.Center;
+            nameString.HorizontalAlignment = HorizontalAlignment.Center;
+            nameString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(nameString, 2);
+            Grid.SetRow(nameString, 3);
+            tile.Children.Add(nameString);
+
+
+            tile.Name = "statusTile";
+
+            return tile;
         }
         public static Grid statusTIle_O3(int rowNum, int colNum)
         {
-            return new Grid();
+            //pro pripad nemoznosti nacist stav
+            string status = "error";
+
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+
+            tile.Background = Data.getColorAndStatus(Data.getStatus_O3()).Item1;
+
+            RowDefinition rowdef1 = new RowDefinition();
+            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef1);
+            RowDefinition rowdef2 = new RowDefinition();
+            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef2);
+            RowDefinition rowdef3 = new RowDefinition();
+            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef3);
+            RowDefinition rowdef4 = new RowDefinition();
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef4);
+
+            ColumnDefinition coldef1 = new ColumnDefinition();
+            coldef1.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef1);
+            ColumnDefinition coldef2 = new ColumnDefinition();
+            coldef2.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef2);
+            ColumnDefinition coldef3 = new ColumnDefinition();
+            coldef3.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef3);
+            ColumnDefinition coldef4 = new ColumnDefinition();
+            coldef4.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef4);
+            ColumnDefinition coldef5 = new ColumnDefinition();
+            coldef5.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef5);
+
+            TextBlock ratingString = new TextBlock();
+            ratingString.Text = Data.getValue_O3().ToString();
+            ratingString.Foreground = new SolidColorBrush(Colors.White);
+            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.TextAlignment = TextAlignment.Center;
+            ratingString.HorizontalAlignment = HorizontalAlignment.Center;
+            ratingString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(ratingString, 1);
+            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetRow(ratingString, 1);
+            tile.Children.Add(ratingString);
+
+            TextBlock stationString = new TextBlock();
+            status = Data.GetO3ColorAndStatus().Item2;
+            stationString.Text = status;
+            stationString.Foreground = new SolidColorBrush(Colors.White);
+            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.TextAlignment = TextAlignment.Center;
+            stationString.HorizontalAlignment = HorizontalAlignment.Center;
+            stationString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(stationString, 5);
+            Grid.SetRow(stationString, 2);
+            tile.Children.Add(stationString);
+
+            TextBlock nameString = new TextBlock();
+            nameString.Text = "O\x2083";
+            nameString.Foreground = new SolidColorBrush(Colors.White);
+            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.TextAlignment = TextAlignment.Center;
+            nameString.HorizontalAlignment = HorizontalAlignment.Center;
+            nameString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(nameString, 2);
+            Grid.SetRow(nameString, 3);
+            tile.Children.Add(nameString);
+
+
+            tile.Name = "statusTile";
+
+            return tile;
         }
         public static Grid statusTile_CO(int rowNum, int colNum)
         {
-            return new Grid();
+            //pro pripad nemoznosti nacist stav
+            string status = "error";
+
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+
+            tile.Background = Data.getColorAndStatus(Data.getStatus_CO()).Item1;
+
+            RowDefinition rowdef1 = new RowDefinition();
+            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef1);
+            RowDefinition rowdef2 = new RowDefinition();
+            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef2);
+            RowDefinition rowdef3 = new RowDefinition();
+            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef3);
+            RowDefinition rowdef4 = new RowDefinition();
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef4);
+
+            ColumnDefinition coldef1 = new ColumnDefinition();
+            coldef1.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef1);
+            ColumnDefinition coldef2 = new ColumnDefinition();
+            coldef2.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef2);
+            ColumnDefinition coldef3 = new ColumnDefinition();
+            coldef3.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef3);
+            ColumnDefinition coldef4 = new ColumnDefinition();
+            coldef4.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef4);
+            ColumnDefinition coldef5 = new ColumnDefinition();
+            coldef5.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef5);
+
+            TextBlock ratingString = new TextBlock();
+            ratingString.Text = Data.getValue_CO().ToString();
+            ratingString.Foreground = new SolidColorBrush(Colors.White);
+            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.TextAlignment = TextAlignment.Center;
+            ratingString.HorizontalAlignment = HorizontalAlignment.Center;
+            ratingString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(ratingString, 1);
+            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetRow(ratingString, 1);
+            tile.Children.Add(ratingString);
+
+            TextBlock stationString = new TextBlock();
+            status = Data.GetCOColorAndStatus().Item2;
+            stationString.Text = status;
+            stationString.Foreground = new SolidColorBrush(Colors.White);
+            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.TextAlignment = TextAlignment.Center;
+            stationString.HorizontalAlignment = HorizontalAlignment.Center;
+            stationString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(stationString, 5);
+            Grid.SetRow(stationString, 2);
+            tile.Children.Add(stationString);
+
+            TextBlock nameString = new TextBlock();
+            nameString.Text = "CO";
+            nameString.Foreground = new SolidColorBrush(Colors.White);
+            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.TextAlignment = TextAlignment.Center;
+            nameString.HorizontalAlignment = HorizontalAlignment.Center;
+            nameString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(nameString, 2);
+            Grid.SetRow(nameString, 3);
+            tile.Children.Add(nameString);
+
+
+            tile.Name = "statusTile";
+
+            return tile;
         }
         public static Grid statusTile_PM10(int rowNum, int colNum)
         {
-            return new Grid();
+            //pro pripad nemoznosti nacist stav
+            string status = "error";
+
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+
+            tile.Background = Data.getColorAndStatus(Data.getStatus_PM10()).Item1;
+
+            RowDefinition rowdef1 = new RowDefinition();
+            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef1);
+            RowDefinition rowdef2 = new RowDefinition();
+            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef2);
+            RowDefinition rowdef3 = new RowDefinition();
+            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef3);
+            RowDefinition rowdef4 = new RowDefinition();
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef4);
+
+            ColumnDefinition coldef1 = new ColumnDefinition();
+            coldef1.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef1);
+            ColumnDefinition coldef2 = new ColumnDefinition();
+            coldef2.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef2);
+            ColumnDefinition coldef3 = new ColumnDefinition();
+            coldef3.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef3);
+            ColumnDefinition coldef4 = new ColumnDefinition();
+            coldef4.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef4);
+            ColumnDefinition coldef5 = new ColumnDefinition();
+            coldef5.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef5);
+
+            TextBlock ratingString = new TextBlock();
+            ratingString.Text = Data.getValue_PM10().ToString();
+            ratingString.Foreground = new SolidColorBrush(Colors.White);
+            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.TextAlignment = TextAlignment.Center;
+            ratingString.HorizontalAlignment = HorizontalAlignment.Center;
+            ratingString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(ratingString, 1);
+            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetRow(ratingString, 1);
+            tile.Children.Add(ratingString);
+
+            TextBlock stationString = new TextBlock();
+            status = Data.GetPM10ColorAndStatus().Item2;
+            stationString.Text = status;
+            stationString.Foreground = new SolidColorBrush(Colors.White);
+            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.TextAlignment = TextAlignment.Center;
+            stationString.HorizontalAlignment = HorizontalAlignment.Center;
+            stationString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(stationString, 5);
+            Grid.SetRow(stationString, 2);
+            tile.Children.Add(stationString);
+
+            TextBlock nameString = new TextBlock();
+            nameString.Text = "PM\x2081\x2090";
+            nameString.Foreground = new SolidColorBrush(Colors.White);
+            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.TextAlignment = TextAlignment.Center;
+            nameString.HorizontalAlignment = HorizontalAlignment.Center;
+            nameString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(nameString, 2);
+            Grid.SetRow(nameString, 3);
+            tile.Children.Add(nameString);
+
+
+            tile.Name = "statusTile";
+
+            return tile;
         }
         public static Grid statusTile_NO2(int rowNum, int colNum)
         {
-            return new Grid();
+            //pro pripad nemoznosti nacist stav
+            string status = "error";
+
+            Grid tile = new Grid();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+            
+            tile.Background = Data.getColorAndStatus(Data.getStatus_NO2()).Item1;
+            
+            RowDefinition rowdef1 = new RowDefinition();
+            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef1);
+            RowDefinition rowdef2 = new RowDefinition();
+            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef2);
+            RowDefinition rowdef3 = new RowDefinition();
+            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef3);
+            RowDefinition rowdef4 = new RowDefinition();
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef4);
+
+            ColumnDefinition coldef1 = new ColumnDefinition();
+            coldef1.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef1);
+            ColumnDefinition coldef2 = new ColumnDefinition();
+            coldef2.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef2);
+            ColumnDefinition coldef3 = new ColumnDefinition();
+            coldef3.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef3);
+            ColumnDefinition coldef4 = new ColumnDefinition();
+            coldef4.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef4);
+            ColumnDefinition coldef5 = new ColumnDefinition();
+            coldef5.Width = new GridLength(1, GridUnitType.Star);
+            tile.ColumnDefinitions.Add(coldef5);
+
+            TextBlock ratingString = new TextBlock();
+            ratingString.Text = Data.getValue_NO2().ToString();
+            ratingString.Foreground = new SolidColorBrush(Colors.White);
+            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.TextAlignment = TextAlignment.Center;
+            ratingString.HorizontalAlignment = HorizontalAlignment.Center;
+            ratingString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(ratingString, 1);
+            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetRow(ratingString, 1);
+            tile.Children.Add(ratingString);
+
+            TextBlock stationString = new TextBlock();
+            status = Data.GetNO2ColorAndStatus().Item2;
+            stationString.Text = status;
+            stationString.Foreground = new SolidColorBrush(Colors.White);
+            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.TextAlignment = TextAlignment.Center;
+            stationString.HorizontalAlignment = HorizontalAlignment.Center;
+            stationString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(stationString, 5);
+            Grid.SetRow(stationString, 2);
+            tile.Children.Add(stationString);
+
+            TextBlock nameString = new TextBlock();
+            nameString.Text = "NO\x2082";
+            nameString.Foreground = new SolidColorBrush(Colors.White);
+            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.TextAlignment = TextAlignment.Center;
+            nameString.HorizontalAlignment = HorizontalAlignment.Center;
+            nameString.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumnSpan(nameString, 2);
+            Grid.SetRow(nameString, 3);
+            tile.Children.Add(nameString);
+
+            
+            tile.Name = "statusTile";
+
+            return tile;
         }
         public static Grid buttonTile_MenuPanel(int rowNum, int colNum)
         {
-            return new Grid();
+            Grid dataPanelButton = new Grid();
+            dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            TextBlock title = new TextBlock();
+            title.Text = "Další\nfunkce";
+            title.HorizontalAlignment = HorizontalAlignment.Center;
+            title.VerticalAlignment = VerticalAlignment.Center;
+            title.Foreground = new SolidColorBrush(Colors.White);
+            dataPanelButton.Children.Add(title);
+
+            //todo klikani
+
+            return dataPanelButton;
         }
         public static Grid buttonTile_DataPanel(int rowNum, int colNum)
         {
-            return new Grid();
+            Grid dataPanelButton = new Grid();
+            dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            TextBlock title = new TextBlock();
+            title.Text = "Další\ninformace";
+            title.HorizontalAlignment = HorizontalAlignment.Center;
+            title.VerticalAlignment = VerticalAlignment.Center;
+            title.Foreground = new SolidColorBrush(Colors.White);
+            dataPanelButton.Children.Add(title);
+
+            //todo klikani
+
+            return dataPanelButton;
         }
         public static Grid buttonTile_MapPanel(int rowNum, int colNum)
         {
-            return new Grid();
-        }
+            Grid mapPanelButton = new Grid();
+            mapPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            TextBlock title = new TextBlock();
+            title.Text = "Mapa";
+            title.HorizontalAlignment = HorizontalAlignment.Center;
+            title.VerticalAlignment = VerticalAlignment.Center;
+            title.Foreground = new SolidColorBrush(Colors.White);
+            mapPanelButton.Children.Add(title);
 
+            //todo klikani
+
+            return mapPanelButton;
+        }
         public static Grid mainStatusTile(int rowNum, int colNum)
         {
             Grid tile = new Grid();
@@ -126,13 +547,10 @@ namespace Pollution
 
             return tile;
         }
-
-
         public static Grid RandomizedBlankTile(int rowNum, int colNum) 
         {
             Grid tile = new Grid();
-            Random random = new Random();
-            tile.Background = Data.getMainColor();
+            tile.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
             tile.Name = "BlankTile";
             tile.Children.Clear();
             tile.Opacity = ((double)(random.Next(50, 100))) / 100;
