@@ -35,6 +35,30 @@
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.gif">
+      <PackagePath>SharedAssets\Smiley0.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley1.gif">
+      <PackagePath>SharedAssets\Smiley1.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.gif">
+      <PackagePath>SharedAssets\Smiley2.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.gif">
+      <PackagePath>SharedAssets\Smiley3.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.gif">
+      <PackagePath>SharedAssets\Smiley4.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.gif">
+      <PackagePath>SharedAssets\Smiley5.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.gif">
+      <PackagePath>SharedAssets\Smiley6.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.gif">
+      <PackagePath>SharedAssets\Smiley7.gif</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>

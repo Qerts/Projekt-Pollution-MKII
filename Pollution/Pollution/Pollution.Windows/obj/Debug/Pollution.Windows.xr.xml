@@ -20,6 +20,12 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition" />
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootMethod Name="GetHorizontalScrollBarVisibility" />
+      <RootMethod Name="SetHorizontalScrollBarVisibility" />
+      <RootMethod Name="GetVerticalScrollBarVisibility" />
+      <RootMethod Name="SetVerticalScrollBarVisibility" />
+    </RootType>
     <RootType FullName="Pollution.MainPage" />
   </Roots.RootTypes>
 </Roots>

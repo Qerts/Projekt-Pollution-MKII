@@ -29,7 +29,7 @@
         	<ColumnDefinition/>
         	<ColumnDefinition/>
         </Grid.ColumnDefinitions>
-    	<Grid x:Name="LayoutGrid" Background="White" Grid.RowSpan="6" Grid.ColumnSpan="11" d:IsHidden="True">
+    	<Grid x:Name="LayoutGrid" Background="White" Grid.RowSpan="6" Grid.ColumnSpan="11">
     		<Grid.RowDefinitions>
     			<RowDefinition/>
     			<RowDefinition/>
@@ -52,9 +52,9 @@
     			<ColumnDefinition/>
     		</Grid.ColumnDefinitions>
     	</Grid>
-    	<Grid x:Name="DataPanel" Background="#FFA85555" Margin="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" d:IsHidden="True"/>
-    	<Grid x:Name="MenuPanel" Background="#FFF32C2C" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="11" d:IsHidden="True"/>
-    	<Grid x:Name="MapPanel" Background="#FF513333" Margin="0" Grid.RowSpan="6" Grid.ColumnSpan="8"/>
+    	<Grid x:Name="DataPanel" Background="#FFA85555" Margin="0,0,0,5000" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+    	<Grid x:Name="MenuPanel" Background="#FFF32C2C" Margin="0,5000,0,0" Grid.RowSpan="5" Grid.ColumnSpan="11"/>
+    	<Grid x:Name="MapPanel" Background="#FF513333" Grid.RowSpan="6" Grid.ColumnSpan="8" Margin="5000,0,0,0"/>
     </Grid>
 </Page>
 

@@ -20,13 +20,13 @@
     <AppXManifest Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-09-06T08:31:09.441</Modified>
+      <Modified>2014-09-06T11:56:36.757</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2014-09-06T08:47:37.434</Modified>
+      <Modified>2014-09-06T15:13:56.860</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -48,21 +48,53 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2014-03-12T19:06:34.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.gif">
+      <PackagePath>SharedAssets\Smiley0.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.292</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley1.gif">
+      <PackagePath>SharedAssets\Smiley1.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.296</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.gif">
+      <PackagePath>SharedAssets\Smiley2.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.gif">
+      <PackagePath>SharedAssets\Smiley3.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.gif">
+      <PackagePath>SharedAssets\Smiley4.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.306</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.gif">
+      <PackagePath>SharedAssets\Smiley5.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.310</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.gif">
+      <PackagePath>SharedAssets\Smiley6.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.314</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.gif">
+      <PackagePath>SharedAssets\Smiley7.gif</PackagePath>
+      <Modified>2014-09-02T10:15:13.318</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
       <Modified>2014-09-06T07:46:48.133</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-09-06T08:47:36.651</Modified>
+      <Modified>2014-09-06T10:44:31.867</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
-      <Modified>2014-09-06T08:47:36.297</Modified>
+      <Modified>2014-09-06T10:44:31.558</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-09-06T08:31:08.443</Modified>
+      <Modified>2014-09-06T11:56:36.551</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

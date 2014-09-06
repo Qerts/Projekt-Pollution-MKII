@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,8 +26,22 @@ namespace Pollution
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
-        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            for (int a = 0; a < 66; a++)
+            {
+                LayoutGrid.Children.Add(Tile.RandomizedBlankTile(a % 11, a / 11));
+            }
+            
+            
+            
+            LayoutGrid.Children.Add(Tile.mainStatusTile(2,5));
+        }
+
+
+
     }
 }

@@ -15,6 +15,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley0.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley1.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley2.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley3.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley4.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley5.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley6.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley7.gif" />
   </ItemGroup>
 </Project>
