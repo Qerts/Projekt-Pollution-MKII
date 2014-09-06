@@ -7,29 +7,54 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+        	<RowDefinition/>
+        	<RowDefinition/>
+        	<RowDefinition/>
+        	<RowDefinition/>
+        	<RowDefinition/>
+        	<RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
+        	<ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Canvas Background="AliceBlue" Grid.Row="2" Grid.Column="5"/>
+    	<Grid x:Name="LayoutGrid" Background="White" Grid.RowSpan="6" Grid.ColumnSpan="11" d:IsHidden="True">
+    		<Grid.RowDefinitions>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    		</Grid.RowDefinitions>
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+    	</Grid>
+    	<Grid x:Name="DataPanel" Background="#FFA85555" Margin="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" d:IsHidden="True"/>
+    	<Grid x:Name="MenuPanel" Background="#FFF32C2C" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="11" d:IsHidden="True"/>
+    	<Grid x:Name="MapPanel" Background="#FF513333" Margin="0" Grid.RowSpan="6" Grid.ColumnSpan="8"/>
     </Grid>
 </Page>
 
