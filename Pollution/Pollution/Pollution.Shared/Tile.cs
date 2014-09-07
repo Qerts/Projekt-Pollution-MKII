@@ -551,7 +551,7 @@ namespace Pollution
         {
             Grid tile = new Grid();
             tile.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            tile.Name = "BlankTile";
+            //tile.Name = "BlankTile";
             tile.Children.Clear();
             tile.Opacity = ((double)(random.Next(50, 100))) / 100;
             Grid.SetRow(tile, rowNum);
