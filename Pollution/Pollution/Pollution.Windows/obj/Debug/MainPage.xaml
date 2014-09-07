@@ -29,7 +29,38 @@
         	<ColumnDefinition/>
         	<ColumnDefinition/>
         </Grid.ColumnDefinitions>
-    	<Grid x:Name="LayoutGrid" Background="White" Grid.RowSpan="6" Grid.ColumnSpan="11">
+        
+        <!--
+        <Grid.RenderTransform>
+            <RotateTransform Angle="0" CenterX="500" CenterY="1"/>
+        </Grid.RenderTransform>
+        -->
+
+        <!--NASTAVENI PRO JEDNOTLIVE STAVY-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        
+                    
+                        
+                        <!--
+                        <DoubleAnimation Storyboard.TargetName="LayoutRoot" 
+                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" 
+                                         From="0" 
+                                         To="90"  
+                                         Duration="00:00:05.000" 
+                                         
+                                         />-->
+                        
+
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <Grid x:Name="LayoutGrid" Background="White" Grid.RowSpan="6" Grid.ColumnSpan="11">
     		<Grid.RowDefinitions>
     			<RowDefinition/>
     			<RowDefinition/>
