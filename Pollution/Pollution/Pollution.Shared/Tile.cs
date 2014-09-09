@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Pollution 
 {
-    public class Tile : UserControl
+    public class Tile
     {
         private static Random random = new Random();
 
@@ -465,7 +465,7 @@ namespace Pollution
 
             return dataPanelButton;
         }
-        public static Grid buttonTile_MapPanel(int rowNum, int colNum)
+        public Grid buttonTile_MapPanel(int rowNum, int colNum)
         {
             Grid mapPanelButton = new Grid();
             mapPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
@@ -477,9 +477,12 @@ namespace Pollution
             mapPanelButton.Children.Add(title);
 
             //todo klikani
+            mapPanelButton.Tapped += MainPage.mapPanelService;
 
             return mapPanelButton;
         }
+
+
         public static Grid mainStatusTile(int rowNum, int colNum)
         {
             Grid tile = new Grid();
@@ -551,7 +554,7 @@ namespace Pollution
         {
             Grid tile = new Grid();
             tile.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            //tile.Name = "BlankTile";
+            tile.Name = "BlankTile";
             tile.Children.Clear();
             tile.Opacity = ((double)(random.Next(50, 100))) / 100;
             Grid.SetRow(tile, rowNum);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
 namespace Pollution
@@ -9,11 +10,11 @@ namespace Pollution
     public static class Data
     {
 
-        private static Tuple<int, StatusName> SO2 = Tuple.Create(0, StatusName.NoData);
-        private static Tuple<int, StatusName> O3 = Tuple.Create(0, StatusName.NoData);
-        private static Tuple<int, StatusName> NO2 = Tuple.Create(0, StatusName.NoData);
-        private static Tuple<int, StatusName> CO = Tuple.Create(0, StatusName.NoData);
-        private static Tuple<int, StatusName> PM10 = Tuple.Create(0, StatusName.NoData);
+        private static Tuple<int, StatusName, string> SO2 = Tuple.Create(53, StatusName.Good, "SO\x2082");
+        private static Tuple<int, StatusName, string> O3 = Tuple.Create(70, StatusName.Satisfying, "O\x2083");
+        private static Tuple<int, StatusName, string> NO2 = Tuple.Create(600, StatusName.Bad, "NO\x2082");
+        private static Tuple<int, StatusName, string> CO = Tuple.Create(23, StatusName.VeryGood, "CO");
+        private static Tuple<int, StatusName, string> PM10 = Tuple.Create(4568, StatusName.VeryBad, "PM\x2081\x2090");
         
 
         private static string STATION_NAME = "Ostrava-Fifejdy";
@@ -47,6 +48,11 @@ namespace Pollution
             return StatusName.VeryGood;
         }
 
+        public static string getString_NO2() { return NO2.Item3; }
+        public static string getString_SO2() { return SO2.Item3; }
+        public static string getString_O3() { return O3.Item3; }
+        public static string getString_PM10() { return PM10.Item3; }
+        public static string getString_CO() { return CO.Item3; }
 
         public static StatusName getStatus_NO2() { return NO2.Item2; }
         public static StatusName getStatus_SO2() { return SO2.Item2; }
