@@ -25,18 +25,29 @@ namespace Pollution
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public List<UIElement> blankTileCollection = new List<UIElement>();
-        public List<UIElement> mainStatusCollection = new List<UIElement>();
-        public List<UIElement> statusesCollection = new List<UIElement>();
-        public List<UIElement> imagesCollection = new List<UIElement>();
+        private List<UIElement> blankTileCollection = new List<UIElement>();
+        private List<FrameworkElement> statusCollection = new List<FrameworkElement>();
+        private List<FrameworkElement> imageCollection = new List<FrameworkElement>();
 
+        private Tile tileGenerator;// = new Tile();
+
+        Grid mapbutton, databutton, menubutton, mainstatus;
+
+        private string currentState;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.Loaded += MainPage_Loaded;
             this.Unloaded += MainPage_Unloaded;
+            tileGenerator = new Tile(this);
 
+            mapbutton = tileGenerator.buttonTile_MapPanel(0, 0);
+            MapPanel.Children.Add(mapbutton);
+            menubutton = tileGenerator.buttonTile_MenuPanel(1, 0);
+            MenuPanel.Children.Add(menubutton);
+            databutton = tileGenerator.buttonTile_DataPanel(1, 1);
+            DataPanel.Children.Add(databutton);
             
         }
         void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -66,11 +77,13 @@ namespace Pollution
                 if (applicationView.Orientation == ApplicationViewOrientation.Landscape)
                 {
                     state = "FullScreenLandscape";
+                    currentState = "FullScreenLandscape";
                     setLandscapeChanges();
                 }
                 else
                 {
                     state = "FullScreenPortrait";
+                    currentState = "FullScreenPortrait";
                     setPortraitChanges();
                 }
             }
@@ -79,14 +92,17 @@ namespace Pollution
                 if (size.Width == 320) 
                 {
                     state = "Snapped";
+                    currentState = "FullScreenLandscape";
                 }
                 else if (size.Width <= 500)
                 {
                     state = "Narrow";
+                    currentState = "FullScreenLandscape";
                 }
                 else 
                 {
                     state = "Filled";
+                    currentState = "FullScreenLandscape";
                 }
 
             }
@@ -107,39 +123,60 @@ namespace Pollution
             
             for (int a = 0; a < 66; a++)
             {
-                var tile = Tile.RandomizedBlankTile(a / 11, a % 11);
+                var tile = tileGenerator.RandomizedBlankTile(a / 11, a % 11);
                 LayoutGrid.Children.Add(tile);
                 blankTileCollection.Add(tile);
             }
 
+            //male statusy
+            var o3smallstatus = tileGenerator.statusTIle_O3(0,0);
+            LayoutGrid.Children.Add(o3smallstatus);
+            statusCollection.Add(o3smallstatus);
 
+            var cosmallstatus = tileGenerator.statusTile_CO(0,0);
+            LayoutGrid.Children.Add(cosmallstatus);
+            statusCollection.Add(cosmallstatus);
+
+            var so2smallstatus = tileGenerator.statusTile_SO2(0, 0);
+            LayoutGrid.Children.Add(so2smallstatus);
+            statusCollection.Add(so2smallstatus);
+            var pm10smallstatus = tileGenerator.statusTile_PM10(0, 0);
+            LayoutGrid.Children.Add(pm10smallstatus);
+            statusCollection.Add(pm10smallstatus);
+            var no2smallstatus = tileGenerator.statusTile_NO2(0, 0);
+            LayoutGrid.Children.Add(no2smallstatus);
+            statusCollection.Add(no2smallstatus);
             
 
             //OBRAZKY
-            var imgtile = Tile.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            var imgtile = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
             LayoutGrid.Children.Add(imgtile);
-            imagesCollection.Add(imgtile);
-            //MALE STATUSY
-            Random random = new Random();
-            var o3status = Tile.statusTIle_O3(random.Next(1, 4), 5);
-            LayoutGrid.Children.Add(o3status);
-            statusesCollection.Add(o3status);
-            var costatus = Tile.statusTile_CO(random.Next(1, 4), 6);
-            LayoutGrid.Children.Add(costatus);
-            statusesCollection.Add(costatus);
-            var so2status = Tile.statusTile_SO2(random.Next(1, 4), 7);
-            LayoutGrid.Children.Add(so2status);
-            statusesCollection.Add(so2status);
-            var pm10status = Tile.statusTile_PM10(random.Next(1, 4), 8);
-            LayoutGrid.Children.Add(pm10status);
-            statusesCollection.Add(pm10status);
-            var no2status = Tile.statusTile_NO2(random.Next(1, 4), 9);
-            LayoutGrid.Children.Add(no2status);
-            statusesCollection.Add(no2status);
+            imageCollection.Add(imgtile);
+
+            var imgtile2 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            LayoutGrid.Children.Add(imgtile2);
+            imageCollection.Add(imgtile2);
+            var imgtile3 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            LayoutGrid.Children.Add(imgtile3);
+            imageCollection.Add(imgtile3);
+            var imgtile4 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            LayoutGrid.Children.Add(imgtile4);
+            imageCollection.Add(imgtile4);
+            var imgtile5 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            LayoutGrid.Children.Add(imgtile5);
+            imageCollection.Add(imgtile5);
+            var imgtile6 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
+            LayoutGrid.Children.Add(imgtile6);
+            imageCollection.Add(imgtile6);
+            
             //HLAVNI STATUS
-            var mainstatus = Tile.mainStatusTile(2, 2);
+            mainstatus = tileGenerator.mainStatusTile(2, 2);
             LayoutGrid.Children.Add(mainstatus);
-            mainStatusCollection.Add(mainstatus);
+
+
+            setFontSizes();
+            
+
             
         }
 
@@ -283,7 +320,7 @@ namespace Pollution
                 Grid.SetRow(element, blankTileCollection.IndexOf(element) % 11);
             }
 
-            foreach (FrameworkElement element in statusesCollection)
+            foreach (FrameworkElement element in statusCollection)
             {
 
                 Grid.SetColumn(element, random.Next(1, 4));
@@ -298,7 +335,7 @@ namespace Pollution
             }
             */
             
-            foreach (FrameworkElement element in imagesCollection)
+            foreach (FrameworkElement element in imageCollection)
             {
 
                 Grid.SetColumn(element, random.Next(1,4));
@@ -476,13 +513,37 @@ namespace Pollution
             menuPanelButton3.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
             menuPanelButton4.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
             menuPanelButton5.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            
 
+            //POSUNUTI PANELU
+            MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 8), 0, ((Window.Current.Bounds.Height / 11) * 8));
+            DataPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 6) * 4), 0, ((Window.Current.Bounds.Width / 6) * 4), 4);
+            MenuPanel.Margin = new Thickness(((Window.Current.Bounds.Width / 6) * 4), 0, -((Window.Current.Bounds.Width / 6) * 4), 0);
+
+
+            //UMISTENI BUTTONU
+            Grid.SetColumn(menubutton, 0);
+            Grid.SetRow(menubutton, 1);
+            Grid.SetColumn(databutton, 1);
+            Grid.SetRow(databutton, 1);
+            Grid.SetColumn(mapbutton, 0);
+            Grid.SetRow(mapbutton, 0);
+
+            //ZAROVNANI ELEMENTU DATAPANELU
+            statuses.Height = dataPanelStck.Width;
+            statuses.Width = dataPanelStck.Width;
+            bars.Height = dataPanelStck.Width;
+            bars.Width = dataPanelStck.Width;
+            legend.Height = dataPanelStck.Width;
+            legend.Width = dataPanelStck.Width;
+
+
+            //animace pro portrait
+            setAnimationsPortrait();
         }
-
 
         public void setLandscapeChanges()
         {
+            
 
             //layoutroot zmeny 
 
@@ -619,7 +680,7 @@ namespace Pollution
                 Grid.SetRow(element, blankTileCollection.IndexOf(element) / 11);
             }
 
-            foreach (FrameworkElement element in statusesCollection)
+            foreach (FrameworkElement element in statusCollection)
             {
 
                 Grid.SetColumn(element, random.Next(5, 9));
@@ -634,7 +695,7 @@ namespace Pollution
             }
             */
 
-            foreach (FrameworkElement element in imagesCollection)
+            foreach (FrameworkElement element in imageCollection)
             {
 
                 Grid.SetColumn(element, random.Next(1, 9));
@@ -815,24 +876,511 @@ namespace Pollution
             menuPanelButton4.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
             menuPanelButton5.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
 
+
+            //POSUNUTI PANELU
+            MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+            DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
+            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
+
+            //UMISTENI BUTTONU
+            Grid.SetColumn(menubutton, 1);
+            Grid.SetRow(menubutton, 1);
+            Grid.SetColumn(databutton, 1);
+            Grid.SetRow(databutton, 0);
+            Grid.SetColumn(mapbutton, 0);
+            Grid.SetRow(mapbutton, 0);
+
+
+            //ZAROVNANI ELEMENTU DATAPANELU
+            statuses.Height = dataPanelStck.Height;
+            statuses.Width = dataPanelStck.Height;
+            bars.Height = dataPanelStck.Height;
+            bars.Width = dataPanelStck.Height;
+            legend.Height = dataPanelStck.Height;
+            legend.Width = dataPanelStck.Height;
+
+            //MALE STATUSY a obrazky
+            setStatusesLandscape();
+            setImagesLandscape();
+
+            //animace pro landscape
+            setAnimationsLandscape();
         }
 
 
-        public void mapPanelService(object sender, RoutedEventArgs e) 
+        public void mapPanelService(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            //MapPanel.Margin = new Thickness(0,0,0,0);
-        }
+            MapPanel.Margin = new Thickness(0, 0, 0, 0);
+            DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
+            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
 
-        public void LayoutRoot_Drop(object sender, Windows.UI.Xaml.DragEventArgs e)
+        }
+        public void dataPanelService(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {         
+            if (currentState == "FullScreenLandscape") 
+            {
+                MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+                if (((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSB"]).Begin();
+                }
+
+                if ((((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["dataPanelHideSB"]).GetCurrentState() == ClockState.Stopped))
+                {
+
+                    ((Storyboard)Resources["dataPanelShowSB"]).Begin();
+                }
+                else if (((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["dataPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSB"]).Begin();
+                }
+                else
+                {
+                    ((Storyboard)Resources["dataPanelHideSB"]).Stop();
+                    ((Storyboard)Resources["dataPanelShowSB"]).Begin();
+                }
+
+
+            }else
+            {
+                MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 8), 0, ((Window.Current.Bounds.Height / 11) * 8));
+                if (((Storyboard)Resources["menuPanelShowSBP"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSBP"]).Begin();
+                }
+
+
+                if ((((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["dataPanelHideSBP"]).GetCurrentState() == ClockState.Stopped)) 
+                {
+
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Begin();
+                }else if (((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSBP"]).Begin();
+                }
+                else 
+                {
+                    ((Storyboard)Resources["dataPanelHideSBP"]).Stop();
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Begin();
+                }
+
+
+
+            }
+            
+        }
+        public void menuPanelService(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            // TODO: Add event handler implementation here.
+            
+
+            if (currentState == "FullScreenLandscape")
+            {
+                MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+                if (((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["dataPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSB"]).Begin();
+                }
+
+
+                if ((((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["menuPanelHideSB"]).GetCurrentState() == ClockState.Stopped))
+                {
+
+                    ((Storyboard)Resources["menuPanelShowSB"]).Begin();
+                }
+                else if (((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSB"]).Begin();
+                }
+                else
+                {
+                    ((Storyboard)Resources["menuPanelHideSB"]).Stop();
+                    ((Storyboard)Resources["menuPanelShowSB"]).Begin();
+                }
+            }
+            else 
+            {
+                MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 8), 0, ((Window.Current.Bounds.Height / 11) * 8));
+                //((Storyboard)Resources["dataPanelHideSBP"]).Begin();
+                if (((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Filling) 
+                {
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSBP"]).Begin();
+                }
+
+
+                if ((((Storyboard)Resources["menuPanelShowSBP"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["menuPanelHideSBP"]).GetCurrentState() == ClockState.Stopped))
+                {
+
+                    ((Storyboard)Resources["menuPanelShowSBP"]).Begin();
+                }
+                else if (((Storyboard)Resources["menuPanelShowSBP"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSBP"]).Begin();
+                }
+                else
+                {
+                    ((Storyboard)Resources["menuPanelHideSBP"]).Stop();
+                    ((Storyboard)Resources["menuPanelShowSBP"]).Begin();
+                }
+            }
+            
         }
 
-        private void LayoutRoot_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void setFontSizes() 
         {
-        	// TODO: Add event handler implementation here.
+            stationName.FontSize = Data.getFontSize_Title();
+            stationRegion.FontSize = Data.getFontSize_LargeText();
+            statusSOTxt.FontSize = Data.getFontSize_CommonText();
+            statusCOTxt.FontSize = Data.getFontSize_CommonText();
+            statusPOTxt.FontSize = Data.getFontSize_CommonText();
+            statusOTxt.FontSize = Data.getFontSize_CommonText();
+            statusNOTxt.FontSize = Data.getFontSize_CommonText();
+            statusOValue.FontSize = Data.getFontSize_CommonText();
+            statusSOValueTxt.FontSize = Data.getFontSize_CommonText();
+            statusCOValue.FontSize = Data.getFontSize_CommonText();
+            statusPOValue.FontSize = Data.getFontSize_CommonText();
+            statusNOValue.FontSize = Data.getFontSize_CommonText();
+            legendTxt1.FontSize = Data.getFontSize_SmallText();
+            legendTxt2.FontSize = Data.getFontSize_SmallText();
+            legendTxt3.FontSize = Data.getFontSize_SmallText();
+            legendTxt4.FontSize = Data.getFontSize_SmallText();
+            legendTxt5.FontSize = Data.getFontSize_SmallText();
+            legendTxt6.FontSize = Data.getFontSize_SmallText();
+            legendTxt7.FontSize = Data.getFontSize_SmallText();
+            legendTxt8.FontSize = Data.getFontSize_SmallText();
+            menuPanelButton1Txt.FontSize = Data.getFontSize_LargeText();
+            menuPanelButton2Txt.FontSize = Data.getFontSize_LargeText();
+            menuPanelButton3Txt.FontSize = Data.getFontSize_LargeText();
+            menuPanelButton4Txt.FontSize = Data.getFontSize_LargeText();
+            menuPanelButton5Txt.FontSize = Data.getFontSize_LargeText();
+            menuPanelInfoTitleTxt.FontSize = Data.getFontSize_CommonText();
+            menuPanelInfoValueTxt.FontSize = Data.getFontSize_CommonText();
+            
         }
 
+        private void setStatusesLandscape()
+        {
+            Random random = new Random();
 
+            List<Tuple<int, int>> mylist = new List<Tuple<int, int>>();
+            Tuple<int, int> mytuple;
+
+            for (int i = 0; i < 20; i++)
+            {
+                mytuple = Tuple.Create((i / 5) + 1, (i % 5) + 5);
+                mylist.Add(mytuple);
+            }
+
+            int index;
+
+            for (int i = 0; i < statusCollection.Count(); i++)
+            {
+                index = random.Next(0, 19 - i);
+                Grid.SetRow(statusCollection.ElementAt(i), mylist.ElementAt(index).Item1);
+                Grid.SetColumn(statusCollection.ElementAt(i), mylist.ElementAt(index).Item2);
+                mylist.RemoveAt(index);
+            }
+
+
+
+        }
+
+        private void setStatusesPortrait()
+        {
+            Random random = new Random();
+
+            List<Tuple<int, int>> mylist = new List<Tuple<int, int>>();
+            Tuple<int, int> mytuple;
+
+            for (int i = 0; i < 20; i++)
+            {
+                mytuple = Tuple.Create((i % 5) + 5, (i / 5) + 1);
+                mylist.Add(mytuple);
+            }
+
+            int index;
+
+            for (int i = 0; i < statusCollection.Count(); i++)
+            {
+                index = random.Next(0, 19 - i);
+                Grid.SetRow(statusCollection.ElementAt(i), mylist.ElementAt(index).Item1);
+                Grid.SetColumn(statusCollection.ElementAt(i), mylist.ElementAt(index).Item2);
+                mylist.RemoveAt(index);
+            }
+
+
+
+        }
+
+        private void setImagesLandscape()
+        {
+            Random random = new Random();
+
+            List<Tuple<int, int>> mylist = new List<Tuple<int, int>>();
+            Tuple<int, int> mytuple;
+
+
+            for (int i = 0; i < 37; i++)
+            {
+                mytuple = Tuple.Create((i / 9) + 1, (i % 9)+1);
+                mylist.Add(mytuple);
+            }
+            
+            mytuple = Tuple.Create(Grid.GetRow(mainstatus), Grid.GetColumn(mainstatus));
+            for (int i = 0; i < mylist.Count(); i++)
+            {
+                if ((mylist.ElementAt(i).Equals(mytuple)) || (mylist.ElementAt(i).Equals(Tuple.Create(mytuple.Item1 + 1, mytuple.Item2))) || (mylist.ElementAt(i).Equals( Tuple.Create(mytuple.Item1, mytuple.Item2 + 1))) || (mylist.ElementAt(i).Equals( Tuple.Create(mytuple.Item1 + 1, mytuple.Item2 + 1))))
+                {
+                    mylist.RemoveAt(i);
+                }
+            }
+            
+            for (int i = 0; i < mylist.Count(); i++) 
+            {
+                for (int j = 0; j < statusCollection.Count(); j++)
+                {
+                    mytuple = Tuple.Create(Grid.GetRow(statusCollection.ElementAt(j)), Grid.GetColumn(statusCollection.ElementAt(j)));
+                    if (mylist.ElementAt(i).Equals( mytuple))
+                    {
+                        mylist.Remove(mytuple);
+                    }
+                }
+            }
+
+
+            int index;
+
+            for (int i = 0; i < imageCollection.Count(); i++)
+            {
+                index = random.Next(0, mylist.Count() - i - 1);
+                Grid.SetRow(imageCollection.ElementAt(i), mylist.ElementAt(index).Item1);
+                Grid.SetColumn(imageCollection.ElementAt(i), mylist.ElementAt(index).Item2);
+                mylist.RemoveAt(index);
+            }
+
+
+
+        }
+
+        private void setImagesPortrait()
+        {
+            Random random = new Random();
+
+            List<Tuple<int, int>> mylist = new List<Tuple<int, int>>();
+            Tuple<int, int> mytuple;
+
+
+            for (int i = 0; i < 37; i++)
+            {
+                mytuple = Tuple.Create((i % 9) + 1, (i / 9) + 1);
+                mylist.Add(mytuple);
+            }
+
+            mytuple = Tuple.Create(Grid.GetRow(mainstatus), Grid.GetColumn(mainstatus));
+            for (int i = 0; i < mylist.Count(); i++)
+            {
+                if ((mylist.ElementAt(i).Equals(mytuple)) || (mylist.ElementAt(i).Equals(Tuple.Create(mytuple.Item1 + 1, mytuple.Item2))) || (mylist.ElementAt(i).Equals(Tuple.Create(mytuple.Item1, mytuple.Item2 + 1))) || (mylist.ElementAt(i).Equals(Tuple.Create(mytuple.Item1 + 1, mytuple.Item2 + 1))))
+                {
+                    mylist.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < mylist.Count(); i++)
+            {
+                for (int j = 0; j < statusCollection.Count(); j++)
+                {
+                    mytuple = Tuple.Create(Grid.GetRow(statusCollection.ElementAt(j)), Grid.GetColumn(statusCollection.ElementAt(j)));
+                    if (mylist.ElementAt(i).Equals(mytuple))
+                    {
+                        mylist.Remove(mytuple);
+                    }
+                }
+            }
+
+
+            int index;
+
+            for (int i = 0; i < imageCollection.Count(); i++)
+            {
+                index = random.Next(0, mylist.Count() - i - 1);
+                Grid.SetRow(imageCollection.ElementAt(i), mylist.ElementAt(index).Item1);
+                Grid.SetColumn(imageCollection.ElementAt(i), mylist.ElementAt(index).Item2);
+                mylist.RemoveAt(index);
+            }
+
+
+
+        }
+
+        private void setAnimationsLandscape() 
+        {
+            //VYSUNUTI DATA PANELU
+            Storyboard dataPanelShowSB = new Storyboard();
+            DoubleAnimation doubleAnim = new DoubleAnimation();
+
+            DataPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim.From = 0;
+            doubleAnim.To = -(Window.Current.Bounds.Height / 6) * 4;
+            doubleAnim.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim, DataPanel);
+            Storyboard.SetTargetProperty(doubleAnim, "(FrameworkElement.RenderTransform).(TranslateTransform.Y)");
+
+            dataPanelShowSB.Children.Add(doubleAnim);
+
+            Resources.Add("dataPanelShowSB", dataPanelShowSB);
+
+            //ZASUNUTI DATA PANELU
+
+            Storyboard dataPanelHideSB = new Storyboard();
+            DoubleAnimation doubleAnim2 = new DoubleAnimation();
+
+            DataPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim2.From = -(Window.Current.Bounds.Height / 6) * 4; ;
+            doubleAnim2.To = 0;
+            doubleAnim2.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim2.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim2, DataPanel);
+            Storyboard.SetTargetProperty(doubleAnim2, "(FrameworkElement.RenderTransform).(TranslateTransform.Y)");
+
+            dataPanelHideSB.Children.Add(doubleAnim2);
+            
+            Resources.Add("dataPanelHideSB", dataPanelHideSB);
+
+
+
+            
+            //VYSUNUTI MENU PANELU
+            Storyboard menuPanelShowSB = new Storyboard();
+            DoubleAnimation doubleAnim3 = new DoubleAnimation();
+
+            MenuPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim3.From = 0;
+            doubleAnim3.To = (Window.Current.Bounds.Height / 6) * 4;
+            doubleAnim3.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim3.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim3, MenuPanel);
+            Storyboard.SetTargetProperty(doubleAnim3, "(FrameworkElement.RenderTransform).(TranslateTransform.Y)");
+
+            menuPanelShowSB.Children.Add(doubleAnim3);
+
+            Resources.Add("menuPanelShowSB", menuPanelShowSB);
+            
+            //ZASUNUTI MENU PANELU
+            Storyboard menuPanelHideSB = new Storyboard();
+            DoubleAnimation doubleAnim4 = new DoubleAnimation();
+
+            MenuPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim4.From = (Window.Current.Bounds.Height / 6) * 4;
+            doubleAnim4.To = 0;
+            doubleAnim4.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim4.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim4, MenuPanel);
+            Storyboard.SetTargetProperty(doubleAnim4, "(FrameworkElement.RenderTransform).(TranslateTransform.Y)");
+
+            menuPanelHideSB.Children.Add(doubleAnim4);
+
+            Resources.Add("menuPanelHideSB", menuPanelHideSB);
+            
+            
+        }
+        private void setAnimationsPortrait()
+        {
+            //VYSUNUTI DATA PANELU
+            Storyboard dataPanelShowSBP = new Storyboard();
+            DoubleAnimation doubleAnim = new DoubleAnimation();
+
+            DataPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim.From = 0;
+            doubleAnim.To = (Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim, DataPanel);
+            Storyboard.SetTargetProperty(doubleAnim, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            dataPanelShowSBP.Children.Add(doubleAnim);
+
+            Resources.Add("dataPanelShowSBP", dataPanelShowSBP);
+
+            //ZASUNUTI DATA PANELU
+
+            Storyboard dataPanelHideSBP = new Storyboard();
+            DoubleAnimation doubleAnim2 = new DoubleAnimation();
+
+            DataPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim2.From = (Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim2.To = 0;
+            doubleAnim2.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim2.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim2, DataPanel);
+            Storyboard.SetTargetProperty(doubleAnim2, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            dataPanelHideSBP.Children.Add(doubleAnim2);
+
+            Resources.Add("dataPanelHideSBP", dataPanelHideSBP);
+
+
+
+
+
+            //VYSUNUTI MENU PANELU
+            Storyboard menuPanelShowSBP = new Storyboard();
+            DoubleAnimation doubleAnim3 = new DoubleAnimation();
+
+            MenuPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim3.From = 0;
+            doubleAnim3.To = -(Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim3.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim3.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim3, MenuPanel);
+            Storyboard.SetTargetProperty(doubleAnim3, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            menuPanelShowSBP.Children.Add(doubleAnim3);
+
+            Resources.Add("menuPanelShowSBP", menuPanelShowSBP);
+
+
+
+            //ZASUNUTI MENU PANELU
+            Storyboard menuPanelHideSBP = new Storyboard();
+            DoubleAnimation doubleAnim4 = new DoubleAnimation();
+
+            MenuPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim4.From = -(Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim4.To = 0;
+            doubleAnim4.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim4.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim4, MenuPanel);
+            Storyboard.SetTargetProperty(doubleAnim4, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            menuPanelHideSBP.Children.Add(doubleAnim4);
+
+            Resources.Add("menuPanelHideSBP", menuPanelHideSBP);
+
+
+        }
     }
 }

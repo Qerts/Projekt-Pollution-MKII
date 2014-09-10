@@ -14,7 +14,7 @@ namespace Pollution
         private static Tuple<int, StatusName, string> O3 = Tuple.Create(70, StatusName.Satisfying, "O\x2083");
         private static Tuple<int, StatusName, string> NO2 = Tuple.Create(600, StatusName.Bad, "NO\x2082");
         private static Tuple<int, StatusName, string> CO = Tuple.Create(23, StatusName.VeryGood, "CO");
-        private static Tuple<int, StatusName, string> PM10 = Tuple.Create(4568, StatusName.VeryBad, "PM\x2081\x2090");
+        private static Tuple<int, StatusName, string> PM10 = Tuple.Create(45568, StatusName.VeryBad, "PM\x2081\x2080");
         
 
         private static string STATION_NAME = "Ostrava-Fifejdy";
@@ -24,6 +24,64 @@ namespace Pollution
         public static string StationName { set { STATION_NAME = value; } get { return STATION_NAME; } }
         public static string StationRegion { set { STATION_REGION = value; } get { return STATION_REGION; } }
         public static string StationCoordinates { set { STATION_COORDS = value; } get { return STATION_COORDS; } }
+
+        //FONT SIZES
+        public static double getFontSize_StatuValue()
+        {
+            if (Window.Current.Bounds.Height > Window.Current.Bounds.Width)
+            {
+                return Window.Current.Bounds.Width / 18;
+            }
+            else
+            {
+                return Window.Current.Bounds.Height / 18;
+            }
+        }
+        public static double getFontSize_Title()
+        {
+            if (Window.Current.Bounds.Height > Window.Current.Bounds.Width)
+            {
+                return Window.Current.Bounds.Width / 24;
+            }
+            else 
+            {
+                return Window.Current.Bounds.Height / 24;
+            }
+        }
+        public static double getFontSize_LargeText()
+        {
+            if (Window.Current.Bounds.Height > Window.Current.Bounds.Width)
+            {
+                return Window.Current.Bounds.Width / 36;
+            }
+            else
+            {
+                return Window.Current.Bounds.Height / 36;
+            }
+        }
+        public static double getFontSize_CommonText()
+        {
+            if (Window.Current.Bounds.Height > Window.Current.Bounds.Width)
+            {
+                return Window.Current.Bounds.Width / 48;
+            }
+            else
+            {
+                return Window.Current.Bounds.Height / 48;
+            }
+        }
+        public static double getFontSize_SmallText()
+        {
+            if (Window.Current.Bounds.Height > Window.Current.Bounds.Width)
+            {
+                return Window.Current.Bounds.Width / 60;
+            }
+            else
+            {
+                return Window.Current.Bounds.Height / 60;
+            }
+        }
+
 
         public enum StatusName 
         {
@@ -40,7 +98,7 @@ namespace Pollution
 
         public static SolidColorBrush getMainColor()
         {
-            return new SolidColorBrush(Colors.Black);
+            return getColorAndStatus(getMainMood()).Item1;
         }
 
         public static StatusName getMainMood() 

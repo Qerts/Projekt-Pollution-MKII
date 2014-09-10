@@ -26,7 +26,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2014-09-09T14:24:51.320</Modified>
+      <Modified>2014-09-10T17:11:52.103</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -86,11 +86,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-09-09T14:24:50.453</Modified>
+      <Modified>2014-09-10T12:12:18.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
-      <Modified>2014-09-09T09:27:23.168</Modified>
+      <Modified>2014-09-10T09:11:15.748</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

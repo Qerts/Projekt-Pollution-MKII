@@ -12,14 +12,20 @@ namespace Pollution
 {
     public class Tile
     {
-        private static Random random = new Random();
+        Random random = new Random();
+        //static Random random = new Random();
+        private MainPage mainPage;
 
+        public Tile(MainPage value) 
+        {
+            this.mainPage = value;
+        }
 
         public static Grid testTile(int rowNum, int colNum)
         {
             return new Grid();
         }
-        public static Grid imageTile(int rowNum, int colNum, string uri)
+        public Grid imageTile(int rowNum, int colNum, string uri)
         {
             Grid tile = new Grid();
             Grid.SetRow(tile, rowNum);
@@ -35,7 +41,7 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid statusTile_SO2(int rowNum, int colNum)
+        public Grid statusTile_SO2(int rowNum, int colNum)
         {
             //pro pripad nemoznosti nacist stav
             string status = "error";
@@ -50,13 +56,13 @@ namespace Pollution
             rowdef1.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            rowdef2.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
             rowdef3.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            rowdef4.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
@@ -78,12 +84,12 @@ namespace Pollution
             TextBlock ratingString = new TextBlock();
             ratingString.Text = Data.getValue_SO2().ToString();
             ratingString.Foreground = new SolidColorBrush(Colors.White);
-            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 1);
-            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetColumn(ratingString, 0);
+            Grid.SetColumnSpan(ratingString, 5);
             Grid.SetRow(ratingString, 1);
             tile.Children.Add(ratingString);
 
@@ -91,7 +97,7 @@ namespace Pollution
             status = Data.GetSO2ColorAndStatus().Item2;
             stationString.Text = status;
             stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
@@ -102,7 +108,7 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "SO\x2082";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
@@ -115,7 +121,7 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid statusTIle_O3(int rowNum, int colNum)
+        public Grid statusTIle_O3(int rowNum, int colNum)
         {
             //pro pripad nemoznosti nacist stav
             string status = "error";
@@ -130,13 +136,13 @@ namespace Pollution
             rowdef1.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            rowdef2.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
             rowdef3.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            rowdef4.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
@@ -158,12 +164,12 @@ namespace Pollution
             TextBlock ratingString = new TextBlock();
             ratingString.Text = Data.getValue_O3().ToString();
             ratingString.Foreground = new SolidColorBrush(Colors.White);
-            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 1);
-            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetColumn(ratingString, 0);
+            Grid.SetColumnSpan(ratingString, 5);
             Grid.SetRow(ratingString, 1);
             tile.Children.Add(ratingString);
 
@@ -171,7 +177,7 @@ namespace Pollution
             status = Data.GetO3ColorAndStatus().Item2;
             stationString.Text = status;
             stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
@@ -182,7 +188,7 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "O\x2083";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
@@ -195,7 +201,7 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid statusTile_CO(int rowNum, int colNum)
+        public Grid statusTile_CO(int rowNum, int colNum)
         {
             //pro pripad nemoznosti nacist stav
             string status = "error";
@@ -210,13 +216,13 @@ namespace Pollution
             rowdef1.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            rowdef2.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
             rowdef3.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            rowdef4.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
@@ -238,12 +244,12 @@ namespace Pollution
             TextBlock ratingString = new TextBlock();
             ratingString.Text = Data.getValue_CO().ToString();
             ratingString.Foreground = new SolidColorBrush(Colors.White);
-            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 1);
-            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetColumn(ratingString, 0);
+            Grid.SetColumnSpan(ratingString, 5);
             Grid.SetRow(ratingString, 1);
             tile.Children.Add(ratingString);
 
@@ -251,7 +257,7 @@ namespace Pollution
             status = Data.GetCOColorAndStatus().Item2;
             stationString.Text = status;
             stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
@@ -262,7 +268,7 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "CO";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
@@ -275,7 +281,7 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid statusTile_PM10(int rowNum, int colNum)
+        public Grid statusTile_PM10(int rowNum, int colNum)
         {
             //pro pripad nemoznosti nacist stav
             string status = "error";
@@ -290,13 +296,13 @@ namespace Pollution
             rowdef1.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            rowdef2.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
             rowdef3.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            rowdef4.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
@@ -318,12 +324,12 @@ namespace Pollution
             TextBlock ratingString = new TextBlock();
             ratingString.Text = Data.getValue_PM10().ToString();
             ratingString.Foreground = new SolidColorBrush(Colors.White);
-            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 1);
-            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetColumn(ratingString, 0);
+            Grid.SetColumnSpan(ratingString, 5);
             Grid.SetRow(ratingString, 1);
             tile.Children.Add(ratingString);
 
@@ -331,7 +337,7 @@ namespace Pollution
             status = Data.GetPM10ColorAndStatus().Item2;
             stationString.Text = status;
             stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
@@ -342,7 +348,7 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "PM\x2081\x2090";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
@@ -355,7 +361,7 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid statusTile_NO2(int rowNum, int colNum)
+        public Grid statusTile_NO2(int rowNum, int colNum)
         {
             //pro pripad nemoznosti nacist stav
             string status = "error";
@@ -370,13 +376,13 @@ namespace Pollution
             rowdef1.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(1, GridUnitType.Star);
+            rowdef2.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
             rowdef3.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(1, GridUnitType.Star);
+            rowdef4.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
@@ -398,12 +404,12 @@ namespace Pollution
             TextBlock ratingString = new TextBlock();
             ratingString.Text = Data.getValue_NO2().ToString();
             ratingString.Foreground = new SolidColorBrush(Colors.White);
-            ratingString.FontSize = Window.Current.Bounds.Height / 18;
+            ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 1);
-            Grid.SetColumnSpan(ratingString, 3);
+            Grid.SetColumn(ratingString, 0);
+            Grid.SetColumnSpan(ratingString, 5);
             Grid.SetRow(ratingString, 1);
             tile.Children.Add(ratingString);
 
@@ -411,7 +417,7 @@ namespace Pollution
             status = Data.GetNO2ColorAndStatus().Item2;
             stationString.Text = status;
             stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Window.Current.Bounds.Height / 60;
+            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
@@ -422,7 +428,7 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "NO\x2082";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Window.Current.Bounds.Height / 50;
+            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
@@ -432,58 +438,77 @@ namespace Pollution
 
             
             tile.Name = "statusTile";
-
+            
             return tile;
-        }
-        public static Grid buttonTile_MenuPanel(int rowNum, int colNum)
-        {
-            Grid dataPanelButton = new Grid();
-            dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
-            TextBlock title = new TextBlock();
-            title.Text = "Další\nfunkce";
-            title.HorizontalAlignment = HorizontalAlignment.Center;
-            title.VerticalAlignment = VerticalAlignment.Center;
-            title.Foreground = new SolidColorBrush(Colors.White);
-            dataPanelButton.Children.Add(title);
-
-            //todo klikani
-
-            return dataPanelButton;
-        }
-        public static Grid buttonTile_DataPanel(int rowNum, int colNum)
-        {
-            Grid dataPanelButton = new Grid();
-            dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
-            TextBlock title = new TextBlock();
-            title.Text = "Další\ninformace";
-            title.HorizontalAlignment = HorizontalAlignment.Center;
-            title.VerticalAlignment = VerticalAlignment.Center;
-            title.Foreground = new SolidColorBrush(Colors.White);
-            dataPanelButton.Children.Add(title);
-
-            //todo klikani
-
-            return dataPanelButton;
         }
         public Grid buttonTile_MapPanel(int rowNum, int colNum)
         {
             Grid mapPanelButton = new Grid();
+            Grid.SetRow(mapPanelButton, rowNum);
+            Grid.SetColumn(mapPanelButton, colNum);
             mapPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
             TextBlock title = new TextBlock();
+            title.FontSize = Data.getFontSize_LargeText();
+            title.TextWrapping = TextWrapping.WrapWholeWords;
             title.Text = "Mapa";
+            title.TextAlignment = TextAlignment.Center;
             title.HorizontalAlignment = HorizontalAlignment.Center;
             title.VerticalAlignment = VerticalAlignment.Center;
             title.Foreground = new SolidColorBrush(Colors.White);
             mapPanelButton.Children.Add(title);
 
-            //todo klikani
-            mapPanelButton.Tapped += MainPage.mapPanelService;
+            mapPanelButton.Tapped += mainPage.mapPanelService;
 
             return mapPanelButton;
         }
 
+        public Grid buttonTile_DataPanel(int rowNum, int colNum)
+        {
+            Grid dataPanelButton = new Grid();
+            Grid.SetRow(dataPanelButton, rowNum);
+            Grid.SetColumn(dataPanelButton, colNum);
+            dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            TextBlock title = new TextBlock();
+            title.TextWrapping = TextWrapping.WrapWholeWords;
+            title.FontSize = Data.getFontSize_LargeText();
+            title.Text = "Další informace";
+            title.TextAlignment = TextAlignment.Center;
+            title.HorizontalAlignment = HorizontalAlignment.Center;
+            title.VerticalAlignment = VerticalAlignment.Center;
+            title.Foreground = new SolidColorBrush(Colors.White);
+            dataPanelButton.Children.Add(title);
 
-        public static Grid mainStatusTile(int rowNum, int colNum)
+            dataPanelButton.Tapped += mainPage.dataPanelService;
+
+            return dataPanelButton;
+        }
+
+        public Grid buttonTile_MenuPanel(int rowNum, int colNum)
+        {
+            Grid menuPanelButton = new Grid();
+            Grid.SetRow(menuPanelButton, rowNum);
+            Grid.SetColumn(menuPanelButton, colNum);
+            menuPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            TextBlock title = new TextBlock() 
+            {
+                TextWrapping = TextWrapping.WrapWholeWords,
+                FontSize = Data.getFontSize_LargeText(),
+                Text = "Další\nfunkce",
+                TextAlignment = TextAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = new SolidColorBrush(Colors.White)
+            };
+            menuPanelButton.Children.Add(title);
+
+            menuPanelButton.Tapped += mainPage.menuPanelService;
+
+            return menuPanelButton;
+        }
+
+
+
+        public Grid mainStatusTile(int rowNum, int colNum)
         {
             Grid tile = new Grid();
             tile.Opacity = 1;
@@ -523,7 +548,7 @@ namespace Pollution
             
             TextBlock statusTitle = new TextBlock();
             statusTitle.Text = "Stav:";
-            statusTitle.FontSize = Window.Current.Bounds.Height / 24;//predelat na dynamiku
+            statusTitle.FontSize = Data.getFontSize_Title();
             statusTitle.VerticalAlignment = VerticalAlignment.Center;
             statusTitle.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetColumnSpan(statusTitle, 2);
@@ -539,7 +564,7 @@ namespace Pollution
         
             TextBlock stationName = new TextBlock();
             stationName.Text = Data.StationName;
-            stationName.FontSize = Window.Current.Bounds.Height / 40;
+            stationName.FontSize = Data.getFontSize_LargeText();
             stationName.TextAlignment = TextAlignment.Center;
             stationName.VerticalAlignment = VerticalAlignment.Center;
             Grid.SetColumnSpan(stationName, 5);
@@ -550,8 +575,9 @@ namespace Pollution
 
             return tile;
         }
-        public static Grid RandomizedBlankTile(int rowNum, int colNum) 
+        public Grid RandomizedBlankTile(int rowNum, int colNum) 
         {
+            
             Grid tile = new Grid();
             tile.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
             tile.Name = "BlankTile";

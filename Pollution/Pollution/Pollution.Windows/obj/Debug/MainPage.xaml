@@ -6,6 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+	<Page.Resources>
+		<Storyboard x:Name="TestStoryboard">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DataPanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-512"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Page.Resources>
 
     <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
@@ -83,7 +91,13 @@
     			<ColumnDefinition/>
     		</Grid.ColumnDefinitions>
     	</Grid>
-    	<Grid x:Name="DataPanel" Margin="0,0,0,5000" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    	<Grid x:Name="DataPanel" Margin="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.5,0.5">
+    		<Grid.RenderTransform>
+    			<CompositeTransform/>
+    		</Grid.RenderTransform>
+    		<Grid.Projection>
+    			<PlaneProjection CenterOfRotationX="100"/>
+    		</Grid.Projection>
     		<Grid.RowDefinitions>
     			<RowDefinition/>
     			<RowDefinition Height="4*"/>
@@ -93,9 +107,9 @@
     			<ColumnDefinition/>
     			<ColumnDefinition Width="9*"/>
     		</Grid.ColumnDefinitions>
-    		<ScrollViewer x:Name="dataPanelScrl" Grid.ColumnSpan="3" Grid.Row="1" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled" HorizontalScrollMode="Auto">
-    			<StackPanel x:Name="dataPanelStck" Orientation="Horizontal" Background="#FF323232" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    				<Grid x:Name="statuses" Margin="20" HorizontalAlignment="Center">
+    		<ScrollViewer x:Name="dataPanelScrl" Grid.ColumnSpan="3" Grid.Row="1" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled" HorizontalScrollMode="Auto" Background="#FF323232" Padding="0">
+    			<StackPanel x:Name="dataPanelStck" Orientation="Horizontal" Background="#FF323232" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0" MinHeight="300">
+    				<Grid x:Name="statuses" Margin="20" MinHeight="300" MinWidth="300">
     					<Grid.RowDefinitions>
     						<RowDefinition Height="3*"/>
     						<RowDefinition Height="2*"/>
@@ -105,38 +119,38 @@
     					<TextBlock x:Name="stationRegion" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Moravskoslezský kraj" VerticalAlignment="Center" FontSize="26.667" Grid.Row="1" Grid.Column="1"/>
     					<StackPanel x:Name="statusesStackPanel" Grid.RowSpan="2" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Center">
     						<StackPanel x:Name="statusSOStackPanel">
-    							<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="SO2" FontSize="26.667" Margin="0" VerticalAlignment="Center" Width="51" HorizontalAlignment="Center"/>
+    							<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     							<Grid x:Name="statusSOClr" Background="#FF8D8B8B" Width="80" Height="80" Margin="10">
-    								<TextBlock x:Name="statusSOValueTxt" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64"/>
+    								<TextBlock x:Name="statusSOValueTxt" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="29.333"/>
     							</Grid>
     						</StackPanel>
     						<StackPanel x:Name="statusPOStackPanel_Copy">
-    							<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="SO2" FontSize="26.667" Margin="0" VerticalAlignment="Center" Width="51" HorizontalAlignment="Center"/>
+    							<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     							<Grid x:Name="statusPOClr" Background="#FF8D8B8B" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-    								<TextBlock x:Name="statusPOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64"/>
+    								<TextBlock x:Name="statusPOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="29.333"/>
     							</Grid>
     						</StackPanel>
     						<StackPanel x:Name="statusCOStackPanel_Copy1">
-    							<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="SO2" FontSize="26.667" Margin="0" VerticalAlignment="Center" Width="51" HorizontalAlignment="Center"/>
+    							<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     							<Grid x:Name="statusCOClr" Background="#FF8D8B8B" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-    								<TextBlock x:Name="statusCOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64"/>
+    								<TextBlock x:Name="statusCOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="29.333"/>
     							</Grid>
     						</StackPanel>
     						<StackPanel x:Name="statusNOStackPanel_Copy2">
-    							<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="SO2" FontSize="26.667" Margin="0" VerticalAlignment="Center" Width="51" HorizontalAlignment="Center"/>
+    							<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     							<Grid x:Name="statusNOClr" Background="#FF8D8B8B" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-    								<TextBlock x:Name="statusNOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64"/>
+    								<TextBlock x:Name="statusNOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="29.333"/>
     							</Grid>
     						</StackPanel>
     						<StackPanel x:Name="statusOStackPanel_Copy3">
-    							<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="SO2" FontSize="26.667" Margin="0" VerticalAlignment="Center" Width="51" HorizontalAlignment="Center"/>
+    							<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     							<Grid x:Name="statusOClr" Background="#FF8D8B8B" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualWidth, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-    								<TextBlock x:Name="statusOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64"/>
+    								<TextBlock x:Name="statusOValue" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="29.333"/>
     							</Grid>
     						</StackPanel>
     					</StackPanel>
     				</Grid>
-    				<Grid x:Name="bars" Margin="20">
+    				<Grid x:Name="bars" Margin="20" MinHeight="300" MinWidth="300">
     					<StackPanel Orientation="Horizontal" Margin="30,0" HorizontalAlignment="Center">
     						<Canvas x:Name="canvas" Height="300" Background="#FF9BDA88" Margin="10" Width="60"/>
     						<Canvas Height="{Binding ActualHeight, ElementName=canvas}" Width="{Binding ActualWidth, ElementName=canvas}" Margin="{Binding Margin, ElementName=canvas}" Background="#FF9BDA88"/>
@@ -145,12 +159,12 @@
     						<Canvas Height="{Binding ActualHeight, ElementName=canvas}" Width="{Binding ActualWidth, ElementName=canvas}" Margin="{Binding Margin, ElementName=canvas}" Background="#FF9BDA88"/>
     					</StackPanel>
     				</Grid>
-    				<Grid x:Name="legend" Margin="20">
+    				<Grid x:Name="legend" Margin="20" MinHeight="300" MinWidth="300">
     					<StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
     						<Grid x:Name="mainStatusLbl" Width="100" Height="100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF936B6B" Margin="20,0">
     							<TextBlock x:Name="mainStatusTxt" HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" FontSize="64" d:IsHidden="True"/>
     						</Grid>
-    						<Grid x:Name="statusLegend" Width="200" Margin="20,0" Height="184">
+    						<Grid x:Name="statusLegend" Margin="20,0" Height="199" Width="200">
     							<Grid.RowDefinitions>
     								<RowDefinition/>
     								<RowDefinition/>
@@ -162,32 +176,32 @@
     								<RowDefinition/>
     							</Grid.RowDefinitions>
     							<Grid.ColumnDefinitions>
-    								<ColumnDefinition Width="2*"/>
-    								<ColumnDefinition Width="9*"/>
+    								<ColumnDefinition/>
+    								<ColumnDefinition Width="7*"/>
     							</Grid.ColumnDefinitions>
     							<Canvas x:Name="legendLabelVG" Background="#FFE8D4D4"/>
-    							<TextBlock TextWrapping="Wrap" Text="velmi dobré" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667"/>
+    							<TextBlock x:Name="legendTxt1" TextWrapping="Wrap" Text="velmi dobré" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667"/>
     							<Canvas x:Name="legendLabelG" Background="#FFE8D4D4" Grid.Row="1"/>
-    							<TextBlock TextWrapping="Wrap" Text="dobré" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="1"/>
+    							<TextBlock x:Name="legendTxt2" TextWrapping="Wrap" Text="dobré" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="1"/>
     							<Canvas x:Name="legendLabelSa" Background="#FFE8D4D4" Grid.Row="2"/>
-    							<TextBlock TextWrapping="Wrap" Text="uspokojivé" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="2"/>
+    							<TextBlock x:Name="legendTxt3" TextWrapping="Wrap" Text="uspokojivé" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="2"/>
     							<Canvas x:Name="legendLabelSu" Background="#FFE8D4D4" Grid.Row="3"/>
-    							<TextBlock TextWrapping="Wrap" Text="vyhovující" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="3"/>
+    							<TextBlock x:Name="legendTxt4" TextWrapping="Wrap" Text="vyhovující" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="3"/>
     							<Canvas x:Name="legendLabelB" Background="#FFE8D4D4" Grid.Row="4"/>
-    							<TextBlock TextWrapping="Wrap" Text="špatné" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="4"/>
+    							<TextBlock x:Name="legendTxt5" TextWrapping="Wrap" Text="špatné" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="4"/>
     							<Canvas x:Name="legendLabelVB" Background="#FFE8D4D4" Grid.Row="5"/>
-    							<TextBlock TextWrapping="Wrap" Text="velmi špatné" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="5"/>
+    							<TextBlock x:Name="legendTxt6" TextWrapping="Wrap" Text="velmi špatné" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="5"/>
     							<Canvas x:Name="legendLabelND" Background="#FFE8D4D4" Grid.Row="6"/>
-    							<TextBlock TextWrapping="Wrap" Text="nejsou data" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="6"/>
+    							<TextBlock x:Name="legendTxt7" TextWrapping="Wrap" Text="nejsou data" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="6"/>
     							<Canvas x:Name="legendLabelNM" Background="#FFE8D4D4" Grid.Row="7"/>
-    							<TextBlock TextWrapping="Wrap" Text="neměří se" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="7"/>
+    							<TextBlock x:Name="legendTxt8" TextWrapping="Wrap" Text="neměří se" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="18.667" Grid.Row="7"/>
     						</Grid>
     					</StackPanel>
     				</Grid>
     			</StackPanel>
     		</ScrollViewer>
     	</Grid>
-    	<Grid x:Name="MenuPanel" Margin="0,5000,0,0" Grid.RowSpan="5" Grid.ColumnSpan="11">
+    	<Grid x:Name="MenuPanel" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="11" d:IsHidden="True">
     		<Grid.RowDefinitions>
     			<RowDefinition Height="4*"/>
     			<RowDefinition/>
@@ -219,7 +233,7 @@
     					<ColumnDefinition Width="4*"/>
     					<ColumnDefinition Width="2*"/>
     				</Grid.ColumnDefinitions>
-    				<Grid x:Name="menuPanelButton1" Background="#FF615C5C" Grid.Row="1" Grid.Column="1">
+    				<Grid x:Name="menuPanelButton1" Background="#FF615C5C" Grid.Row="1" Grid.Column="1" Margin="5">
     					<Grid.RowDefinitions>
     						<RowDefinition/>
     						<RowDefinition Height="8*"/>
@@ -230,9 +244,9 @@
     						<ColumnDefinition Width="8*"/>
     						<ColumnDefinition/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock TextWrapping="Wrap" Text="Položka 1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
+    					<TextBlock x:Name="menuPanelButton1Txt" TextWrapping="Wrap" Text="Položka 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
     				</Grid>
-    				<Grid x:Name="menuPanelButton2" Background="#FF615C5C" Grid.Row="1" Grid.Column="2">
+    				<Grid x:Name="menuPanelButton2" Background="#FF615C5C" Grid.Row="1" Grid.Column="2" Margin="5">
     					<Grid.RowDefinitions>
     						<RowDefinition/>
     						<RowDefinition Height="8*"/>
@@ -243,9 +257,9 @@
     						<ColumnDefinition Width="8*"/>
     						<ColumnDefinition/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock TextWrapping="Wrap" Text="Položka 2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
+    					<TextBlock x:Name="menuPanelButton2Txt" TextWrapping="Wrap" Text="Položka 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
     				</Grid>
-    				<Grid x:Name="menuPanelButton3" Background="#FF615C5C" Grid.Row="1" Grid.Column="3">
+    				<Grid x:Name="menuPanelButton3" Background="#FF615C5C" Grid.Row="1" Grid.Column="3" Margin="5">
     					<Grid.RowDefinitions>
     						<RowDefinition/>
     						<RowDefinition Height="8*"/>
@@ -256,9 +270,9 @@
     						<ColumnDefinition Width="8*"/>
     						<ColumnDefinition/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock TextWrapping="Wrap" Text="Položka 3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
+    					<TextBlock x:Name="menuPanelButton3Txt" TextWrapping="Wrap" Text="Položka 3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
     				</Grid>
-    				<Grid x:Name="menuPanelButton4" Background="#FF615C5C" Grid.Row="1" Grid.Column="4">
+    				<Grid x:Name="menuPanelButton4" Background="#FF615C5C" Grid.Row="1" Grid.Column="4" Margin="5">
     					<Grid.RowDefinitions>
     						<RowDefinition/>
     						<RowDefinition Height="8*"/>
@@ -269,9 +283,9 @@
     						<ColumnDefinition Width="8*"/>
     						<ColumnDefinition/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock TextWrapping="Wrap" Text="Položka 4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
+    					<TextBlock x:Name="menuPanelButton4Txt" TextWrapping="Wrap" Text="Položka 4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
     				</Grid>
-    				<Grid x:Name="menuPanelButton5" Background="#FF615C5C" Grid.Row="1" Grid.Column="5">
+    				<Grid x:Name="menuPanelButton5" Background="#FF615C5C" Grid.Row="1" Grid.Column="5" Margin="5">
     					<Grid.RowDefinitions>
     						<RowDefinition/>
     						<RowDefinition Height="8*"/>
@@ -282,7 +296,7 @@
     						<ColumnDefinition Width="8*"/>
     						<ColumnDefinition/>
     					</Grid.ColumnDefinitions>
-    					<TextBlock TextWrapping="Wrap" Text="Položka 5" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
+    					<TextBlock x:Name="menuPanelButton5Txt" TextWrapping="Wrap" Text="Položka 5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1"/>
     				</Grid>
     			</Grid>
     			<Grid x:Name="menuPanelInfoGrid" Grid.Column="1">
@@ -297,13 +311,13 @@
     					<ColumnDefinition/>
     				</Grid.ColumnDefinitions>
     				<StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Right" Grid.RowSpan="2" VerticalAlignment="Bottom">
-    					<TextBlock TextWrapping="Wrap" Text="V okolí je právě:" HorizontalAlignment="Left" FontSize="18.667"/>
-    					<TextBlock TextWrapping="Wrap" Text="26 uživatelů" FontSize="18.667"/>
+    					<TextBlock x:Name="menuPanelInfoTitleTxt" TextWrapping="Wrap" Text="V okolí je právě:" HorizontalAlignment="Left" FontSize="18.667"/>
+    					<TextBlock x:Name="menuPanelInfoValueTxt" TextWrapping="Wrap" Text="26 uživatelů" FontSize="18.667"/>
     				</StackPanel>
     			</Grid>
     		</Grid>
     	</Grid>
-    	<Grid x:Name="MapPanel" Background="#FF513333" Grid.RowSpan="6" Grid.ColumnSpan="8" Margin="5000,0,0,0"/>
+    	<Grid x:Name="MapPanel" Background="#FF513333" Grid.RowSpan="6" Grid.ColumnSpan="8" Margin="5000,0,0,0" d:IsHidden="True"/>
     </Grid>
 </Page>
 
