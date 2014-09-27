@@ -21,9 +21,17 @@ namespace Pollution
             this.mainPage = value;
         }
 
-        public static Grid testTile(int rowNum, int colNum)
+        public Grid testTile(int rowNum, int colNum, string mytxt)
         {
-            return new Grid();
+            Grid tile = new Grid();
+            TextBlock txt = new TextBlock();
+            txt.Text = mytxt;
+            tile.Children.Add(txt);
+
+
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+            return tile;
         }
         public Grid imageTile(int rowNum, int colNum, string uri)
         {

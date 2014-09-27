@@ -35,6 +35,25 @@ namespace Pollution
 
         private string currentState;
 
+        //testovaci tb
+        private TextBlock testTB;
+
+        //globalni promenne pro animace
+        Storyboard dataPanelShowSB;
+        Storyboard dataPanelHideSB;
+        Storyboard menuPanelShowSB;
+        Storyboard menuPanelHideSB;
+        Storyboard dataPanelShowSBP;
+        Storyboard dataPanelHideSBP;
+        Storyboard menuPanelShowSBP;
+        Storyboard menuPanelHideSBP;
+        DoubleAnimation doubleAnim;
+        DoubleAnimation doubleAnim2;
+        DoubleAnimation doubleAnim3;
+        DoubleAnimation doubleAnim4;
+
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -132,7 +151,7 @@ namespace Pollution
             var o3smallstatus = tileGenerator.statusTIle_O3(0,0);
             LayoutGrid.Children.Add(o3smallstatus);
             statusCollection.Add(o3smallstatus);
-
+            
             var cosmallstatus = tileGenerator.statusTile_CO(0,0);
             LayoutGrid.Children.Add(cosmallstatus);
             statusCollection.Add(cosmallstatus);
@@ -147,12 +166,12 @@ namespace Pollution
             LayoutGrid.Children.Add(no2smallstatus);
             statusCollection.Add(no2smallstatus);
             
-
+            /*
             //OBRAZKY
             var imgtile = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
             LayoutGrid.Children.Add(imgtile);
             imageCollection.Add(imgtile);
-
+            
             var imgtile2 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
             LayoutGrid.Children.Add(imgtile2);
             imageCollection.Add(imgtile2);
@@ -168,11 +187,12 @@ namespace Pollution
             var imgtile6 = tileGenerator.imageTile(1, 3, "Assets/Logo.scale-100.png");
             LayoutGrid.Children.Add(imgtile6);
             imageCollection.Add(imgtile6);
-            
+            */
             //HLAVNI STATUS
             mainstatus = tileGenerator.mainStatusTile(2, 2);
             LayoutGrid.Children.Add(mainstatus);
 
+            
 
             setFontSizes();
             
@@ -536,9 +556,31 @@ namespace Pollution
             legend.Height = dataPanelStck.Width;
             legend.Width = dataPanelStck.Width;
 
+            //MALE STATUSY a obrazky
+            setStatusesPortrait();
+            setImagesPortrait();
 
             //animace pro portrait
             setAnimationsPortrait();
+            /*
+            //testovaci tb
+            testTB = new TextBlock();
+            testTB.FontSize = 30;
+            testTB.TextWrapping = TextWrapping.Wrap;
+            testTB.Text = Grid.GetRow(statusCollection.ElementAt(0)).ToString() 
+                + Grid.GetRow(statusCollection.ElementAt(1)).ToString()
+                + Grid.GetRow(statusCollection.ElementAt(2)).ToString()
+                + Grid.GetRow(statusCollection.ElementAt(3)).ToString()
+                + Grid.GetRow(statusCollection.ElementAt(4)).ToString()
+                + Grid.GetColumn(statusCollection.ElementAt(0)).ToString()
+                + Grid.GetColumn(statusCollection.ElementAt(1)).ToString()
+                + Grid.GetColumn(statusCollection.ElementAt(2)).ToString()
+                + Grid.GetColumn(statusCollection.ElementAt(3)).ToString()
+                + Grid.GetColumn(statusCollection.ElementAt(4)).ToString();
+            Grid.SetColumn(testTB, 1);
+            Grid.SetRow(testTB, 1);
+            LayoutGrid.Children.Add(testTB);
+             * */
         }
 
         public void setLandscapeChanges()
@@ -1096,28 +1138,47 @@ namespace Pollution
         {
             Random random = new Random();
 
+            //vytvor seznam tuplu
             List<Tuple<int, int>> mylist = new List<Tuple<int, int>>();
             Tuple<int, int> mytuple;
 
+            //projdi dvacetkrat a v kazdem cyklu vloz jeden tuple
             for (int i = 0; i < 20; i++)
             {
+                //do tuplu vloz souradnice 5,1 6,1 7,1 8,1 9,1 5,2 ....
                 mytuple = Tuple.Create((i % 5) + 5, (i / 5) + 1);
+                //vloz souradnice do seznamu
                 mylist.Add(mytuple);
             }
 
-            int index;
+            int index;//vytvor index
 
+
+
+            //projdi seznam
             for (int i = 0; i < statusCollection.Count(); i++)
             {
+                //vloz do indexu nahodne cislo od 0 do 19 minus pocet probehlych cyklu
                 index = random.Next(0, 19 - i);
+                //teststring += mylist.ElementAt(index).Item1.ToString() + mylist.ElementAt(index).Item2.ToString();
+                //nastav row a col
                 Grid.SetRow(statusCollection.ElementAt(i), mylist.ElementAt(index).Item1);
                 Grid.SetColumn(statusCollection.ElementAt(i), mylist.ElementAt(index).Item2);
+                //vyjmi z listu element na indexu
                 mylist.RemoveAt(index);
             }
 
 
-
         }
+        /*
+        private void testtileservice() {  }
+        string teststring = "Souradnice: ";
+        Grid testtile;
+        */
+
+
+
+
 
         private void setImagesLandscape()
         {
@@ -1219,11 +1280,16 @@ namespace Pollution
 
         }
 
+
+        
+
         private void setAnimationsLandscape() 
         {
+            Resources.Clear();
+
             //VYSUNUTI DATA PANELU
-            Storyboard dataPanelShowSB = new Storyboard();
-            DoubleAnimation doubleAnim = new DoubleAnimation();
+            dataPanelShowSB = new Storyboard();
+            doubleAnim = new DoubleAnimation();
 
             DataPanel.RenderTransform = new TranslateTransform();
 
@@ -1241,8 +1307,8 @@ namespace Pollution
 
             //ZASUNUTI DATA PANELU
 
-            Storyboard dataPanelHideSB = new Storyboard();
-            DoubleAnimation doubleAnim2 = new DoubleAnimation();
+            dataPanelHideSB = new Storyboard();
+            doubleAnim2 = new DoubleAnimation();
 
             DataPanel.RenderTransform = new TranslateTransform();
 
@@ -1262,8 +1328,8 @@ namespace Pollution
 
             
             //VYSUNUTI MENU PANELU
-            Storyboard menuPanelShowSB = new Storyboard();
-            DoubleAnimation doubleAnim3 = new DoubleAnimation();
+            menuPanelShowSB = new Storyboard();
+            doubleAnim3 = new DoubleAnimation();
 
             MenuPanel.RenderTransform = new TranslateTransform();
 
@@ -1280,8 +1346,8 @@ namespace Pollution
             Resources.Add("menuPanelShowSB", menuPanelShowSB);
             
             //ZASUNUTI MENU PANELU
-            Storyboard menuPanelHideSB = new Storyboard();
-            DoubleAnimation doubleAnim4 = new DoubleAnimation();
+            menuPanelHideSB = new Storyboard();
+            doubleAnim4 = new DoubleAnimation();
 
             MenuPanel.RenderTransform = new TranslateTransform();
 
@@ -1299,11 +1365,15 @@ namespace Pollution
             
             
         }
+        
+
         private void setAnimationsPortrait()
         {
+            Resources.Clear();
+
             //VYSUNUTI DATA PANELU
-            Storyboard dataPanelShowSBP = new Storyboard();
-            DoubleAnimation doubleAnim = new DoubleAnimation();
+            dataPanelShowSBP = new Storyboard();
+            doubleAnim = new DoubleAnimation();
 
             DataPanel.RenderTransform = new TranslateTransform();
 
@@ -1321,8 +1391,8 @@ namespace Pollution
 
             //ZASUNUTI DATA PANELU
 
-            Storyboard dataPanelHideSBP = new Storyboard();
-            DoubleAnimation doubleAnim2 = new DoubleAnimation();
+            dataPanelHideSBP = new Storyboard();
+            doubleAnim2 = new DoubleAnimation();
 
             DataPanel.RenderTransform = new TranslateTransform();
 
@@ -1343,8 +1413,8 @@ namespace Pollution
 
 
             //VYSUNUTI MENU PANELU
-            Storyboard menuPanelShowSBP = new Storyboard();
-            DoubleAnimation doubleAnim3 = new DoubleAnimation();
+            menuPanelShowSBP = new Storyboard();
+            doubleAnim3 = new DoubleAnimation();
 
             MenuPanel.RenderTransform = new TranslateTransform();
 
