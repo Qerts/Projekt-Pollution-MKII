@@ -322,3 +322,4 @@
         <Grid x:Name="MapPanel" Background="#FF513333" Grid.RowSpan="6" Grid.ColumnSpan="8" Margin="5000,0,0,0" d:IsHidden="True"/>
     </Grid>
 </Page>
+

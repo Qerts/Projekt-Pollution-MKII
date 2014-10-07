@@ -354,7 +354,7 @@ namespace Pollution
             tile.Children.Add(stationString);
 
             TextBlock nameString = new TextBlock();
-            nameString.Text = "PM\x2081\x2090";
+            nameString.Text = Data.getString_PM10();
             nameString.Foreground = new SolidColorBrush(Colors.White);
             nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
