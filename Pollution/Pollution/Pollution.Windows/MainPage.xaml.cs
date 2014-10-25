@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,6 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -53,13 +58,22 @@ namespace Pollution
         DoubleAnimation doubleAnim4;
 
 
+        
+
         public MainPage()
         {
+            
             this.InitializeComponent();
+
+            contentLoad();
+
             this.Loaded += MainPage_Loaded;
             this.Unloaded += MainPage_Unloaded;
-            tileGenerator = new Tile(this);
 
+            tileGenerator = new Tile(this);
+            
+            
+            
             mapbutton = tileGenerator.buttonTile_MapPanel(0, 0);
             MapPanel.Children.Add(mapbutton);
             menubutton = tileGenerator.buttonTile_MenuPanel(1, 0);
@@ -67,7 +81,14 @@ namespace Pollution
             databutton = tileGenerator.buttonTile_DataPanel(1, 1);
             DataPanel.Children.Add(databutton);
             
+            
+
         }
+
+
+
+        
+
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.SizeChanged += Current_SizeChanged;
@@ -204,7 +225,7 @@ namespace Pollution
         /// Funkce obsluhujici zmeny v zobrazeni pri vertikalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
         /// a podobne.
         /// </summary>
-        public void setPortraitChanges() 
+        private void setPortraitChanges() 
         {
             //layoutroot zmeny 
 
@@ -584,7 +605,7 @@ namespace Pollution
         /// Funkce obsluhujici zmeny v zobrazeni pri horizontalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
         /// a podobne.
         /// </summary>
-        public void setLandscapeChanges()
+        private void setLandscapeChanges()
         {
             
 
@@ -949,7 +970,7 @@ namespace Pollution
         /// Funkce obsluhujici zmeny v zobrazeni pri horizontalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
         /// a podobne.
         /// </summary>
-        public void setSnappedChanges() 
+        private void setSnappedChanges() 
         {
             //docasne zmeny
             MapPanel.Visibility = Visibility.Collapsed;
@@ -1276,7 +1297,7 @@ namespace Pollution
             setAnimationsLandscape();
              
         }
-        public void setNarrowChanges() 
+        private void setNarrowChanges() 
         {
             //docasne zmeny
             MapPanel.Visibility = Visibility.Collapsed;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pollution.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,11 +21,31 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Pollution
 {
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     public sealed partial class App : Application
     {
+        private static StationViewModel viewModel = null;
+
+        /// <summary>
+        /// A static ViewModel used by the views to bind against.
+        /// </summary>
+        /// <returns>The MainViewModel object.</returns>
+        public static StationViewModel ViewModel
+        {
+            get
+            {
+                // Delay creation of the view model until necessary
+                if (viewModel == null)
+                    viewModel = new StationViewModel();
+
+                return viewModel;
+            }
+        }
+
+
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif

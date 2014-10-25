@@ -7,6 +7,8 @@ using Pollution;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Data;
+using Pollution.ViewModels;
 
 namespace Pollution 
 {
@@ -15,6 +17,12 @@ namespace Pollution
         Random random = new Random();
         //static Random random = new Random();
         private MainPage mainPage;
+
+        //pokus se stationviewmodel
+        //StationViewModel svm = new StationViewModel();
+        //Station tmp = App.ViewModel.DetailsStation;
+        //Station tmp = ViewModels;
+        Station tmp = App.ViewModel.CurrentStation;
 
         public Tile(MainPage value) 
         {
@@ -571,7 +579,13 @@ namespace Pollution
             tile.Children.Add(img);
         
             TextBlock stationName = new TextBlock();
-            stationName.Text = Data.StationName;
+            //stationName.Text = Data.StationName;
+            Binding b = new Binding();
+
+
+            App.ViewModel.NearestStation.Name = "hhh";
+            b.Source = App.ViewModel.NearestStation.Name;//tmp.Name;     
+            stationName.SetBinding(TextBlock.TextProperty, b);
             stationName.FontSize = Data.getFontSize_LargeText();
             stationName.TextAlignment = TextAlignment.Center;
             stationName.VerticalAlignment = VerticalAlignment.Center;

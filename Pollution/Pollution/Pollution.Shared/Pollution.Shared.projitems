@@ -15,8 +15,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ColorQualityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\EditableImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\PngEncoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ResolutionHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\SerializationStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GpsAngle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PGraph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PHistory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PPhoto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Station.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Utils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VisibilityConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley0.gif" />
@@ -27,5 +42,8 @@
     <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley5.gif" />
     <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley6.gif" />
     <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Pins\" />
   </ItemGroup>
 </Project>
