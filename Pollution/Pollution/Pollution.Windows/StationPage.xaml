@@ -1,0 +1,189 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="Pollution.StationPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution"
+    xmlns:Utils="using:Utils"
+    
+    xmlns:localmain="using:Pollution"
+    xmlns:common="using:Pollution.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Utils:ColorQualityConverter x:Key="ColorQualityConverter"/>
+        <Utils:NegativeValueConverter x:Key="NegativeValueConverter"/>
+        <Utils:ImageOrientationTemplateSelector x:Key="ImageOrientationTemplateSelector" />
+        
+        
+        
+        <x:Double x:Key="PhotoListHeight">NaN</x:Double>
+
+
+    </Page.Resources>
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--
+            TODO: Content should be placed within the following grid 
+                  to show details for the current item
+        -->
+        <Grid Grid.Row="1" x:Name="contentRegion" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition/>
+        		<ColumnDefinition Width="25*"/>
+        		<ColumnDefinition/>
+        	</Grid.ColumnDefinitions>
+        	<Grid.RowDefinitions>
+        		<RowDefinition/>
+        		<RowDefinition Height="15*"/>
+        		<RowDefinition/>
+        	</Grid.RowDefinitions>
+        	<ScrollViewer x:Name="contentScrollViewer" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0" Padding="0,0,0,20" UseLayoutRounding="True">
+        		<Grid x:Name="contentInnerRegion" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,-20">
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="Auto"/>
+        				<ColumnDefinition Width="Auto"/>
+        				<ColumnDefinition Width="Auto"/>
+        			</Grid.ColumnDefinitions>
+        			<Grid x:Name="contentStatusesGrid" Margin="0">
+        				<Grid.ColumnDefinitions>
+        					<ColumnDefinition/>
+        					<ColumnDefinition/>
+        					<ColumnDefinition/>
+        					<ColumnDefinition/>
+        					<ColumnDefinition/>
+        				</Grid.ColumnDefinitions>
+        				<Grid.RowDefinitions>
+        					<RowDefinition/>
+        					<RowDefinition Height="3*"/>
+        					<RowDefinition Height="12*"/>
+        				</Grid.RowDefinitions>
+                        <localmain:PElementGraph DataContext="{Binding So2}" x:Name="graphSO2" Margin="0" Height="300" Grid.Row="2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" />
+                        <localmain:PElementGraph DataContext="{Binding O3}" x:Name="graphO3" Height="300" Margin="0" Grid.Row="2" Grid.Column="4" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding Co}" x:Name="graphCO" Margin="0" Height="300" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding Pm10}" x:Name="graphPM10" Margin="0" Height="300" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding No2}" x:Name="graphNO2" Margin="0" Height="300" Grid.RowSpan="2" Grid.Row="2" Grid.Column="3" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+
+                        <StackPanel x:Name="statusSOStackPanel" Margin="0" Grid.Row="1">
+        					<Grid x:Name="statusSOClr" Background="{Binding So2.State, Converter={StaticResource ColorQualityConverter}}" Width="80" Height="80" Margin="10">
+                                <TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="{Binding So2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        					</Grid>
+        				</StackPanel>
+        				<StackPanel x:Name="statusPOStackPanel_Copy" Margin="0" Grid.Column="1" Grid.Row="1">
+        					<Grid x:Name="statusPOClr" Background="{Binding Pm10.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                                <TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="{Binding Pm10.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        					</Grid>
+        				</StackPanel>
+        				<StackPanel x:Name="statusCOStackPanel_Copy1" Margin="0" Grid.Column="2" Grid.Row="1">
+        					<Grid x:Name="statusCOClr" Background="{Binding Co.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                                <TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="{Binding Co.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        					</Grid>
+        				</StackPanel>
+        				<StackPanel x:Name="statusNOStackPanel_Copy2" Margin="0" Grid.Column="3" Grid.Row="1">
+        					<Grid x:Name="statusNOClr" Background="{Binding No2.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                                <TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="{Binding No2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        					</Grid>
+        				</StackPanel>
+        				<StackPanel x:Name="statusOStackPanel_Copy3" Margin="0" Grid.Column="4" Grid.Row="1">
+        					<Grid x:Name="statusOClr" Background="{Binding O3.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualWidth, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                                <TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="{Binding O3.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        					</Grid>
+        				</StackPanel>
+        				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="SO₂" VerticalAlignment="Bottom" FontSize="24"/>
+        				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="PM₁₀" VerticalAlignment="Bottom" Grid.Column="1" FontSize="24"/>
+        				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="CO" VerticalAlignment="Bottom" Grid.Column="2" FontSize="24"/>
+        				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="NO₂" VerticalAlignment="Bottom" Grid.Column="3" FontSize="24"/>
+        				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="O₃" VerticalAlignment="Bottom" Grid.Column="4" FontSize="24"/>
+        				
+        			</Grid>
+                    <Grid x:Name="contentGraphsGrid" Grid.Column="1" Margin="36,0,0,0" IsHitTestVisible="False">
+                    	<Grid.ColumnDefinitions>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    	</Grid.ColumnDefinitions>
+                        <StackPanel x:Name="historyStck"  HorizontalAlignment="Center" Margin="0,20,0,-12">
+							<TextBlock x:Name="historyQualityLabel" TextWrapping="Wrap" x:Uid="History" Text="Placeholder" Margin="0" FontSize="16" Height="20"/>
+							<localmain:HistoryQualityGraph x:Name="historyQuality" Margin="0" Width="Auto" Height="260"/>
+						</StackPanel>
+                    	<StackPanel x:Name="soGraphStck" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusSO2" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
+                    		<localmain:HistoryElementGraph ElementType="SO2" x:Name="historySO2" Margin="0,10,0,-10" Height="240"/>
+                    	</StackPanel>
+                        <StackPanel x:Name="pmGraphStck" Grid.Column="2" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusPM10" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
+                    		<localmain:HistoryElementGraph ElementType="PM10" x:Name="historyPM10" Margin="0,10,0,-10" Height="240"/>
+                    	</StackPanel>
+                        <StackPanel x:Name="coGraphStck" Grid.Column="3" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusCO" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
+                    		<localmain:HistoryElementGraph ElementType="CO" x:Name="historyCO" Margin="0,10,0,-10" Height="240"/>
+                    	</StackPanel>
+                        <StackPanel x:Name="noGraphStck" Grid.Column="4" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusNO2" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
+                    		<localmain:HistoryElementGraph ElementType="NO2" x:Name="historyNO2" Margin="0,10,0,-10" Height="240"/>
+                    	</StackPanel>
+                        <StackPanel x:Name="oGraphStck" Grid.Column="5" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusO3" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
+                    		<localmain:HistoryElementGraph ElementType="O3" x:Name="historyO3" Margin="0,10,0,-10" Height="240"/>
+                    	</StackPanel>
+                    	
+                    	
+						
+					</Grid>
+                    <Grid x:Name="contentPhotoGridView" HorizontalAlignment="Left" Grid.Column="2" Margin="50,0,0,0"  IsHitTestVisible="True" Visibility="Visible">
+                        <StackPanel x:Name="ListPhotos" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,50,0"/>
+                    </Grid>
+                    
+                </Grid>
+        	</ScrollViewer>
+		
+		</Grid>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+           <TextBlock x:Name="pageTitle" 
+                        Text="{Binding Name}" 
+                        Style="{StaticResource HeaderTextBlockStyle}" 
+                        Grid.Column="1" 
+                        IsHitTestVisible="false" 
+                        TextWrapping="NoWrap" 
+                        VerticalAlignment="Bottom" 
+                        Margin="0,0,30,40"/>
+            <AppBarButton x:Name="folderButton" x:Uid="BtnFolder" Grid.Column="1" HorizontalAlignment="Right" Icon="Folder" Label="" Margin="0,25,150,0" VerticalAlignment="Top" Tapped="folderButton_Tapped"/>
+            <AppBarButton x:Name="homeButton" x:Uid="BtnHome" Grid.Column="1" HorizontalAlignment="Right" Label="" Margin="0,25,50,0" VerticalAlignment="Top" Tapped="homeButton_Tapped">
+            	<AppBarButton.Icon>
+                    <SymbolIcon Symbol="Home" Tapped="homeButton_Tapped"/>
+            	</AppBarButton.Icon>
+            </AppBarButton>
+        </Grid>
+    </Grid>
+</Page>

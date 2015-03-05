@@ -19,6 +19,15 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\ApplicationIcon.png">
+      <PackagePath>Assets\ApplicationIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Background.png">
+      <PackagePath>Assets\Background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\billboard-blank.png">
+      <PackagePath>Assets\billboard-blank.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -62,8 +71,35 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\CzechMap.xbf">
+      <PackagePath>CzechMap.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\HistoryElementGraph.xbf">
+      <PackagePath>HistoryElementGraph.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\HistoryQualityGraph.xbf">
+      <PackagePath>HistoryQualityGraph.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\PElementGraph.xbf">
+      <PackagePath>PElementGraph.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Flyouts\FlyoutAbout.xbf">
+      <PackagePath>Flyouts\FlyoutAbout.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Flyouts\FlyoutInformations.xbf">
+      <PackagePath>Flyouts\FlyoutInformations.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Flyouts\FlyoutSettings.xbf">
+      <PackagePath>Flyouts\FlyoutSettings.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\StationList.xbf">
+      <PackagePath>StationList.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\StationPage.xbf">
+      <PackagePath>StationPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\Debug\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>

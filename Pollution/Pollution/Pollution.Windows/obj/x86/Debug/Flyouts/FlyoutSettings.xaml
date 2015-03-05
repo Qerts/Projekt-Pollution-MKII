@@ -1,0 +1,54 @@
+﻿<SettingsFlyout
+    x:Uid="FlyoutSettings"
+    x:Class="Pollution.Flyouts.FlyoutSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"     
+    IconSource="Assets/SmallLogo.png"
+    Title="Nastavení"
+    d:DesignWidth="346">
+
+    <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
+    
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <StackPanel x:Name="ContentPanel">
+                <TextBlock TextWrapping="Wrap" Text="Design text" x:Uid="TextCurrentStation" Margin="0,10,0,0" FontWeight="Bold" FontSize="18.667" Grid.Row="1"/>
+                <CheckBox x:ConnectionId='1' x:Name="checkNearest" x:Uid="CheckNearest" Content="Design text"                                                                  VerticalAlignment="Top" FontSize="13.333" />
+                <CheckBox x:ConnectionId='2' x:Name="checkNearestWithoutQuality"  x:Uid="CheckNearestWithoutQuality"  Content="Design text"                                                                                             FontSize="13.333" />
+                <TextBlock TextWrapping="Wrap"  x:Uid="SelectStation"  Text="Design text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="13.333"/>
+                            <ListBox x:ConnectionId='3' x:Name="listStations"                                              Margin="15,0,0,0" Background="{x:Null}" FontSize="13.333" Height="150">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock TextWrapping="Wrap" Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
+                                            <TextBlock TextWrapping="Wrap" Text="{Binding Description}" FontSize="10" Margin="0,0,0,10">
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="Gray"/>
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                <TextBlock TextWrapping="Wrap"  x:Uid="TextAppSetting"  Text="Design text" Margin="0,20,0,0" FontWeight="Bold" FontSize="18.667" Grid.Row="1"/>
+                <!--<CheckBox x:Name="checkGPS"  x:Uid="CheckGPS"  Content="Design text" Checked="checkGPS_Checked" Unchecked="checkGPS_Checked" VerticalAlignment="Top" FontSize="13.333" />-->
+                <CheckBox x:ConnectionId='4' x:Name="checkLiveTile"  x:Uid="CheckLiveTile"  Content="Design text"                                                                   VerticalAlignment="Top" FontSize="13.333" />
+                <TextBlock TextWrapping="Wrap"  x:Uid="TextLiveTile" Text="Design text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="13.333"/>
+                <TextBlock TextWrapping="Wrap"  x:Uid="TextLanguage"  Text="Design text" Margin="15,5,0,0" FontSize="13.333"/>
+                <ComboBox x:ConnectionId='5' x:Name="listLang" Margin="10,0"                                             >
+                                <!--<ComboBoxItem  x:Uid="TextLanguageSystem"  Content="Design text"/>-->
+                                <ComboBoxItem Content="čeština"/>
+                                <ComboBoxItem Content="english"/>
+                            </ComboBox>
+                            <TextBlock TextWrapping="Wrap" x:Uid="TextLanguageInfo" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="13.333"/>
+                        </StackPanel>
+        </StackPanel>
+    </StackPanel>
+    
+</SettingsFlyout>
+

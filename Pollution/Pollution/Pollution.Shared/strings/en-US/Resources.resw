@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppCurrent" xml:space="preserve">
+    <value>current</value>
+  </data>
+  <data name="AppMap" xml:space="preserve">
+    <value>map</value>
+  </data>
+  <data name="AppNameUC" xml:space="preserve">
+    <value>AIR POLLUTION</value>
+  </data>
+  <data name="AppSettings" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="AppStations" xml:space="preserve">
+    <value>stations</value>
+  </data>
+  <data name="BtnInformation" xml:space="preserve">
+    <value>information</value>
+  </data>
+  <data name="BtnNearestStation" xml:space="preserve">
+    <value>nearest</value>
+  </data>
+  <data name="BtnReview" xml:space="preserve">
+    <value>Review this app</value>
+  </data>
+  <data name="BtnSort" xml:space="preserve">
+    <value>sort</value>
+  </data>
+  <data name="BtnZoom" xml:space="preserve">
+    <value>zoom</value>
+  </data>
+  <data name="CheckGPS.Content" xml:space="preserve">
+    <value>Can use localization features</value>
+  </data>
+  <data name="CheckLiveTile.Content" xml:space="preserve">
+    <value>Use dynamic Live Tile</value>
+  </data>
+  <data name="CheckNearest.Content" xml:space="preserve">
+    <value>Auto localize the nearest station</value>
+  </data>
+  <data name="CheckNearestWithoutQuality.Content" xml:space="preserve">
+    <value>Included stations without quality</value>
+  </data>
+  <data name="ClassAroundcity" xml:space="preserve">
+    <value>suburban</value>
+  </data>
+  <data name="ClassIndustry" xml:space="preserve">
+    <value>industrial</value>
+  </data>
+  <data name="ClassIntercity" xml:space="preserve">
+    <value>urban</value>
+  </data>
+  <data name="ClassTraffic" xml:space="preserve">
+    <value>traffic</value>
+  </data>
+  <data name="ClassVillage" xml:space="preserve">
+    <value>rural</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="InfoCO.Text" xml:space="preserve">
+    <value>Carbon monoxide (CO) is a colorless, odorless and poisonous gas produced by incomplete burning of carbon in fuels. When CO enters the bloodstream, it reduces the delivery of oxygen to the body's organs and tissues. Health threats are most serious for those who suffer from cardiovascular disease. Exposure to elevated CO levels can cause impairment of visual perception, manual dexterity, learning ability and performance of complex tasks.
+
+77% of the nationwide CO emissions are from transportation sources. The largest emissions contribution comes from highway motor vehicles. Thus, the focus of CO monitoring has been at traffic-oriented sites in urban areas where the main source of CO is motor vehicle exhaust. Other major CO sources are wood-burning stoves, incinerators and industrial sources.</value>
+  </data>
+  <data name="InfoNO2.Text" xml:space="preserve">
+    <value>Nitrogen dioxide (NO2) is a brownish, highly reactive gas that is present in all urban atmospheres. NO2 can irritate the lungs, cause bronchitis and pneumonia, and lower resistance to respiratory infections.
+
+The major mechanism for the formation of NO2 in the atmosphere is the oxidation of nitric oxide (NO), which is produced by most combustion processes.</value>
+  </data>
+  <data name="InfoO3.Text" xml:space="preserve">
+    <value>Ozone (O3) is the major component of smog. Although O3 in the upper atmosphere is beneficial because it shields the earth from the sun's harmful ultraviolet radiation, high concentrations of O3 at ground level are a major health and environmental concern. The reactivity of O3 causes health problems because it damages lung tissue, reduces lung function and sensitizes the lungs to other irritants. Scientific evidence indicates that ambient levels of O3 not only affect people with impaired respiratory systems, such as asthmatics, but healthy adults and children as well. Exposure to O3 for several hours at relatively low concentrations has been found to significantly reduce lung function and induce respiratory inflammation in normal, healthy people during exercise.
+
+O3 is not usually emitted directly but is formed through complex chemical reactions in the atmosphere. Precursor compounds like volatile organic compounds (VOC) and oxides of nitrogen (NOx) react to form O3 in the presence of sunlight. These reactions are stimulated by ultraviolet radiation and temperature, so peak O3 levels typically occur during the warmer times of the day and year.</value>
+  </data>
+  <data name="InfoPM10.Text" xml:space="preserve">
+    <value>Particulate matter (PM) is a mixture of particles that can adversely effect human health, damage materials and form atmospheric haze that degrades visibility. PM is usually divided up into different classes based on size, ranging from total suspended matter (TSP) to PM-10 (particles less than 10 microns in aerodynamic diameter) to PM-2.5 (particles less than 2.5 microns). In general, the smallest particles pose the highest human health risks. PM exposure can affect breathing, aggravate existing respiratory and cardiovascular disease, alter the body's defense systems against foreign materials, and damage lung tissue, contributing to cancer and premature death. Individuals with chronic obstructive pulmonary or cardiovascular disease, asthmatics, the elderly and children are most sensitive to the effects of PM.
+
+Particulate matter (PM) includes dust, dirt, soot, smoke and liquid droplets directly emitted into the air by sources such as factories, power plants, cars, construction activity, fires and natural windblown dust. Particles formed in the atmosphere by condensation or the transformation of emitted gases such as SO2 and VOCs are also considered particulate matter.</value>
+  </data>
+  <data name="InfoSmog.Text" xml:space="preserve">
+    <value>If the degree of pollution in your area is 5 or 6, then you should stay and reduce physical activity or sport in the outdoors, do not smoke, reduce car travelling, air the short and intense, increase the intake of vitamins and drink plenty of fluids.</value>
+  </data>
+  <data name="InfoSO2.Text" xml:space="preserve">
+    <value>High concentrations of sulfur dioxide (SO2) affect breathing and may aggravate existing respiratory and cardiovascular disease. Sensitive populations include asthmatics, individuals with bronchitis or emphysema, children and the elderly. SO2 is also a primary contributor to acid rain, which causes acidification of lakes and streams and can damage trees, crops, historic buildings and statues. In addition, sulfur compounds in the air contribute to visibility impairment in large parts of the country. This is especially noticeable in national parks.
+
+Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulfur (like coal, oil and diesel fuel). Stationary sources such as coal- and oil-fired power plants, steel mills, refineries, pulp and paper mills, and nonferrous smelters are the largest releasers.</value>
+  </data>
+  <data name="InfoSource.Text" xml:space="preserve">
+    <value>used source: scorecard.goodguide.com</value>
+  </data>
+  <data name="InfoTitleCO.Text" xml:space="preserve">
+    <value>What is carbon monoxide (CO)?</value>
+  </data>
+  <data name="InfoTitleNO2.Text" xml:space="preserve">
+    <value>What is nitrogen dioxide (NO2)?</value>
+  </data>
+  <data name="InfoTitleO3.Text" xml:space="preserve">
+    <value>What is ozone (O3)?</value>
+  </data>
+  <data name="InfoTitlePM10.Text" xml:space="preserve">
+    <value>What is particulate matter (PM)?</value>
+  </data>
+  <data name="InfoTitleSO2.Text" xml:space="preserve">
+    <value>What is sulfur dioxide (SO2)?</value>
+  </data>
+  <data name="InfoWhatToDo.Text" xml:space="preserve">
+    <value>It is smog...</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MsgDataError" xml:space="preserve">
+    <value>Error during data processing, please contact the author of application!</value>
+  </data>
+  <data name="MsgDownloadError" xml:space="preserve">
+    <value>It is not possible to download current data. App tries to use last downloaded data!</value>
+  </data>
+  <data name="MsgGPSDisabled" xml:space="preserve">
+    <value>The localization features are disabled!</value>
+  </data>
+  <data name="MsgGPSUnavailable" xml:space="preserve">
+    <value>It is not possible to obtain your location! Try to restart application.</value>
+  </data>
+  <data name="MsgNoData" xml:space="preserve">
+    <value>No data for visualization! App is not fully functional!</value>
+  </data>
+  <data name="QualityState1.Text" xml:space="preserve">
+    <value>very good</value>
+  </data>
+  <data name="QualityState2.Text" xml:space="preserve">
+    <value>good</value>
+  </data>
+  <data name="QualityState3.Text" xml:space="preserve">
+    <value>fair</value>
+  </data>
+  <data name="QualityState4.Text" xml:space="preserve">
+    <value>suitable</value>
+  </data>
+  <data name="QualityState5.Text" xml:space="preserve">
+    <value>poor</value>
+  </data>
+  <data name="QualityState6.Text" xml:space="preserve">
+    <value>very poor</value>
+  </data>
+  <data name="QualityState7.Text" xml:space="preserve">
+    <value>not measure</value>
+  </data>
+  <data name="QualityState8.Text" xml:space="preserve">
+    <value>missed data</value>
+  </data>
+  <data name="RegionA" xml:space="preserve">
+    <value>The Capital Prague</value>
+  </data>
+  <data name="RegionB" xml:space="preserve">
+    <value>Southern Moravian Region</value>
+  </data>
+  <data name="RegionC" xml:space="preserve">
+    <value>South Bohemian Region</value>
+  </data>
+  <data name="RegionE" xml:space="preserve">
+    <value>Pardubice Region</value>
+  </data>
+  <data name="RegionH" xml:space="preserve">
+    <value>Hradec Králové Region</value>
+  </data>
+  <data name="RegionJ" xml:space="preserve">
+    <value>Vysočina Region</value>
+  </data>
+  <data name="RegionK" xml:space="preserve">
+    <value>Karlovy Vary Region</value>
+  </data>
+  <data name="RegionL" xml:space="preserve">
+    <value>Liberec Region</value>
+  </data>
+  <data name="RegionM" xml:space="preserve">
+    <value>Olomouc Region</value>
+  </data>
+  <data name="RegionP" xml:space="preserve">
+    <value>Plzeň Region</value>
+  </data>
+  <data name="RegionS" xml:space="preserve">
+    <value>Central Bohemia Region</value>
+  </data>
+  <data name="RegionT" xml:space="preserve">
+    <value>Moravian-Silesian Region</value>
+  </data>
+  <data name="RegionU" xml:space="preserve">
+    <value>Ústí Region</value>
+  </data>
+  <data name="RegionZ" xml:space="preserve">
+    <value>Zlín Region</value>
+  </data>
+  <data name="SelectStation.Text" xml:space="preserve">
+    <value>Select current station manually</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextAbout.Text" xml:space="preserve">
+    <value>App that offers rapid and easy to use detection of air quality and pollution. It can be focused on your location or the set of all stations in the Czech republic. Data source: www.chmi.cz</value>
+  </data>
+  <data name="TextAppSetting.Text" xml:space="preserve">
+    <value>Application settings</value>
+  </data>
+  <data name="TextCurrentStation.Text" xml:space="preserve">
+    <value>Current station</value>
+  </data>
+  <data name="TextDataSource" xml:space="preserve">
+    <value>data source: ČHMI (www.chmi.cz) for Czech Republic</value>
+  </data>
+  <data name="TextDownloading" xml:space="preserve">
+    <value>Data downloading ...</value>
+  </data>
+  <data name="TextGPSDisabled" xml:space="preserve">
+    <value>Localization is disabled</value>
+  </data>
+  <data name="TextLanguage.Text" xml:space="preserve">
+    <value>App language</value>
+  </data>
+  <data name="TextLanguageInfo.Text" xml:space="preserve">
+    <value>App should be restarted. App name will be still based on system language!</value>
+  </data>
+  <data name="TextLanguageSystem.Content" xml:space="preserve">
+    <value>based on system</value>
+  </data>
+  <data name="TextLiveTile.Text" xml:space="preserve">
+    <value>The live tile is updated at intervals of approx. 30 minutes. If the tile is not updated, you should restart this application. The data connection is necessary for automatic tile update! </value>
+  </data>
+  <data name="TextLoading" xml:space="preserve">
+    <value>loading ...</value>
+  </data>
+  <data name="TextParsing" xml:space="preserve">
+    <value>Data processing ...</value>
+  </data>
+  <data name="TextPublisher.Text" xml:space="preserve">
+    <value>author</value>
+  </data>
+  <data name="TextReview.Text" xml:space="preserve">
+    <value>Feel free to review this app and give us the feedback and other ideas for future versions.</value>
+  </data>
+  <data name="TextStarting" xml:space="preserve">
+    <value>GUI updating ...</value>
+  </data>
+  <data name="TextTaskDisabled" xml:space="preserve">
+    <value>Background agents for this application have been disabled by the user.</value>
+  </data>
+  <data name="TextTaskError" xml:space="preserve">
+    <value>It is not possible to register background agent for this application. The tile is not live!</value>
+  </data>
+  <data name="TextTaskFailed.Text" xml:space="preserve">
+    <value>The update failed at {0}!</value>
+  </data>
+  <data name="TextTaskInfo.Text" xml:space="preserve">
+    <value>Information on automatic Live Tile updating</value>
+  </data>
+  <data name="TextTaskOK.Text" xml:space="preserve">
+    <value>Last update was OK at {0}</value>
+  </data>
+  <data name="TextTerms.Text" xml:space="preserve">
+    <value>For the proper operation the App requires a data connection and access to data provider (www.chmi.cz). The localization of your phone can be used to determine the nearest station. All phone location information is used only for internal functionality and is not further processed in any manner or distributed outside of the phone.</value>
+  </data>
+  <data name="TextUpdateTime" xml:space="preserve">
+    <value>updated:</value>
+  </data>
+  <data name="TextVersion.Text" xml:space="preserve">
+    <value>version</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>WARNING</value>
+  </data>
+  <data name="WhatIsNew" xml:space="preserve">
+    <value>What is new?</value>
+  </data>
+  <data name="_news" xml:space="preserve">
+    <value>- global list of currently shared photos
+- overall view of air pollution over the Czech republic
+- visual improvements
+- some bug fixes 
+
+Selected photos are also available at Facebook page...
+
+Try our new project at www.resnap.it!</value>
+  </data>
+  <data name="TextNoData" xml:space="preserve">
+    <value>no data</value>
+  </data>
+  <data name="TextSupport.Text" xml:space="preserve">
+    <value>In case of problems with this app, please mail to info@garvis.cz!</value>
+  </data>
+  <data name="BtnDetailStation.Text" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="AppHistory" xml:space="preserve">
+    <value>history</value>
+  </data>
+  <data name="MsgHistoryError" xml:space="preserve">
+    <value>It is unable to obtain historical data of this station!</value>
+  </data>
+  <data name="TextHistoryElements" xml:space="preserve">
+    <value>Charts of values ​​of individual elements in the last {0} days</value>
+  </data>
+  <data name="TextHistoryQuality" xml:space="preserve">
+    <value>The frequency of air quality index for the last {0} days</value>
+  </data>
+  <data name="AppPhoto" xml:space="preserve">
+    <value>share a photo</value>
+  </data>
+  <data name="AppPhotos" xml:space="preserve">
+    <value>photos</value>
+  </data>
+  <data name="BtnCamera" xml:space="preserve">
+    <value>photo</value>
+  </data>
+  <data name="BtnDetailsPhoto" xml:space="preserve">
+    <value>load photos</value>
+  </data>
+  <data name="BtnSendPhoto" xml:space="preserve">
+    <value>send</value>
+  </data>
+  <data name="BtnSendReset" xml:space="preserve">
+    <value>reset</value>
+  </data>
+  <data name="TextCameraAbout" xml:space="preserve">
+    <value>This application provides the ability to share photos describing the subjective state of the air in your area. Take a photo, rate a condition that expresses, add comments and send it. Each photo is stored in relation to the nearest measuring station.</value>
+  </data>
+  <data name="TextCameraShare" xml:space="preserve">
+    <value>After the approval, the shared photos (and additional information) are shown at the detailed page of a given station. It is always displayed only a limited number of last photos. Selected photos will also be published on the Facebook page of the author of this application.</value>
+  </data>
+  <data name="TextCameraSubmitInfo" xml:space="preserve">
+    <value>Photos should capture both positive and negative states of the air. They should contain general scenery mainly, no human faces or other private content. Photos or comments must not be offensive, vulgar, etc., and must respond to the nature and purpose of the topic described. All submitted photos are approved before publication.</value>
+  </data>
+  <data name="TextCameraTerms" xml:space="preserve">
+    <value>By submitting photos (and additional information) you consent to the free use of them by the authors of this application. Application author reserves the right not to publish photos (or additional information) and accepts no responsibility for the content of the submitted photos. For taking photos and sharing it is necessary to use location-based services and internet data access. The application does not use any direct personally identifiable information of user or phone, but only anonymised Live ID account identifier.</value>
+  </data>
+  <data name="TextDetailsPhoto" xml:space="preserve">
+    <value>You can see last approved photos shared by other users of this application. These photos are related to a given station. You can share the photo too, start at the current station page.</value>
+  </data>
+  <data name="TextInfoCam" xml:space="preserve">
+    <value>Tap to take a photo</value>
+  </data>
+  <data name="TextNote" xml:space="preserve">
+    <value>Note or comment</value>
+  </data>
+  <data name="TextSendDone" xml:space="preserve">
+    <value>Your photo sent successfully. Thank you.</value>
+  </data>
+  <data name="TextSendError" xml:space="preserve">
+    <value>Some error during the sharing your photo!</value>
+  </data>
+  <data name="TextSendImageTitle" xml:space="preserve">
+    <value>Sharing a photo</value>
+  </data>
+  <data name="TextSendSmileSelect" xml:space="preserve">
+    <value>Select a suitable smile according to the photo</value>
+  </data>
+  <data name="TextSendUnable" xml:space="preserve">
+    <value>It is unable to share a photo. The location features and internet connectivity are crucial for it!</value>
+  </data>
+  <data name="TextSendWithoutNote" xml:space="preserve">
+    <value>Do you want to send a photo without note?</value>
+  </data>
+  <data name="TextLastPhoto" xml:space="preserve">
+    <value>last photo:</value>
+  </data>
+  <data name="TextNew" xml:space="preserve">
+    <value>new:</value>
+  </data>
+  <data name="BtnDetailMap.Label" xml:space="preserve">
+    <value>Detailed map</value>
+  </data>
+  <data name="BtnFolder.Label" xml:space="preserve">
+    <value>Upload photo</value>
+  </data>
+  <data name="BtnHome.Label" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="BtnListStation.Label" xml:space="preserve">
+    <value>Station list</value>
+  </data>
+  <data name="BtnStationList.Text" xml:space="preserve">
+    <value>Station list</value>
+  </data>
+  <data name="DataPanelButton" xml:space="preserve">
+    <value>More Data</value>
+  </data>
+  <data name="History.Text" xml:space="preserve">
+    <value>Station status history</value>
+  </data>
+  <data name="MapPanelButton" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MenuInfo" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="MenuPanelButton" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="StatusCO.Text" xml:space="preserve">
+    <value>CO history</value>
+  </data>
+  <data name="StatusNO2.Text" xml:space="preserve">
+    <value>NO₂ history</value>
+  </data>
+  <data name="StatusO3.Text" xml:space="preserve">
+    <value>O₃ history</value>
+  </data>
+  <data name="StatusPM10.Text" xml:space="preserve">
+    <value>PM₁₀ history</value>
+  </data>
+  <data name="StatusSO2.Text" xml:space="preserve">
+    <value>SO₂ history</value>
+  </data>
+  <data name="PhotoBrowse.Label" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="PhotoCamera.Label" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="PhotoComment.Text" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="PhotoName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PhotoSend.Text" xml:space="preserve">
+    <value>Photo upload</value>
+  </data>
+  <data name="PhotoUploadButton.Content" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="FlyoutAbout.Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="FlyoutInfo.Title" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="FlyoutSettings.Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="StatusTitle" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="MapCardClose" xml:space="preserve">
+    <value>Blind Map</value>
+  </data>
+  <data name="MapCardOpen" xml:space="preserve">
+    <value>Detailed map</value>
+  </data>
+  <data name="SortDistance" xml:space="preserve">
+    <value>Sort by distance</value>
+  </data>
+  <data name="SortName" xml:space="preserve">
+    <value>Sort by name</value>
+  </data>
+  <data name="SortQualityAsc" xml:space="preserve">
+    <value>Sort by quality ascending</value>
+  </data>
+  <data name="SortQualityDesc" xml:space="preserve">
+    <value>Sort by quality descending</value>
+  </data>
+  <data name="PollutionStatus" xml:space="preserve">
+    <value>pollution status:</value>
+  </data>
+  <data name="UpdateTime" xml:space="preserve">
+    <value>update time:</value>
+  </data>
+</root>

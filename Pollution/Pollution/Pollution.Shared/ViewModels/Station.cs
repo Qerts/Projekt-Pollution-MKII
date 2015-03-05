@@ -2,10 +2,13 @@
 using System.ComponentModel;
 using System.Net;
 using System.Windows;
+using Windows.ApplicationModel.Resources;
+using Windows.Devices.Geolocation;
 //using Resources;
 
 namespace Pollution.ViewModels
 {
+    
 
     public enum EStationClassification
     {
@@ -19,12 +22,13 @@ namespace Pollution.ViewModels
 
     public class Station: INotifyPropertyChanged
     {
+        private ResourceLoader _resourceLoader = new ResourceLoader();
         private int id;
         private string code;
         private string name;
         private string owner;
         private int quality;
-        //private GeoCoordinate position;
+        private MyGeocoordinate position;
         private PElement so2;
         private PElement no2;
         private PElement co;
@@ -42,7 +46,7 @@ namespace Pollution.ViewModels
             name = "";
             owner = "";
             quality = 0;
-            //position = new GeoCoordinate();
+            position = null;
             so2 = new PElement(EPElementType.SO2);
             no2 = new PElement(EPElementType.NO2);
             co = new PElement(EPElementType.CO);
@@ -54,7 +58,7 @@ namespace Pollution.ViewModels
             lastPhoto = null;
         }
 
-        public Station(int _id, string _code, string _name, string _owner, EStationClassification _class, int _quality,/* GeoCoordinate _position,*/ PElement _so2, PElement _no2, PElement _co, PElement _o3, PElement _pm10, PElement _pm24, DateTime? lp = null)
+        public Station(int _id, string _code, string _name, string _owner, EStationClassification _class, int _quality, MyGeocoordinate _position, PElement _so2, PElement _no2, PElement _co, PElement _o3, PElement _pm10, PElement _pm24, DateTime? lp = null)
         {
             id = _id;
             code = _code;
@@ -62,7 +66,7 @@ namespace Pollution.ViewModels
             owner = _owner;
             classification = _class;
             quality = _quality;
-            //position = _position;
+            position = _position;
             so2 = _so2;
             no2 = _no2;
             co = _co;
@@ -117,13 +121,13 @@ namespace Pollution.ViewModels
 
             }
         }
-        /*
-        public GeoCoordinate Position
+        
+        public MyGeocoordinate Position
         {
             get { return position; }
             set { if (position != value) { position = value; NotifyPropertyChanged("Position"); } }
         }
-        */
+        
         public PElement So2
         {
             get { return so2; }
@@ -165,26 +169,26 @@ namespace Pollution.ViewModels
             get { return lastPhoto; }
             set { if (lastPhoto != value) { lastPhoto = value; NotifyPropertyChanged("LastPhoto"); } }
         }
-        /*
+        
         public string LastPhotoString
         {
             get 
             { 
-                if (lastPhoto != null) return ((DateTime)LastPhoto).ToShortDateString();
+                if (lastPhoto != null) return ((DateTime)LastPhoto).ToString("d");
+
                 return "-";
             }
         }
-        */ 
-        /*
+        
         public string DistanceLastPhotoString
         {
             get
             {
                 if (lastPhoto == null) return DistanceString;
-                return DistanceString + " | " + AppResources.TextLastPhoto+" "+LastPhotoString;
+                return DistanceString + " | " + _resourceLoader.GetString("LastPhotoText") + " " + LastPhotoString;
             }
         }
-        */
+        
         public double Distance
         {
             get { return distance; }
@@ -200,66 +204,75 @@ namespace Pollution.ViewModels
                 return string.Format("{0:0} km", distance/1000);
             }
         }
-        /*
+        
         public string Region
         {
             get
             {
-                switch(code[0])
+                if (code != "")
                 {
-                    case 'A': return AppResources.RegionA;
-                    case 'S': return AppResources.RegionS;
-                    case 'C': return AppResources.RegionC;
-                    case 'P': return AppResources.RegionP;
-                    case 'K': return AppResources.RegionK;
-                    case 'U': return AppResources.RegionU;
-                    case 'L': return AppResources.RegionL;
-                    case 'H': return AppResources.RegionH;
-                    case 'E': return AppResources.RegionE;
-                    case 'J': return AppResources.RegionJ;
-                    case 'B': return AppResources.RegionB;
-                    case 'M': return AppResources.RegionM;
-                    case 'Z': return AppResources.RegionZ;
-                    case 'T': return AppResources.RegionT;
+                    switch (code[0])
+                    {
+                        case 'A': return _resourceLoader.GetString("RegionA");
+                        case 'S': return _resourceLoader.GetString("RegionS");
+                        case 'C': return _resourceLoader.GetString("RegionC");
+                        case 'P': return _resourceLoader.GetString("RegionP");
+                        case 'K': return _resourceLoader.GetString("RegionK");
+                        case 'U': return _resourceLoader.GetString("RegionU");
+                        case 'L': return _resourceLoader.GetString("RegionL");
+                        case 'H': return _resourceLoader.GetString("RegionH");
+                        case 'E': return _resourceLoader.GetString("RegionE");
+                        case 'J': return _resourceLoader.GetString("RegionJ");
+                        case 'B': return _resourceLoader.GetString("RegionB");
+                        case 'M': return _resourceLoader.GetString("RegionM");
+                        case 'Z': return _resourceLoader.GetString("RegionZ");
+                        case 'T': return _resourceLoader.GetString("RegionT");
+                    } 
                 }
                 return "";
             }
         }
-        */
-        /*
+        
         public string Description
         {
             get
             {
-                //string s = Region + " | " + Code;
+                
                 string s = Region;
                 if (Classification == EStationClassification.NONE) return s;
 
                 switch(Classification)
                 {
-                    case EStationClassification.TRAFFIC: s = s + " | " + AppResources.ClassTraffic; break;
-                    case EStationClassification.INTERCITY: s = s + " | " + AppResources.ClassIntercity; break;
-                    case EStationClassification.AROUNDCITY: s = s + " | " + AppResources.ClassAroundcity; break;
-                    case EStationClassification.VILLAGE: s = s + " | " + AppResources.ClassVillage; break;
-                    case EStationClassification.INDUSTRY: s = s + " | " + AppResources.ClassIndustry; break;
+                    case EStationClassification.TRAFFIC: s = s + " | " + _resourceLoader.GetString("ClassTraffic"); break;
+                    case EStationClassification.INTERCITY: s = s + " | " + _resourceLoader.GetString("ClassIntercity"); ; break;
+                    case EStationClassification.AROUNDCITY: s = s + " | " + _resourceLoader.GetString("ClassAroundcity"); ; break;
+                    case EStationClassification.VILLAGE: s = s + " | " + _resourceLoader.GetString("ClassVillage"); ; break;
+                    case EStationClassification.INDUSTRY: s = s + " | " + _resourceLoader.GetString("ClassIndustry"); ; break;
                 }
 
                 return s;
             }
         }
-        */
-        /*
+        
+        
         public string Location
         {
             get
             {
-                GpsAngle la = GpsAngle.FromDouble(Position.Latitude);
-                GpsAngle lo = GpsAngle.FromDouble(Position.Longitude);
+                GpsAngle la = new GpsAngle();
+                GpsAngle lo = new GpsAngle();
+                
+                if (Position != null)
+	            {
+		            la = GpsAngle.FromDouble(Position.Latitude); 	            
+                    lo = GpsAngle.FromDouble(Position.Longitude);
+                }
+                
+                return la.ToString("ns") + ", " + lo.ToString("we") + " (+" + DistanceString + ")";
 
-                return la.ToString("ns")+", "+lo.ToString("we")+" (+"+DistanceString+")";
             }
         }
-        */
+        
         public void UpdateStatesBasedOnValues()
         {
             PGraph pg;

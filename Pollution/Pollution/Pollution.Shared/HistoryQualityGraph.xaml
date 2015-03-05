@@ -1,0 +1,43 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Pollution_ViewModels="clr-namespace:Pollution.ViewModels"
+    xmlns:Utils="using:Utils"
+	mc:Ignorable="d"
+	x:Class="Pollution.HistoryQualityGraph"
+	d:DesignWidth="75" d:DesignHeight="260" LayoutUpdated="UserControl_LayoutUpdated" Width="400" Height="260">
+
+	<UserControl.Resources>
+		<Utils:ColorQualityConverter x:Key="ColorConverter" />
+		<Storyboard x:Name="IndicatorAnimation"/>
+	</UserControl.Resources>
+
+	<Canvas x:Name="LayoutRoot" Background="Transparent">
+        <Path x:Name="line11" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="220" UseLayoutRounding="False" Width="400" Opacity="0.6"/>
+		<Path x:Name="line13" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="171" UseLayoutRounding="False" Width="400" Opacity="0.5" StrokeDashArray="2"/>
+		<TextBlock x:Name="label13" TextWrapping="Wrap" Canvas.Top="158" FontSize="10.667" Width="45" Text="123" Opacity="0.5"/>
+		<Path x:Name="line23" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="109" UseLayoutRounding="False" Width="400" Opacity="0.5" StrokeDashArray="2"/>
+		<TextBlock x:Name="label23" TextWrapping="Wrap" Canvas.Top="95" FontSize="10.667" Width="45" Text="123" Opacity="0.5"/>
+		
+		<Rectangle x:Name="bar1" Fill="{Binding Referenced.State1, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="30" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar2" Fill="{Binding Referenced.State2, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="77" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar3" Fill="{Binding Referenced.State3, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="124" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar4" Fill="{Binding Referenced.State4, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="171" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar5" Fill="{Binding Referenced.State5, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="218" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar6" Fill="{Binding Referenced.State6, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="265" Canvas.Top="120" Width="30"/>
+		<Rectangle x:Name="bar7" Fill="{Binding Referenced.State7, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="312" Canvas.Top="120" Width="30" Opacity="0.6"/>
+		<Rectangle x:Name="bar8" Fill="{Binding Referenced.State8, Converter={StaticResource ColorConverter}, Mode=OneWay}" Height="100" Canvas.Left="359" Canvas.Top="120" Width="30" Opacity="0.6"/>
+		<!--
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState1, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="22" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState2, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="69" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState3, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="116" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState4, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="163" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState5, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="210" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState6, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="257" TextAlignment="Center"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState7, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="304" TextAlignment="Center" Opacity="0.6"/>
+		<TextBlock TextWrapping="Wrap" Text="{Binding LocalizedResources.QualityState8, Source={StaticResource Resources}}" Canvas.Top="224" FontSize="9.333" Width="45" Canvas.Left="351" TextAlignment="Center" Opacity="0.6"/>		
+		-->
+	</Canvas>
+</UserControl>

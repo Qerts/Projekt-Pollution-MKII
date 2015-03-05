@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
@@ -15,7 +16,9 @@ namespace Pollution
         private static Tuple<int, StatusName, string> NO2 = Tuple.Create(600, StatusName.Bad, "NO\x2082");
         private static Tuple<int, StatusName, string> CO = Tuple.Create(23, StatusName.VeryGood, "CO");
         private static Tuple<int, StatusName, string> PM10 = Tuple.Create(45568, StatusName.VeryBad, "PM\x2081\x2080");
-        
+
+        public static int sample1State = 1;
+
 
         private static string STATION_NAME = "Ostrava-Fifejdy";
         private static string STATION_REGION = "Moravskoslezský kraj";
@@ -103,7 +106,18 @@ namespace Pollution
 
         public static StatusName getMainMood() 
         {
-            return StatusName.VeryGood;
+            switch (App.ViewModel.CurrentStation.Quality)
+            {
+                case 1: return StatusName.VeryGood;
+                case 2: return StatusName.Good;
+                case 3: return StatusName.Suitable;
+                case 4: return StatusName.Satisfying;
+                case 5: return StatusName.Bad;
+                case 6: return StatusName.VeryBad;
+                case 7: return StatusName.NoData;
+                case 8: return StatusName.NoMeasurement;
+            }
+            return StatusName.NoMeasurement;
         }
 
         public static string getString_NO2() { return NO2.Item3; }
@@ -152,7 +166,7 @@ namespace Pollution
                 case StatusName.VeryBad:
                     return Tuple.Create(new SolidColorBrush(Color.FromArgb(255, 207, 51, 27)), "velmi špatné", @"ms-appx:SharedAssets/Smiley2.gif");
                 case StatusName.NoData:
-                    return Tuple.Create(new SolidColorBrush(Color.FromArgb(255, 143, 143, 143)), "nejsou data", @"ms-appx:SharedAssets/Smiley1.gif");
+                    return Tuple.Create(new SolidColorBrush(Color.FromArgb(255, 143, 143, 143)), "nejsou data", @"ms-appx:SharedAssets/Smiley0.gif");
                 case StatusName.NoMeasurement:
                     return Tuple.Create(new SolidColorBrush(Color.FromArgb(255, 138, 137, 156)), "neměří se", @"ms-appx:SharedAssets/Smiley0.gif");
                 default:
@@ -160,216 +174,6 @@ namespace Pollution
             }
         }
 
-        /*
-        /// <summary>
-        /// Tato funkce byla zamyslena takto:
-        /// Funkce prevezme hodnoty jednotlivych slozek.
-        /// Porovna je viz GetColorAndStatus funkce, dle skal jednotlivych slozek.
-        /// Aktualizuje status slozky.
-        /// Pri dotazu na slozku se tak staci zeptat na jeji status a vytahnout si barvu a string z tabulky.
-        /// Tato tabulka jeste neexistuje.
-        /// </summary>
-        public static void setStatuses() 
-        {
-            int value = SO2_VALUE;
-            if (value < 120)
-            {
-                if (value < 50)
-                {
-                    if (value < 25)
-                    {
-                        SO2_STATUS = StatusName.Status.VeryGood;
-                    }
-                    else
-                    {
-                        SO2_STATUS = StatusName.Status.Good;
-                    }
-                }
-                else
-                {
-                    SO2_STATUS = StatusName.Status.Satisfying;
-                }
-            }
-            else
-            {
-                if (value < 350)
-                {
-                    SO2_STATUS = StatusName.Status.Suitable;
-                }
-                else
-                {
-                    if (value < 500)
-                    {
-                        SO2_STATUS = StatusName.Status.Bad;
-                    }
-                    else
-                    {
-                        SO2_STATUS = StatusName.Status.VeryBad;
-                    }
-                }
-            }
-
-            value = O3_VALUE;
-            if (value < 120)
-            {
-                if (value < 65)
-                {
-                    if (value < 33)
-                    {
-                        O3_STATUS = StatusName.Status.VeryGood;
-                    }
-                    else
-                    {
-                        O3_STATUS = StatusName.Status.Good;
-                    }
-                }
-                else
-                {
-                        O3_STATUS = StatusName.Status.Satisfying;
-                }
-            }
-            else
-            {
-                if (value < 180)
-                {
-                        O3_STATUS = StatusName.Status.Suitable;
-                }
-                else
-                {
-                    if (value < 240)
-                    {
-                        O3_STATUS = StatusName.Status.Bad;
-                    }
-                    else
-                    {
-                        O3_STATUS = StatusName.Status.VeryBad;
-                    }
-                }
-            }
-
-            value = NO2_VALUE;
-            if (value < 100)
-            {
-                if (value < 50)
-                {
-                    if (value < 25)
-                    {
-                        NO2_STATUS = StatusName.Status.VeryGood;
-                    }
-                    else
-                    {
-                        NO2_STATUS = StatusName.Status.Good;
-                    }
-                }
-                else
-                {
-                        NO2_STATUS = StatusName.Status.Satisfying;
-                }
-            }
-            else
-            {
-                if (value < 200)
-                {
-                        NO2_STATUS = StatusName.Status.Suitable;
-                }
-                else
-                {
-                    if (value < 400)
-                    {
-                        NO2_STATUS = StatusName.Status.Bad;
-                    }
-                    else
-                    {
-                        NO2_STATUS = StatusName.Status.VeryBad;
-                    }
-                }
-            }
-
-            value = CO_VALUE;
-            if (value < 4000)
-            {
-                if (value < 2000)
-                {
-                    if (value < 1000)
-                    {
-                        CO_STATUS = StatusName.Status.VeryGood;
-                    }
-                    else
-                    {
-                        CO_STATUS = StatusName.Status.Good;
-                    }
-                }
-                else
-                {
-                        CO_STATUS = StatusName.Status.Satisfying;
-                }
-            }
-            else
-            {
-                if (value < 10000)
-                {
-                        CO_STATUS = StatusName.Status.Suitable;
-                }
-                else
-                {
-                    if (value < 30000)
-                    {
-                        CO_STATUS = StatusName.Status.Bad;
-                    }
-                    else
-                    {
-                        CO_STATUS = StatusName.Status.VeryBad;
-                    }
-                }
-            }
-
-            value = PM10_VALUE;
-            if (value < 70)
-            {
-                if (value < 40)
-                {
-                    if (value < 20)
-                    {
-                        PM10_STATUS = StatusName.Status.VeryGood;
-                    }
-                    else
-                    {
-                        PM10_STATUS = StatusName.Status.Good;
-                    }
-                }
-                else
-                {
-                        PM10_STATUS = StatusName.Status.Satisfying;
-                }
-            }
-            else
-            {
-                if (value < 90)
-                {
-                        PM10_STATUS = StatusName.Status.Suitable;
-                }
-                else
-                {
-                    if (value < 180)
-                    {
-                        PM10_STATUS = StatusName.Status.Bad;
-                    }
-                    else
-                    {
-                        PM10_STATUS = StatusName.Status.VeryBad;
-                    }
-                }
-            }
-
-        }
-
-        public static Tuple<SolidColorBrush, string> GetSO2ColorAndStatus()
-        {
-            return getColorAndStatus(SO2_STATUS);
-            
-
-        }
-        */
         public static Tuple<SolidColorBrush,string> GetSO2ColorAndStatus() 
         {
             int value = SO2.Item1;
@@ -416,8 +220,7 @@ namespace Pollution
                 }
             }
             
-        }
-         
+        }         
         public static Tuple<SolidColorBrush, string> GetO3ColorAndStatus() 
         {
             int value = O3.Item1;
@@ -604,6 +407,22 @@ namespace Pollution
                 }
             }
 
+        }
+
+
+        public static void CommandHandlers(IUICommand commandLabel)
+        {
+            var Actions = commandLabel.Label;
+            switch (Actions)
+            {
+
+                case "Ok":
+                    //rootPage.Focus(Windows.UI.Xaml.FocusState.Pointer);
+                    break;
+                case "Quit":
+                    Application.Current.Exit();
+                    break;
+            }
         }
         
     }

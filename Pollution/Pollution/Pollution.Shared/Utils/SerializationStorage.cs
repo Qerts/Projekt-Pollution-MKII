@@ -55,16 +55,18 @@ namespace Utils
         {
             try
             {
+                Stream stream;
                 var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 var file = await folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-                Stream stream;
-
                 stream = await file.OpenStreamForWriteAsync();
-                Serialize(stream, o);
-                
-
-
-
+                if (o == null || stream == null)
+                { }
+                else
+                {
+                    DataContractSerializer ser = new DataContractSerializer(o.GetType());
+                    ser.WriteObject(stream, o);
+                    stream.Dispose();
+                }     
                 return true;
             }
             catch (Exception e)

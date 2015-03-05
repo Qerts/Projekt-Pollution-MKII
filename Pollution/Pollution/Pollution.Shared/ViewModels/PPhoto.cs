@@ -12,7 +12,7 @@ namespace Pollution.ViewModels
     public class PPhoto
     {
 
-        bool darkTheme = ((Visibility)Application.Current.Resources["PhoneDarkThemeVisibility"] == Visibility.Visible);
+        //bool darkTheme = ((Visibility)Application.Current.Resources["PhoneDarkThemeVisibility"] == Visibility.Visible);
 
         public string URL;
         public int Smile;
@@ -25,12 +25,12 @@ namespace Pollution.ViewModels
             get { return "http://data.garvis.cz/pollution/Uploads/" + URL; }
             set { }
         }
-        /*
+        
         public string TimeText
         {
-            get { return Time.ToShortDateString() + " " + Time.ToLongTimeString(); }
+            get { return Time.ToString("d"); }
         }
-        */
+        
         public string StationText
         {
             get { if (Station == null) return "";  return Station.Name; }
@@ -46,9 +46,7 @@ namespace Pollution.ViewModels
         {
             get
             {
-                string c = "black";
-                if (darkTheme) { c = "white"; }
-                return new BitmapImage(new Uri("/icons/icon-smile"+Smile+"-"+(darkTheme?"white":"black")+".png", UriKind.RelativeOrAbsolute));
+                return new BitmapImage(new Uri("ms-appx:///SharedAssets/icon-smile" + Smile + "-" + "white" + ".png", UriKind.RelativeOrAbsolute));
             }
 
         }

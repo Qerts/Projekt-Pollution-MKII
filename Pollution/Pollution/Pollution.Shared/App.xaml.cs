@@ -6,8 +6,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,6 +18,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+#if WINDOWS_APP
+using Pollution.Flyouts;
+using Windows.UI.ApplicationSettings; 
+#endif
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -28,6 +34,7 @@ namespace Pollution
     public sealed partial class App : Application
     {
         private static StationViewModel viewModel = null;
+        private ResourceLoader _resourceLoader = new ResourceLoader();
 
         /// <summary>
         /// A static ViewModel used by the views to bind against.
@@ -154,5 +161,43 @@ namespace Pollution
             // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+#if WINDOWS_APP
+
+        //vlastni kod
+        public void ShowCustomSettingFlyout()
+        {
+            FlyoutAbout CustomSettingFlyout = new FlyoutAbout();
+            CustomSettingFlyout.Show();
+
+        }
+        public void ShowCustomSettingFlyout2()
+        {
+            FlyoutSettings CustomSettingFlyout2 = new FlyoutSettings();
+            CustomSettingFlyout2.Show();
+        }
+        public void ShowCustomSettingFlyout3()
+        {
+            FlyoutInformations CustomSettingFlyout3 = new FlyoutInformations();
+            CustomSettingFlyout3.Show();
+        }
+
+        protected override void OnWindowCreated(WindowCreatedEventArgs args)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+        }
+
+        private void OnCommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                "MenuAbout", _resourceLoader.GetString("MenuAbout"), (handler) => ShowCustomSettingFlyout()));
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                "MenuSettings", _resourceLoader.GetString("MenuSettings/Text"), (handler) => ShowCustomSettingFlyout2()));
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                "MenuInformations", _resourceLoader.GetString("MenuInfo"), (handler) => ShowCustomSettingFlyout3()));
+        } 
+#endif
+        
     }
 }

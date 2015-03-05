@@ -124,15 +124,49 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
-            _typeNameTable[0] = "Pollution.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable = new string[20];
+            _typeNameTable[0] = "Pollution.Flyouts.FlyoutAbout";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.SettingsFlyout";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[3] = "Pollution.Flyouts.FlyoutInformations";
+            _typeNameTable[4] = "Pollution.Flyouts.FlyoutSettings";
+            _typeNameTable[5] = "Utils.ColorQualityConverter";
+            _typeNameTable[6] = "Object";
+            _typeNameTable[7] = "Pollution.CzechMap";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[9] = "Pollution.PElementGraph";
+            _typeNameTable[10] = "Pollution.MainPage";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Pollution.StationList";
+            _typeNameTable[13] = "Pollution.Common.ObservableDictionary";
+            _typeNameTable[14] = "String";
+            _typeNameTable[15] = "Pollution.Common.NavigationHelper";
+            _typeNameTable[16] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[17] = "Pollution.HistoryElementGraph";
+            _typeNameTable[18] = "Pollution.HistoryQualityGraph";
+            _typeNameTable[19] = "Pollution.StationPage";
 
-            _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::Pollution.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable = new global::System.Type[20];
+            _typeTable[0] = typeof(global::Pollution.Flyouts.FlyoutAbout);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.SettingsFlyout);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[3] = typeof(global::Pollution.Flyouts.FlyoutInformations);
+            _typeTable[4] = typeof(global::Pollution.Flyouts.FlyoutSettings);
+            _typeTable[5] = typeof(global::Utils.ColorQualityConverter);
+            _typeTable[6] = typeof(global::System.Object);
+            _typeTable[7] = typeof(global::Pollution.CzechMap);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[9] = typeof(global::Pollution.PElementGraph);
+            _typeTable[10] = typeof(global::Pollution.MainPage);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Pollution.StationList);
+            _typeTable[13] = typeof(global::Pollution.Common.ObservableDictionary);
+            _typeTable[14] = typeof(global::System.String);
+            _typeTable[15] = typeof(global::Pollution.Common.NavigationHelper);
+            _typeTable[16] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[17] = typeof(global::Pollution.HistoryElementGraph);
+            _typeTable[18] = typeof(global::Pollution.HistoryQualityGraph);
+            _typeTable[19] = typeof(global::Pollution.StationPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -167,7 +201,25 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::Pollution.MainPage(); }
+        private object Activate_0_FlyoutAbout() { return new global::Pollution.Flyouts.FlyoutAbout(); }
+        private object Activate_3_FlyoutInformations() { return new global::Pollution.Flyouts.FlyoutInformations(); }
+        private object Activate_4_FlyoutSettings() { return new global::Pollution.Flyouts.FlyoutSettings(); }
+        private object Activate_5_ColorQualityConverter() { return new global::Utils.ColorQualityConverter(); }
+        private object Activate_7_CzechMap() { return new global::Pollution.CzechMap(); }
+        private object Activate_9_PElementGraph() { return new global::Pollution.PElementGraph(); }
+        private object Activate_10_MainPage() { return new global::Pollution.MainPage(); }
+        private object Activate_12_StationList() { return new global::Pollution.StationList(); }
+        private object Activate_13_ObservableDictionary() { return new global::Pollution.Common.ObservableDictionary(); }
+        private object Activate_17_HistoryElementGraph() { return new global::Pollution.HistoryElementGraph(); }
+        private object Activate_18_HistoryQualityGraph() { return new global::Pollution.HistoryQualityGraph(); }
+        private object Activate_19_StationPage() { return new global::Pollution.StationPage(); }
+        private void MapAdd_13_ObservableDictionary(object instance, object key, object item)
+        {
+            var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
+            var newKey = (global::System.String)key;
+            var newItem = (global::System.Object)item;
+            collection.Add(newKey, newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -179,30 +231,192 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Pollution.MainPage
-                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+            case 0:   //  Pollution.Flyouts.FlyoutAbout
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_0_FlyoutAbout;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Windows.UI.Xaml.Controls.SettingsFlyout
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Pollution.Flyouts.FlyoutInformations
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_3_FlyoutInformations;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Pollution.Flyouts.FlyoutSettings
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_4_FlyoutSettings;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Utils.ColorQualityConverter
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_5_ColorQualityConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  Object
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Pollution.CzechMap
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_7_CzechMap;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Pollution.PElementGraph
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_9_PElementGraph;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Pollution.MainPage
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Pollution.StationList
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_StationList;
+                userType.AddMemberName("DefaultViewModel");
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Pollution.Common.ObservableDictionary
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.DictionaryAdd = MapAdd_13_ObservableDictionary;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  String
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Pollution.Common.NavigationHelper
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 17:   //  Pollution.HistoryElementGraph
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_17_HistoryElementGraph;
+                userType.AddMemberName("ElementType");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  Pollution.HistoryQualityGraph
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_18_HistoryQualityGraph;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  Pollution.StationPage
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_19_StationPage;
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
+        private object get_0_StationList_DefaultViewModel(object instance)
+        {
+            var that = (global::Pollution.StationList)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_1_StationList_NavigationHelper(object instance)
+        {
+            var that = (global::Pollution.StationList)instance;
+            return that.NavigationHelper;
+        }
+        private object get_2_HistoryElementGraph_ElementType(object instance)
+        {
+            var that = (global::Pollution.HistoryElementGraph)instance;
+            return that.ElementType;
+        }
+        private void set_2_HistoryElementGraph_ElementType(object instance, object Value)
+        {
+            var that = (global::Pollution.HistoryElementGraph)instance;
+            that.ElementType = (global::System.String)Value;
+        }
+        private object get_3_StationPage_NavigationHelper(object instance)
+        {
+            var that = (global::Pollution.StationPage)instance;
+            return that.NavigationHelper;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::Pollution.Pollution_Windows_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Pollution.StationList.DefaultViewModel":
+                userType = (global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Pollution.StationList");
+                xamlMember = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Pollution.Common.ObservableDictionary");
+                xamlMember.Getter = get_0_StationList_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Pollution.StationList.NavigationHelper":
+                userType = (global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Pollution.StationList");
+                xamlMember = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Pollution.Common.NavigationHelper");
+                xamlMember.Getter = get_1_StationList_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Pollution.HistoryElementGraph.ElementType":
+                userType = (global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Pollution.HistoryElementGraph");
+                xamlMember = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlMember(this, "ElementType", "String");
+                xamlMember.Getter = get_2_HistoryElementGraph_ElementType;
+                xamlMember.Setter = set_2_HistoryElementGraph_ElementType;
+                break;
+            case "Pollution.StationPage.NavigationHelper":
+                userType = (global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Pollution.StationPage");
+                xamlMember = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Pollution.Common.NavigationHelper");
+                xamlMember.Getter = get_3_StationPage_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }

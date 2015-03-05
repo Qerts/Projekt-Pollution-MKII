@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Net;
 using System.Windows;
-//using System.Windows.Controls;
-//using System.Windows.Documents;
-//using System.Windows.Ink;
 using System.Windows.Input;
-//using System.Windows.Media;
-//using System.Windows.Media.Animation;
-//using System.Windows.Shapes;
 using System.Linq;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
-//using System.Device.Location;
 using System.Collections.Generic;
 using System.Xml;
-//using Microsoft.Phone.Controls.Maps;
-//using Microsoft.Phone.Shell;
-//using System.IO.IsolatedStorage;
 using System.Globalization;
-//using System.Windows.Threading;
-//using Resources;
 using System.IO;
 using Utils;
-//using Utils;
+using Windows.Devices.Geolocation;
+using Windows.Foundation;
+using Windows.ApplicationModel.Resources;
+using Windows.UI.Popups;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 
 namespace Pollution.ViewModels
 {
@@ -34,237 +29,52 @@ namespace Pollution.ViewModels
 
     public class StationViewModel : INotifyPropertyChanged
     {
+        #region /// PROPERTIES ///
         public ObservableCollection<Station> Stations { get; private set; }
-        //private Dictionary<string, GeoCoordinate> StationPositions { set; get; }
+        private Dictionary<string, MyGeocoordinate> StationPositions { set; get; }
         private Dictionary<int, int> stationCount { set; get; }
-        //private GeoCoordinateWatcher watcher;
-
-        private ESortStationType currentSort;
-
-        //public GeoCoordinate MyPosition { set; get; }
-
-        private Station nearestStation;
-        private Station currentStation;
-        private Station detailsStation;
-
-        private Station cameraStation;
-
-        private PHistory historyDetailsStation;
-        private List<PPhoto> photosDetailsStation;
-        private List<PPhoto> photosGlobal;
-
-
-        private DateTime dataTime;
-
-        //private string pivotPhotosHeader = AppResources.AppPhotos;
-
         public string RawData { get; set; }
-        //public PinManager PinManager { get; set; }
-        //public Pin PinMan { get; set; }
+        public PinManager PinManager { get; set; }
+        public Pin PinMan { get; set; }
+        private DateTime lastPositionTime;
+        public DateTime LastPositionTime
+        {
+            get
+            {
+                return lastPositionTime;
+            }
+            set
+            {
+                if (value != lastPositionTime)
+                {
+                    lastPositionTime = value;
+                    if (value != null)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            NotifyPropertyChanged("LastPositionTime");
+                        });
 
-        public DateTime LastPositionTime { get; set; }
+                    }
+
+                }
+
+            }
+        }
         public bool AutoCurrentNearest { get; set; }
-
-        public StationViewModel()
-        {
-            Stations = new ObservableCollection<Station>();
-            //PinManager = new PinManager();
-            //PinMan = new Pin(EPinType.MAN);
-            //PinMan.IsSelected = true;
-
-            stationCount = new Dictionary<int, int>();
-
-            /*CurrentStation = new Station();
-            DetailsStation = new Station();
-            NearestStation = new Station();
-            MyPosition = null;*/
-
-        }
-
-
-        // Indicates if data is loaded
         public bool IsDataLoaded { private set; get; }
-        private bool isBusy = false;
-        /// <summary>
-        /// Indikace, že se provádí operace nad zdroji
-        /// </summary>
-        public bool IsBusy
-        {
-            get
-            {
-                return isBusy;
-            }
-            set
-            {
-                if (value != isBusy)
-                {
-                    isBusy = value;
-                    //NotifyPropertyChanged("IsBusy");
-                }
-            }
-        }
 
-        private bool isGPSBusy = false;
-        /// <summary>
-        /// Indikace, že se provádí operace nad zdroji
-        /// </summary>
-        public bool IsGPSBusy
-        {
-            get
-            {
-                return isGPSBusy;
-            }
-            set
-            {
-                if (value != isGPSBusy)
-                {
-                    isGPSBusy = value;
-                    //NotifyPropertyChanged("IsGPSBusy");
-                }
-            }
-        }
-
-        private bool isGPS = true;
-        /// <summary>
-        /// Indikace, že se provádí operace nad zdroji
-        /// </summary>
-        public bool IsGPS
-        {
-            get
-            {
-                return isGPS;
-            }
-            set
-            {
-                if (value != isGPS)
-                {
-                    isGPS = value;
-                    //NotifyPropertyChanged("IsGPS");
-                }
-            }
-        }
-
-        public Station NearestStation
-        {
-            get
-            {
-                return nearestStation;
-            }
-            set
-            {
-                if (value != nearestStation)
-                {
-                    nearestStation = value;
-                    if (value != null) NotifyPropertyChanged("NearestStation");
-
-                    //IsolatedStorageSettings.ApplicationSettings["lastNearestStation"] = value.Code;
-
-                }
-
-            }
-        }
-        public Station CurrentStation
-        {
-            get
-            {
-                return currentStation;
-            }
-            set
-            {
-                if (value != currentStation)
-                {
-                    currentStation = value;
-                    //if (value != null) NotifyPropertyChanged("CurrentStation");
-
-                }
-
-            }
-        }
-
-        public Station DetailsStation
-        {
-            get
-            {
-                return detailsStation;
-            }
-            set
-            {
-                if (value != detailsStation)
-                {
-                    detailsStation = value;
-                    //if (value != null) NotifyPropertyChanged("DetailsStation");
-
-                }
-            }
-        }
-
-        public Station CameraStation
-        {
-            get
-            {
-                return cameraStation;
-            }
-            set
-            {
-                if (value != cameraStation)
-                {
-                    cameraStation = value;
-                    //if (value != null) NotifyPropertyChanged("CameraStation");
-
-                }
-            }
-        }
-
-        public PHistory HistoryDetailsStation
-        {
-            get
-            {
-                return historyDetailsStation;
-            }
-            set
-            {
-                if (value != historyDetailsStation)
-                {
-                    historyDetailsStation = value;
-                    //if (value != null) NotifyPropertyChanged("HistoryDetailsStation");
-                }
-
-            }
-        }
-
-        public List<PPhoto> PhotosDetailsStation
-        {
-            get
-            {
-                return photosDetailsStation;
-            }
-            set
-            {
-                if (value != photosDetailsStation)
-                {
-                    photosDetailsStation = value;
-                    //if (value != null) NotifyPropertyChanged("PhotosDetailsStation");
-                }
-
-            }
-        }
-
-        public List<PPhoto> PhotosGlobal
-        {
-            get
-            {
-                return photosGlobal;
-            }
-            set
-            {
-                if (value != photosGlobal)
-                {
-                    photosGlobal = value;
-                    //if (value != null) NotifyPropertyChanged("PhotosGlobal");
-                }
-
-            }
-        }
+        //lokátor gps
+        private Geolocator locator;
+        //localsettings
+        private Windows.Storage.ApplicationDataContainer _localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        //resources
+        private ResourceLoader _resourceLoader = new ResourceLoader();
+        //
+        private DateTime dataTime;
+        //
+        private string pivotPhotosHeader;
+        GPSService _gpsService = new GPSService();
 
         public Dictionary<int, int> StationCount
         {
@@ -273,7 +83,6 @@ namespace Pollution.ViewModels
                 return stationCount;
             }
         }
-
         public DateTime DataTime
         {
             get
@@ -285,12 +94,10 @@ namespace Pollution.ViewModels
                 if (value != dataTime)
                 {
                     dataTime = value;
-                    //NotifyPropertyChanged("DataTime");
+                    NotifyPropertyChanged("DataTime");
                 }
             }
         }
-
-        /*
         public string PivotPhotosHeader
         {
             get
@@ -306,58 +113,251 @@ namespace Pollution.ViewModels
                 }
             }
         }
-        */
-        public void DoLoadData()
+
+        private ESortStationType currentSort;
+        private MyGeocoordinate myPosition;
+        public MyGeocoordinate MyPosition
+        {
+            get
+            {
+                return myPosition;
+            }
+            set
+            {
+                if (value != myPosition)
+                {
+                    myPosition = value;
+                    if (value != null)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            NotifyPropertyChanged("MyPosition");
+                        });
+                        
+                    }
+
+                }
+
+            }
+        }
+        private Station nearestStation;
+        public Station NearestStation
+        {
+            get
+            {
+                return nearestStation;
+            }
+            set
+            {
+                if (value != nearestStation)
+                {
+                    nearestStation = value;
+                    if (value != null)
+                    {
+                        NotifyPropertyChanged("NearestStation");
+
+                        //IsolatedStorageSettings.ApplicationSettings["lastNearestStation"] = value.Code;
+                        _localSettings.Containers["AppSettings"].Values["lastNearestStation"] = value.Code;
+                    }
+
+                }
+
+            }
+        }
+        private Station currentStation;
+        public Station CurrentStation
+        {
+            get
+            {
+                return currentStation;
+            }
+            set
+            {
+                if (value != currentStation)
+                {
+                    currentStation = value;
+                    if (value != null) NotifyPropertyChanged("CurrentStation");
+
+                }
+
+            }
+        }
+        private Station detailsStation;
+        public Station DetailsStation
+        {
+            get
+            {
+                return detailsStation;
+            }
+            set
+            {
+                if (value != detailsStation)
+                {
+                    detailsStation = value;
+                    if (value != null) NotifyPropertyChanged("DetailsStation");
+
+                }
+            }
+        }
+        private Station cameraStation;
+        public Station CameraStation
+        {
+            get
+            {
+                return cameraStation;
+            }
+            set
+            {
+                if (value != cameraStation)
+                {
+                    cameraStation = value;
+                    if (value != null) NotifyPropertyChanged("CameraStation");
+
+                }
+            }
+        }
+        private PHistory historyDetailsStation;
+        public PHistory HistoryDetailsStation
+        {
+            get
+            {
+                return historyDetailsStation;
+            }
+            set
+            {
+                if (value != historyDetailsStation)
+                {
+                    historyDetailsStation = value;
+                    if (value != null) NotifyPropertyChanged("HistoryDetailsStation");
+                }
+
+            }
+        }
+        private List<PPhoto> photosDetailsStation;
+        public List<PPhoto> PhotosDetailsStation
+        {
+            get
+            {
+                return photosDetailsStation;
+            }
+            set
+            {
+                if (value != photosDetailsStation)
+                {
+                    photosDetailsStation = value;
+                    if (value != null) NotifyPropertyChanged("PhotosDetailsStation");
+                }
+
+            }
+        }
+        private List<PPhoto> photosGlobal;
+        public List<PPhoto> PhotosGlobal
+        {
+            get
+            {
+                return photosGlobal;
+            }
+            set
+            {
+                if (value != photosGlobal)
+                {
+                    photosGlobal = value;
+                    if (value != null) NotifyPropertyChanged("PhotosGlobal");
+                }
+
+            }
+        }
+        private bool isBusy = false;
+        public bool IsBusy
+        {
+            get
+            {
+                return isBusy;
+            }
+            set
+            {
+                if (value != isBusy)
+                {
+                    isBusy = value;
+                    NotifyPropertyChanged("IsBusy");
+                }
+            }
+        }
+        private bool isGPSBusy = false;
+        public bool IsGPSBusy
+        {
+            get
+            {
+                return isGPSBusy;
+            }
+            set
+            {
+                if (value != isGPSBusy)
+                {
+                    isGPSBusy = value;
+                    NotifyPropertyChanged("IsGPSBusy");
+                }
+            }
+        }
+        private bool isGPS = true;
+        public bool IsGPS
+        {
+            get
+            {
+                return isGPS;
+            }
+            set
+            {
+                if (value != isGPS)
+                {
+                    isGPS = value;
+                    NotifyPropertyChanged("IsGPS");
+                }
+            }
+        }
+        #endregion
+
+        public StationViewModel()
+        {
+            Stations = new ObservableCollection<Station>();
+            PinManager = new PinManager();
+            PinMan = new Pin(EPinType.MAN);
+            PinMan.IsSelected = true;
+
+            stationCount = new Dictionary<int, int>();
+
+            CurrentStation = new Station();
+            DetailsStation = new Station();
+            NearestStation = new Station();
+
+            pivotPhotosHeader = _resourceLoader.GetString("AppPhotos");
+
+        }
+        
+        /// <summary>
+        /// Tato funkce natáhne data z App.ViewModel.Rawdata do view modelu a inicializuje piny.
+        /// </summary>
+        public async Task LoadDataToModel()
         {
             this.IsBusy = true;
+
+            await LoadDataGarvis(Stations); //rozparsuje raw data a načte je do modelu
             //LoadPositions();
-            //LoadData();
 
-            LoadDataGarvis();
+            InitializePins();
 
-            //InitializePins();
             this.IsBusy = false;
         }
 
-
-        /*
-        /// <summary>
-        /// Load station positions from xml file
-        /// </summary>
-        private void LoadPositions()
+        public async Task LoadDataGarvis(ObservableCollection<Station> stations)
         {
-            StationPositions = new Dictionary<string, GeoCoordinate>();
-            XDocument d = XDocument.Load("SampleData/Positions.xml");
-
-            var list = from c in d.Descendants("location")
-                       select c;
-
-            string name;
-            GeoCoordinate gc;
-
-            foreach (var l in list)
-            {
-                gc = new GeoCoordinate();
-                name = l.Attribute("id").Value;
-                gc.Latitude = Double.Parse(l.Attribute("x").Value, CultureInfo.InvariantCulture.NumberFormat);
-                gc.Longitude = Double.Parse(l.Attribute("y").Value, CultureInfo.InvariantCulture.NumberFormat);
-
-                StationPositions.Add(name, gc);
-            }
-        }
-        */
-
-        async void LoadDataGarvis()
-        {
-            //Stations = new ObservableCollection<Station>();
-
-
-            Dictionary<string, object[]> stationsDict = new Dictionary<string, object[]>();
-
-            stationCount = new Dictionary<int, int>();
+            stations.Clear();                                                               //vynulovat seznam stanic
+            Dictionary<string, object[]> stationsDict = new Dictionary<string, object[]>(); //vytvořit nový dictionary pro stanice
+            stationCount = new Dictionary<int, int>();                                      //vytvořit nový dict pro druhy stanic???
             for(int i = 1; i<=8; i++)
+            {
                 stationCount.Add(i, 0);
-
+            }
 
             string s = RawData;
             if (s != null && s.Length != 0)
@@ -387,9 +387,9 @@ namespace Pollution.ViewModels
                                 sta.Code = sl[1];
                                 sta.Name = sl[2];
                                 sta.Classification = GetClassification(sl[3]);
-                                sta.Owner = sl[4];
-                                //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-                                //sta.Position = new GeoCoordinate(Double.Parse(sl[6], CultureInfo.InvariantCulture), Double.Parse(sl[5], CultureInfo.InvariantCulture));
+                                sta.Owner = sl[4];                                
+                                sta.Position = new MyGeocoordinate(Double.Parse(sl[6], CultureInfo.InvariantCulture), Double.Parse(sl[5], CultureInfo.InvariantCulture));
+                                
                                 sta.Quality = Int32.Parse(sl[7]);
 
                                 if (sl[8] == "") sta.So2.Value = -1; else sta.So2.Value = Double.Parse(sl[8], CultureInfo.InvariantCulture);
@@ -415,9 +415,8 @@ namespace Pollution.ViewModels
 
                                 sta.UpdateStatesBasedOnValues();
 
-                                Stations.Add(sta); // Add to list of stations        
-                                //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-                               // stationsDict.Add(sta.Code, new object[] {sta.Name, sta.Quality, sta.Position.Longitude, sta.Position.Latitude});
+                                stations.Add(sta); // Add to list of stations 
+                                stationsDict.Add(sta.Code, new object[] {sta.Name, sta.Quality, sta.Position.Longitude, sta.Position.Latitude});
 
                                 // add count
                                 if (stationCount.ContainsKey(sta.Quality))
@@ -428,12 +427,11 @@ namespace Pollution.ViewModels
                                 {
                                     stationCount.Add(sta.Quality, 1);
                                 }
-
                             }
                             catch (Exception e)
                             {
+                                throw e;
                             }
-
                         }
                     }
 
@@ -443,39 +441,55 @@ namespace Pollution.ViewModels
                     }
                     catch (Exception e)
                     {
-                    
+                        throw e;                    
                     }
 
                 }
                 catch(Exception e)
                 {
-                    //vyhodit ulozeni vyjimky
-
+                    throw e;
                 }
-
-
             }
 
-            Stations.Sort(i => i.Name);
+            //Z nějakého důvodu vyhazuje nullreference exception, z důvodu testování uzavřeno do try
+            try
+            {
+                stations.Sort(i => i.Name);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
-            
-
-
-
-            //watcher.Start(); // Start locating my position
+            Stations = stations;
             IsDataLoaded = true; // Data is loaded
-
-            // Load settings
-            //int infoStation = (int)IsolatedStorageSettings.ApplicationSettings["infoStation"];
-
-            // If user wants particular station, then set it on the infoPage,
-            // if he wants the nearest station, it will be set when the position of device is gained
-            //if (infoStation > 0)
-            //    SetInfoPage(Stations[infoStation-1]);
-
-            //NotifyPropertyChanged("Stations"); // Notify change
         }
-        /*
+
+        /// <summary>
+        /// Load station positions from xml file
+        /// </summary>
+        private void LoadPositions()
+        {
+            StationPositions = new Dictionary<string, MyGeocoordinate>();
+            XDocument d = XDocument.Load("SampleData/Positions.xml");
+
+            var list = from c in d.Descendants("location")
+                       select c;
+
+            string name;
+            MyGeocoordinate gc;
+
+            foreach (var l in list)
+            {
+                gc = new MyGeocoordinate();
+                name = l.Attribute("id").Value;                
+                gc.Latitude = Double.Parse(l.Attribute("x").Value, CultureInfo.InvariantCulture.NumberFormat);
+                gc.Longitude = Double.Parse(l.Attribute("y").Value, CultureInfo.InvariantCulture.NumberFormat);
+
+                StationPositions.Add(name, gc);
+            }
+        }
+
         public void SortStations(ESortStationType type)
         {
 
@@ -499,54 +513,12 @@ namespace Pollution.ViewModels
 
             }
         }
-        */
-        /*
-        public bool StartGeoWatcher(bool high = true)
-        {
-            MyPosition = null;
-            LastPositionTime = DateTime.Now;
-            try
-            {
-                if(high)
-                    watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
-                else
-                    watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default);
-
-                watcher.PositionChanged += this.watcher_PositionChanged;
-                watcher.StatusChanged += this.watcher_StatusChanged;
-                IsGPSBusy = true;
-                watcher.Start();
-                //if (!watcher.TryStart(false, TimeSpan.FromMilliseconds(2000)))
-                //{
-                 //   watcher = null;
-                  //  return false;
-                //}
-            }
-            catch
-            {
-                watcher = null;
-                return false;
-            }
-
-            return true;
-
-        }
-
-        public void StopGeoWatcher()
-        {
-            if (IsGPSBusy == true && watcher != null)
-            {
-                IsGPSBusy = false;
-                watcher.Stop();
-                watcher = null;
-            }
-        }
-
+      
         private void InitializePins()
         {
             //Správce špendlíků (ikon na mapě)
             App.ViewModel.PinManager = new PinManager();
-            //pinManager.Load();
+            
 
             App.ViewModel.PinManager.Pins = new System.Collections.ObjectModel.ObservableCollection<Pin>();
             App.ViewModel.PinManager.Pins.Add(App.ViewModel.PinMan);
@@ -560,7 +532,7 @@ namespace Pollution.ViewModels
                 App.ViewModel.PinManager.Pins.Add(pinStation);
             }
         }
-
+        
 
         /// <summary>
         /// This method will convert the color on the website, to a number indicating state of the air
@@ -597,7 +569,7 @@ namespace Pollution.ViewModels
 
             return 0;
         }
-        */
+        
         /// <summary>
         /// This method will convert the color on the website, to a number indicating state of the air
         /// </summary>
@@ -624,7 +596,7 @@ namespace Pollution.ViewModels
 
             return EStationClassification.NONE;
         }
-        /*
+        
         /// <summary>
         /// This method will convert the value from the website to float. There is a need for proccessing
         /// because not every value is filled for every station.
@@ -641,14 +613,14 @@ namespace Pollution.ViewModels
             return Convert.ToSingle(v, new CultureInfo("cs-CZ"));
         }
 
-
+        
 
         public void Notify()
         {
             NotifyPropertyChanged("Stations");
 
         }
-
+        
         public Station GetStation(string s)
         {
             foreach (Station st in Stations)
@@ -659,9 +631,6 @@ namespace Pollution.ViewModels
 
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        */
         private void NotifyPropertyChanged(String propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -671,87 +640,136 @@ namespace Pollution.ViewModels
             }
         }
 
-        /*
-        /// <summary>
-        /// When device is located, proccess his location
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            
-            var pos = e.Position.Location; // Get location
 
-            //if (pos.HorizontalAccuracy <= 1000) // Accuracy must be up to 2 km
-            if (MyPosition != null)
+
+        
+        
+        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        #region /// LOCATION
+        /// <summary>
+        /// Tato metoda inicializuje a spustí geolocator.
+        /// </summary>
+        public void SetGeolocator(bool high = true)
+        {
+            //Nastavení pozice, čistě pro případ
+            //MyPosition = null;
+            //Zaznačení času posledního určování pozice
+            LastPositionTime = DateTime.Now;
+
+            //Pokus o spuštění nastavení watcheru
+            try
             {
-                if (LastPositionTime.AddSeconds(5) <= DateTime.Now || (MyPosition.Longitude == pos.Longitude && MyPosition.Latitude == pos.Latitude))
+                if (high)
                 {
-                    watcher.Stop(); // We dont need positioning anymore      
-                    IsGPSBusy = false;
-                    return;
+                    locator = new Geolocator();
+                    locator.DesiredAccuracy = PositionAccuracy.High;
                 }
-              
-              
+                else
+                {
+                    locator = new Geolocator();
+                    locator.DesiredAccuracy = PositionAccuracy.Default;
+                }
+
+                locator.ReportInterval = 5000;
+                //Když nastane změna pozice, je načtena a uložena nová pozice. Zároveň je volána metoda pro vypočtení vzdálenosti aktuální pozice vůči ostatním stanicím.
+                locator.PositionChanged += locator_PositionChanged;
+                //Když nastane změna stavu lokátoru, při které bude nefukční, vyskočí hláška.
+                locator.StatusChanged += locator_StatusChanged;
+                
+
             }
-                        
-            MyPosition = pos;
-            NotifyPropertyChanged("MyPosition");
-            CalculateDistances(pos); // Calculate distances to every station
-            
-
-        }
-
-        /// <summary>
-        /// When locating status is changed. For handling states like GPS DISABLED, ..
-        /// This will inform user if he has forbid GPS locating to this application, or 
-        /// currently device cant locate itself. This has only informative function.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
-        {
-            string s;
-            IsolatedStorageSettings.ApplicationSettings.TryGetValue("lastNearestStation", out s);
-
-            switch (e.Status)
+            catch
             {
-                case GeoPositionStatus.Disabled:
-                    
-                    IsGPSBusy = false;
-                    IsGPS = false;
-
-                    MessageBox.Show(AppResources.MsgGPSDisabled, AppResources.Warning, MessageBoxButton.OK);
-
-                    if (s != null) App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
-
-                    break;
-
-                case GeoPositionStatus.NoData:
-                    //MessageBox.Show(AppResources.MsgGPSUnavailable, AppResources.Warning, MessageBoxButton.OK);
-                    IsGPSBusy = false;
-                    IsGPS = false;
-
-                    if (s != null) App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
-
-                    break;
+                locator = null;
             }
-
-
+        }
+        /// <summary>
+        /// Tato metoda vznuluje lokátor.
+        /// </summary>
+        public void StopGeolocator()
+        {
+            if (IsGPSBusy == true && locator != null)
+            {
+                IsGPSBusy = false;
+                locator = null;
+            }
         }
 
+        void locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            Geoposition position = null;
+            var task = Task.Run(async () =>
+            {
+                position = await sender.GetGeopositionAsync(new TimeSpan(0, 0, 0, 0, 200), new TimeSpan(0, 0, 3));
+                var a = 1;
+            });
+            task.Wait();
+
+            //Definice MyPosition vlastní náhradní třídou pro geopozici a uložení šířky a délky do jejích property.
+            MyGeocoordinate coord = new MyGeocoordinate();
+            coord.Latitude = position.Coordinate.Point.Position.Latitude;
+            coord.Longitude = position.Coordinate.Point.Position.Longitude;
+            if (coord != null)
+            {
+                MyPosition = coord; 
+            }
+            
+            //nastavení času aktualizace
+            LastPositionTime = DateTime.Now;
+
+#if WINDOWS_APP
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                //Výpočet vzdálenosti vůči všm stanicím.
+                _gpsService.SetPosition();
+            });
+#endif
+#if WINDOWS_PHONE_APP
+            //Výpočet vzdálenosti vůči všm stanicím.
+                _gpsService.SetPosition();
+#endif
+
+        }
         /// <summary>
         /// Will calculate distance from given position (my position) to every station
         /// </summary>
         /// <param name="gc"></param>
-        public void CalculateDistances(GeoCoordinate gc)
+        public void CalculateDistances()
         {
-           
+            var gc = MyPosition;
+            /*
             bool nearestWithoutStation = false;
-            IsolatedStorageSettings.ApplicationSettings.TryGetValue("nearestWithoutStation", out nearestWithoutStation);
+            if (_localSettings.Containers["AppSettings"].Values.ContainsKey("nearestWithoutStation"))
+            {
+                nearestWithoutStation = (bool)_localSettings.Containers["AppSettings"].Values["nearestWithoutStation"];
+            }
+            else 
+            {
+                nearestWithoutStation = false;
+            }*/
+            object tmpObject = null;
+            bool nearestWithoutStation = false;
+            _localSettings.Containers["AppSettings"].Values.TryGetValue("nearestWithoutStation", out tmpObject);
+            var x = tmpObject as bool?;
+            if (x != null)
+            {
+                nearestWithoutStation = x.Value;
+            }
 
             bool useGPS = false;
-            IsolatedStorageSettings.ApplicationSettings.TryGetValue("useGPS", out useGPS);
+            if (_localSettings.Containers["AppSettings"].Values.ContainsKey("useGPS"))
+            {
+                useGPS = (bool)_localSettings.Containers["AppSettings"].Values["useGPS"];
+            }
+            else
+            {
+                useGPS = false;
+            }
+
 
             Station tmp = null;
 
@@ -763,7 +781,11 @@ namespace Pollution.ViewModels
                     sta.Distance = -1;
                     continue;
                 }
-                sta.Distance = gc.GetDistanceTo(sta.Position); // Calculate distance
+                if (gc != null)
+                {
+                    var abc = gc.GetDistanceTo(sta.Position);
+                    sta.Distance = abc; // Calculate distance
+                }
 
                 //eliminate nearest stations without quality value
                 if (nearestWithoutStation == false && sta.Quality > 6) continue;
@@ -771,14 +793,14 @@ namespace Pollution.ViewModels
                 if (tmp == null || sta.Distance < tmp.Distance) // Check if this is the nearest station
                     tmp = sta;
             }
-            if (tmp!= null && tmp != NearestStation) NearestStation = tmp; // Set the nearest station
+            if (tmp != null && tmp != NearestStation) NearestStation = tmp; // Set the nearest station
 
             if (AutoCurrentNearest) { CurrentStation = NearestStation; }
 
             if (useGPS)
             {
-                ESortStationType t = (ESortStationType)IsolatedStorageSettings.ApplicationSettings["sortType"];
-
+                //ESortStationType t = (ESortStationType)IsolatedStorageSettings.ApplicationSettings["sortType"];
+                ESortStationType t = (ESortStationType)_localSettings.Containers["AppSettings"].Values["sortType"];
                 if (t == ESortStationType.DISTANCE)
                 {
                     App.ViewModel.SortStations(t);
@@ -786,8 +808,93 @@ namespace Pollution.ViewModels
             }
 
         }
-        */
+        /// <summary>
+        /// Je možné, že vyhodí chybu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void locator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
+        {
+            string s;
+            s = _localSettings.Containers["AppSettings"].Values["lastNearestStation"].ToString();
 
-        public event PropertyChangedEventHandler PropertyChanged;
+            //Získání stavu
+            var a = sender.LocationStatus.ToString();
+
+
+            switch (sender.LocationStatus)
+            {
+                case Windows.Devices.Geolocation.PositionStatus.Disabled:  
+                    /*
+                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
+                        msg.ShowAsync();
+
+                        IsGPSBusy = false;
+                        IsGPS = false;
+                    });
+                    */
+                    Func<object, Task<bool>> action = null;
+                    action = async (o) =>
+                    {
+                        try
+                        {
+                            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                            {
+                                MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
+                                msg.ShowAsync();
+
+                                IsGPSBusy = false;
+                                IsGPS = false;
+                            });
+                            return true;
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            if (action != null)
+                            {
+                                Task.Delay(500).ContinueWith(async t => await action(o));
+                            }
+                        }
+                        return false;
+                    };
+
+
+
+                    if (s != null)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                        App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
+                        
+                            
+                        });
+                    }
+
+                    break;
+
+                case Windows.Devices.Geolocation.PositionStatus.NoData:
+                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        MessageDialog msg2 = new MessageDialog(_resourceLoader.GetString("MsgGPSUnavailable"));
+                        msg2.ShowAsync(); //funguje
+
+                        IsGPSBusy = false;
+                        IsGPS = false;
+                    });
+                    
+                    
+
+                    if (s != null) App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
+
+                    break;
+            }
+        }
+
+        #endregion
+
+
+
     }
 }

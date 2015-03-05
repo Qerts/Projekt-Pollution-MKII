@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppCurrent" xml:space="preserve">
+    <value>aktuálně</value>
+  </data>
+  <data name="AppMap" xml:space="preserve">
+    <value>mapa</value>
+  </data>
+  <data name="AppNameUC" xml:space="preserve">
+    <value>ČISTOTA OVZDUŠÍ</value>
+  </data>
+  <data name="AppSettings" xml:space="preserve">
+    <value>nastavení</value>
+  </data>
+  <data name="AppStations" xml:space="preserve">
+    <value>stanice</value>
+  </data>
+  <data name="BtnInformation" xml:space="preserve">
+    <value>informace</value>
+  </data>
+  <data name="BtnNearestStation" xml:space="preserve">
+    <value>nejbližší</value>
+  </data>
+  <data name="BtnReview" xml:space="preserve">
+    <value>Ohodnoťte tuto aplikaci</value>
+  </data>
+  <data name="BtnSort" xml:space="preserve">
+    <value>řazení</value>
+  </data>
+  <data name="BtnZoom" xml:space="preserve">
+    <value>oddálení</value>
+  </data>
+  <data name="CheckGPS" xml:space="preserve">
+    <value>Používat lokalizaci telefonu</value>
+  </data>
+  <data name="CheckLiveTile" xml:space="preserve">
+    <value>Používat živou dlaždici</value>
+  </data>
+  <data name="CheckNearest" xml:space="preserve">
+    <value>Autolokalizace nejbliší stanice</value>
+  </data>
+  <data name="CheckNearestWithoutQuality" xml:space="preserve">
+    <value>Hledat i stanice bez ohodnocení</value>
+  </data>
+  <data name="ClassAroundcity" xml:space="preserve">
+    <value>předměstská</value>
+  </data>
+  <data name="ClassIndustry" xml:space="preserve">
+    <value>průmyslová</value>
+  </data>
+  <data name="ClassIntercity" xml:space="preserve">
+    <value>městská</value>
+  </data>
+  <data name="ClassTraffic" xml:space="preserve">
+    <value>dopravní</value>
+  </data>
+  <data name="ClassVillage" xml:space="preserve">
+    <value>venkovská</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>CHYBA</value>
+  </data>
+  <data name="InfoCO" xml:space="preserve">
+    <value>Vzhledem k jedovatosti je jednou z významných znečišťujících látek. Vzniká při nedokonalém spalování uhlíku a organických látek, je emitován např. automobily, lokálními topeništi, energetickým a metalurgickým průmyslem.
+
+CO vzniká zejména pokud je teplota spalování příliš nízká, aby mohlo dojít k úplné oxidaci pohonných látek na oxid uhličitý, čas hoření ve spalovací komoře je příliš krátký nebo není k dispozici dostatek kyslíku.
+
+Díky povinnému zavedení řízených katalyzátorů u vozidel s benzinovými motory se emise oxidu uhelnatého v poslední době snižují.
+
+Oxid uhelnatý působí na srdce, cévní a nervový systém. Při jeho nízkých koncentracích může zdravý člověk pociťovat únavu, člověk se srdečními problémy bolest na prsou. Při jeho vyšších koncentracích může dojít k poruchám vidění a koordinace, bolestem hlavy, závratím, zmatečnému chování a může být pociťována žaludeční nevolnost. Velmi vysoké koncentrace jsou smrtelné.</value>
+  </data>
+  <data name="InfoNO2" xml:space="preserve">
+    <value>V plynném stavu jde o červenohnědý agresivní, prudce jedovatý plyn, v kapalném stavu je to žlutohnědá látka, která tuhne na bezbarvé krystaly. Vzniká ve spalovacích motorech oxidací vzdušného dusíku za vysokých teplot. V ovzduší patří oxid dusičitý k plynům, které způsobují kyselé deště. Oxid dusičitý je pohlcován hlenem dýchacích cest z 80 až 90 procent. Způsobuje záněty dýchacích cest od lehkých forem až po edém plic.
+
+Oxid dusičitý je společně s oxidy síry součástí takzvaných kyselých dešťů. Oxid dusičitý (NO2) současně s kyslíkem a těkavými organickými látkami přispívá k tvorbě přízemního ozonu a vzniku tzv. fotochemického smogu.</value>
+  </data>
+  <data name="InfoO3" xml:space="preserve">
+    <value>Ozon patří mezi silně dráždivé látky. Ozon je velmi silné oxidační činidlo reagující se všemi druhy organických látek. Působí především na plicní tkáň a sliznice. Podle Světové zdravotnické organizace (WHO) se první obtíže objevují při překročení průměrné hodinové koncentrace 160 µg.m-3.
+
+Při delším vystavení se vyšším koncentracím způsobuje pálení očí a nosu, kašel, bolest hlavy a pocit tlaku na hrudi. V extrémních případech může ozon způsobit předčasnou smrt. Citlivost osob k působení ozonu je ovlivněna např. věkem (rizikové skupiny jsou děti a starší lidé), schopnost snášet vysoké letní teploty, aktuální zdravotní stav, zvýšená fyzická zátěž ve venkovním prostředí nebo astmatické obtíže.</value>
+  </data>
+  <data name="InfoPM10" xml:space="preserve">
+    <value>Polétavý prach (PM z anglického názvu "particulate matter") je pojem pro mikročástice o velikosti několika mikrometrů (µm). Částice mají své specifické označení podle velikosti – například PM10 označuje polétavý prach o velikosti 10 mikrometrů.
+
+Částice atmosférického aerosolu se usazují v dýchacích cestách. Místo záchytu závisí na jejich velikosti. Větší částice se zachycují na chloupcích v nose a nezpůsobují větší potíže. Částice menší než 10 µm (PM10) se mohou usazovat v průduškách a způsobovat zdravotní problémy.
+
+Částice menší než 1 µm mohou vstupovat přímo do plicních sklípků, proto jsou tyto částice nejnebezpečnější. Na částice polétavého prachu se vážou těkavé organické látky látky (VOC – z anglického názvu volatile organic compounds), které pak v organismu působí toxicky.
+
+Inhalace PM10 poškozuje hlavně kardiovaskulární a plicní systém. Dlouhodobá expozice snižuje délku dožití a zvyšuje kojeneckou úmrtnost. Může způsobovat chronickou bronchitidu a chronické plicní choroby. V důsledku absorpce organických látek s mutagenními a karcinogenními účinky může expozice PM10 způsobovat rakovinu plic.
+
+Mezi nejvýznamnější antropogenní zdroje atmosférického aerosolu patří: vysokoteplotní procesy, především spalovací, ﻿cementárny, vápenky, lomy a těžba, odnos částic větrem ze stavebních ploch a z ploch zbavených vegetace.
+
+﻿Významným zdrojem prachových částic jsou automobily s dieselovými motory, které nemají katalyzátor a jejich výfukové plyny obsahují množství malých prachových částic vznikajících nedokonalým spalováním nafty.
+
+Polétavý prach vzniká téměř výhradně jako produkt lidské činnosti – při spalovacích procesech, tavení rud, ale také z půdy zbavené vegetačního krytu. Čím menší průměr částice má, tím déle zůstává v ovzduší.
+
+V ČR je určen limit pro znečištění ovzduší pevnými částicemi (polétavý prach). Denní imisní limit je 50 µg/m3. Překročení tohoto limitu je tolerováno max. 35 dní v roce. Na některých místech ČR jako je Ostravsko je limit překračován i přes 100 dní v roce.</value>
+  </data>
+  <data name="InfoSmog" xml:space="preserve">
+    <value>Jestliže stupeň znečištění ve Vašem okolí je 5 nebo 6, pak omezte pobyt a fyzickou aktivitu či sport ve venkovních prostorech, nekuřte, omezte dopravu autem, větrejte krátce a intenzivně, zvyšte příjem vitamínů a pijte dostatek tekutin.</value>
+  </data>
+  <data name="InfoSO2" xml:space="preserve">
+    <value>Oxid siřičitý reaguje s chlorofylem (fotosyntetickým barvivem rostlin) a narušuje tak fotosyntézu. V ovzduší oxiduje se vzdušným kyslíkem za přítomnosti vody na kyselinu sírovou, která je spolu s kyselinou siřičitou příčinou kyselých dešťů.
+
+Hlavní podíl na jeho produkci má lidská činnost - zejména spalování fosilních paliv, jak při průmyslových procesech, tak v domácích topeništích. Hlavními zdroji SO2 jsou teplárny a elektrárny, které používají nízko kvalitní oleje a uhlí s vysokým obsahem síry.
+
+Oxid siřičitý je kyselý, bezbarvý, ostře zapáchající a toxický plyn.
+
+Oxid siřičitý působí dráždivě na sliznice dýchacích cest. Podporuje záněty průdušek a astma. Rovněž může dojít k bolesti hlavy a nevolnosti. Oxid siřičitý je jedním z hlavních překursorů kyselých dešťů, které okyselují půdu, řeky a jezera, urychlují korozi budov a soch, snižují viditelnost.
+
+Povolený imisní limit: 200 µg/m3.</value>
+  </data>
+  <data name="InfoSource" xml:space="preserve">
+    <value>využité zdroje: www.cistenebe.cz, www.cenia.cz</value>
+  </data>
+  <data name="InfoTitleCO" xml:space="preserve">
+    <value>Co je oxid uhelnatý (CO)?</value>
+  </data>
+  <data name="InfoTitleNO2" xml:space="preserve">
+    <value>Co je oxid dusičitý (NO2)?</value>
+  </data>
+  <data name="InfoTitleO3" xml:space="preserve">
+    <value>Co je přízemní ozón (O3)?</value>
+  </data>
+  <data name="InfoTitlePM10" xml:space="preserve">
+    <value>Co je to polétavý prach (PM)?</value>
+  </data>
+  <data name="InfoTitleSO2" xml:space="preserve">
+    <value>Co je oxid siřičitý (SO2)?</value>
+  </data>
+  <data name="InfoWhatToDo" xml:space="preserve">
+    <value>Když je smog...</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>o aplikaci</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>nastavení</value>
+  </data>
+  <data name="MsgDataError" xml:space="preserve">
+    <value>Chyba při zpracování dat, kontaktujte prosím autora aplikace!</value>
+  </data>
+  <data name="MsgDownloadError" xml:space="preserve">
+    <value>Není možné získat aktuální data. Aplikace využije poslední úspěšně stáhnutá data!</value>
+  </data>
+  <data name="MsgGPSDisabled" xml:space="preserve">
+    <value>Lokalizační funkce telefonu nejsou povoleny!</value>
+  </data>
+  <data name="MsgGPSUnavailable" xml:space="preserve">
+    <value>Není možné získat informace o vaší poloze!</value>
+  </data>
+  <data name="MsgNoData" xml:space="preserve">
+    <value>Žádná data pro vizualizaci! Aplikace nebude plně funkční!</value>
+  </data>
+  <data name="QualityState1" xml:space="preserve">
+    <value>velmi dobrá</value>
+  </data>
+  <data name="QualityState2" xml:space="preserve">
+    <value>dobrá</value>
+  </data>
+  <data name="QualityState3" xml:space="preserve">
+    <value>uspokojivá</value>
+  </data>
+  <data name="QualityState4" xml:space="preserve">
+    <value>vyhovující</value>
+  </data>
+  <data name="QualityState5" xml:space="preserve">
+    <value>špatná</value>
+  </data>
+  <data name="QualityState6" xml:space="preserve">
+    <value>velmi špatná</value>
+  </data>
+  <data name="QualityState7" xml:space="preserve">
+    <value>neměří se</value>
+  </data>
+  <data name="QualityState8" xml:space="preserve">
+    <value>nejsou data</value>
+  </data>
+  <data name="RegionA" xml:space="preserve">
+    <value>Hlavní město Praha</value>
+  </data>
+  <data name="RegionB" xml:space="preserve">
+    <value>Jihomoravský kraj</value>
+  </data>
+  <data name="RegionC" xml:space="preserve">
+    <value>Jihočeský kraj</value>
+  </data>
+  <data name="RegionE" xml:space="preserve">
+    <value>Pardubický kraj</value>
+  </data>
+  <data name="RegionH" xml:space="preserve">
+    <value>Královehradecký kraj</value>
+  </data>
+  <data name="RegionJ" xml:space="preserve">
+    <value>Kraj Vysočina</value>
+  </data>
+  <data name="RegionK" xml:space="preserve">
+    <value>Karlovarský kraj</value>
+  </data>
+  <data name="RegionL" xml:space="preserve">
+    <value>Liberecký kraj</value>
+  </data>
+  <data name="RegionM" xml:space="preserve">
+    <value>Olomoucký kraj</value>
+  </data>
+  <data name="RegionP" xml:space="preserve">
+    <value>Plzeňský kraj</value>
+  </data>
+  <data name="RegionS" xml:space="preserve">
+    <value>Středočeský kraj</value>
+  </data>
+  <data name="RegionT" xml:space="preserve">
+    <value>Moravskoslezský kraj</value>
+  </data>
+  <data name="RegionU" xml:space="preserve">
+    <value>Ústecký kraj</value>
+  </data>
+  <data name="RegionZ" xml:space="preserve">
+    <value>Zlínský kraj</value>
+  </data>
+  <data name="SelectStation" xml:space="preserve">
+    <value>Vyberte ručně aktuální stanici</value>
+  </data>
+  <data name="TextAbout" xml:space="preserve">
+    <value>Aplikace umožňující rychlé a snadné zjištění kvality a znečištění ovzduší. Je možné automaticky lokalizovat nejbližší stanici nebo ověřovat údaje ze všech stanic v rámci ČR. Zdroj dat: www.chmi.cz.</value>
+  </data>
+  <data name="TextAppSetting" xml:space="preserve">
+    <value>Nastavení aplikace</value>
+  </data>
+  <data name="TextCurrentStation" xml:space="preserve">
+    <value>Aktuální stanice</value>
+  </data>
+  <data name="TextDataSource" xml:space="preserve">
+    <value>zdroj dat: ČHMI (www.chmi.cz) pro území České republiky</value>
+  </data>
+  <data name="TextDownloading" xml:space="preserve">
+    <value>Stahování dat ...</value>
+  </data>
+  <data name="TextGPSDisabled" xml:space="preserve">
+    <value>Lokalizace není povolena</value>
+  </data>
+  <data name="TextLanguage" xml:space="preserve">
+    <value>Jazyk aplikace</value>
+  </data>
+  <data name="TextLanguageInfo" xml:space="preserve">
+    <value>Po změně jazyka je vhodné aplikaci restartovat. Název aplikace bude vždy odpovídat systémovému jazyku!</value>
+  </data>
+  <data name="TextLanguageSystem" xml:space="preserve">
+    <value>podle systému</value>
+  </data>
+  <data name="TextLiveTile" xml:space="preserve">
+    <value>Dlaždice je aktualizována v intervalu cca 30 minut. Pokud se dlaždice přestane sama aktualizovat, spusťte znovu tuto aplikaci. Pro automatickou aktualizaci dlaždice je nezbytné datové připojení! V systému může být aktivní jen omezený počet agentů běžících na pozadí, což je klíčový prvek pro aktualizaci dlaždice, viz. Nastavení systému - Aplikace.</value>
+  </data>
+  <data name="TextLoading" xml:space="preserve">
+    <value>načítání ...</value>
+  </data>
+  <data name="TextParsing" xml:space="preserve">
+    <value>Zpracování dat ...</value>
+  </data>
+  <data name="TextPublisher" xml:space="preserve">
+    <value>autor</value>
+  </data>
+  <data name="TextReview" xml:space="preserve">
+    <value>Neváhejte ohodnotit tuto aplikaci a napsat své připomínky či náměty pro její další vývoj.</value>
+  </data>
+  <data name="TextStarting" xml:space="preserve">
+    <value>Aktualizace rozhraní ...</value>
+  </data>
+  <data name="TextTaskDisabled" xml:space="preserve">
+    <value>Spuštění úlohy této aplikace na pozadí je uživatelsky zakázáno.</value>
+  </data>
+  <data name="TextTaskError" xml:space="preserve">
+    <value>Není možné registrovat úlohu na pozadí. Dlaždice na hlavní obrazovce nebude aktualizována!</value>
+  </data>
+  <data name="TextTaskFailed" xml:space="preserve">
+    <value>V {0} se aktualizace nezdařila!</value>
+  </data>
+  <data name="TextTaskInfo" xml:space="preserve">
+    <value>Aktualizace dlaždice na hlavní obrazovce</value>
+  </data>
+  <data name="TextTaskOK" xml:space="preserve">
+    <value>Poslední úspěšná aktualizace v {0}</value>
+  </data>
+  <data name="TextTerms" xml:space="preserve">
+    <value>Aplikace pro správné fungování vyžaduje datové přípojení a přístup k datům poskytovatele (www.chmi.cz). Pro určení nejbližší stanice je využíváno lokalizace telefonu. Veškeré informace o poloze telefonu jsou použity výhradně pro vnitřní funkcionalitu aplikace a nejsou žádným způsobem dále zpracovány či šířeny mimo telefon. Anonymizovaná identifikace uživatele je použita pouze pro sdílení fotografií a jejich případné další zpracování.</value>
+  </data>
+  <data name="TextUpdateTime" xml:space="preserve">
+    <value>aktualizováno:</value>
+  </data>
+  <data name="TextVersion" xml:space="preserve">
+    <value>verze</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>UPOZORNĚNÍ</value>
+  </data>
+  <data name="WhatIsNew" xml:space="preserve">
+    <value>Co je nového?</value>
+  </data>
+  <data name="_news" xml:space="preserve">
+    <value>- hromadný přehled posledních sdílených fotografií
+- souhrnný náhled na situaci v ČR
+- úprava grafického vzhledu
+- drobné úpravy a opravy
+
+Sdílené fotografie průběžně najdete také na Facebookové stránce...
+
+Vyzkoušejte také náš nový projekt na www.resnap.it!
+
+</value>
+  </data>
+  <data name="TextNoData" xml:space="preserve">
+    <value>nejsou data</value>
+  </data>
+  <data name="TextSupport" xml:space="preserve">
+    <value>V případě problémů s aplikací prosím pište na info@garvis.cz!</value>
+  </data>
+  <data name="BtnDetailStation" xml:space="preserve">
+    <value>detail</value>
+  </data>
+  <data name="AppHistory" xml:space="preserve">
+    <value>historie</value>
+  </data>
+  <data name="MsgHistoryError" xml:space="preserve">
+    <value>Nepodařilo se získat historická data k této stanici!</value>
+  </data>
+  <data name="TextHistoryElements" xml:space="preserve">
+    <value>Přehled hodnot jednotlivých elementů za posledních {0} dní</value>
+  </data>
+  <data name="TextHistoryQuality" xml:space="preserve">
+    <value>Četnost indexu kvality ovzduší za posledních {0} dní</value>
+  </data>
+  <data name="AppPhoto" xml:space="preserve">
+    <value>sdílejte fotku</value>
+  </data>
+  <data name="AppPhotos" xml:space="preserve">
+    <value>fotky</value>
+  </data>
+  <data name="BtnCamera" xml:space="preserve">
+    <value>fotka</value>
+  </data>
+  <data name="BtnDetailsPhoto" xml:space="preserve">
+    <value>načíst fotografie</value>
+  </data>
+  <data name="BtnSendPhoto" xml:space="preserve">
+    <value>odeslat</value>
+  </data>
+  <data name="BtnSendReset" xml:space="preserve">
+    <value>vyčistit</value>
+  </data>
+  <data name="TextCameraAbout" xml:space="preserve">
+    <value>Tato aplikace poskytuje možnost sdílet fotografie popisující subjektivní stav ovzduší ve Vašem okolí. Pořiďte fotografii, ohodnoťte stav, který vyjadřuje, přidejte komentář a odešlete ji. Každá fotografie je ukládána ve vazbě na nejbližší měřící stanici.</value>
+  </data>
+  <data name="TextCameraShare" xml:space="preserve">
+    <value>Sdílené fotografie (a doplňující informace) jsou po schválení zobrazovány na detailní stránce každé stanice. Vždy je zobrazován jen určitý omezený počet posledních fotek k dané stanici. Vybrané fotografie budou také zveřejňovány na facebookových stránkách autora aplikace.</value>
+  </data>
+  <data name="TextCameraSubmitInfo" xml:space="preserve">
+    <value>Fotografie by měly zachycovat jak pozitivní, tak negativní stavy ovzduší. Měly by obsahovat obecné scenérie, bez obličejů postav či jiného privátního obsahu. Fotografie ani komentáře nesmí být urážlivé, vulgární, apod. a musí odpovídat charakteru a tématu popsaného účelu. Všechny odeslané fotky jsou před publikací schvalovány! </value>
+  </data>
+  <data name="TextCameraTerms" xml:space="preserve">
+    <value>Odesláním fotografie (a doplňkových informací) souhlasíte s jejím volným použitím autory této aplikace. Autor aplikace si vyhrazuje právo nepublikovat fotografie (či doplňkové informace) a nenese žádnou zodpovědnost za obsah zaslaných fotografií. Pro pořízení fotky a její sdílení je nezbytné využití lokalizačních služeb telefonu a připojení k internetu. Aplikace nevyužívá žádné přímé osobní identifikační údaje uživatele či telefonu, ale pouze anonymizovaný identifikátor účtu Live ID.</value>
+  </data>
+  <data name="TextDetailsPhoto" xml:space="preserve">
+    <value>Zde můžete vidět poslední (omezený počet) schválené fotky sdílené dalšími uživateli této aplikace. Fotky jsou vždy svázány s odpovídající stanicí. Fotografie můžete sdílet také, začněte na stránce aktuální stanice této aplikace.</value>
+  </data>
+  <data name="TextInfoCam" xml:space="preserve">
+    <value>Ťukněte pro pořízení fotografie</value>
+  </data>
+  <data name="TextNote" xml:space="preserve">
+    <value>Poznámka, komentář</value>
+  </data>
+  <data name="TextSendDone" xml:space="preserve">
+    <value>Fotografie byla v pořádku odeslaná. Děkujeme.</value>
+  </data>
+  <data name="TextSendError" xml:space="preserve">
+    <value>V průběhu odesílání fotografie se vyskytla chyba!</value>
+  </data>
+  <data name="TextSendImageTitle" xml:space="preserve">
+    <value>Odeslání fotky</value>
+  </data>
+  <data name="TextSendSmileSelect" xml:space="preserve">
+    <value>Vyberte smajlíka odpovídajícího fotografii</value>
+  </data>
+  <data name="TextSendUnable" xml:space="preserve">
+    <value>Není možné sdílet fotky. Možnosti určování polohy a připojení k internetu jsou pro tuto funkcí nezbytné!</value>
+  </data>
+  <data name="TextSendWithoutNote" xml:space="preserve">
+    <value>Opravdu chcete odeslat fotografii bez popisku?</value>
+  </data>
+  <data name="TextLastPhoto" xml:space="preserve">
+    <value>poslední fotka:</value>
+  </data>
+  <data name="TextNew" xml:space="preserve">
+    <value>nové:</value>
+  </data>
+</root>

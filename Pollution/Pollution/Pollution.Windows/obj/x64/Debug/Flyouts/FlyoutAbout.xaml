@@ -1,0 +1,63 @@
+﻿<SettingsFlyout
+    x:Class="Pollution.Flyouts.FlyoutAbout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="FlyoutAbout"
+    d:DesignWidth="346">
+
+    <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+        <!-- The StackPanel(s) below define individual content sections -->
+
+        <!-- Content Section 1-->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <StackPanel x:Name="ContentPanel" VerticalAlignment="Top" Margin="10,0,0,0" >
+                <StackPanel>
+                    <TextBlock x:Name="aboutText" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,20"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="versionText" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="Bold"/>
+                        <TextBlock x:Name="versionTextValue" TextWrapping="Wrap" Text="x.x" VerticalAlignment="Top" Width="100" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock x:Name="publisherText" TextWrapping="Wrap"  FontWeight="Bold" Width="100" VerticalAlignment="Top" TextAlignment="Right"/>
+                        <TextBlock x:Name="publisherTextValue" TextWrapping="Wrap" Text="Microsoft" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="emailText" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,10"/>
+                    <Button x:ConnectionId='1' Content="Facebook"                        />
+                    <Button x:ConnectionId='2' Content="http://www.garvis.cz"                      />
+                    <Image Height="140" Width="200" Margin="0,0,0,10" Source="/Pollution;component/billboard-blank.png" Stretch="None"/>
+                    <Image x:ConnectionId='3' Height="140" Width="200" Margin="0,-150,0,10" Source="http://data.garvis.cz/garvis/billboard/img/pollution"                    x:Name="billboard" />
+                    <Button x:ConnectionId='4' Content="SmogAlarm"                       />
+                    <TextBlock x:Name="termsText" TextWrapping="Wrap" />
+
+                    <TextBlock x:Name="taskText" TextWrapping="Wrap"  Margin="0,20,0,0"/>
+                    <TextBlock x:Name="infoTextTaskOK" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="#FF3C3C3C"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock x:Name="infoTextTaskFailed" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="#FF3C3C3C"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+
+                    <Button x:ConnectionId='5' x:Name="reviewBtn" Margin="0,0,0,0"                           />
+                    <TextBlock x:Name="reviewText" TextWrapping="Wrap"  Margin="0,0,0,0" Height="120" TextAlignment="Center"/>
+
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!-- Define more Content Sections below as necessary -->
+
+    </StackPanel>
+</SettingsFlyout>
+

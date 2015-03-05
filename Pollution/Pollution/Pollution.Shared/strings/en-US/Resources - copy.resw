@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppPhotos" xml:space="preserve">
+    <value>photos</value>
+  </data>
+  <data name="BtnReview" xml:space="preserve">
+    <value>Review this app</value>
+  </data>
+  <data name="DataPanelButton" xml:space="preserve">
+    <value>More details</value>
+  </data>
+  <data name="InfoCO" xml:space="preserve">
+    <value>Carbon monoxide (CO) is a colorless, odorless and poisonous gas produced by incomplete burning of carbon in fuels. When CO enters the bloodstream, it reduces the delivery of oxygen to the body's organs and tissues. Health threats are most serious for those who suffer from cardiovascular disease. Exposure to elevated CO levels can cause impairment of visual perception, manual dexterity, learning ability and performance of complex tasks.
+
+77% of the nationwide CO emissions are from transportation sources. The largest emissions contribution comes from highway motor vehicles. Thus, the focus of CO monitoring has been at traffic-oriented sites in urban areas where the main source of CO is motor vehicle exhaust. Other major CO sources are wood-burning stoves, incinerators and industrial sources.</value>
+  </data>
+  <data name="InfoNO2" xml:space="preserve">
+    <value>Nitrogen dioxide (NO2) is a brownish, highly reactive gas that is present in all urban atmospheres. NO2 can irritate the lungs, cause bronchitis and pneumonia, and lower resistance to respiratory infections.
+
+The major mechanism for the formation of NO2 in the atmosphere is the oxidation of nitric oxide (NO), which is produced by most combustion processes.</value>
+  </data>
+  <data name="InfoO3" xml:space="preserve">
+    <value>Ozone (O3) is the major component of smog. Although O3 in the upper atmosphere is beneficial because it shields the earth from the sun's harmful ultraviolet radiation, high concentrations of O3 at ground level are a major health and environmental concern. The reactivity of O3 causes health problems because it damages lung tissue, reduces lung function and sensitizes the lungs to other irritants. Scientific evidence indicates that ambient levels of O3 not only affect people with impaired respiratory systems, such as asthmatics, but healthy adults and children as well. Exposure to O3 for several hours at relatively low concentrations has been found to significantly reduce lung function and induce respiratory inflammation in normal, healthy people during exercise.
+
+O3 is not usually emitted directly but is formed through complex chemical reactions in the atmosphere. Precursor compounds like volatile organic compounds (VOC) and oxides of nitrogen (NOx) react to form O3 in the presence of sunlight. These reactions are stimulated by ultraviolet radiation and temperature, so peak O3 levels typically occur during the warmer times of the day and year.</value>
+  </data>
+  <data name="InfoPM10" xml:space="preserve">
+    <value>Particulate matter (PM) is a mixture of particles that can adversely effect human health, damage materials and form atmospheric haze that degrades visibility. PM is usually divided up into different classes based on size, ranging from total suspended matter (TSP) to PM-10 (particles less than 10 microns in aerodynamic diameter) to PM-2.5 (particles less than 2.5 microns). In general, the smallest particles pose the highest human health risks. PM exposure can affect breathing, aggravate existing respiratory and cardiovascular disease, alter the body's defense systems against foreign materials, and damage lung tissue, contributing to cancer and premature death. Individuals with chronic obstructive pulmonary or cardiovascular disease, asthmatics, the elderly and children are most sensitive to the effects of PM.
+
+Particulate matter (PM) includes dust, dirt, soot, smoke and liquid droplets directly emitted into the air by sources such as factories, power plants, cars, construction activity, fires and natural windblown dust. Particles formed in the atmosphere by condensation or the transformation of emitted gases such as SO2 and VOCs are also considered particulate matter.</value>
+  </data>
+  <data name="InfoSmog" xml:space="preserve">
+    <value>If the degree of pollution in your area is 5 or 6, then you should stay and reduce physical activity or sport in the outdoors, do not smoke, reduce car travelling, air the short and intense, increase the intake of vitamins and drink plenty of fluids.</value>
+  </data>
+  <data name="InfoSO2" xml:space="preserve">
+    <value>High concentrations of sulfur dioxide (SO2) affect breathing and may aggravate existing respiratory and cardiovascular disease. Sensitive populations include asthmatics, individuals with bronchitis or emphysema, children and the elderly. SO2 is also a primary contributor to acid rain, which causes acidification of lakes and streams and can damage trees, crops, historic buildings and statues. In addition, sulfur compounds in the air contribute to visibility impairment in large parts of the country. This is especially noticeable in national parks.
+
+Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulfur (like coal, oil and diesel fuel). Stationary sources such as coal- and oil-fired power plants, steel mills, refineries, pulp and paper mills, and nonferrous smelters are the largest releasers.</value>
+  </data>
+  <data name="InfoSource" xml:space="preserve">
+    <value>využité zdroje: www.cistenebe.cz, www.cenia.cz</value>
+  </data>
+  <data name="InfoTitleCO" xml:space="preserve">
+    <value>What is carbon monoxide (CO)?</value>
+  </data>
+  <data name="InfoTitleNO2" xml:space="preserve">
+    <value>What is carbon monoxide (CO)?</value>
+  </data>
+  <data name="InfoTitleO3" xml:space="preserve">
+    <value>What is ozone (O3)?</value>
+  </data>
+  <data name="InfoTitlePM10" xml:space="preserve">
+    <value>What is particulate matter (PM)?</value>
+  </data>
+  <data name="InfoTitleSO2" xml:space="preserve">
+    <value>What is sulfur dioxide (SO2)?</value>
+  </data>
+  <data name="InfoWhatToDo" xml:space="preserve">
+    <value>It is smog...</value>
+  </data>
+  <data name="MapPanelButton" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuInfo" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="MenuPanelButton" xml:space="preserve">
+    <value>More features</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MsgDownloadError" xml:space="preserve">
+    <value>It is not possible to download current data. App tries to use last downloaded data!</value>
+  </data>
+  <data name="QualityState1" xml:space="preserve">
+    <value>very good</value>
+  </data>
+  <data name="QualityState2" xml:space="preserve">
+    <value>good</value>
+  </data>
+  <data name="QualityState3" xml:space="preserve">
+    <value>fair</value>
+  </data>
+  <data name="QualityState4" xml:space="preserve">
+    <value>suitable</value>
+  </data>
+  <data name="QualityState5" xml:space="preserve">
+    <value>bad</value>
+  </data>
+  <data name="QualityState6" xml:space="preserve">
+    <value>very bad</value>
+  </data>
+  <data name="QualityState7" xml:space="preserve">
+    <value>no measurement</value>
+  </data>
+  <data name="QualityState8" xml:space="preserve">
+    <value>no data</value>
+  </data>
+  <data name="StatusTitle" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TextAbout" xml:space="preserve">
+    <value>App that offers rapid and easy to use detection of air quality and pollution. It can be focused on your location or the set of all stations in the Czech republic. Data source: www.chmi.cz</value>
+  </data>
+  <data name="TextPublisher" xml:space="preserve">
+    <value>publisher</value>
+  </data>
+  <data name="TextReview" xml:space="preserve">
+    <value>Feel free to review this app and give us the feedback and other ideas for future versions.</value>
+  </data>
+  <data name="TextSupport" xml:space="preserve">
+    <value>In case of problems with this app, please mail to info@garvis.cz!</value>
+  </data>
+  <data name="TextTerms" xml:space="preserve">
+    <value>For the proper operation the App requires a data connection and access to data provider (www.chmi.cz). The localization of your phone can be used to determine the nearest station. All phone location information is used only for internal functionality and is not further processed in any manner or distributed outside of the phone.</value>
+  </data>
+  <data name="TextVersion" xml:space="preserve">
+    <value>version</value>
+  </data>
+  <data name="History.Text" xml:space="preserve">
+    <value>Air condition history</value>
+  </data>
+  <data name="StatusCO.Text" xml:space="preserve">
+    <value>CO</value>
+  </data>
+  <data name="StatusNO2.Text" xml:space="preserve">
+    <value>NO₂</value>
+  </data>
+  <data name="StatusO3.Text" xml:space="preserve">
+    <value>O₃</value>
+  </data>
+  <data name="StatusPM10.Text" xml:space="preserve">
+    <value>PM₁₀</value>
+  </data>
+  <data name="StatusSO2.Text" xml:space="preserve">
+    <value>SO₂</value>
+  </data>
+  <data name="ClassAroundcity" xml:space="preserve">
+    <value>suburban</value>
+  </data>
+  <data name="ClassIndustry" xml:space="preserve">
+    <value>industrial</value>
+  </data>
+  <data name="ClassIntercity" xml:space="preserve">
+    <value>urban</value>
+  </data>
+  <data name="ClassTraffic" xml:space="preserve">
+    <value>traffic</value>
+  </data>
+  <data name="ClassVillage" xml:space="preserve">
+    <value>rural</value>
+  </data>
+  <data name="LastPhotoText" xml:space="preserve">
+    <value>last photo:</value>
+  </data>
+  <data name="OpenFile" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="PhotoCamera.Label" xml:space="preserve">
+    <value>camera</value>
+  </data>
+  <data name="PhotoComment.Text" xml:space="preserve">
+    <value>Your comment...</value>
+  </data>
+  <data name="PhotoName.Text" xml:space="preserve">
+    <value>Photo name (optional)</value>
+  </data>
+  <data name="PhotoUpload.Label" xml:space="preserve">
+    <value>choose file</value>
+  </data>
+  <data name="PhotoUploadButton.Content" xml:space="preserve">
+    <value>upload photo</value>
+  </data>
+  <data name="RegionA" xml:space="preserve">
+    <value>The Capital Prague</value>
+  </data>
+  <data name="RegionB" xml:space="preserve">
+    <value>Southern Moravian Region</value>
+  </data>
+  <data name="RegionC" xml:space="preserve">
+    <value>South Bohemian Region</value>
+  </data>
+  <data name="RegionE" xml:space="preserve">
+    <value>Pardubice Region</value>
+  </data>
+  <data name="RegionH" xml:space="preserve">
+    <value>Hradec Králové Region</value>
+  </data>
+  <data name="RegionJ" xml:space="preserve">
+    <value>Vysočina Region</value>
+  </data>
+  <data name="RegionK" xml:space="preserve">
+    <value>Karlovy Vary Region</value>
+  </data>
+  <data name="RegionL" xml:space="preserve">
+    <value>Liberec Region</value>
+  </data>
+  <data name="RegionM" xml:space="preserve">
+    <value>Olomouc Region</value>
+  </data>
+  <data name="RegionP" xml:space="preserve">
+    <value>Plzeň Region</value>
+  </data>
+  <data name="RegionS" xml:space="preserve">
+    <value>Central Bohemia Region</value>
+  </data>
+  <data name="RegionT" xml:space="preserve">
+    <value>Moravian-Silesian Region</value>
+  </data>
+  <data name="RegionU" xml:space="preserve">
+    <value>Ústí Region</value>
+  </data>
+  <data name="RegionZ" xml:space="preserve">
+    <value>Zlín Region</value>
+  </data>
+  <data name="TextUpload" xml:space="preserve">
+    <value>upload</value>
+  </data>
+</root>

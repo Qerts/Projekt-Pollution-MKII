@@ -1,0 +1,62 @@
+﻿<SettingsFlyout x:Uid="FlyoutAbout"
+    x:Class="Pollution.Flyouts.FlyoutAbout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="O aplikaci"
+    d:DesignWidth="346">
+
+    <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+        <!-- The StackPanel(s) below define individual content sections -->
+
+        <!-- Content Section 1-->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <StackPanel x:Name="ContentPanel" VerticalAlignment="Top" Margin="10,0,0,0" >
+                <StackPanel>
+                    <TextBlock x:Name="aboutText" x:Uid="TextAbout" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,20" Text="Design text" FontSize="13.333" TextAlignment="Justify"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="versionText" x:Uid="TextVersion" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="Bold"/>
+                        <TextBlock x:Name="versionTextValue" x:Uid="TextPublisher" TextWrapping="Wrap" Text="x.x" VerticalAlignment="Top" Width="100" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock x:Name="publisherText" x:Uid="TextVersion" TextWrapping="Wrap"  FontWeight="Bold" Width="100" VerticalAlignment="Top" TextAlignment="Right"/>
+                        <TextBlock x:Name="publisherTextValue" x:Uid="TextPublisher" TextWrapping="Wrap" Text="Microsoft" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="emailText" x:Uid="TextSupport" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,10" Text="Design text" FontSize="13.333"/>
+                    <Button Content="Facebook" Tapped="ButtonFB_Click"/>
+                    <Button Content="http://www.garvis.cz" Tapped="Button_Click"/>
+                    <Image Height="140" Width="200" Margin="0,0,0,10" Source="/Pollution;component/billboard-blank.png" Stretch="None"/>
+                    <Image Height="140" Width="200" Margin="0,-150,0,10" Source="http://data.garvis.cz/garvis/billboard/img/pollution" Tapped="Image_Tap" x:Name="billboard" />
+                    <Button Content="SmogAlarm" Tapped="Button_Click1"/>
+                    <TextBlock x:Name="termsText" x:Uid="TextTerms" TextWrapping="Wrap" Text="Design text" FontSize="13.333" />
+
+                    <TextBlock x:Name="taskText" x:Uid="TextTaskInfo" TextWrapping="Wrap"  Margin="0,20,0,0" Text="Design text" FontSize="13.333" TextAlignment="Justify"/>
+                    <TextBlock x:Name="infoTextTaskOK" x:Uid="TextTaskOK" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Design text" FontSize="13.333" TextAlignment="Justify">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="#FF3C3C3C"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock x:Name="infoTextTaskFailed" x:Uid="TextTaskFailed" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Design text" FontSize="13.333" TextAlignment="Justify">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="#FF3C3C3C"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+
+                    <Button x:Name="reviewBtn" x:Uid="BtnReview" Margin="0,0,0,0" Click="ButtonReview_Click" Content="Design text"/>
+                    <TextBlock x:Name="reviewText" x:Uid="TextReview" TextWrapping="Wrap"  Margin="0,0,0,0" Height="120" TextAlignment="Justify" Text="Design text" FontSize="13.333"/>
+
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!-- Define more Content Sections below as necessary -->
+
+    </StackPanel>
+</SettingsFlyout>

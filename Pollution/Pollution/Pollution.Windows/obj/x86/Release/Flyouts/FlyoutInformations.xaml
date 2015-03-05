@@ -1,0 +1,44 @@
+﻿<SettingsFlyout
+    x:Uid="FlyoutInfo"
+    x:Class="Pollution.Flyouts.FlyoutInformations"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="Informace"
+    d:DesignWidth="346">
+
+    <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+        <!-- The StackPanel(s) below define individual content sections -->
+
+        <!-- Content Section 1-->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+
+
+
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoWhatToDo" x:Name="infoWhatToDo" FontWeight="Bold" FontSize="18.667"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoSmog" x:Name="infoSmog" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoTitleSO2" x:Name="infoTitleSO2" FontWeight="Bold" FontSize="18.667" Margin="0,10,0,0"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoSO2" x:Name="infoSO2" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoTitleNO2" x:Name="infoTitleNO2" FontWeight="Bold" FontSize="18.667" Margin="0,10,0,0"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoNO2" x:Name="infoNO2" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoTitleCO" x:Name="infoTitleCO" FontWeight="Bold" FontSize="18.667" Margin="0,10,0,0"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoCO" x:Name="infoCO" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoTitleO3" x:Name="infoTitleO3" FontWeight="Bold" FontSize="18.667" Margin="0,10,0,0"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoO3" x:Name="infoO3" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoTitlePM10" x:Name="infoTitlePM10" FontWeight="Bold" FontSize="18.667" Margin="0,10,0,0"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoPM10" x:Name="infoPM10" FontSize="13.333"/>
+            <TextBlock TextWrapping="Wrap" x:Uid="InfoSource" x:Name="infoSource" TextAlignment="Right" Margin="0,0,5,15" FontSize="13.333"/>
+
+        </StackPanel>
+
+        <!-- Define more Content Sections below as necessary -->
+
+    </StackPanel>
+</SettingsFlyout>
+

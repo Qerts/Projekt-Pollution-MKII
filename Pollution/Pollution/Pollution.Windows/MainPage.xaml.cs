@@ -1,13 +1,22 @@
-﻿using System;
+﻿using Bing.Maps;
+using Pollution.Flyouts;
+using Pollution.Utils;
+using Pollution.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -21,27 +30,29 @@ using Windows.UI.Xaml.Navigation;
 
 
 
+
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Pollution
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         private List<UIElement> blankTileCollection = new List<UIElement>();
         private List<FrameworkElement> statusCollection = new List<FrameworkElement>();
         private List<FrameworkElement> imageCollection = new List<FrameworkElement>();
 
+  
+
+        
         private Tile tileGenerator;
 
-        Grid mapbutton, databutton, menubutton, mainstatus;
+        //"ploše" řešená tlačítka panelů
+        Grid mapbutton, databutton, menubutton, mainstatus, infoTile;
 
+        //aktuální orientace
         private string currentState;
-
-        //testovaci tb
-        private TextBlock testTB;
+        
 
         //globalni promenne pro animace jednotlivych orientaci
         Storyboard dataPanelShowSB;
@@ -52,52 +63,123 @@ namespace Pollution
         Storyboard dataPanelHideSBP;
         Storyboard menuPanelShowSBP;
         Storyboard menuPanelHideSBP;
+        Storyboard mapPanelShowSB;
+        Storyboard mapPanelShowButtonSB;
+        Storyboard mapPanelHideSB;
+        Storyboard mapPanelHideButtonSB;
+        Storyboard mapPanelShowSBP;
+        Storyboard mapPanelHideSBP;
         DoubleAnimation doubleAnim;
         DoubleAnimation doubleAnim2;
         DoubleAnimation doubleAnim3;
         DoubleAnimation doubleAnim4;
 
-
+        //globální proměnné pro piny, zatím trochu zmatečné
+        Pin oldSelected;
+        Pin newSelected;
         
-
+        /// <summary>
+        /// Krom inicializace komponent jsou zde volány funkce pro načtení dat.
+        /// </summary>
         public MainPage()
         {
+
             
             this.InitializeComponent();
+            //spuštění tasku
 
-            contentLoad();
 
+            //localsettings definition
+            setUpLocalSettings();
+
+            
+            //Přednačtení dat
+            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                DataPreLoad();
+            });
+            
+
+            //nastavení datacontextu
+            rootPage.DataContext = App.ViewModel;
+            
+            //5 s pauza
+            var initialStartPause = Task.Run(async delegate
+            {
+                await Task.Delay(5000);
+            });
+            initialStartPause.Wait();
+            
+            //stažení dat
+            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                LoadData();
+            });
+            
+            //stažení dat každých 60s
+            var afterStartLoad = Task.Run(async delegate
+            {
+                while (true)
+                {                                        
+                    await Task.Delay(600000);
+                    this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        LoadData();
+                    });
+                }
+            });
+            
+            
+            //prirazeni udalosti 
             this.Loaded += MainPage_Loaded;
             this.Unloaded += MainPage_Unloaded;
 
             tileGenerator = new Tile(this);
-            
-            
-            
-            mapbutton = tileGenerator.buttonTile_MapPanel(0, 0);
+
+            //inicializace a umístění tlačítek
+            mapbutton = tileGenerator.buttonTile_MapPanel(1, 1);
             MapPanel.Children.Add(mapbutton);
             menubutton = tileGenerator.buttonTile_MenuPanel(1, 0);
             MenuPanel.Children.Add(menubutton);
             databutton = tileGenerator.buttonTile_DataPanel(1, 1);
             DataPanel.Children.Add(databutton);
-            
-            
 
+            //Přiřazení události, která nastane, pokud se změní property ViewModelu.
+            App.ViewModel.PropertyChanged += new PropertyChangedEventHandler(ViewModel_PropertyChanged);
         }
 
+        /// <summary>
+        /// LocalSettings nahrazuje ve WinRT LocalStorage.
+        /// </summary>
+        private void setUpLocalSettings()
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; 
+            ApplicationDataContainer container;
+            container = localSettings.CreateContainer("AppSettings", Windows.Storage.ApplicationDataCreateDisposition.Always);
+            
+     
+        }
 
-
-        
-
+        /// <summary>
+        /// Při načtení indexu je zjištěn state a zajištěno, aby se reagovalo na změnu stavu v průběhu zobrazení stránky.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             Window.Current.SizeChanged += Current_SizeChanged;
             DetermineVisualState();
         }
+        /// <summary>
+        /// Pravděpodobně pro zamezení výpočtů při změně stavu zařízení, přičemž hlavní strana není obrazena
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void MainPage_Unloaded(object sender, RoutedEventArgs e)
         {
             Window.Current.SizeChanged -= Current_SizeChanged;
         }
+
         void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
             DetermineVisualState();
@@ -157,8 +239,8 @@ namespace Pollution
             VisualStateManager.GoToState(this, state, true);
         }
         /// <summary>
-        /// V teto funkci jsou deklarovany prvky hlavniho gridu, tedy dlazdice. Prvky jsou redeklarovany nebo premistovany
-        /// ve funkcich pro jednotlive stavy.
+        /// V teto funkci jsou deklarovany a inicializovány prvky hlavniho gridu, tedy dlazdice. 
+        /// Prvky jsou reinicializovány nebo premistovany ve funkcich pro jednotlive stavy.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -218,9 +300,26 @@ namespace Pollution
             LayoutGrid.Children.Add(mainstatus);
                        
             //VELIKOSTI PISMA ODVOZENE OD VELIKOSTI ZOBRAZENI
-            setFontSizes();       
+            setFontSizes();  
+     
+            //informační panel
+            infoTile = tileGenerator.InfoTile(1, 1);
+            LayoutGrid.Children.Add(infoTile);
+
+            //nabindování obrázku na pozadí
+            Binding layoutGridBinding = new Binding();
+            layoutGridBinding.Source = App.ViewModel;
+            layoutGridBinding.Path = new PropertyPath("CurrentStation.Quality");
+            layoutGridBinding.Converter = new BackGroundImageConverter();
+            LayoutGrid.SetBinding(Grid.BackgroundProperty, layoutGridBinding);
+
+            //BackgroundService.RegisterBackgroundTask("BackgroundTask.TileTask", "TileTask", new TimeTrigger(15, false), null);
+            BackgroundService.RegisterTileTask();
         }
 
+
+
+        #region CHANGES
         /// <summary>
         /// Funkce obsluhujici zmeny v zobrazeni pri vertikalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
         /// a podobne.
@@ -415,6 +514,10 @@ namespace Pollution
 
             dataPanelStck.Orientation = Orientation.Vertical;
 
+            Grid.SetColumn(dataPanelButtonBackgroundPanel, 0);
+            Grid.SetColumnSpan(dataPanelButtonBackgroundPanel, 2);
+            Grid.SetRow(dataPanelButtonBackgroundPanel, 1);
+            Grid.SetRowSpan(dataPanelButtonBackgroundPanel, 1);
 
             //menupanel zemny
 
@@ -435,11 +538,11 @@ namespace Pollution
             coldef31.Width = new GridLength(1, GridUnitType.Star);
             MenuPanel.ColumnDefinitions.Add(coldef31);
             ColumnDefinition coldef32 = new ColumnDefinition();
-            coldef32.Width = new GridLength(4, GridUnitType.Star);
+            coldef32.Width = new GridLength(2, GridUnitType.Star);
             MenuPanel.ColumnDefinitions.Add(coldef32);
 
             Grid.SetColumn(MenuPanel, 1);
-            Grid.SetColumnSpan(MenuPanel, 5);
+            Grid.SetColumnSpan(MenuPanel, 3);
             Grid.SetRow(MenuPanel, 0);
             Grid.SetRowSpan(MenuPanel, 11);
 
@@ -488,13 +591,7 @@ namespace Pollution
             menuPanelButtonGrid.ColumnDefinitions.Add(coldef50);
             ColumnDefinition coldef51 = new ColumnDefinition();
             coldef51.Width = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.ColumnDefinitions.Add(coldef51);
-            ColumnDefinition coldef52 = new ColumnDefinition();
-            coldef52.Width = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.ColumnDefinitions.Add(coldef52);
-            ColumnDefinition coldef53 = new ColumnDefinition();
-            coldef53.Width = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.ColumnDefinitions.Add(coldef53);
+            menuPanelButtonGrid.ColumnDefinitions.Add(coldef51);            
             ColumnDefinition coldef54 = new ColumnDefinition();
             coldef54.Width = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.ColumnDefinitions.Add(coldef54);
@@ -507,18 +604,16 @@ namespace Pollution
 
             Grid.SetColumn(menuPanelButton1, 1);
             Grid.SetRow(menuPanelButton1, 1);
-            Grid.SetColumn(menuPanelButton2, 2);
-            Grid.SetRow(menuPanelButton2, 1);
-            Grid.SetColumn(menuPanelButton3, 3);
-            Grid.SetRow(menuPanelButton3, 1);
-            Grid.SetColumn(menuPanelButton4, 1);
-            Grid.SetRow(menuPanelButton4, 2);
-            Grid.SetColumn(menuPanelButton5, 2);
-            Grid.SetRow(menuPanelButton5, 2);
+            Grid.SetColumn(menuPanelButton2, 1);
+            Grid.SetRow(menuPanelButton2, 2);
+            Grid.SetColumn(menuPanelButton3, 1);
+            Grid.SetRow(menuPanelButton3, 3);
 
             Grid.SetColumn(menuPanelInfoGrid, 0);
             Grid.SetRow(menuPanelInfoGrid, 1);
 
+            
+            
             //naaktualizovani hodnot
             statusCOTxt.Text = Data.getString_CO();
             statusCOValue.Text = Data.getValue_CO().ToString();
@@ -555,7 +650,7 @@ namespace Pollution
 
             //POSUNUTI PANELU
             MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 8), 0, ((Window.Current.Bounds.Height / 11) * 8));
-            DataPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 6) * 4), 0, ((Window.Current.Bounds.Width / 6) * 4), 4);
+            DataPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 6) * 4), 0, ((Window.Current.Bounds.Width / 6) * 4), 0);
             MenuPanel.Margin = new Thickness(((Window.Current.Bounds.Width / 6) * 4), 0, -((Window.Current.Bounds.Width / 6) * 4), 0);
 
 
@@ -581,25 +676,11 @@ namespace Pollution
 
             //animace pro portrait
             setAnimationsPortrait();
-            /*
-            //testovaci tb
-            testTB = new TextBlock();
-            testTB.FontSize = 30;
-            testTB.TextWrapping = TextWrapping.Wrap;
-            testTB.Text = Grid.GetRow(statusCollection.ElementAt(0)).ToString() 
-                + Grid.GetRow(statusCollection.ElementAt(1)).ToString()
-                + Grid.GetRow(statusCollection.ElementAt(2)).ToString()
-                + Grid.GetRow(statusCollection.ElementAt(3)).ToString()
-                + Grid.GetRow(statusCollection.ElementAt(4)).ToString()
-                + Grid.GetColumn(statusCollection.ElementAt(0)).ToString()
-                + Grid.GetColumn(statusCollection.ElementAt(1)).ToString()
-                + Grid.GetColumn(statusCollection.ElementAt(2)).ToString()
-                + Grid.GetColumn(statusCollection.ElementAt(3)).ToString()
-                + Grid.GetColumn(statusCollection.ElementAt(4)).ToString();
-            Grid.SetColumn(testTB, 1);
-            Grid.SetRow(testTB, 1);
-            LayoutGrid.Children.Add(testTB);
-             * */
+
+            //infopanel
+            Grid.SetRow(infoTile, 10);
+            Grid.SetColumn(infoTile, 0);
+
         }
         /// <summary>
         /// Funkce obsluhujici zmeny v zobrazeni pri horizontalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
@@ -798,6 +879,10 @@ namespace Pollution
 
             dataPanelStck.Orientation = Orientation.Horizontal;
 
+            Grid.SetColumn(dataPanelButtonBackgroundPanel, 1);
+            Grid.SetColumnSpan(dataPanelButtonBackgroundPanel, 1);
+            Grid.SetRow(dataPanelButtonBackgroundPanel, 0);
+            Grid.SetRowSpan(dataPanelButtonBackgroundPanel, 2);
 
             //menupanel zemny
 
@@ -805,7 +890,7 @@ namespace Pollution
             MenuPanel.RowDefinitions.Clear();
 
             RowDefinition rowdef32 = new RowDefinition();
-            rowdef32.Height = new GridLength(4, GridUnitType.Star);
+            rowdef32.Height = new GridLength(2, GridUnitType.Star);
             MenuPanel.RowDefinitions.Add(rowdef32);
             RowDefinition rowdef33 = new RowDefinition();
             rowdef33.Height = new GridLength(1, GridUnitType.Star);
@@ -825,7 +910,7 @@ namespace Pollution
             Grid.SetColumn(MenuPanel, 0);
             Grid.SetColumnSpan(MenuPanel, 11);
             Grid.SetRow(MenuPanel, 0);
-            Grid.SetRowSpan(MenuPanel, 5);
+            Grid.SetRowSpan(MenuPanel, 3);
 
             MenuPanelSubGrid.ColumnDefinitions.Clear();
             MenuPanelSubGrid.RowDefinitions.Clear();
@@ -874,11 +959,6 @@ namespace Pollution
             coldef51.Height = new GridLength(2, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef51);
             RowDefinition coldef52 = new RowDefinition();
-            coldef52.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef52);
-            RowDefinition coldef53 = new RowDefinition();
-            coldef53.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef53);
             RowDefinition coldef54 = new RowDefinition();
             coldef54.Height = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef54);
@@ -902,53 +982,62 @@ namespace Pollution
             Grid.SetColumn(menuPanelInfoGrid, 1);
             Grid.SetRow(menuPanelInfoGrid, 0);
 
-            //naaktualizovani hodnot
+            //mappanel zmeny
+
+            Grid.SetColumn(MapPanel, 0);
+            Grid.SetColumnSpan(MapPanel, 11);
+            Grid.SetRow(MapPanel, 0);
+            Grid.SetRowSpan(MapPanel, 6);
+
+            MapPanel.RowDefinitions.Clear();
+            MapPanel.ColumnDefinitions.Clear();
+
+            RowDefinition rowdef62 = new RowDefinition();
+            rowdef62.Height = new GridLength(1, GridUnitType.Star);
+            MapPanel.RowDefinitions.Add(rowdef62);
+            RowDefinition rowdef63 = new RowDefinition();
+            rowdef63.Height = new GridLength(1, GridUnitType.Star);
+            MapPanel.RowDefinitions.Add(rowdef63);
+            RowDefinition rowdef64 = new RowDefinition();
+            rowdef64.Height = new GridLength(4, GridUnitType.Star);
+            MapPanel.RowDefinitions.Add(rowdef64);
+
+            ColumnDefinition coldef61 = new ColumnDefinition();
+            coldef61.Width = new GridLength(10, GridUnitType.Star);
+            MapPanel.ColumnDefinitions.Add(coldef61);
+            ColumnDefinition coldef62 = new ColumnDefinition();
+            coldef62.Width = new GridLength(1, GridUnitType.Star);
+            MapPanel.ColumnDefinitions.Add(coldef62);
+
+
+            Grid.SetColumn(mapPanelSubGrid, 0);
+            Grid.SetColumnSpan(mapPanelSubGrid, 1);
+            Grid.SetRow(mapPanelSubGrid, 0);
+            Grid.SetRowSpan(mapPanelSubGrid, 3);
+
+
+
+            /////mappanel konec
+
             statusCOTxt.Text = Data.getString_CO();
-            statusCOValue.Text = Data.getValue_CO().ToString();
-            statusCOClr.Background = Data.getColorAndStatus(Data.getStatus_CO()).Item1;
             statusSOTxt.Text = Data.getString_SO2();
-            statusSOValueTxt.Text = Data.getValue_SO2().ToString();
-            statusSOClr.Background = Data.getColorAndStatus(Data.getStatus_SO2()).Item1;
             statusPOTxt.Text = Data.getString_PM10();
-            statusPOValue.Text = Data.getValue_PM10().ToString();
-            statusPOClr.Background = Data.getColorAndStatus(Data.getStatus_PM10()).Item1;
             statusOTxt.Text = Data.getString_O3();
-            statusOValue.Text = Data.getValue_O3().ToString();
-            statusOClr.Background = Data.getColorAndStatus(Data.getStatus_O3()).Item1;
             statusNOTxt.Text = Data.getString_NO2();
-            statusNOValue.Text = Data.getValue_NO2().ToString();
-            statusNOClr.Background = Data.getColorAndStatus(Data.getStatus_NO2()).Item1;
-
-            mainStatusLbl.Background = Data.getMainColor();
-
-            legendLabelB.Background = Data.getColorAndStatus(Data.StatusName.Bad).Item1;
-            legendLabelG.Background = Data.getColorAndStatus(Data.StatusName.Good).Item1;
-            legendLabelND.Background = Data.getColorAndStatus(Data.StatusName.NoData).Item1;
-            legendLabelNM.Background = Data.getColorAndStatus(Data.StatusName.NoMeasurement).Item1;
-            legendLabelSa.Background = Data.getColorAndStatus(Data.StatusName.Satisfying).Item1;
-            legendLabelSu.Background = Data.getColorAndStatus(Data.StatusName.Suitable).Item1;
-            legendLabelVB.Background = Data.getColorAndStatus(Data.StatusName.VeryBad).Item1;
-            legendLabelVG.Background = Data.getColorAndStatus(Data.StatusName.VeryGood).Item1;
-
-            menuPanelButton1.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton2.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton3.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton4.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton5.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-
+            
 
             //POSUNUTI PANELU
-            MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+            MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 10), 0, ((Window.Current.Bounds.Width / 11) * 10), 0);
             DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
-            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
+            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 2), 0, ((Window.Current.Bounds.Height / 6) * 2));
 
             //UMISTENI BUTTONU
             Grid.SetColumn(menubutton, 1);
             Grid.SetRow(menubutton, 1);
             Grid.SetColumn(databutton, 1);
             Grid.SetRow(databutton, 0);
-            Grid.SetColumn(mapbutton, 0);
-            Grid.SetRow(mapbutton, 0);
+            Grid.SetColumn(mapbutton, 1);
+            Grid.SetRow(mapbutton, 1);
 
 
             //ZAROVNANI ELEMENTU DATAPANELU
@@ -965,6 +1054,10 @@ namespace Pollution
 
             //animace pro landscape
             setAnimationsLandscape();
+
+            //infopanel
+            Grid.SetRow(infoTile, 5);
+            Grid.SetColumn(infoTile, 10);
         }
         /// <summary>
         /// Funkce obsluhujici zmeny v zobrazeni pri horizontalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
@@ -1232,41 +1325,12 @@ namespace Pollution
 
             Grid.SetColumn(menuPanelInfoGrid, 1);
             Grid.SetRow(menuPanelInfoGrid, 0);
-
-            //naaktualizovani hodnot
             statusCOTxt.Text = Data.getString_CO();
-            statusCOValue.Text = Data.getValue_CO().ToString();
-            statusCOClr.Background = Data.getColorAndStatus(Data.getStatus_CO()).Item1;
             statusSOTxt.Text = Data.getString_SO2();
-            statusSOValueTxt.Text = Data.getValue_SO2().ToString();
-            statusSOClr.Background = Data.getColorAndStatus(Data.getStatus_SO2()).Item1;
             statusPOTxt.Text = Data.getString_PM10();
-            statusPOValue.Text = Data.getValue_PM10().ToString();
-            statusPOClr.Background = Data.getColorAndStatus(Data.getStatus_PM10()).Item1;
             statusOTxt.Text = Data.getString_O3();
-            statusOValue.Text = Data.getValue_O3().ToString();
-            statusOClr.Background = Data.getColorAndStatus(Data.getStatus_O3()).Item1;
             statusNOTxt.Text = Data.getString_NO2();
-            statusNOValue.Text = Data.getValue_NO2().ToString();
-            statusNOClr.Background = Data.getColorAndStatus(Data.getStatus_NO2()).Item1;
-
-            mainStatusLbl.Background = Data.getMainColor();
-
-            legendLabelB.Background = Data.getColorAndStatus(Data.StatusName.Bad).Item1;
-            legendLabelG.Background = Data.getColorAndStatus(Data.StatusName.Good).Item1;
-            legendLabelND.Background = Data.getColorAndStatus(Data.StatusName.NoData).Item1;
-            legendLabelNM.Background = Data.getColorAndStatus(Data.StatusName.NoMeasurement).Item1;
-            legendLabelSa.Background = Data.getColorAndStatus(Data.StatusName.Satisfying).Item1;
-            legendLabelSu.Background = Data.getColorAndStatus(Data.StatusName.Suitable).Item1;
-            legendLabelVB.Background = Data.getColorAndStatus(Data.StatusName.VeryBad).Item1;
-            legendLabelVG.Background = Data.getColorAndStatus(Data.StatusName.VeryGood).Item1;
-
-            menuPanelButton1.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton2.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton3.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton4.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton5.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-
+            
 
             //POSUNUTI PANELU
             MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 5) * 8), 0, ((Window.Current.Bounds.Width / 5) * 8), 0);
@@ -1295,6 +1359,10 @@ namespace Pollution
 
             //animace pro landscape
             setAnimationsLandscape();
+
+            //infopanel
+            Grid.SetRow(infoTile, 5);
+            Grid.SetColumn(infoTile, 4);
              
         }
         private void setNarrowChanges() 
@@ -1559,41 +1627,12 @@ namespace Pollution
 
             Grid.SetColumn(menuPanelInfoGrid, 1);
             Grid.SetRow(menuPanelInfoGrid, 0);
-
-            //naaktualizovani hodnot
             statusCOTxt.Text = Data.getString_CO();
-            statusCOValue.Text = Data.getValue_CO().ToString();
-            statusCOClr.Background = Data.getColorAndStatus(Data.getStatus_CO()).Item1;
             statusSOTxt.Text = Data.getString_SO2();
-            statusSOValueTxt.Text = Data.getValue_SO2().ToString();
-            statusSOClr.Background = Data.getColorAndStatus(Data.getStatus_SO2()).Item1;
             statusPOTxt.Text = Data.getString_PM10();
-            statusPOValue.Text = Data.getValue_PM10().ToString();
-            statusPOClr.Background = Data.getColorAndStatus(Data.getStatus_PM10()).Item1;
             statusOTxt.Text = Data.getString_O3();
-            statusOValue.Text = Data.getValue_O3().ToString();
-            statusOClr.Background = Data.getColorAndStatus(Data.getStatus_O3()).Item1;
             statusNOTxt.Text = Data.getString_NO2();
-            statusNOValue.Text = Data.getValue_NO2().ToString();
-            statusNOClr.Background = Data.getColorAndStatus(Data.getStatus_NO2()).Item1;
-
-            mainStatusLbl.Background = Data.getMainColor();
-
-            legendLabelB.Background = Data.getColorAndStatus(Data.StatusName.Bad).Item1;
-            legendLabelG.Background = Data.getColorAndStatus(Data.StatusName.Good).Item1;
-            legendLabelND.Background = Data.getColorAndStatus(Data.StatusName.NoData).Item1;
-            legendLabelNM.Background = Data.getColorAndStatus(Data.StatusName.NoMeasurement).Item1;
-            legendLabelSa.Background = Data.getColorAndStatus(Data.StatusName.Satisfying).Item1;
-            legendLabelSu.Background = Data.getColorAndStatus(Data.StatusName.Suitable).Item1;
-            legendLabelVB.Background = Data.getColorAndStatus(Data.StatusName.VeryBad).Item1;
-            legendLabelVG.Background = Data.getColorAndStatus(Data.StatusName.VeryGood).Item1;
-
-            menuPanelButton1.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton2.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton3.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton4.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-            menuPanelButton5.Background = Data.getColorAndStatus(Data.getMainMood()).Item1;
-
+            
 
             //POSUNUTI PANELU
             MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 5) * 8), 0, ((Window.Current.Bounds.Width / 5) * 8), 0);
@@ -1622,9 +1661,14 @@ namespace Pollution
 
             //animace pro landscape
             setAnimationsLandscape();
+
+            //infopanel
+            Grid.SetRow(infoTile, 5);
+            Grid.SetColumn(infoTile, 4);
         }
         private void setFilledChanges() { }
-
+        #endregion
+        #region PANEL SERVICES
         /// <summary>
         /// Funkce obsluhujici map panel.
         /// </summary>
@@ -1632,10 +1676,70 @@ namespace Pollution
         /// <param name="e"></param>
         public void mapPanelService(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            MapPanel.Margin = new Thickness(0, 0, 0, 0);
-            DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
-            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
+            
+            if (currentState == "FullScreenLandscape")
+            {
+                //MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 9), 0, ((Window.Current.Bounds.Width / 11) * 9), 0);
+                if (((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSB"]).Begin();
+                }
+                if (((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["dataPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSB"]).Begin();
+                }
 
+
+                if ((((Storyboard)Resources["mapPanelShowSB"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["mapPanelHideSB"]).GetCurrentState() == ClockState.Stopped))
+                {
+
+                    ((Storyboard)Resources["mapPanelShowSB"]).Begin();
+                }
+                else if (((Storyboard)Resources["mapPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["mapPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideSB"]).Begin();
+                }
+                else
+                {
+                    ((Storyboard)Resources["mapPanelHideSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelShowSB"]).Begin();
+                }
+
+
+            }
+            else//portrait
+            {
+                MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 9), 0, ((Window.Current.Bounds.Height / 11) * 9));
+                if (((Storyboard)Resources["menuPanelShowSBP"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["menuPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["menuPanelHideSBP"]).Begin();
+                }
+
+
+                if ((((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["dataPanelHideSBP"]).GetCurrentState() == ClockState.Stopped))
+                {
+
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Begin();
+                }
+                else if (((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Stop();
+                    ((Storyboard)Resources["dataPanelHideSBP"]).Begin();
+                }
+                else
+                {
+                    ((Storyboard)Resources["dataPanelHideSBP"]).Stop();
+                    ((Storyboard)Resources["dataPanelShowSBP"]).Begin();
+                }
+
+
+
+            }
+            
         }
         /// <summary>
         /// Funkce obsluhujici data panel.
@@ -1646,27 +1750,40 @@ namespace Pollution
         {         
             if (currentState == "FullScreenLandscape") 
             {
-                MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+                if (((Storyboard)Resources["mapPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["mapPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideSB"]).Begin();
+                    
+                } 
                 if (((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Filling)
                 {
                     ((Storyboard)Resources["menuPanelShowSB"]).Stop();
                     ((Storyboard)Resources["menuPanelHideSB"]).Begin();
                 }
+                
 
                 if ((((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Stopped) && (((Storyboard)Resources["dataPanelHideSB"]).GetCurrentState() == ClockState.Stopped))
                 {
 
                     ((Storyboard)Resources["dataPanelShowSB"]).Begin();
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Begin();
                 }
                 else if (((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Filling)
                 {
                     ((Storyboard)Resources["dataPanelShowSB"]).Stop();
                     ((Storyboard)Resources["dataPanelHideSB"]).Begin();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Begin();
                 }
                 else
                 {
                     ((Storyboard)Resources["dataPanelHideSB"]).Stop();
                     ((Storyboard)Resources["dataPanelShowSB"]).Begin();
+
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Begin();
                 }
 
 
@@ -1711,7 +1828,11 @@ namespace Pollution
 
             if (currentState == "FullScreenLandscape")
             {
-                MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 11) * 8), 0, ((Window.Current.Bounds.Width / 11) * 8), 0);
+                if (((Storyboard)Resources["mapPanelShowSB"]).GetCurrentState() == ClockState.Filling)
+                {
+                    ((Storyboard)Resources["mapPanelShowSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideSB"]).Begin();
+                } 
                 if (((Storyboard)Resources["dataPanelShowSB"]).GetCurrentState() == ClockState.Filling)
                 {
                     ((Storyboard)Resources["dataPanelShowSB"]).Stop();
@@ -1723,21 +1844,27 @@ namespace Pollution
                 {
 
                     ((Storyboard)Resources["menuPanelShowSB"]).Begin();
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Begin();
                 }
                 else if (((Storyboard)Resources["menuPanelShowSB"]).GetCurrentState() == ClockState.Filling)
                 {
                     ((Storyboard)Resources["menuPanelShowSB"]).Stop();
                     ((Storyboard)Resources["menuPanelHideSB"]).Begin();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Begin();
                 }
                 else
                 {
                     ((Storyboard)Resources["menuPanelHideSB"]).Stop();
                     ((Storyboard)Resources["menuPanelShowSB"]).Begin();
+                    ((Storyboard)Resources["mapPanelShowButtonSB"]).Stop();
+                    ((Storyboard)Resources["mapPanelHideButtonSB"]).Begin();
                 }
             }
             else 
             {
-                MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 8), 0, ((Window.Current.Bounds.Height / 11) * 8));
+                //MapPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 11) * 4), 0, ((Window.Current.Bounds.Height / 11) * 4));
                 //((Storyboard)Resources["dataPanelHideSBP"]).Begin();
                 if (((Storyboard)Resources["dataPanelShowSBP"]).GetCurrentState() == ClockState.Filling) 
                 {
@@ -1764,7 +1891,7 @@ namespace Pollution
             }
             
         }
-
+        #endregion
         /// <summary>
         /// Funkce nastavujici velikost pisma dle velikosti obrazovky.
         /// </summary>
@@ -1777,11 +1904,11 @@ namespace Pollution
             statusPOTxt.FontSize = Data.getFontSize_CommonText();
             statusOTxt.FontSize = Data.getFontSize_CommonText();
             statusNOTxt.FontSize = Data.getFontSize_CommonText();
-            statusOValue.FontSize = Data.getFontSize_CommonText();
-            statusSOValueTxt.FontSize = Data.getFontSize_CommonText();
-            statusCOValue.FontSize = Data.getFontSize_CommonText();
-            statusPOValue.FontSize = Data.getFontSize_CommonText();
-            statusNOValue.FontSize = Data.getFontSize_CommonText();
+            statusOValue.FontSize = Data.getFontSize_Title();
+            statusSOValueTxt.FontSize = Data.getFontSize_Title();
+            statusCOValue.FontSize = Data.getFontSize_Title();
+            statusPOValue.FontSize = Data.getFontSize_Title();
+            statusNOValue.FontSize = Data.getFontSize_Title();
             legendTxt1.FontSize = Data.getFontSize_SmallText();
             legendTxt2.FontSize = Data.getFontSize_SmallText();
             legendTxt3.FontSize = Data.getFontSize_SmallText();
@@ -1799,7 +1926,7 @@ namespace Pollution
             menuPanelInfoValueTxt.FontSize = Data.getFontSize_CommonText();
             
         }
-
+        #region STATUSES POSITION
         /// <summary>
         /// Funkce pro rozmisteni dlazdic statusu v horizontalnim filled zobrazeni.
         /// </summary>
@@ -1941,7 +2068,8 @@ namespace Pollution
 
         }
         private void setStatusesFilled() { }
-        
+        #endregion
+        #region IMAGES POSITION
         /// <summary>
         /// Funkce pro rozmisteni obrazku v horizontalnim filled zobrazeni.
         /// </summary>
@@ -2139,7 +2267,8 @@ namespace Pollution
             }
         }
         private void setImagesFilled() { }
-                        
+        #endregion
+        #region ANIMATIONS
         /// <summary>
         /// Nastaveni animaci pro horizontal filled.
         /// </summary>
@@ -2194,7 +2323,7 @@ namespace Pollution
             MenuPanel.RenderTransform = new TranslateTransform();
 
             doubleAnim3.From = 0;
-            doubleAnim3.To = (Window.Current.Bounds.Height / 6) * 4;
+            doubleAnim3.To = (Window.Current.Bounds.Height / 6) * 2;
             doubleAnim3.Duration = new Duration(TimeSpan.FromSeconds(1));
             doubleAnim3.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
 
@@ -2211,7 +2340,7 @@ namespace Pollution
 
             MenuPanel.RenderTransform = new TranslateTransform();
 
-            doubleAnim4.From = (Window.Current.Bounds.Height / 6) * 4;
+            doubleAnim4.From = (Window.Current.Bounds.Height / 6) * 2;
             doubleAnim4.To = 0;
             doubleAnim4.Duration = new Duration(TimeSpan.FromSeconds(1));
             doubleAnim4.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
@@ -2222,8 +2351,79 @@ namespace Pollution
             menuPanelHideSB.Children.Add(doubleAnim4);
 
             Resources.Add("menuPanelHideSB", menuPanelHideSB);
+
+            //VYSUNUTI MAP PANELU
+            mapPanelShowSB = new Storyboard();
+            doubleAnim = new DoubleAnimation();
+
+            MapPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim.From = 0;
+            doubleAnim.To = (Window.Current.Bounds.Width / 11) * 10;
+            doubleAnim.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim, MapPanel);
+            Storyboard.SetTargetProperty(doubleAnim, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            mapPanelShowSB.Children.Add(doubleAnim);
+
+            Resources.Add("mapPanelShowSB", mapPanelShowSB);
+
+            //ZASUNUTI MAP PANELU
+
+            mapPanelHideSB = new Storyboard();
+            doubleAnim2 = new DoubleAnimation();
+
+            MapPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim2.From = (Window.Current.Bounds.Width / 11) * 10; ;
+            doubleAnim2.To = 0;
+            doubleAnim2.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim2.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim2, MapPanel);
+            Storyboard.SetTargetProperty(doubleAnim2, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            mapPanelHideSB.Children.Add(doubleAnim2);
+
+            Resources.Add("mapPanelHideSB", mapPanelHideSB);
             
-            
+            //VYSUNUTI TLACITKA MAPPANELU
+            mapPanelShowButtonSB = new Storyboard();
+            doubleAnim = new DoubleAnimation();
+
+            MapPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim.From = -(Window.Current.Bounds.Width / 11) * 1;
+            doubleAnim.To = 0;
+            doubleAnim.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim, MapPanel);
+            Storyboard.SetTargetProperty(doubleAnim, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            mapPanelShowButtonSB.Children.Add(doubleAnim);
+
+            Resources.Add("mapPanelShowButtonSB", mapPanelShowButtonSB);
+
+            //ZASUNUTI TLACITKA MAPPANELU
+            mapPanelHideButtonSB = new Storyboard();
+            doubleAnim2 = new DoubleAnimation();
+
+            MapPanel.RenderTransform = new TranslateTransform();
+
+            doubleAnim2.From = 0;
+            doubleAnim2.To = -(Window.Current.Bounds.Width / 11) * 1;
+            doubleAnim2.Duration = new Duration(TimeSpan.FromSeconds(1));
+            doubleAnim2.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
+
+            Storyboard.SetTarget(doubleAnim2, MapPanel);
+            Storyboard.SetTargetProperty(doubleAnim2, "(FrameworkElement.RenderTransform).(TranslateTransform.X)");
+
+            mapPanelHideButtonSB.Children.Add(doubleAnim2);
+
+            Resources.Add("mapPanelHideButtonSB", mapPanelHideButtonSB);
         }
         /// <summary>
         /// Nastaveni animaci pro vertical filled.
@@ -2280,7 +2480,7 @@ namespace Pollution
             MenuPanel.RenderTransform = new TranslateTransform();
 
             doubleAnim3.From = 0;
-            doubleAnim3.To = -(Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim3.To = -(Window.Current.Bounds.Width / 6) * 2;
             doubleAnim3.Duration = new Duration(TimeSpan.FromSeconds(1));
             doubleAnim3.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
 
@@ -2299,7 +2499,7 @@ namespace Pollution
 
             MenuPanel.RenderTransform = new TranslateTransform();
 
-            doubleAnim4.From = -(Window.Current.Bounds.Width / 6) * 4;
+            doubleAnim4.From = -(Window.Current.Bounds.Width / 6) * 2;
             doubleAnim4.To = 0;
             doubleAnim4.Duration = new Duration(TimeSpan.FromSeconds(1));
             doubleAnim4.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
@@ -2325,5 +2525,63 @@ namespace Pollution
         {
             //bude nutne udelat akorat mappanel
         }
+        #endregion
+        #region BUTTON EVENTS
+        private void menuPanelButton1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(StationList));
+        }
+
+        private void menuPanelButton2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(StationPage), App.ViewModel.CurrentStation);
+        }
+
+        private void menuPanelButton3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            
+            var fl = new FlyoutSettings();
+            fl.Show();
+        }
+
+        bool cardOpen = false;
+        private void flipMapButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Resources.Remove("FlipOpen");
+            Resources.Remove("FlipClose");
+            Resources.Add("FlipOpen", FlipOpen);
+            Resources.Add("FlipClose", FlipClose);
+            
+            if (cardOpen == false)
+            {
+                ((Storyboard)Resources["FlipOpen"]).Begin();
+                flipMapButton.Label = _myResourceLoader.GetString("MapCardOpen");
+                cardOpen = true;
+            }
+            else
+            {
+                ((Storyboard)Resources["FlipClose"]).Begin();
+                flipMapButton.Label = _myResourceLoader.GetString("MapCardClose");
+                cardOpen = false;
+            }
+        }
+
+        private void stationListButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(StationList));
+        }
+
+        private void Pushpin_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Pin p = (sender as Pushpin).DataContext as Pin;
+            if (p.PinType != EPinType.STATION || p.Station == null) return;
+
+            App.ViewModel.DetailsStation = p.Station;
+            this.Frame.Navigate(typeof(StationPage), App.ViewModel.DetailsStation);
+        }
+
+        #endregion
+
+
     }
 }

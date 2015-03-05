@@ -15,15 +15,54 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BackgroundService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CzechMap.xaml.cs">
+      <DependentUpon>CzechMap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DownloadService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GPSService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HistoryElementGraph.xaml.cs">
+      <DependentUpon>HistoryElementGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)HistoryQualityGraph.xaml.cs">
+      <DependentUpon>HistoryQualityGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PElementGraph.xaml.cs">
+      <DependentUpon>PElementGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pins\Pin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pins\PinManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\GeoCoordinateWatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTile.xaml.cs">
+      <DependentUpon>PollutionTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTile8.xaml.cs">
+      <DependentUpon>PollutionTile8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTileHD.xaml.cs">
+      <DependentUpon>PollutionTileHD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\ScheduledAgent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\ScheduledTaskAgent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\BackGroundImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ColorQualityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\EditableImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ImageOrientationTemplateSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ImageQualityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ImageVisualisation.xaml.cs">
+      <DependentUpon>ImageVisualisation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\NegativeValueConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\PngEncoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\QualityValueConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ResolutionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\SerializationStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\WPVersions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GpsAngle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MyGeocoordinate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PGraph.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PHistory.cs" />
@@ -34,16 +73,107 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VisibilityConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley0.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley1.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley2.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley3.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley4.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley5.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley6.gif" />
-    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley7.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\dobra1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\dobra2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile0-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile1-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile2-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile3-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile4-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\icon-smile5-white.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley0.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley2.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley3.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley4.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley5.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley6.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\Smiley7.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\spatna1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\spatna2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\spatna3.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\uspokojiva1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\uspokojiva2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\velmi-dobra1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\velmi-dobra2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\velmi-spatna1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\velmi-spatna2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\vyhovujici1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)SharedAssets\vyhovujici2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Pins\" />
+    <Page Include="$(MSBuildThisFileDirectory)CzechMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)HistoryElementGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)HistoryQualityGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)PElementGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTile8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTileHD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\DefaultStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Utils\ImageVisualisation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)SharedAssets\Photos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0404.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0405.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0406.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0407.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0408.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0409.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.040B.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.040c.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.040E.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0410.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0411.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0412.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0413.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0414.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0415.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0416.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0419.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.041D.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0804.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0809.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0816.mui" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\LocalizedDLL\AppResLib.dll.0c0a.mui" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)strings\cs-CZ\Resources.resw">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)strings\en-US\Resources.resw">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </PRIResource>
   </ItemGroup>
 </Project>

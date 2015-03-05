@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="9d25fef6-d64d-4963-92da-ee8d102f3b6b" Publisher="CN=Admin" Version="1.0.0.0" />
+  <Identity Name="9d25fef6-d64d-4963-92da-ee8d102f3b6b" Publisher="CN=Admin" Version="1.0.0.4" />
   <Properties>
     <DisplayName>Pollution.Windows</DisplayName>
-    <PublisherDisplayName>Admin</PublisherDisplayName>
+    <PublisherDisplayName>Garvis Solutions</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,16 +15,38 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Pollution.Windows.App">
-      <m2:VisualElements DisplayName="Pollution.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Pollution.Windows" ForegroundText="light" BackgroundColor="#464646">
+      <m2:VisualElements DisplayName="Pollution" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Application for air pollution monitoring in area of Czech Republic." ForegroundText="light" BackgroundColor="#008c00">
+        <m2:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
+        <m2:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" DefaultSize="square150x150Logo" Square70x70Logo="Assets\Square70x70Logo.png">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+            <m2:ShowOn Tile="wide310x150Logo" />
+            <m2:ShowOn Tile="square310x310Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
         <m2:SplashScreen Image="Assets\SplashScreen.png" />
+        <m2:ApplicationView MinWidth="width500" />
+        <m2:InitialRotationPreference>
+          <m2:Rotation Preference="portrait" />
+          <m2:Rotation Preference="landscape" />
+          <m2:Rotation Preference="portraitFlipped" />
+          <m2:Rotation Preference="landscapeFlipped" />
+        </m2:InitialRotationPreference>
       </m2:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTask.TileTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+            <m2:Task Type="location" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
-    <Capability Name="removableStorage" />
-    <Capability Name="videosLibrary" />
     <Capability Name="picturesLibrary" />
-    <Capability Name="musicLibrary" />
+    <DeviceCapability Name="location" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>
