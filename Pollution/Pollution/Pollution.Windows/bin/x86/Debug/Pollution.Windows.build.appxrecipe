@@ -427,6 +427,9 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PElementGraph.xbf">
       <PackagePath>PElementGraph.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pins\PinConverters.xbf">
+      <PackagePath>Pins\PinConverters.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PollutionAgent\PollutionTile.xbf">
       <PackagePath>PollutionAgent\PollutionTile.xbf</PackagePath>
     </AppxPackagedFile>

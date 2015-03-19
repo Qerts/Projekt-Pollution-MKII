@@ -12,7 +12,7 @@
 
     <Application.Resources>
         <!-- #Converters -->
-        <local:PinTypeToStyleConverter x:Key="PinTypeToStyleConverter"/>
+        <!--<local:PinTypeToStyleConverter x:Key="PinTypeToStyleConverter"/>-->
 
         <!-- #Styles -->
 

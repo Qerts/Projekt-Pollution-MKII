@@ -24,6 +24,7 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel;
 using System.Collections.ObjectModel;
 using Windows.UI.Core;
+using Windows.Networking.Connectivity;
 
 
 namespace Pollution
@@ -52,13 +53,16 @@ namespace Pollution
             bool _newDownload = true;
 
             //kontrola připojení k internetu
-            if (NetworkInterface.GetIsNetworkAvailable() == false)
+            if (NetworkInformation.GetInternetConnectionProfile() == null || NetworkInformation.GetInternetConnectionProfile().GetNetworkConnectivityLevel() != NetworkConnectivityLevel.InternetAccess)
             {
-                MessageDialog msg = new MessageDialog("Nebylo možné nalézt internetové připojení");
+                MessageDialog msg = new MessageDialog(_myResourceLoader.GetString("MsgNoConnection"));
                 msg.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler(CommandHandlers)));
                 await msg.ShowAsync();
                 _newDownload = false;
             }
+
+            //test 
+            //NetworkInformation.GetConnectionProfiles();
 
             //stažení nových dat
             if (_newDownload)

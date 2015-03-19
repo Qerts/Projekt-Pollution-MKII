@@ -22,18 +22,16 @@
                     <TextBlock x:Name="aboutText" x:Uid="TextAbout" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,20" Text="Design text" FontSize="13.333" TextAlignment="Justify"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock x:Name="versionText" x:Uid="TextVersion" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" TextAlignment="Right" FontWeight="Bold"/>
-                        <TextBlock x:Name="versionTextValue" x:Uid="TextPublisher" TextWrapping="Wrap" Text="x.x" VerticalAlignment="Top" Width="100" Margin="10,0,0,0"/>
+                        <TextBlock x:Name="versionTextValue" TextWrapping="Wrap" Text="x.x" VerticalAlignment="Top" Width="100" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock x:Name="publisherText" x:Uid="TextVersion" TextWrapping="Wrap"  FontWeight="Bold" Width="100" VerticalAlignment="Top" TextAlignment="Right"/>
-                        <TextBlock x:Name="publisherTextValue" x:Uid="TextPublisher" TextWrapping="Wrap" Text="Microsoft" Margin="10,0,0,0"/>
+                        <TextBlock x:Name="publisherText" x:Uid="TextPublisher" TextWrapping="Wrap"  FontWeight="Bold" Width="100" VerticalAlignment="Top" TextAlignment="Right"/>
+                        <TextBlock x:Name="publisherTextValue" TextWrapping="Wrap" Text="GARVIS Solutions s.r.o" Margin="10,0,0,0"/>
                     </StackPanel>
                     <TextBlock x:Name="emailText" x:Uid="TextSupport" TextWrapping="Wrap"  d:LayoutOverrides="VerticalAlignment" Margin="0,0,0,10" Text="Design text" FontSize="13.333"/>
                     <Button x:ConnectionId='1' Content="Facebook"                        />
                     <Button x:ConnectionId='2' Content="http://www.garvis.cz"                      />
-                    <Image Height="140" Width="200" Margin="0,0,0,10" Source="/Pollution;component/billboard-blank.png" Stretch="None"/>
-                    <Image x:ConnectionId='3' Height="140" Width="200" Margin="0,-150,0,10" Source="http://data.garvis.cz/garvis/billboard/img/pollution"                    x:Name="billboard" />
-                    <Button x:ConnectionId='4' Content="SmogAlarm"                       />
+                    <Button x:ConnectionId='3' Content="SmogAlarm"                       />
                     <TextBlock x:Name="termsText" x:Uid="TextTerms" TextWrapping="Wrap" Text="Design text" FontSize="13.333" />
 
                     <TextBlock x:Name="taskText" x:Uid="TextTaskInfo" TextWrapping="Wrap"  Margin="0,20,0,0" Text="Design text" FontSize="13.333" TextAlignment="Justify"/>
@@ -48,7 +46,7 @@
                         </TextBlock.Foreground>
                     </TextBlock>
 
-                    <Button x:ConnectionId='5' x:Name="reviewBtn" x:Uid="BtnReview" Margin="0,0,0,0"                            Content="Design text"/>
+                    <Button x:ConnectionId='4' x:Name="reviewBtn" x:Uid="BtnReview" Margin="0,0,0,0"                            Content="Design text"/>
                     <TextBlock x:Name="reviewText" x:Uid="TextReview" TextWrapping="Wrap"  Margin="0,0,0,0" Height="120" TextAlignment="Justify" Text="Design text" FontSize="13.333"/>
 
                 </StackPanel>

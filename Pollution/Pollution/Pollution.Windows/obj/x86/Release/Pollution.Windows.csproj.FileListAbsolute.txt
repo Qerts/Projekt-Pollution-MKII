@@ -110,3 +110,4 @@ D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Rele
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Release\Resources\DefaultStyle.xaml
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Resources\DefaultStyle.xbf
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Release\Resources\DefaultStyle.xbf
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Release\Pollution.Windows.csprojResolveAssemblyReference.cache

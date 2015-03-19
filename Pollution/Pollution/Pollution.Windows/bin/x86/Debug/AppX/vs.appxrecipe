@@ -8,7 +8,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>9d25fef6-d64d-4963-92da-ee8d102f3b6b</PackageIdentityName>
     <IntermediateOutputPath>D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>4D9855120DEB4722BB9E3AE2FBCF6CA85AECFC6E3E58A8BAF45F8564E4B61EFD</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>0511484A2061726D7E2B8D1870FA8228A2BCD309098194087FECB948178B6154</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>9d25fef6-d64d-4963-92da-ee8d102f3b6b_1.0.0.4_x86__5gyrq6psz227t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>9d25fef6-d64d-4963-92da-ee8d102f3b6b_5gyrq6psz227t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>9d25fef6-d64d-4963-92da-ee8d102f3b6b</RegisteredPackageID>
@@ -20,13 +20,13 @@
     <AppXManifest Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-02-23T04:02:04.201</Modified>
+      <Modified>2015-03-19T15:54:17.936</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2015-02-23T04:36:36.536</Modified>
+      <Modified>2015-03-19T16:04:19.862</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -34,7 +34,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\bin\Debug\BackgroundTask.winmd">
       <PackagePath>BackgroundTask.winmd</PackagePath>
-      <Modified>2015-02-23T03:24:04.114</Modified>
+      <Modified>2015-03-19T14:42:19.942</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
@@ -550,7 +550,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-02-23T04:36:34.812</Modified>
+      <Modified>2015-03-19T15:42:44.912</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\CzechMap.xbf">
       <PackagePath>CzechMap.xbf</PackagePath>
@@ -567,6 +567,10 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PElementGraph.xbf">
       <PackagePath>PElementGraph.xbf</PackagePath>
       <Modified>2015-02-22T10:03:54.623</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pins\PinConverters.xbf">
+      <PackagePath>Pins\PinConverters.xbf</PackagePath>
+      <Modified>2015-03-19T14:32:18.071</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PollutionAgent\PollutionTile.xbf">
       <PackagePath>PollutionAgent\PollutionTile.xbf</PackagePath>
@@ -590,7 +594,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Flyouts\FlyoutAbout.xbf">
       <PackagePath>Flyouts\FlyoutAbout.xbf</PackagePath>
-      <Modified>2015-02-22T10:03:54.623</Modified>
+      <Modified>2015-03-19T15:42:44.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Flyouts\FlyoutInformations.xbf">
       <PackagePath>Flyouts\FlyoutInformations.xbf</PackagePath>
@@ -602,7 +606,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-02-23T03:00:12.613</Modified>
+      <Modified>2015-03-19T15:07:26.647</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PhotoPage.xbf">
       <PackagePath>PhotoPage.xbf</PackagePath>
@@ -614,19 +618,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\StationPage.xbf">
       <PackagePath>StationPage.xbf</PackagePath>
-      <Modified>2015-02-22T10:03:54.623</Modified>
+      <Modified>2015-03-19T15:22:28.880</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2015-02-23T04:36:35.550</Modified>
+      <Modified>2015-03-19T16:04:18.798</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
-      <Modified>2015-02-23T04:36:34.209</Modified>
+      <Modified>2015-03-19T15:42:44.784</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-02-23T04:01:49.847</Modified>
+      <Modified>2015-03-19T15:54:14.359</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

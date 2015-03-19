@@ -774,6 +774,7 @@ namespace Pollution
 
             return tile;
         }
+
         /// <summary>
         /// Prázdná dlaždice. Je jimivydlážděna plocha
         /// </summary>
@@ -828,12 +829,12 @@ namespace Pollution
             row3.Height = new GridLength(1, GridUnitType.Auto);
             tile.RowDefinitions.Add(row3);
 
-
+            /*
             StackPanel versionStackPanel = new StackPanel();
             versionStackPanel.Margin = new Thickness(5, 5, 5, 0);
             Grid.SetRow(versionStackPanel, 1);
             tile.Children.Add(versionStackPanel);
-
+            
             TextBlock versionTitle = new TextBlock();
             versionTitle.Text = _resourceLoader.GetString("TextVersion/Text") + ": ";
             versionTitle.FontSize = Data.getFontSize_SmallText();
@@ -846,7 +847,7 @@ namespace Pollution
             versionValue.FontWeight = FontWeights.Bold;
             versionValue.Padding = new Thickness(5, 5, 5, 0);
             versionStackPanel.Children.Add(versionValue);
-
+            */
 
             StackPanel lastUpdateStackPanel = new StackPanel();
             lastUpdateStackPanel.Margin = new Thickness(5, 5, 5, 0);
@@ -856,13 +857,13 @@ namespace Pollution
             TextBlock lastLocationTitle = new TextBlock();
             lastLocationTitle.Text = _resourceLoader.GetString("TextUpdateTime");
             lastLocationTitle.FontSize = Data.getFontSize_SmallText();
-            lastLocationTitle.FontWeight = FontWeights.Bold;
+            //lastLocationTitle.FontWeight = FontWeights.Bold;
             lastLocationTitle.TextWrapping = TextWrapping.WrapWholeWords;
             lastLocationTitle.Padding = new Thickness(5, 5, 5, 0);
             lastUpdateStackPanel.Children.Add(lastLocationTitle);
             TextBlock lastLocationUpdate = new TextBlock();
             lastLocationUpdate.FontSize = Data.getFontSize_SmallText();
-            lastLocationUpdate.FontWeight = FontWeights.Bold;
+            //lastLocationUpdate.FontWeight = FontWeights.Bold;
             lastLocationUpdate.TextWrapping = TextWrapping.WrapWholeWords;
             lastLocationUpdate.Padding = new Thickness(5, 5, 5, 0);
             Binding locationBinding = new Binding();

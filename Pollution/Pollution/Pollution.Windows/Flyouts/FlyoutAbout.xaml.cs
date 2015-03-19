@@ -40,18 +40,9 @@ namespace Pollution.Flyouts
 
             infoTextTaskOK.Text = "";
             infoTextTaskFailed.Text = "";
-            /*
-            if (settings.Contains("lastTaskOKTime")) infoTextTaskOK.Text = String.Format(AppResources.TextTaskOK, (DateTime)settings["lastTaskOKTime"]);
 
-            if (settings.Contains("lastTaskFailedTime"))
-            {
-                if (((DateTime)settings["lastTaskFailedTime"]).AddDays(10) > DateTime.Now)
-                {
-                    infoTextTaskFailed.Text = String.Format(AppResources.TextTaskFailed, (DateTime)settings["lastTaskFailedTime"]);
-                    if (settings.Contains("lastTaskFailedDetail")) infoTextTaskFailed.Text += " (" + settings["lastTaskFailedDetail"] + ")";
-                }
+            versionTextValue.Text = Package.Current.Id.Version.Major + "." + Package.Current.Id.Version.Minor + "." + Package.Current.Id.Version.Build + "." + Package.Current.Id.Version.Revision;
 
-            }*/
         }
 
         private async void Image_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

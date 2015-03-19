@@ -16,6 +16,7 @@
             <Utils:ColorQualityConverter x:Key="ColorQualityConverter"/>
             <Utils:NegativeValueConverter x:Key="NegativeValueConverter"/>
         <localmain:PinTypeToStyleConverter x:Key="PinTypeToStyleConverter"/>
+            
         <Storyboard x:Name="TestStoryboard">
         	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DataPanel">
         		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -302,7 +303,11 @@
 							<ColumnDefinition Width="8*"/>
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
-						<TextBlock x:Name="menuPanelButton1Txt" x:Uid="BtnStationList" TextWrapping="Wrap" Text="Seznam stanic" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1" TextAlignment="Center"/>
+                    	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
+                    		<Grid Height="60" Width="90">
+                    			<TextBlock x:Name="menuPanelButton1Txt" x:Uid="BtnStationList" TextWrapping="Wrap" Text="Seznam stanic" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    		</Grid>
+                    	</Viewbox>
 					</Grid>
                     <Grid x:ConnectionId='5' x:Name="menuPanelButton2" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="2" Margin="5"                                 >
 						<Grid.RowDefinitions>
@@ -315,7 +320,11 @@
 							<ColumnDefinition Width="8*"/>
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
-						<TextBlock x:Name="menuPanelButton2Txt" x:Uid="BtnDetailStation" TextWrapping="Wrap" Text="Detail stanice" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1" TextAlignment="Center"/>
+                    	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
+                    		<Grid Height="60" Width="90">
+                    			<TextBlock x:Name="menuPanelButton2Txt" x:Uid="BtnDetailStation" TextWrapping="Wrap" Text="Detail stanice" FontSize="18.667" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    		</Grid>
+                    	</Viewbox>
 					</Grid>
                     <Grid x:ConnectionId='6' x:Name="menuPanelButton3" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="3" Margin="5"                                 >
 						<Grid.RowDefinitions>
@@ -328,7 +337,11 @@
 							<ColumnDefinition Width="8*"/>
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
-                        <TextBlock x:Name="menuPanelButton3Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Margin="0" Grid.Row="1" Grid.Column="1" TextAlignment="Center"/>
+                    	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
+                    		<Grid Height="60" Width="90">
+                    			<TextBlock x:Name="menuPanelButton3Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    		</Grid>
+                    	</Viewbox>
 					</Grid>
                     <Grid x:Name="menuPanelButton4" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="4" Margin="5" Visibility="Collapsed">
 						<Grid.RowDefinitions>

@@ -138,7 +138,7 @@
   <data name="BtnNearestStation" xml:space="preserve">
     <value>nejbližší</value>
   </data>
-  <data name="BtnReview" xml:space="preserve">
+  <data name="BtnReview.Content" xml:space="preserve">
     <value>Ohodnoťte tuto aplikaci</value>
   </data>
   <data name="BtnSort" xml:space="preserve">
@@ -264,7 +264,7 @@ Povolený imisní limit: 200 µg/m3.</value>
     <value>Lokalizační funkce telefonu nejsou povoleny!</value>
   </data>
   <data name="MsgGPSUnavailable" xml:space="preserve">
-    <value>Není možné získat informace o vaší poloze! Zkuste restartovat aplikaci.</value>
+    <value>Není možné získat informace o vaší poloze! Zkuste restartovat aplikaci nebo zkontrolovat, zda jste udělili oprávnění získávat informace o vaší poloze.</value>
   </data>
   <data name="MsgNoData" xml:space="preserve">
     <value>Žádná data pro vizualizaci! Aplikace nebude plně funkční!</value>
@@ -399,7 +399,7 @@ Povolený imisní limit: 200 µg/m3.</value>
     <value>Poslední úspěšná aktualizace v {0}</value>
   </data>
   <data name="TextTerms.Text" xml:space="preserve">
-    <value>Aplikace pro správné fungování vyžaduje datové přípojení a přístup k datům poskytovatele (www.chmi.cz). Pro určení nejbližší stanice je využíváno lokalizace telefonu. Veškeré informace o poloze telefonu jsou použity výhradně pro vnitřní funkcionalitu aplikace a nejsou žádným způsobem dále zpracovány či šířeny mimo telefon. Anonymizovaná identifikace uživatele je použita pouze pro sdílení fotografií a jejich případné další zpracování.</value>
+    <value>Aplikace pro správné fungování vyžaduje datové přípojení a přístup k datům poskytovatele (www.chmi.cz). Pro určení nejbližší stanice je využíváno lokalizace zařízení. Veškeré informace o poloze zařízení jsou použity výhradně pro vnitřní funkcionalitu aplikace a nejsou žádným způsobem dále zpracovány či šířeny mimo zařízení. Anonymizovaná identifikace uživatele je použita pouze pro sdílení fotografií a jejich případné další zpracování.</value>
   </data>
   <data name="TextUpdateTime" xml:space="preserve">
     <value>aktualizováno:</value>
@@ -607,5 +607,11 @@ Vyzkoušejte také náš nový projekt na www.resnap.it!
   </data>
   <data name="UpdateTime" xml:space="preserve">
     <value>čas aktualizace:</value>
+  </data>
+  <data name="MsgNoConnection" xml:space="preserve">
+    <value>Nebylo možné získat přístup k internetu. Pokud po připojení nedojde k automatickému načtení hodnot, restartujte prosím aplikaci.</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Čistota ovzduší</value>
   </data>
 </root>

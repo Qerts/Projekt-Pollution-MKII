@@ -25,10 +25,19 @@ namespace Pollution
         /// </summary>
         public async Task LoadDataFromFile(string fileName)
         {
+            
+#if WINDOWS_APP
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            StorageFile file = await folder.GetFileAsync(fileName);
-            App.ViewModel.RawData = await FileIO.ReadTextAsync(file);
+            StorageFile file = await folder.TryGetItemAsync(fileName) as StorageFile;
+            if (file != null)
+            {
+                App.ViewModel.RawData = await FileIO.ReadTextAsync(file);
+            }
+            else
+            {
+                await folder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            }            
+#endif
         }
-
     }
 }

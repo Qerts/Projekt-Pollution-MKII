@@ -297,6 +297,7 @@ namespace Pollution
 
             //HLAVNI STATUS
             mainstatus = tileGenerator.mainStatusTile(2, 2);
+            mainstatus.Tapped += mainstatus_Tapped;
             LayoutGrid.Children.Add(mainstatus);
                        
             //VELIKOSTI PISMA ODVOZENE OD VELIKOSTI ZOBRAZENI
@@ -315,6 +316,14 @@ namespace Pollution
 
             //BackgroundService.RegisterBackgroundTask("BackgroundTask.TileTask", "TileTask", new TimeTrigger(15, false), null);
             BackgroundService.RegisterTileTask();
+        }
+
+        void mainstatus_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (App.ViewModel.CurrentStation != null)
+            {
+                this.Frame.Navigate(typeof(StationPage), App.ViewModel.CurrentStation);
+            }
         }
 
 
@@ -611,7 +620,6 @@ namespace Pollution
 
             Grid.SetColumn(menuPanelInfoGrid, 0);
             Grid.SetRow(menuPanelInfoGrid, 1);
-
             
             
             //naaktualizovani hodnot
@@ -2529,12 +2537,18 @@ namespace Pollution
         #region BUTTON EVENTS
         private void menuPanelButton1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StationList));
+            if (App.ViewModel.CurrentStation != null)
+            {
+                this.Frame.Navigate(typeof(StationList));
+            }
         }
 
         private void menuPanelButton2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StationPage), App.ViewModel.CurrentStation);
+            if (App.ViewModel.CurrentStation != null)
+            {
+                this.Frame.Navigate(typeof(StationPage), App.ViewModel.CurrentStation); 
+            }
         }
 
         private void menuPanelButton3_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

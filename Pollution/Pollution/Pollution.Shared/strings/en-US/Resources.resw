@@ -138,7 +138,7 @@
   <data name="BtnNearestStation" xml:space="preserve">
     <value>nearest</value>
   </data>
-  <data name="BtnReview" xml:space="preserve">
+  <data name="BtnReview.Content" xml:space="preserve">
     <value>Review this app</value>
   </data>
   <data name="BtnSort" xml:space="preserve">
@@ -242,7 +242,7 @@ Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulf
     <value>The localization features are disabled!</value>
   </data>
   <data name="MsgGPSUnavailable" xml:space="preserve">
-    <value>It is not possible to obtain your location! Try to restart application.</value>
+    <value>It is not possible to obtain your location! Try to restart application or check app permissions.</value>
   </data>
   <data name="MsgNoData" xml:space="preserve">
     <value>No data for visualization! App is not fully functional!</value>
@@ -380,7 +380,7 @@ Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulf
     <value>Last update was OK at {0}</value>
   </data>
   <data name="TextTerms.Text" xml:space="preserve">
-    <value>For the proper operation the App requires a data connection and access to data provider (www.chmi.cz). The localization of your phone can be used to determine the nearest station. All phone location information is used only for internal functionality and is not further processed in any manner or distributed outside of the phone.</value>
+    <value>For the proper operation the App requires a data connection and access to data provider (www.chmi.cz). The localization of your device can be used to determine the nearest station. All device location information is used only for internal functionality and is not further processed in any manner or distributed outside of the device.</value>
   </data>
   <data name="TextUpdateTime" xml:space="preserve">
     <value>updated:</value>
@@ -586,5 +586,11 @@ Try our new project at www.resnap.it!</value>
   </data>
   <data name="UpdateTime" xml:space="preserve">
     <value>update time:</value>
+  </data>
+  <data name="MsgNoConnection" xml:space="preserve">
+    <value>We couldn't find internet connection. If values will not be loaded automatically after reconnecting to network.</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Air Pollution CZ</value>
   </data>
 </root>

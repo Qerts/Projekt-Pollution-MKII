@@ -33,6 +33,9 @@
       <DependentUpon>PElementGraph.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pins\Pin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pins\PinConverters.xaml.cs">
+      <DependentUpon>PinConverters.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pins\PinManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\GeoCoordinateWatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PollutionAgent\PollutionTile.xaml.cs">
@@ -114,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)PElementGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Pins\PinConverters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
