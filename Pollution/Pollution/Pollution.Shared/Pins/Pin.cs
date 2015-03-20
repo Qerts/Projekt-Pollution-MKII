@@ -34,6 +34,7 @@ namespace Pollution
             {
                 case EPinType.MAN:
                     return App.Current.Resources["PushpinStyleMan"];
+
                 case EPinType.STATION:
                     return null;//App.Current.Resources["PushpinStyleStation"];
                 default:

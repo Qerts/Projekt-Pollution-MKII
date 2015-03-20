@@ -148,6 +148,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="AllowDrop" />
       <RootProperty Name="Style" />
       <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="Opacity" />
@@ -243,6 +244,7 @@
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Utils.ColorQualityConverter" />
     <RootType FullName="Utils.NegativeValueConverter" />
+    <RootType FullName="Utils.SevenEightConverter" />
     <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
       <RootProperty Name="Children" />

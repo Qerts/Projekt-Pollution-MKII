@@ -835,11 +835,11 @@ namespace Pollution.ViewModels
                         IsGPS = false;
                     });
                     */
-                    Func<object, Task<bool>> action = null;
-                    action = async (o) =>
-                    {
-                        try
-                        {
+                    //Func<object, Task<bool>> action = null;
+                    //action = async (o) =>
+                    //{
+                        //try
+                        //{
                             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                             {
                                 MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
@@ -848,17 +848,17 @@ namespace Pollution.ViewModels
                                 IsGPSBusy = false;
                                 IsGPS = false;
                             });
-                            return true;
-                        }
-                        catch (UnauthorizedAccessException)
-                        {
-                            if (action != null)
-                            {
-                                Task.Delay(500).ContinueWith(async t => await action(o));
-                            }
-                        }
-                        return false;
-                    };
+                            //return true;
+                        //}
+                        //catch (UnauthorizedAccessException)
+                        //{
+                            //if (action != null)
+                            //{
+                            //    Task.Delay(500).ContinueWith(async t => await action(o));
+                            //}
+                        //}
+                        //return false;
+                    //};
 
 
 

@@ -102,14 +102,8 @@ namespace Pollution
 
             //nastavení datacontextu
             rootPage.DataContext = App.ViewModel;
-            
-            //5 s pauza
-            var initialStartPause = Task.Run(async delegate
-            {
-                await Task.Delay(5000);
-            });
-            initialStartPause.Wait();
-            
+
+
             //stažení dat
             this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
@@ -2555,6 +2549,12 @@ namespace Pollution
         {
             
             var fl = new FlyoutSettings();
+            fl.Show();
+        }
+
+        private void menuPanelButton5_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e) 
+        {
+            var fl = new FlyoutAbout();
             fl.Show();
         }
 

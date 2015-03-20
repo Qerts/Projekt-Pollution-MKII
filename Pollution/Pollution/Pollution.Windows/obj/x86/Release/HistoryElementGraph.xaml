@@ -15,7 +15,7 @@
 	</UserControl.Resources>
 
 	<Canvas x:Name="LayoutRoot" Background="Transparent">
-		<Path Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="220" UseLayoutRounding="False" Width="400" Opacity="0.6"/>
+        <Path x:Name="line11" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="220" UseLayoutRounding="False" Width="400" Opacity="0.6"/>
         <Path x:Name="line12" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="{Binding Referenced.State2, Converter={StaticResource ColorConverter}, Mode=OneWay}" Canvas.Top="171" UseLayoutRounding="False" Width="400" StrokeDashArray="2"/>
         <TextBlock x:Name="label12" TextWrapping="Wrap" Canvas.Top="158" FontSize="10.667" Width="70" Text="123"  Foreground="{Binding Referenced.State2, Converter={StaticResource ColorConverter}, Mode=OneWay}" TextAlignment="Right" Canvas.Left="330"/>
         <Path x:Name="line23" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="{Binding Referenced.State3, Converter={StaticResource ColorConverter}, Mode=OneWay}" Canvas.Top="109" UseLayoutRounding="False" Width="400" StrokeDashArray="2"/>

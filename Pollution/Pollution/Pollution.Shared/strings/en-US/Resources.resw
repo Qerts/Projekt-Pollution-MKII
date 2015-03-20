@@ -374,7 +374,7 @@ Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulf
     <value>The update failed at {0}!</value>
   </data>
   <data name="TextTaskInfo.Text" xml:space="preserve">
-    <value>Information on automatic Live Tile updating</value>
+    <value>Last successful update was at: </value>
   </data>
   <data name="TextTaskOK.Text" xml:space="preserve">
     <value>Last update was OK at {0}</value>
@@ -592,5 +592,8 @@ Try our new project at www.resnap.it!</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Air Pollution CZ</value>
+  </data>
+  <data name="MenuAboutApp.Text" xml:space="preserve">
+    <value>About</value>
   </data>
 </root>

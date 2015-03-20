@@ -1,1 +1,2 @@
+D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\BackgroundTask.csproj;neutral
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Pollution.Windows.csproj;x86

@@ -26,5 +26,10 @@ namespace Pollution.Pins
         {
             this.InitializeComponent();
         }
+
+        public object ReturnPINMAN()
+        {
+            return null;             
+        }
     }
 }

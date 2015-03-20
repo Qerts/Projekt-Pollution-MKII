@@ -22,6 +22,9 @@
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\bin\Release\BackgroundTask.winmd">
+      <PackagePath>BackgroundTask.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\retail\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
     </AppxPackagedFile>
@@ -256,6 +259,14 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Background.png">
       <PackagePath>Assets\Background.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\BadgeLogo.scale-140.png">
+      <PackagePath>Assets\BadgeLogo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\BadgeLogo.scale-180.png">
+      <PackagePath>Assets\BadgeLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\billboard-blank.png">
       <PackagePath>Assets\billboard-blank.png</PackagePath>
     </AppxPackagedFile>
@@ -267,12 +278,36 @@
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SmallLogo.scale-180.png">
+      <PackagePath>Assets\SmallLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-140.png">
+      <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-180.png">
+      <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square310x310Logo.scale-100.png">
+      <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square70x70Logo.scale-100.png">
+      <PackagePath>Assets\Square70x70Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\icon-smile0-white.png">
@@ -293,29 +328,89 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\icon-smile5-white.png">
       <PackagePath>SharedAssets\icon-smile5-white.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.gif">
-      <PackagePath>SharedAssets\Smiley0.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.png">
+      <PackagePath>SharedAssets\Smiley0.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley1.gif">
-      <PackagePath>SharedAssets\Smiley1.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.png">
+      <PackagePath>SharedAssets\Smiley2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.gif">
-      <PackagePath>SharedAssets\Smiley2.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.png">
+      <PackagePath>SharedAssets\Smiley3.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.gif">
-      <PackagePath>SharedAssets\Smiley3.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.png">
+      <PackagePath>SharedAssets\Smiley4.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.gif">
-      <PackagePath>SharedAssets\Smiley4.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.png">
+      <PackagePath>SharedAssets\Smiley5.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.gif">
-      <PackagePath>SharedAssets\Smiley5.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.png">
+      <PackagePath>SharedAssets\Smiley6.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.gif">
-      <PackagePath>SharedAssets\Smiley6.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.png">
+      <PackagePath>SharedAssets\Smiley7.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.gif">
-      <PackagePath>SharedAssets\Smiley7.gif</PackagePath>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-1.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-2.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-3.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-4.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-4.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-5.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-5.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-6.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-7.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-7.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-8.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-8.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\dobra1.jpg">
+      <PackagePath>SharedAssets\dobra1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\dobra2.jpg">
+      <PackagePath>SharedAssets\dobra2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna1.jpg">
+      <PackagePath>SharedAssets\spatna1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna2.jpg">
+      <PackagePath>SharedAssets\spatna2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna3.jpg">
+      <PackagePath>SharedAssets\spatna3.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\uspokojiva1.jpg">
+      <PackagePath>SharedAssets\uspokojiva1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\uspokojiva2.jpg">
+      <PackagePath>SharedAssets\uspokojiva2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-dobra1.jpg">
+      <PackagePath>SharedAssets\velmi-dobra1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-dobra2.jpg">
+      <PackagePath>SharedAssets\velmi-dobra2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-spatna1.jpg">
+      <PackagePath>SharedAssets\velmi-spatna1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-spatna2.jpg">
+      <PackagePath>SharedAssets\velmi-spatna2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\vyhovujici1.jpg">
+      <PackagePath>SharedAssets\vyhovujici1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\vyhovujici2.jpg">
+      <PackagePath>SharedAssets\vyhovujici2.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -331,6 +426,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PElementGraph.xbf">
       <PackagePath>PElementGraph.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pins\PinConverters.xbf">
+      <PackagePath>Pins\PinConverters.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PollutionAgent\PollutionTile.xbf">
       <PackagePath>PollutionAgent\PollutionTile.xbf</PackagePath>

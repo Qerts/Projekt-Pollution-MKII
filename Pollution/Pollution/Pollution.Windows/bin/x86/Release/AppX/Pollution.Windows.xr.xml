@@ -16,11 +16,11 @@
     <RootPropertyPathName Name="Location" />
     <RootPropertyPathName Name="Latitude" />
     <RootPropertyPathName Name="Longitude" />
-    <RootPropertyPathName Name="NearestStation" />
-    <RootPropertyPathName Name="Pm10" />
+    <RootPropertyPathName Name="CurrentStation" />
     <RootPropertyPathName Name="O3" />
-    <RootPropertyPathName Name="Co" />
     <RootPropertyPathName Name="No2" />
+    <RootPropertyPathName Name="Co" />
+    <RootPropertyPathName Name="Pm10" />
     <RootPropertyPathName Name="So2" />
     <RootPropertyPathName Name="State" />
     <RootPropertyPathName Name="ActualWidth" />
@@ -47,7 +47,6 @@
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="Resources" />
     </RootType>
-    <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Bing.Maps.Pushpin">
       <RootProperty Name="Style" />
       <RootProperty Name="BorderBrush" />
@@ -134,7 +133,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
@@ -150,6 +148,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="AllowDrop" />
       <RootProperty Name="Style" />
       <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="Opacity" />
@@ -169,16 +168,6 @@
       <RootEvent Name="Tapped" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Source" />
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootEvent Name="Tapped" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
     </RootType>
@@ -194,10 +183,10 @@
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Projection" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="MinHeight" />
       <RootProperty Name="MinWidth" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="ChildrenTransitions" />
@@ -255,6 +244,8 @@
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Utils.ColorQualityConverter" />
     <RootType FullName="Utils.NegativeValueConverter" />
+    <RootType FullName="Utils.SevenEightConverter" />
+    <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
       <RootProperty Name="Children" />
       <RootMethod Name="GetTargetProperty" />
@@ -336,12 +327,20 @@
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
-    <RootType FullName="Pollution.PElementGraph">
+    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Child" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Pollution.PElementGraph">
       <RootProperty Name="DataContext" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
       <RootProperty Name="VerticalContentAlignment" />
       <RootProperty Name="HorizontalContentAlignment" />
     </RootType>
@@ -357,6 +356,15 @@
       <RootMethod Name="SetAutomationId" />
       <RootMethod Name="GetItemType" />
       <RootMethod Name="SetItemType" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Margin" />
@@ -379,9 +387,6 @@
       <RootProperty Name="IsSwipeEnabled" />
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="IsHitTestVisible" />
-      <RootProperty Name="Items" />
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
@@ -421,9 +426,6 @@
       <RootProperty Name="FontSize" />
       <RootEvent Name="LayoutUpdated" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="Child" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Fill" />
       <RootProperty Name="Height" />
@@ -450,6 +452,7 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
+    <RootType FullName="Pollution.Pins.PinConverters" />
     <RootType FullName="PollutionAgent.PollutionTile" />
     <RootType FullName="Windows.UI.Xaml.Media.EllipseGeometry">
       <RootProperty Name="RadiusX" />

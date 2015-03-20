@@ -75,3 +75,7 @@ D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\qualifiers.txt.intermediate
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\ProjectArchitectures.txt
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\Pins\PinConverters.g.i.cs
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\Pins\PinConverters.g.cs
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\Pins\PinConverters.xaml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Debug\Pins\PinConverters.xbf

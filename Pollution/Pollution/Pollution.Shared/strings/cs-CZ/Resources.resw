@@ -393,7 +393,7 @@ Povolený imisní limit: 200 µg/m3.</value>
     <value>V {0} se aktualizace nezdařila!</value>
   </data>
   <data name="TextTaskInfo.Text" xml:space="preserve">
-    <value>Aktualizace dlaždice na hlavní obrazovce</value>
+    <value>Poslední úspěšná aktualizace proběhla v: </value>
   </data>
   <data name="TextTaskOK.Text" xml:space="preserve">
     <value>Poslední úspěšná aktualizace v {0}</value>
@@ -613,5 +613,8 @@ Vyzkoušejte také náš nový projekt na www.resnap.it!
   </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Čistota ovzduší</value>
+  </data>
+  <data name="MenuAboutApp.Text" xml:space="preserve">
+    <value>O aplikaci</value>
   </data>
 </root>

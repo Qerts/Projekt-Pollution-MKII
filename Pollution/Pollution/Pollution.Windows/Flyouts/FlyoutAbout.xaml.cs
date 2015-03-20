@@ -35,11 +35,10 @@ namespace Pollution.Flyouts
             
             versionTextValue.Text = string.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
             publisherTextValue.Text = package.PublisherDisplayName;
+
+            updateTime.Text = App.ViewModel.LastPositionTime.ToString();
             
             //var settings = IsolatedStorageSettings.ApplicationSettings;
-
-            infoTextTaskOK.Text = "";
-            infoTextTaskFailed.Text = "";
 
             versionTextValue.Text = Package.Current.Id.Version.Major + "." + Package.Current.Id.Version.Minor + "." + Package.Current.Id.Version.Build + "." + Package.Current.Id.Version.Revision;
 

@@ -57,7 +57,7 @@ namespace Pollution.Flyouts
             if (listStations.SelectedItem == null) return;
 
             infoStation = (listStations.SelectedItem as Station).Code;
-            if(checkNearest.IsChecked == false)
+            //if(checkNearest.IsChecked == false)
             App.ViewModel.CurrentStation = (listStations.SelectedItem as Station);
             _localSettings.Containers["AppSettings"].Values["infoStation"] = infoStation;
         }
@@ -73,15 +73,6 @@ namespace Pollution.Flyouts
             nearestWithoutStation = checkNearestWithoutQuality.IsChecked ?? false;
             _localSettings.Containers["AppSettings"].Values["nearestWithoutStation"] = nearestWithoutStation;
         }
-        /*
-        private void checkGPS_Checked(object sender, RoutedEventArgs e)
-        {
-            useGPS = checkGPS.IsChecked ?? false;
-            //IsolatedStorageSettings.ApplicationSettings["useGPS"] = useGPS;
-            //IsolatedStorageSettings.ApplicationSettings.Save();
-            _localSettings.Containers["AppSettings"].Values["useGPS"] = useGPS;
-        }
-        */
         private void checkLiveTile_Checked(object sender, RoutedEventArgs e)
         {
             useLiveTile = checkLiveTile.IsChecked ?? false;
@@ -193,8 +184,8 @@ namespace Pollution.Flyouts
             //use livetile
             string agentName = "GARVIS-PollutionAgent";
 
-            
-            
+            //GPSService service = new GPSService();
+            //service.SetPosition();
 
             if (nearestStation)
             {
@@ -207,8 +198,7 @@ namespace Pollution.Flyouts
             
             
 
-            GPSService service = new GPSService();
-            service.SetPosition();
+            
 
             App.ViewModel.SortStations(sortType);
 

@@ -15,7 +15,7 @@
 	</UserControl.Resources>
 
 	<Canvas x:Name="LayoutRoot" Background="Transparent">
-		<Path Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="220" UseLayoutRounding="False" Width="400" Opacity="0.6"/>
+        <Path x:Name="line11" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="220" UseLayoutRounding="False" Width="400" Opacity="0.6"/>
 		<Path x:Name="line13" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="171" UseLayoutRounding="False" Width="400" Opacity="0.5" StrokeDashArray="2"/>
 		<TextBlock x:Name="label13" TextWrapping="Wrap" Canvas.Top="158" FontSize="10.667" Width="45" Text="123" Opacity="0.5"/>
 		<Path x:Name="line23" Data="M0,250 L400,250" Height="1" Stretch="Fill" Stroke="White" Canvas.Top="109" UseLayoutRounding="False" Width="400" Opacity="0.5" StrokeDashArray="2"/>

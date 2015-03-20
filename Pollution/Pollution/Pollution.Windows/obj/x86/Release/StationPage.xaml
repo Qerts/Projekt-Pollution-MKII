@@ -14,6 +14,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <Utils:ColorQualityConverter x:Key="ColorQualityConverter"/>
+        <Utils:NegativeValueConverter x:Key="NegativeValueConverter"/>
         <Utils:ImageOrientationTemplateSelector x:Key="ImageOrientationTemplateSelector" />
         
         
@@ -70,70 +71,105 @@
         				</Grid.ColumnDefinitions>
         				<Grid.RowDefinitions>
         					<RowDefinition/>
-        					<RowDefinition Height="4*"/>
+        					<RowDefinition Height="3*"/>
+        					<RowDefinition Height="12*"/>
         				</Grid.RowDefinitions>
-                        <localmain:PElementGraph DataContext="{Binding So2}" x:Name="graphSO2" Margin="0" Height="300" Grid.Row="1" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" />
-                        <localmain:PElementGraph DataContext="{Binding O3}" x:Name="graphO3" Height="300" Margin="0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
-                        <localmain:PElementGraph DataContext="{Binding Co}" x:Name="graphCO" Margin="0" Height="300" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
-                        <localmain:PElementGraph DataContext="{Binding Pm10}" x:Name="graphPM10" Margin="0" Height="300" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
-                        <localmain:PElementGraph DataContext="{Binding No2}" x:Name="graphNO2" Margin="0" Height="300" Grid.RowSpan="2" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding So2}" x:Name="graphSO2" Margin="0" Height="300" Grid.Row="2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" />
+                        <localmain:PElementGraph DataContext="{Binding O3}" x:Name="graphO3" Height="300" Margin="0" Grid.Row="2" Grid.Column="4" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding Co}" x:Name="graphCO" Margin="0" Height="300" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding Pm10}" x:Name="graphPM10" Margin="0" Height="300" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                        <localmain:PElementGraph DataContext="{Binding No2}" x:Name="graphNO2" Margin="0" Height="300" Grid.RowSpan="2" Grid.Row="2" Grid.Column="3" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch"/>
 
-                        <StackPanel x:Name="statusSOStackPanel" Margin="0">
-        					<Grid x:Name="statusSOClr" Background="{Binding So2.State, Converter={StaticResource ColorQualityConverter}}" Width="80" Height="80" Margin="10">
-        						<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="SO2" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        					</Grid>
+                        <StackPanel x:Name="statusSOStackPanel" Margin="0" Grid.Row="1">
+                        	<Viewbox Width="80" Height="80" Margin="10">
+                        		<Grid x:Name="statusSOClr" Background="{Binding So2.State, Converter={StaticResource ColorQualityConverter}}" Height="80" Width="80">
+                        			<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="{Binding So2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        		</Grid>
+                        	</Viewbox>
         				</StackPanel>
-        				<StackPanel x:Name="statusPOStackPanel_Copy" Margin="0" Grid.Column="1">
-        					<Grid x:Name="statusPOClr" Background="{Binding Pm10.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-        						<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="PM10" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        					</Grid>
+        				<StackPanel x:Name="statusPOStackPanel_Copy" Margin="0" Grid.Column="1" Grid.Row="1">
+        					<Viewbox Width="80" Height="80" Margin="10">
+        						<Grid x:Name="statusPOClr" Background="{Binding Pm10.State, Converter={StaticResource ColorQualityConverter}}" Height="80" Width="80">
+        							<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="{Binding Pm10.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        						</Grid>
+        					</Viewbox>
         				</StackPanel>
-        				<StackPanel x:Name="statusCOStackPanel_Copy1" Margin="0" Grid.Column="2">
-        					<Grid x:Name="statusCOClr" Background="{Binding Co.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-        						<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="CO" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        					</Grid>
+        				<StackPanel x:Name="statusCOStackPanel_Copy1" Margin="0" Grid.Column="2" Grid.Row="1">
+        					<Viewbox Width="80" Height="80" Margin="10">
+        						<Grid x:Name="statusCOClr" Background="{Binding Co.State, Converter={StaticResource ColorQualityConverter}}" Height="80" Width="80">
+        							<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="{Binding Co.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        						</Grid>
+        					</Viewbox>
         				</StackPanel>
-        				<StackPanel x:Name="statusNOStackPanel_Copy2" Margin="0" Grid.Column="3">
-        					<Grid x:Name="statusNOClr" Background="{Binding No2.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-        						<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="NO2" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        					</Grid>
+        				<StackPanel x:Name="statusNOStackPanel_Copy2" Margin="0" Grid.Column="3" Grid.Row="1">
+        					<Viewbox Width="80" Height="80" Margin="10">
+        						<Grid x:Name="statusNOClr" Background="{Binding No2.State, Converter={StaticResource ColorQualityConverter}}" Height="80" Width="80">
+        							<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="{Binding No2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        						</Grid>
+        					</Viewbox>
         				</StackPanel>
-        				<StackPanel x:Name="statusOStackPanel_Copy3" Margin="0" Grid.Column="4">
-        					<Grid x:Name="statusOClr" Background="{Binding O3.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualWidth, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-        						<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="O3" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        					</Grid>
+        				<StackPanel x:Name="statusOStackPanel_Copy3" Margin="0" Grid.Column="4" Grid.Row="1">
+        					<Viewbox Width="80" Height="80" Margin="10">
+        						<Grid x:Name="statusOClr" Background="{Binding O3.State, Converter={StaticResource ColorQualityConverter}}" Height="80" Width="80">
+        							<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="{Binding O3.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="30" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        						</Grid>
+        					</Viewbox>
         				</StackPanel>
+        				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+        					<TextBlock TextWrapping="Wrap" Text="SO₂" FontSize="24" Height="29" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+        				</Viewbox>
+        				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" >
+        					<TextBlock TextWrapping="Wrap" Text="PM₁₀" FontSize="24" Height="29" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+        				</Viewbox>
+        				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" >
+        					<TextBlock TextWrapping="Wrap" Text="CO" FontSize="24" Height="29" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+        				</Viewbox>
+        				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" >
+        					<TextBlock TextWrapping="Wrap" Text="NO₂" FontSize="24" Height="29" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+        				</Viewbox>
+        				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="4" >
+        					<TextBlock TextWrapping="Wrap" Text="O₃" FontSize="24" Height="29" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+        				
+        				</Viewbox>
         				
         			</Grid>
-                    <GridView x:Name="contentGraphsGrid" Grid.Column="1" Margin="36,0,0,0" SelectionMode="None" IsHitTestVisible="False">
-						<StackPanel Height="260" Width="400">
+                    <Grid x:Name="contentGraphsGrid" Grid.Column="1" Margin="36,0,0,0" IsHitTestVisible="False">
+                    	<Grid.ColumnDefinitions>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    		<ColumnDefinition Width="Auto"/>
+                    	</Grid.ColumnDefinitions>
+                        <StackPanel x:Name="historyStck"  HorizontalAlignment="Center" Margin="0,20,0,-12">
 							<TextBlock x:Name="historyQualityLabel" TextWrapping="Wrap" x:Uid="History" Text="Placeholder" Margin="0" FontSize="16" Height="20"/>
 							<localmain:HistoryQualityGraph x:Name="historyQuality" Margin="0" Width="Auto" Height="260"/>
 						</StackPanel>
-                    	<StackPanel x:Name="soGraphStck" Height="260" Width="400">
-                    		<TextBlock x:Uid="StatusSO2" Text="Placeholder" Margin="0,0,0,-12" FontSize="16" Height="20"/>
+                    	<StackPanel x:Name="soGraphStck" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusSO2" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
                     		<localmain:HistoryElementGraph ElementType="SO2" x:Name="historySO2" Margin="0,10,0,-10" Height="240"/>
                     	</StackPanel>
-                    	<StackPanel x:Name="pmGraphStck" Height="260" Width="400">
-                    		<TextBlock x:Uid="StatusPM10" Text="Placeholder" Margin="0,0,0,-12" FontSize="16" Height="20"/>
+                        <StackPanel x:Name="pmGraphStck" Grid.Column="2" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusPM10" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
                     		<localmain:HistoryElementGraph ElementType="PM10" x:Name="historyPM10" Margin="0,10,0,-10" Height="240"/>
                     	</StackPanel>
-                        <StackPanel x:Name="coGraphStck" Height="260" Width="400">
-                    		<TextBlock x:Uid="StatusCO" Text="Placeholder" Margin="0,0,0,-12" FontSize="16" Height="20"/>
+                        <StackPanel x:Name="coGraphStck" Grid.Column="3" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusCO" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
                     		<localmain:HistoryElementGraph ElementType="CO" x:Name="historyCO" Margin="0,10,0,-10" Height="240"/>
                     	</StackPanel>
-                    	<StackPanel x:Name="noGraphStck" Height="260" Width="400">
-                    		<TextBlock x:Uid="StatusNO2" Text="Placeholder" Margin="0,0,0,-12" FontSize="16" Height="20"/>
+                        <StackPanel x:Name="noGraphStck" Grid.Column="4" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusNO2" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
                     		<localmain:HistoryElementGraph ElementType="NO2" x:Name="historyNO2" Margin="0,10,0,-10" Height="240"/>
                     	</StackPanel>
-                        <StackPanel x:Name="oGraphStck" Height="260" Width="400">
-                    		<TextBlock x:Uid="StatusO3" Text="Placeholder" Margin="0,0,0,-12" FontSize="16" Height="20"/>
+                        <StackPanel x:Name="oGraphStck" Grid.Column="5" HorizontalAlignment="Center" Margin="10,0,10,0">
+                    		<TextBlock x:Uid="StatusO3" Text="Placeholder" Margin="0,20,0,-12" FontSize="16" Height="20"/>
                     		<localmain:HistoryElementGraph ElementType="O3" x:Name="historyO3" Margin="0,10,0,-10" Height="240"/>
                     	</StackPanel>
                     	
                     	
 						
-					</GridView>
+					</Grid>
                     <Grid x:Name="contentPhotoGridView" HorizontalAlignment="Left" Grid.Column="2" Margin="50,0,0,0"  IsHitTestVisible="True" Visibility="Visible">
                         <StackPanel x:Name="ListPhotos" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,50,0"/>
                     </Grid>

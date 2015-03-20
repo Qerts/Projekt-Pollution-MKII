@@ -37,6 +37,7 @@ namespace BackgroundTask
 
             
             //Geolokace
+
             try
             {
                 if (source == null)
@@ -71,34 +72,6 @@ namespace BackgroundTask
             deferral.Complete();
             
 
-        }
-
-        private async Task StartLocation()
-        {
-            
-            Geolocator locator = new Geolocator();
-            locator.DesiredAccuracy = PositionAccuracy.High;
-            
-
-            locator.ReportInterval = 5000;
-            //Když nastane změna pozice, je načtena a uložena nová pozice. Zároveň je volána metoda pro vypočtení vzdálenosti aktuální pozice vůči ostatním stanicím.
-            locator.PositionChanged += locator_PositionChanged;
-
-
-            Geoposition position = null;
-
-            
-                position = await locator.GetGeopositionAsync(new TimeSpan(0, 0, 0, 0, 200), new TimeSpan(0, 0, 3));
-            
-            //Definice MyPosition vlastní náhradní třídou pro geopozici a uložení šířky a délky do jejích property.
-
-            MyGeocoordinate coord = new MyGeocoordinate();
-            coord.Latitude = position.Coordinate.Point.Position.Latitude;
-            coord.Longitude = position.Coordinate.Point.Position.Longitude;
-            if (coord != null)
-            {
-                MyPosition = coord;
-            }
         }
 
         void locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)

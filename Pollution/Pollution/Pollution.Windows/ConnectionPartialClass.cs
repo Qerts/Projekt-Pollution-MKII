@@ -168,12 +168,58 @@ namespace Pollution
             //udání defaultní polohy z důvodu nemožnosti načtení aktuální polohy
             if ((App.ViewModel.NearestStation == null) || (App.ViewModel.NearestStation.Name.Length == 0))                   //nastavení nejbližší stanice, jelikož není možné jí dosáhnout skrze wifi
             {
-                App.ViewModel.NearestStation = App.ViewModel.GetStation("AKALA");
+                
+                object obj = null;
+                if (localSettings.Containers["AppSettings"].Values.TryGetValue("lastNearestStation", out obj))
+                {
+                    App.ViewModel.NearestStation = App.ViewModel.GetStation(obj as string);
+                }
+                else
+                {
+                    obj = null;
+                    if (localSettings.Containers["AppSettings"].Values.TryGetValue("infoStation", out obj))
+                    {
+                        App.ViewModel.NearestStation = App.ViewModel.GetStation(obj.ToString());
+                    }
+                    else
+                    {
+                        App.ViewModel.NearestStation = App.ViewModel.GetStation("AKALA");
+                    }           
+                    
 
+                }
+
+
+                
             }
             if ( (App.ViewModel.CurrentStation == null) || (App.ViewModel.CurrentStation.Name.Length == 0))                   //nastavení aktuální stanice, jelikož není možné jí dosáhnout skrze wifi
             {
-                App.ViewModel.CurrentStation = App.ViewModel.GetStation("AKALA");
+                object obj = null;
+                bool b = false;
+                localSettings.Containers["AppSettings"].Values.TryGetValue("nearestStation", out obj);
+                var x = obj as bool?;
+                if (x != null)
+                {
+                    b = x.Value;
+                }
+
+                if (b)
+                {
+                    App.ViewModel.CurrentStation = App.ViewModel.NearestStation;
+                }
+                else
+                {
+                    obj = null;
+                    if (localSettings.Containers["AppSettings"].Values.TryGetValue("infoStation", out obj))
+                    {
+                        App.ViewModel.NearestStation = App.ViewModel.GetStation(obj.ToString());
+                    }
+                    else
+                    {
+                        App.ViewModel.NearestStation = App.ViewModel.GetStation("AKALA");
+                    }  
+                }
+
             }
 
             //spuštění lokátoru na začátku programu
@@ -347,7 +393,14 @@ namespace Pollution
             //if (!IsolatedStorageSettings.ApplicationSettings.TryGetValue("lastNearestStation", out l))
             if (!localSettings.Containers["AppSettings"].Values.TryGetValue("lastNearestStation", out obj))
             {
-                l = "AKALA";
+                if (App.ViewModel.NearestStation == null)
+                {
+                    l = "AKALA";
+                }
+                else
+                {
+                    l = App.ViewModel.NearestStation.Name;
+                }
                 //IsolatedStorageSettings.ApplicationSettings.Add("lastNearestStation", l);
                 localSettings.Containers["AppSettings"].Values.Add("lastNearestStation", l);
             }
@@ -560,30 +613,6 @@ namespace Pollution
                     localSettings.Containers["AppSettings"].Values["versionNews"] = versionApp;
                 });
             }
-
-            /*
-            //restore default Livetile
-            if (useLiveTile == false)
-            {
-                ShellTile appTile = ShellTile.ActiveTiles.FirstOrDefault();
-                StandardTileData newTileData = new StandardTileData
-                {
-                    BackgroundImage = new Uri("Background.png", UriKind.RelativeOrAbsolute)
-
-                };
-                appTile.Update(newTileData);
-            }
-            else
-            {
-                if (App.ViewModel.CurrentStation != null)
-                {
-                    ScheduledAgent sa = new ScheduledAgent();
-                    sa.CreateTileDirect(App.ViewModel.DataTime, App.ViewModel.CurrentStation.Quality, App.ViewModel.CurrentStation.Name, App.ViewModel.CurrentStation.LastPhoto);
-                }
-            }
-            */
-            
-
         }
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -640,11 +669,20 @@ namespace Pollution
             if (e.PropertyName == "NearestStation")
             {
                 bool b = false;
+                /*
                 //localSettings.Containers["AppSettings"].Values.TryGetValue("nearestStation", out b);
                 if (localSettings.Containers["AppSettings"].Values.ContainsKey("nearestStation"))
                 {
                     b = true;
-                }               
+                }*/
+
+                object tmpObject = null; 
+                localSettings.Containers["AppSettings"].Values.TryGetValue("nearestStation", out tmpObject);
+                bool? x = tmpObject as bool?;
+                if (x != null)
+                {
+                    b = x.Value;
+                }
 
                 if (b && App.ViewModel.CurrentStation != App.ViewModel.NearestStation)
                 {

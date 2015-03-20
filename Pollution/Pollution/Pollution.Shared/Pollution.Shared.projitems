@@ -63,6 +63,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\QualityValueConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ResolutionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\SerializationStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\SevenEightConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\WPVersions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GpsAngle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MyGeocoordinate.cs" />

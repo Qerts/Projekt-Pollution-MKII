@@ -35,12 +35,7 @@
                     <TextBlock x:Name="termsText" x:Uid="TextTerms" TextWrapping="Wrap" Text="Design text" FontSize="13.333" />
 
                     <TextBlock x:Name="taskText" x:Uid="TextTaskInfo" TextWrapping="Wrap"  Margin="0,20,0,0" Text="Design text" FontSize="13.333" TextAlignment="Justify"/>
-                    <TextBlock x:Name="infoTextTaskOK" x:Uid="TextTaskOK" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Design text" FontSize="13.333" TextAlignment="Justify">
-                        <TextBlock.Foreground>
-                            <SolidColorBrush Color="#FF3C3C3C"/>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                    <TextBlock x:Name="infoTextTaskFailed" x:Uid="TextTaskFailed" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Design text" FontSize="13.333" TextAlignment="Justify">
+                    <TextBlock x:Name="updateTime" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Design text" FontSize="13.333" TextAlignment="Justify">
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="#FF3C3C3C"/>
                         </TextBlock.Foreground>

@@ -8,29 +8,33 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>9d25fef6-d64d-4963-92da-ee8d102f3b6b</PackageIdentityName>
     <IntermediateOutputPath>D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Release\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>020288A573AC82A1C8912B3AF0D8908EB1CB66D57250D915BE02CC9A63F264AA</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>9d25fef6-d64d-4963-92da-ee8d102f3b6b_1.0.0.0_x86__5gyrq6psz227t</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>7DBD1975BF79D263DB662850D10E6A5195E69F97783D07A15B3F920652DE3B21</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>9d25fef6-d64d-4963-92da-ee8d102f3b6b_1.0.0.4_x86__5gyrq6psz227t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>9d25fef6-d64d-4963-92da-ee8d102f3b6b_5gyrq6psz227t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>9d25fef6-d64d-4963-92da-ee8d102f3b6b</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Admin</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.0.4</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-02-02T00:58:20.153</Modified>
+      <Modified>2015-03-20T10:41:01.249</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2015-02-02T05:44:57.408</Modified>
+      <Modified>2015-03-20T10:40:54.606</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
       <Modified>2014-10-28T19:33:25.480</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\bin\Release\BackgroundTask.winmd">
+      <PackagePath>BackgroundTask.winmd</PackagePath>
+      <Modified>2015-03-20T10:16:20.578</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\retail\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
@@ -344,6 +348,16 @@
       <PackagePath>Assets\Background.png</PackagePath>
       <Modified>2014-10-26T12:40:26.083</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\BadgeLogo.scale-140.png">
+      <PackagePath>Assets\BadgeLogo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-13T00:29:51.830</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\BadgeLogo.scale-180.png">
+      <PackagePath>Assets\BadgeLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-13T00:29:31.760</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\billboard-blank.png">
       <PackagePath>Assets\billboard-blank.png</PackagePath>
       <Modified>2014-10-26T12:40:26.151</Modified>
@@ -351,22 +365,52 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-03-12T19:06:34.000</Modified>
+      <Modified>2015-02-12T14:50:04.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-03-12T19:06:34.000</Modified>
+      <Modified>2015-02-12T15:03:25.986</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SmallLogo.scale-180.png">
+      <PackagePath>Assets\SmallLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-12T15:06:16.677</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-03-12T19:06:34.000</Modified>
+      <Modified>2015-02-12T14:40:11.577</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-140.png">
+      <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-12T14:39:40.444</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-180.png">
+      <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-12T10:27:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square310x310Logo.scale-100.png">
+      <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-13T07:31:43.200</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square70x70Logo.scale-100.png">
+      <PackagePath>Assets\Square70x70Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-13T07:18:23.060</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-03-12T19:06:34.000</Modified>
+      <Modified>2015-02-12T15:02:40.597</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-02-13T07:25:03.229</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\icon-smile0-white.png">
       <PackagePath>SharedAssets\icon-smile0-white.png</PackagePath>
@@ -392,41 +436,121 @@
       <PackagePath>SharedAssets\icon-smile5-white.png</PackagePath>
       <Modified>2014-04-30T21:10:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.gif">
-      <PackagePath>SharedAssets\Smiley0.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.292</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley0.png">
+      <PackagePath>SharedAssets\Smiley0.png</PackagePath>
+      <Modified>2015-02-12T16:27:51.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley1.gif">
-      <PackagePath>SharedAssets\Smiley1.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.296</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.png">
+      <PackagePath>SharedAssets\Smiley2.png</PackagePath>
+      <Modified>2015-02-12T16:27:38.821</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley2.gif">
-      <PackagePath>SharedAssets\Smiley2.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.299</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.png">
+      <PackagePath>SharedAssets\Smiley3.png</PackagePath>
+      <Modified>2015-02-12T16:27:26.692</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley3.gif">
-      <PackagePath>SharedAssets\Smiley3.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.302</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.png">
+      <PackagePath>SharedAssets\Smiley4.png</PackagePath>
+      <Modified>2015-02-12T16:27:14.686</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley4.gif">
-      <PackagePath>SharedAssets\Smiley4.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.306</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.png">
+      <PackagePath>SharedAssets\Smiley5.png</PackagePath>
+      <Modified>2015-02-12T16:27:00.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley5.gif">
-      <PackagePath>SharedAssets\Smiley5.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.310</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.png">
+      <PackagePath>SharedAssets\Smiley6.png</PackagePath>
+      <Modified>2015-02-12T16:26:50.064</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley6.gif">
-      <PackagePath>SharedAssets\Smiley6.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.314</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.png">
+      <PackagePath>SharedAssets\Smiley7.png</PackagePath>
+      <Modified>2015-02-12T16:26:36.317</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\Smiley7.gif">
-      <PackagePath>SharedAssets\Smiley7.gif</PackagePath>
-      <Modified>2014-09-02T10:15:13.318</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-1.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-1.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.244</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-2.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-2.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.244</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-3.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-3.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.244</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-4.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-4.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.260</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-5.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-5.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.275</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-6.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-6.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.275</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-7.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-7.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.275</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\Assets\live-tile-8.png">
+      <PackagePath>BackgroundTask\Assets\live-tile-8.png</PackagePath>
+      <Modified>2015-02-21T22:04:27.291</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\dobra1.jpg">
+      <PackagePath>SharedAssets\dobra1.jpg</PackagePath>
+      <Modified>2015-02-04T14:44:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\dobra2.jpg">
+      <PackagePath>SharedAssets\dobra2.jpg</PackagePath>
+      <Modified>2015-02-04T14:44:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna1.jpg">
+      <PackagePath>SharedAssets\spatna1.jpg</PackagePath>
+      <Modified>2015-02-04T14:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna2.jpg">
+      <PackagePath>SharedAssets\spatna2.jpg</PackagePath>
+      <Modified>2015-02-04T14:44:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\spatna3.jpg">
+      <PackagePath>SharedAssets\spatna3.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\uspokojiva1.jpg">
+      <PackagePath>SharedAssets\uspokojiva1.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\uspokojiva2.jpg">
+      <PackagePath>SharedAssets\uspokojiva2.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-dobra1.jpg">
+      <PackagePath>SharedAssets\velmi-dobra1.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-dobra2.jpg">
+      <PackagePath>SharedAssets\velmi-dobra2.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-spatna1.jpg">
+      <PackagePath>SharedAssets\velmi-spatna1.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\velmi-spatna2.jpg">
+      <PackagePath>SharedAssets\velmi-spatna2.jpg</PackagePath>
+      <Modified>2015-02-04T14:43:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\vyhovujici1.jpg">
+      <PackagePath>SharedAssets\vyhovujici1.jpg</PackagePath>
+      <Modified>2015-02-04T14:42:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Shared\SharedAssets\vyhovujici2.jpg">
+      <PackagePath>SharedAssets\vyhovujici2.jpg</PackagePath>
+      <Modified>2015-02-04T14:42:24.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-02-02T02:41:49.968</Modified>
+      <Modified>2015-03-20T10:22:23.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\CzechMap.xbf">
       <PackagePath>CzechMap.xbf</PackagePath>
@@ -434,15 +558,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\HistoryElementGraph.xbf">
       <PackagePath>HistoryElementGraph.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.114</Modified>
+      <Modified>2015-03-20T10:22:23.443</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\HistoryQualityGraph.xbf">
       <PackagePath>HistoryQualityGraph.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.115</Modified>
+      <Modified>2015-03-20T10:22:23.444</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PElementGraph.xbf">
       <PackagePath>PElementGraph.xbf</PackagePath>
       <Modified>2015-02-02T00:58:15.116</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pins\PinConverters.xbf">
+      <PackagePath>Pins\PinConverters.xbf</PackagePath>
+      <Modified>2015-03-20T10:22:23.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PollutionAgent\PollutionTile.xbf">
       <PackagePath>PollutionAgent\PollutionTile.xbf</PackagePath>
@@ -466,7 +594,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutAbout.xbf">
       <PackagePath>Flyouts\FlyoutAbout.xbf</PackagePath>
-      <Modified>2015-02-02T01:56:02.736</Modified>
+      <Modified>2015-03-20T10:22:23.439</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutInformations.xbf">
       <PackagePath>Flyouts\FlyoutInformations.xbf</PackagePath>
@@ -474,11 +602,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutSettings.xbf">
       <PackagePath>Flyouts\FlyoutSettings.xbf</PackagePath>
-      <Modified>2015-02-02T02:01:18.909</Modified>
+      <Modified>2015-03-20T10:22:23.440</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-02-02T02:41:49.969</Modified>
+      <Modified>2015-03-20T10:22:23.441</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PhotoPage.xbf">
       <PackagePath>PhotoPage.xbf</PackagePath>
@@ -486,23 +614,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\StationList.xbf">
       <PackagePath>StationList.xbf</PackagePath>
-      <Modified>2015-02-02T02:41:49.970</Modified>
+      <Modified>2015-03-20T10:22:23.442</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\StationPage.xbf">
       <PackagePath>StationPage.xbf</PackagePath>
-      <Modified>2015-02-02T02:46:37.424</Modified>
+      <Modified>2015-03-20T10:22:23.442</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2015-02-02T05:44:56.406</Modified>
+      <Modified>2015-03-20T10:40:53.379</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
-      <Modified>2015-02-02T02:41:49.870</Modified>
+      <Modified>2015-03-20T10:22:23.123</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-02-02T01:56:05.200</Modified>
+      <Modified>2015-03-20T10:40:56.241</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

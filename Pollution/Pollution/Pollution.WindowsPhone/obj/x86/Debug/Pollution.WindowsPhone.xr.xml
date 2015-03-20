@@ -19,10 +19,6 @@
     <RootPropertyPathName Name="Graph" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
-    <RootType FullName="Windows.UI.Xaml.Application">
-      <RootProperty Name="Resources" />
-    </RootType>
-    <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="Resources" />
@@ -219,6 +215,7 @@
       <RootProperty Name="Color" />
     </RootType>
     <RootType FullName="Pollution.PElementGraph" />
+    <RootType FullName="Pollution.Pins.PinConverters" />
     <RootType FullName="PollutionAgent.PollutionTile" />
     <RootType FullName="Windows.UI.Xaml.Media.EllipseGeometry">
       <RootProperty Name="RadiusX" />
@@ -228,6 +225,7 @@
     <RootType FullName="PollutionAgent.PollutionTile8" />
     <RootType FullName="PollutionAgent.PollutionTileHD" />
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
+    <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image" />
     <RootType FullName="Pollution.Utils.ImageVisualisation" />
   </Roots.RootTypes>

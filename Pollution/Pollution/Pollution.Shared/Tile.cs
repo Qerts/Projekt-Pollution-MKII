@@ -747,7 +747,8 @@ namespace Pollution
             Grid.SetColumnSpan(img, 3);
             img.Stretch = Stretch.Uniform;
             tile.Children.Add(img);
-        
+
+            Viewbox view = new Viewbox();
             TextBlock stationName = new TextBlock();
             Binding b = new Binding();
             try
@@ -756,7 +757,6 @@ namespace Pollution
                 nameBinding.Source = App.ViewModel;
                 nameBinding.Path = new PropertyPath("CurrentStation.Name");
                 stationName.SetBinding(TextBlock.TextProperty, nameBinding);
-
             }
             catch (Exception)
             {
@@ -766,9 +766,17 @@ namespace Pollution
             stationName.TextAlignment = TextAlignment.Center;
             stationName.VerticalAlignment = VerticalAlignment.Center;
             stationName.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationName, 5);
-            Grid.SetRow(stationName, 2);
-            tile.Children.Add(stationName);
+            stationName.FontSize = 20;
+            stationName.Height = 20;
+            stationName.Margin = new Thickness(5, 0, 5, 0);
+
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 2);
+            view.Child = stationName;
+            view.Height = 40;
+            //view.Margin = new Thickness(5, 0, 5, 0);
+            tile.Children.Add(view);
+
 
             tile.Name = "mainStatusTile";
 
