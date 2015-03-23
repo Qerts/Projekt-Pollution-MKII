@@ -25,7 +25,8 @@ using Windows.ApplicationModel;
 using System.Collections.ObjectModel;
 using Windows.UI.Core;
 using Windows.Networking.Connectivity;
-
+using Windows.ApplicationModel.Core;
+using WinRTXamlToolkit.Controls.Extensions;
 
 namespace Pollution
 {
@@ -36,7 +37,7 @@ namespace Pollution
         
         
         private const string RAW_DATA_FILE = "rawdata.txt";
-        private ResourceLoader _myResourceLoader = new ResourceLoader();
+        private ResourceLoader _resourceLoader = new ResourceLoader();
 
         //connection classes
         DownloadService _downloadService = new DownloadService();
@@ -52,12 +53,13 @@ namespace Pollution
             //příznak možnosti připojení a stažení
             bool _newDownload = true;
 
+
             //kontrola připojení k internetu
             if (NetworkInformation.GetInternetConnectionProfile() == null || NetworkInformation.GetInternetConnectionProfile().GetNetworkConnectivityLevel() != NetworkConnectivityLevel.InternetAccess)
             {
-                MessageDialog msg = new MessageDialog(_myResourceLoader.GetString("MsgNoConnection"));
+                MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgNoConnection"), _resourceLoader.GetString("Error"));
                 msg.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler(CommandHandlers)));
-                await msg.ShowAsync();
+                await msg.ShowAsyncQueue();
                 _newDownload = false;
             }
 
@@ -116,7 +118,7 @@ namespace Pollution
                 
             }
 
-            _gpsService.SetGeolocator();
+            //_gpsService.SetGeolocator(); zakomentováno z důvodu redundance
             setMapDetails();    //nastavení mapy
         }
 
@@ -316,7 +318,7 @@ namespace Pollution
                     if (c == 0)
                     {
                         //App.ViewModel.PivotPhotosHeader = AppResources.AppPhotos;
-                        App.ViewModel.PivotPhotosHeader = _myResourceLoader.GetString("AppPhotos");
+                        App.ViewModel.PivotPhotosHeader = _resourceLoader.GetString("AppPhotos");
                     }
                     else
                     {
@@ -324,12 +326,12 @@ namespace Pollution
                         {
                             //všechny načtené jsou novější
                             //App.ViewModel.PivotPhotosHeader = AppResources.AppPhotos + " (+" + App.ViewModel.PhotosGlobal.Count + ")";
-                            App.ViewModel.PivotPhotosHeader = _myResourceLoader.GetString("AppPhotos") + " (+" + App.ViewModel.PhotosGlobal.Count + ")";
+                            App.ViewModel.PivotPhotosHeader = _resourceLoader.GetString("AppPhotos") + " (+" + App.ViewModel.PhotosGlobal.Count + ")";
                         }
                         else
                         {
                             //App.ViewModel.PivotPhotosHeader = AppResources.AppPhotos + " (" + c + ")";
-                            App.ViewModel.PivotPhotosHeader = _myResourceLoader.GetString("AppPhotos") + " (" + c + ")";
+                            App.ViewModel.PivotPhotosHeader = _resourceLoader.GetString("AppPhotos") + " (" + c + ")";
                         }
                     }
                     
@@ -522,7 +524,7 @@ namespace Pollution
 
             if (g)
             {
-                App.ViewModel.SetGeolocator();
+                //_gpsService.SetGeolocator();
             }
 
 
@@ -593,21 +595,22 @@ namespace Pollution
             if (versionNews != versionApp)
             {                   
                 var versionMsg = Task.Run(async delegate
-                {     
-                    MessageDialog msg = new MessageDialog("Novinky");
+                {
+                    MessageDialog msg = new MessageDialog(string.Empty, _resourceLoader.GetString("TextNew"));
 
-                    obj = string.Empty;
+                    obj = null;
                     localSettings.Containers["AppSettings"].Values.TryGetValue("WhatIsNew", out obj);
-                    string msgcont = "Nothing new";
+                    string msgcont = string.Empty;
                     if (obj != null)
                     {
                         msgcont = obj.ToString();
                     }
                     msg.Content = msgcont;
                     msg.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler(CommandHandlers)));
-                    this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
                     {
-                        msg.ShowAsync();
+                        await msg.ShowAsyncQueue();
+                         
                     });
                     //MessageBox.Show(AppResources._news, AppResources.WhatIsNew, MessageBoxButton.OK);
                     localSettings.Containers["AppSettings"].Values["versionNews"] = versionApp;

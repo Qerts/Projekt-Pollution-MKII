@@ -12,6 +12,7 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -140,6 +141,44 @@ namespace Pollution
 
             //Přiřazení události, která nastane, pokud se změní property ViewModelu.
             App.ViewModel.PropertyChanged += new PropertyChangedEventHandler(ViewModel_PropertyChanged);
+
+            /*
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            {
+
+
+                MessageDialog msg = new MessageDialog("main");
+                await msg.ShowAsync();
+
+                MessageDialog msg2 = new MessageDialog("main");
+                await msg2.ShowAsync();
+
+                //MessageDialog sss = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
+                //await sss.ShowAsync();
+                await msgTest();
+
+            });*/
+            
+
+            
+        }
+
+        private async Task msgTest()
+        {
+            
+            
+
+
+                MessageDialog msg3 = new MessageDialog("MainTest");
+                await msg3.ShowAsync();
+
+                MessageDialog msg4 = new MessageDialog("MainTest");
+                await msg4.ShowAsync();
+
+                //MessageDialog sss = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
+                //await sss.ShowAsync();
+
+            
         }
 
         /// <summary>
@@ -2569,13 +2608,13 @@ namespace Pollution
             if (cardOpen == false)
             {
                 ((Storyboard)Resources["FlipOpen"]).Begin();
-                flipMapButton.Label = _myResourceLoader.GetString("MapCardOpen");
+                flipMapButton.Label = _resourceLoader.GetString("MapCardOpen");
                 cardOpen = true;
             }
             else
             {
                 ((Storyboard)Resources["FlipClose"]).Begin();
-                flipMapButton.Label = _myResourceLoader.GetString("MapCardClose");
+                flipMapButton.Label = _resourceLoader.GetString("MapCardClose");
                 cardOpen = false;
             }
         }

@@ -36,7 +36,6 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                 <TextBlock TextWrapping="Wrap"  x:Uid="TextAppSetting"  Text="Design text" Margin="0,20,0,0" FontWeight="Bold" FontSize="18.667" Grid.Row="1"/>
-                <!--<CheckBox x:Name="checkGPS"  x:Uid="CheckGPS"  Content="Design text" Checked="checkGPS_Checked" Unchecked="checkGPS_Checked" VerticalAlignment="Top" FontSize="13.333" />-->
                 <CheckBox x:ConnectionId='4' x:Name="checkLiveTile"  x:Uid="CheckLiveTile"  Content="Design text"                                                                   VerticalAlignment="Top" FontSize="13.333" />
                 <TextBlock TextWrapping="Wrap"  x:Uid="TextLiveTile" Text="Design text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="13.333"/>
                 <TextBlock TextWrapping="Wrap"  x:Uid="TextLanguage"  Text="Design text" Margin="0,20,0,0" FontSize="18.667" FontWeight="Bold"/>

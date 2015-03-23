@@ -20,6 +20,7 @@
       <DependentUpon>CzechMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Data.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DialogQueue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DownloadService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GPSService.cs" />

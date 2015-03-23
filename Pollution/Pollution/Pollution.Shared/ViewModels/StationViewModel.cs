@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
+using WinRTXamlToolkit.Controls.Extensions;
 
 namespace Pollution.ViewModels
 {
@@ -347,6 +348,8 @@ namespace Pollution.ViewModels
             InitializePins();
 
             this.IsBusy = false;
+
+            
         }
 
         public async Task LoadDataGarvis(ObservableCollection<Station> stations)
@@ -688,7 +691,7 @@ namespace Pollution.ViewModels
             }
         }
         /// <summary>
-        /// Tato metoda vznuluje lokátor.
+        /// Tato metoda vynuluje lokátor.
         /// </summary>
         public void StopGeolocator()
         {
@@ -808,13 +811,16 @@ namespace Pollution.ViewModels
             }
 
         }
+
+
         /// <summary>
         /// Je možné, že vyhodí chybu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void locator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
+        void locator_StatusChanged(Geolocator sender, StatusChangedEventArgs args)
         {
+            
             string s;
             s = _localSettings.Containers["AppSettings"].Values["lastNearestStation"].ToString();
 
@@ -824,66 +830,37 @@ namespace Pollution.ViewModels
 
             switch (sender.LocationStatus)
             {
-                case Windows.Devices.Geolocation.PositionStatus.Disabled:  
-                    /*
-                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                case Windows.Devices.Geolocation.PositionStatus.Disabled:
+                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
                     {
-                        MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
-                        msg.ShowAsync();
-
-                        IsGPSBusy = false;
-                        IsGPS = false;
-                    });
-                    */
-                    //Func<object, Task<bool>> action = null;
-                    //action = async (o) =>
-                    //{
-                        //try
-                        //{
-                            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                            {
-                                MessageDialog msg = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
-                                msg.ShowAsync();
-
-                                IsGPSBusy = false;
-                                IsGPS = false;
-                            });
-                            //return true;
-                        //}
-                        //catch (UnauthorizedAccessException)
-                        //{
-                            //if (action != null)
-                            //{
-                            //    Task.Delay(500).ContinueWith(async t => await action(o));
-                            //}
-                        //}
-                        //return false;
-                    //};
-
-
-
-                    if (s != null)
-                    {
-                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                        App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
-                        
-                            
-                        });
-                    }
-
-                    break;
-
-                case Windows.Devices.Geolocation.PositionStatus.NoData:
-                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                    {
-                        MessageDialog msg2 = new MessageDialog(_resourceLoader.GetString("MsgGPSUnavailable"));
-                        msg2.ShowAsync(); //funguje
+                        //await msgGPSDisabled();
+                        MessageDialog sss = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"),_resourceLoader.GetString("Error"));
+                        await sss.ShowAsyncQueue();
 
                         IsGPSBusy = false;
                         IsGPS = false;
                     });
                     
+                    if (s != null)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);                        
+                            
+                        });
+                    }
+                    
+                    break;
+
+                case Windows.Devices.Geolocation.PositionStatus.NoData:
+                    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                    {
+                        MessageDialog sss = new MessageDialog(_resourceLoader.GetString("MsgGPSUnavailable"), _resourceLoader.GetString("Error"));
+                        await sss.ShowAsyncQueue();
+
+                        IsGPSBusy = false;
+                        IsGPS = false;
+                    });         
                     
 
                     if (s != null) App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
