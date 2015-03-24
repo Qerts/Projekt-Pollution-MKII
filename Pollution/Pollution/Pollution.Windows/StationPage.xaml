@@ -199,7 +199,7 @@
                         TextWrapping="NoWrap" 
                         VerticalAlignment="Bottom" 
                         Margin="0,0,30,40"/>
-            <AppBarButton x:Name="folderButton" x:Uid="BtnFolder" Grid.Column="1" HorizontalAlignment="Right" Icon="Folder" Label="" Margin="0,25,150,0" VerticalAlignment="Top" Tapped="folderButton_Tapped"/>
+            <AppBarButton x:Name="folderButton" x:Uid="BtnFolder" Grid.Column="1" HorizontalAlignment="Right" Icon="Folder" Label="" Margin="0,25,110,0" VerticalAlignment="Top" Tapped="folderButton_Tapped"/>
             <AppBarButton x:Name="homeButton" x:Uid="BtnHome" Grid.Column="1" HorizontalAlignment="Right" Label="" Margin="0,25,50,0" VerticalAlignment="Top" Tapped="homeButton_Tapped">
             	<AppBarButton.Icon>
                     <SymbolIcon Symbol="Home" Tapped="homeButton_Tapped"/>

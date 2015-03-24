@@ -42,8 +42,27 @@ namespace Pollution
         {
             string tileTaskName = "TileTask";
             string tileTaskEntryPoint = "BackgroundTask.TileTask";
-            var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
-            if (backgroundAccessStatus == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity || backgroundAccessStatus == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity )
+            /*try
+            {
+                var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
+                if (backgroundAccessStatus == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity || backgroundAccessStatus == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
+                {*/
+                    foreach (var task in BackgroundTaskRegistration.AllTasks)
+                    {
+                        if (task.Value.Name == tileTaskName)
+                        {
+                            task.Value.Unregister(true);
+                        }
+                    }
+
+                    BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder();
+                    taskBuilder.Name = tileTaskName;
+                    taskBuilder.TaskEntryPoint = tileTaskEntryPoint;
+                    taskBuilder.SetTrigger(new TimeTrigger(30, false));
+                    var registration = taskBuilder.Register();
+                /*}
+            }
+            catch (Exception)
             {
                 foreach (var task in BackgroundTaskRegistration.AllTasks)
                 {
@@ -58,7 +77,8 @@ namespace Pollution
                 taskBuilder.TaskEntryPoint = tileTaskEntryPoint;
                 taskBuilder.SetTrigger(new TimeTrigger(30, false));
                 var registration = taskBuilder.Register();
-            }
+            }*/
+            
         }
     }
 }

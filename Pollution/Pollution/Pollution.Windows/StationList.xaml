@@ -81,8 +81,8 @@
                         AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-            <AppBarButton x:Name="homeButton" x:Uid="BtnHome" Grid.Column="1" HorizontalAlignment="Left" Icon="Home" Label="" Margin="1129,37,0,0" VerticalAlignment="Top" Tapped="homeButton_Tapped"/>
-            <AppBarButton x:Name="sortButton" Grid.Column="1" HorizontalAlignment="Left" Icon="Sort" Label="" Margin="1070,37,0,0" VerticalAlignment="Top" Tapped="sortButton_Tapped"/>
+            <AppBarButton x:Name="homeButton" x:Uid="BtnHome" Grid.Column="1" HorizontalAlignment="Right" Icon="Home" Label="" Margin="0,37,100,0" VerticalAlignment="Top" Tapped="homeButton_Tapped"/>
+            <AppBarButton x:Name="sortButton" Grid.Column="1" HorizontalAlignment="Right" Icon="Sort" Label="" Margin="0,37,160,0" VerticalAlignment="Top" Tapped="sortButton_Tapped"/>
         </Grid>
     </Grid>
 </Page>
