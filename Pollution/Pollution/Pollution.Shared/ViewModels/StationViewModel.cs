@@ -116,6 +116,13 @@ namespace Pollution.ViewModels
         }
 
         private ESortStationType currentSort;
+
+        private bool isLoaded = false;
+        public bool IsLoaded
+        {
+            get { return isLoaded; }
+            set { isLoaded = value; }
+        }
         private MyGeocoordinate myPosition;
         public MyGeocoordinate MyPosition
         {
@@ -177,8 +184,13 @@ namespace Pollution.ViewModels
                 if (value != currentStation)
                 {
                     currentStation = value;
-                    if (value != null) NotifyPropertyChanged("CurrentStation");
-
+                    if (value != null)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            NotifyPropertyChanged("CurrentStation");
+                        });
+                    }
                 }
 
             }

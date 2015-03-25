@@ -37,7 +37,6 @@ namespace BackgroundTask
 
             
             //Geolokace
-
             try
             {
                 if (source == null)

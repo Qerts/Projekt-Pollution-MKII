@@ -114,18 +114,24 @@ namespace Pollution
             valueBinding.Source = App.ViewModel;
             valueBinding.Path = new PropertyPath("CurrentStation.So2.Value");
             valueBinding.Converter = new NegativeValueConverter();
-            ratingString.SetBinding(TextBlock.TextProperty, valueBinding);
-            //ratingString.FontWeight = FontWeights.Bold;          
+            ratingString.SetBinding(TextBlock.TextProperty, valueBinding);    
 
             ratingString.Foreground = new SolidColorBrush(Colors.White);
             ratingString.FontSize = Data.getFontSize_StatuValue();
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 0);
-            Grid.SetColumnSpan(ratingString, 5);
-            Grid.SetRow(ratingString, 1);
-            tile.Children.Add(ratingString);
+
+            ratingString.FontSize = 150;
+            Viewbox view = new Viewbox();
+            view.Child = ratingString;
+            view.HorizontalAlignment = HorizontalAlignment.Center;
+            view.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(view, 0);
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 1);
+
+            tile.Children.Add(view);
             
             TextBlock stationString = new TextBlock();
             try
@@ -139,14 +145,22 @@ namespace Pollution
             catch (Exception)
             {
             } stationString.Foreground = new SolidColorBrush(Colors.White);
-            stationString.FontSize = Data.getFontSize_SmallText();
             stationString.TextAlignment = TextAlignment.Center;
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
             stationString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationString, 5);
-            Grid.SetRow(stationString, 2);
-            tile.Children.Add(stationString);
+
+            stationString.FontSize = 50;
+            Viewbox view3 = new Viewbox();
+            view3.Child = stationString;
+            view3.HorizontalAlignment = HorizontalAlignment.Center;
+            view3.VerticalAlignment = VerticalAlignment.Center;
+            view3.Margin = new Thickness(3);
+            Grid.SetColumnSpan(view3, 5);
+            Grid.SetRow(view3, 2);
+
+            tile.Children.Add(view3);
+
 
             TextBlock nameString = new TextBlock();
             nameString.Text = "SO\x2082";
@@ -156,10 +170,20 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumnSpan(nameString, 2);
-            Grid.SetRow(nameString, 3);
-            tile.Children.Add(nameString);
 
+
+            nameString.FontSize = 10;
+            Viewbox view2 = new Viewbox();
+            view2.Child = nameString;
+            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.VerticalAlignment = VerticalAlignment.Center;
+            view2.Margin = new Thickness(0,10,0,10);
+            Grid.SetColumnSpan(view2, 2);
+            Grid.SetRow(view2, 3);
+
+            tile.Children.Add(view2);
+
+            
 
             tile.Name = "statusTile";
 
@@ -232,10 +256,19 @@ namespace Pollution
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 0);
-            Grid.SetColumnSpan(ratingString, 5);
-            Grid.SetRow(ratingString, 1);
-            tile.Children.Add(ratingString);
+
+            ratingString.FontSize = 150;
+            //ratingString.Height = 32;
+            //ratingString.Width = 80;
+            Viewbox view = new Viewbox();
+            view.Child = ratingString;
+            view.HorizontalAlignment = HorizontalAlignment.Center;
+            view.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(view, 0);
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 1);
+
+            tile.Children.Add(view);
 
             TextBlock stationString = new TextBlock();
             status = Data.GetO3ColorAndStatus().Item2;
@@ -257,9 +290,16 @@ namespace Pollution
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
             stationString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationString, 5);
-            Grid.SetRow(stationString, 2);
-            tile.Children.Add(stationString);
+            stationString.FontSize = 50;
+            Viewbox view3 = new Viewbox();
+            view3.Child = stationString;
+            view3.HorizontalAlignment = HorizontalAlignment.Center;
+            view3.VerticalAlignment = VerticalAlignment.Center;
+            view3.Margin = new Thickness(3);
+            Grid.SetColumnSpan(view3, 5);
+            Grid.SetRow(view3, 2);
+
+            tile.Children.Add(view3);
 
             TextBlock nameString = new TextBlock();
             nameString.Text = "O\x2083";
@@ -269,9 +309,16 @@ namespace Pollution
             nameString.FontWeight = FontWeights.Bold;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumnSpan(nameString, 2);
-            Grid.SetRow(nameString, 3);
-            tile.Children.Add(nameString);
+            nameString.FontSize = 10;
+            Viewbox view2 = new Viewbox();
+            view2.Child = nameString;
+            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.VerticalAlignment = VerticalAlignment.Center;
+            view2.Margin = new Thickness(0, 10, 0, 10);
+            Grid.SetColumnSpan(view2, 2);
+            Grid.SetRow(view2, 3);
+
+            tile.Children.Add(view2);
 
 
             tile.Name = "statusTile";
@@ -344,10 +391,18 @@ namespace Pollution
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 0);
-            Grid.SetColumnSpan(ratingString, 5);
-            Grid.SetRow(ratingString, 1);
-            tile.Children.Add(ratingString);
+            ratingString.FontSize = 150;
+            //ratingString.Height = 32;
+            //ratingString.Width = 80;
+            Viewbox view = new Viewbox();
+            view.Child = ratingString;
+            view.HorizontalAlignment = HorizontalAlignment.Center;
+            view.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(view, 0);
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 1);
+
+            tile.Children.Add(view);
 
             TextBlock stationString = new TextBlock();
             status = Data.GetCOColorAndStatus().Item2;
@@ -368,9 +423,16 @@ namespace Pollution
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
             stationString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationString, 5);
-            Grid.SetRow(stationString, 2);
-            tile.Children.Add(stationString);
+            stationString.FontSize = 50;
+            Viewbox view3 = new Viewbox();
+            view3.Child = stationString;
+            view3.HorizontalAlignment = HorizontalAlignment.Center;
+            view3.VerticalAlignment = VerticalAlignment.Center;
+            view3.Margin = new Thickness(3);
+            Grid.SetColumnSpan(view3, 5);
+            Grid.SetRow(view3, 2);
+
+            tile.Children.Add(view3);
 
             TextBlock nameString = new TextBlock();
             nameString.Text = "CO";
@@ -380,9 +442,16 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumnSpan(nameString, 2);
-            Grid.SetRow(nameString, 3);
-            tile.Children.Add(nameString);
+            nameString.FontSize = 10;
+            Viewbox view2 = new Viewbox();
+            view2.Child = nameString;
+            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.VerticalAlignment = VerticalAlignment.Center;
+            view2.Margin = new Thickness(0, 10, 0, 10);
+            Grid.SetColumnSpan(view2, 2);
+            Grid.SetRow(view2, 3);
+
+            tile.Children.Add(view2);
 
 
             tile.Name = "statusTile";
@@ -453,10 +522,18 @@ namespace Pollution
             ratingString.TextAlignment = TextAlignment.Center;
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(ratingString, 0);
-            Grid.SetColumnSpan(ratingString, 5);
-            Grid.SetRow(ratingString, 1);
-            tile.Children.Add(ratingString);
+            ratingString.FontSize = 150;
+            //ratingString.Height = 32;
+            //ratingString.Width = 80;
+            Viewbox view = new Viewbox();
+            view.Child = ratingString;
+            view.HorizontalAlignment = HorizontalAlignment.Center;
+            view.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(view, 0);
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 1);
+
+            tile.Children.Add(view);
 
             TextBlock stationString = new TextBlock();
             status = Data.GetPM10ColorAndStatus().Item2;
@@ -476,9 +553,16 @@ namespace Pollution
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
             stationString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationString, 5);
-            Grid.SetRow(stationString, 2);
-            tile.Children.Add(stationString);
+            stationString.FontSize = 50;
+            Viewbox view3 = new Viewbox();
+            view3.Child = stationString;
+            view3.HorizontalAlignment = HorizontalAlignment.Center;
+            view3.VerticalAlignment = VerticalAlignment.Center;
+            view3.Margin = new Thickness(3);
+            Grid.SetColumnSpan(view3, 5);
+            Grid.SetRow(view3, 2);
+
+            tile.Children.Add(view3);
 
             TextBlock nameString = new TextBlock();
             nameString.Text = Data.getString_PM10();
@@ -488,9 +572,16 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumnSpan(nameString, 2);
-            Grid.SetRow(nameString, 3);
-            tile.Children.Add(nameString);
+            nameString.FontSize = 10;
+            Viewbox view2 = new Viewbox();
+            view2.Child = nameString;
+            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.VerticalAlignment = VerticalAlignment.Center;
+            view2.Margin = new Thickness(0, 10, 0, 10);
+            Grid.SetColumnSpan(view2, 2);
+            Grid.SetRow(view2, 3);
+
+            tile.Children.Add(view2);
 
 
             tile.Name = "statusTile";
@@ -559,10 +650,18 @@ namespace Pollution
             ratingString.HorizontalAlignment = HorizontalAlignment.Center;
             ratingString.VerticalAlignment = VerticalAlignment.Center;
 
-            Grid.SetColumn(ratingString, 0);
-            Grid.SetColumnSpan(ratingString, 5);
-            Grid.SetRow(ratingString, 1);
-            tile.Children.Add(ratingString);
+            ratingString.FontSize = 150;
+            //ratingString.Height = 32;
+            //ratingString.Width = 80;
+            Viewbox view = new Viewbox();
+            view.Child = ratingString;
+            view.HorizontalAlignment = HorizontalAlignment.Center;
+            view.VerticalAlignment = VerticalAlignment.Center;
+            Grid.SetColumn(view, 0);
+            Grid.SetColumnSpan(view, 5);
+            Grid.SetRow(view, 1);
+
+            tile.Children.Add(view);
 
             TextBlock stationString = new TextBlock();
             status = Data.GetNO2ColorAndStatus().Item2;
@@ -583,21 +682,34 @@ namespace Pollution
             stationString.HorizontalAlignment = HorizontalAlignment.Center;
             stationString.VerticalAlignment = VerticalAlignment.Center;
             stationString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(stationString, 5);
-            Grid.SetRow(stationString, 2);
-            tile.Children.Add(stationString);
+            stationString.FontSize = 50;
+            Viewbox view3 = new Viewbox();
+            view3.Child = stationString;
+            view3.HorizontalAlignment = HorizontalAlignment.Center;
+            view3.VerticalAlignment = VerticalAlignment.Center;
+            view3.Margin = new Thickness(3);
+            Grid.SetColumnSpan(view3, 5);
+            Grid.SetRow(view3, 2);
+
+            tile.Children.Add(view3);
 
             TextBlock nameString = new TextBlock();
             nameString.Text = "NO\x2082";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
-            Grid.SetColumnSpan(nameString, 2);
-            Grid.SetRow(nameString, 3);
-            tile.Children.Add(nameString);
+            nameString.FontSize = 10;
+            Viewbox view2 = new Viewbox();
+            view2.Child = nameString;
+            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.VerticalAlignment = VerticalAlignment.Center;
+            view2.Margin = new Thickness(0, 10, 0, 10);
+            Grid.SetColumnSpan(view2, 2);
+            Grid.SetRow(view2, 3);
+
+            tile.Children.Add(view2);
 
             
             tile.Name = "statusTile";
@@ -612,7 +724,6 @@ namespace Pollution
             Grid.SetColumn(mapPanelButton, colNum);
             mapPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
             TextBlock title = new TextBlock();
-            title.FontSize = Data.getFontSize_LargeText();
             title.TextWrapping = TextWrapping.WrapWholeWords;
             //bude třeba nabindovat pro změnu jazyka
             title.Text = _resourceLoader.GetString("MapPanelButton");
@@ -620,7 +731,16 @@ namespace Pollution
             title.HorizontalAlignment = HorizontalAlignment.Center;
             title.VerticalAlignment = VerticalAlignment.Center;
             title.Foreground = new SolidColorBrush(Colors.White);
-            mapPanelButton.Children.Add(title);
+
+            title.FontSize = 15;
+            title.Height = 32;
+            title.Width = 80;
+            title.Margin = new Thickness(0, 16, 0, 0);
+            Viewbox view = new Viewbox();
+            view.Child = title;
+
+
+            mapPanelButton.Children.Add(view);
 
             mapPanelButton.Tapped += mainPage.mapPanelService;
 
@@ -634,14 +754,20 @@ namespace Pollution
             dataPanelButton.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
             TextBlock title = new TextBlock();
             title.TextWrapping = TextWrapping.WrapWholeWords;
-            title.FontSize = Data.getFontSize_LargeText();
             //bude třeba nabindovat prop změnu jazyka
             title.Text = _resourceLoader.GetString("DataPanelButton");
             title.TextAlignment = TextAlignment.Center;
             title.HorizontalAlignment = HorizontalAlignment.Center;
             title.VerticalAlignment = VerticalAlignment.Center;
             title.Foreground = new SolidColorBrush(Colors.White);
-            dataPanelButton.Children.Add(title);
+
+            title.FontSize = 15;
+            title.Height = 32;
+            title.Width = 80;
+            Viewbox view = new Viewbox();
+            view.Child = title;
+
+            dataPanelButton.Children.Add(view);
 
             dataPanelButton.Tapped += mainPage.dataPanelService;
 
@@ -656,7 +782,6 @@ namespace Pollution
             TextBlock title = new TextBlock() 
             {
                 TextWrapping = TextWrapping.WrapWholeWords,
-                FontSize = Data.getFontSize_LargeText(),
                 //bude třeba nabindovat por změnu jazyka
                 Text = _resourceLoader.GetString("MenuPanelButton"),
                 TextAlignment = TextAlignment.Center,
@@ -664,7 +789,15 @@ namespace Pollution
                 VerticalAlignment = VerticalAlignment.Center,
                 Foreground = new SolidColorBrush(Colors.White)
             };
-            menuPanelButton.Children.Add(title);
+
+            title.FontSize = 15;
+            title.Height = 32;
+            title.Width = 80;
+            title.Margin = new Thickness(0, 16, 0, 0);
+            Viewbox view = new Viewbox();
+            view.Child = title;
+
+            menuPanelButton.Children.Add(view);
 
             menuPanelButton.Tapped += mainPage.menuPanelService;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 
 namespace Pollution
@@ -42,6 +43,9 @@ namespace Pollution
         {
             string tileTaskName = "TileTask";
             string tileTaskEntryPoint = "BackgroundTask.TileTask";
+
+            Task delay = Task.Run(() => { Task.Delay(1000); });
+
             /*try
             {
                 var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();

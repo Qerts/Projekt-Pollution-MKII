@@ -47,7 +47,7 @@ namespace Pollution
         //localsettings
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-        private async Task LoadData() 
+        public async Task LoadData() 
         {            
 
             //příznak možnosti připojení a stažení
@@ -120,6 +120,7 @@ namespace Pollution
 
             //_gpsService.SetGeolocator(); zakomentováno z důvodu redundance
             setMapDetails();    //nastavení mapy
+            App.ViewModel.IsLoaded = true;
         }
 
         /// <summary>
@@ -163,6 +164,7 @@ namespace Pollution
         /// </summary>
         public async Task DataPreLoad() 
         {
+            if (App.ViewModel.IsLoaded) return;
 
             await _fileService.LoadDataFromFile(RAW_DATA_FILE);            
             await App.ViewModel.LoadDataToModel();
@@ -592,7 +594,7 @@ namespace Pollution
             //string versionApp = xd.Root.Element("App").Attribute("Version").Value;
 
             
-            if (versionNews != versionApp)
+            /*if (versionNews != versionApp) //msg dialog vyhazuje při někkterých konfiguracích vyjímku, možná zkusit udělat stejně, jako nahoře
             {                   
                 var versionMsg = Task.Run(async delegate
                 {
@@ -615,7 +617,7 @@ namespace Pollution
                     //MessageBox.Show(AppResources._news, AppResources.WhatIsNew, MessageBoxButton.OK);
                     localSettings.Containers["AppSettings"].Values["versionNews"] = versionApp;
                 });
-            }
+            }*/
         }
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -661,6 +663,12 @@ namespace Pollution
                     {
                         p.IsSelected = false;
                     }
+                }
+
+                //safety precaution
+                if (tmp.Position == null)
+                {
+                    tmp.Position = new MyGeocoordinate(0, 0);
                 }
 
                 Bing.Maps.Location tmpPos = new Bing.Maps.Location();

@@ -20,13 +20,13 @@
     <AppXManifest Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-03-24T09:05:16.871</Modified>
+      <Modified>2015-03-25T17:49:15.157</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2015-03-24T09:55:54.180</Modified>
+      <Modified>2015-03-25T17:48:56.921</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -34,7 +34,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\bin\Debug\BackgroundTask.winmd">
       <PackagePath>BackgroundTask.winmd</PackagePath>
-      <Modified>2015-03-23T11:36:56.118</Modified>
+      <Modified>2015-03-24T20:25:09.205</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\debug\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
@@ -606,7 +606,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-03-19T19:52:11.667</Modified>
+      <Modified>2015-03-24T11:30:55.147</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PhotoPage.xbf">
       <PackagePath>PhotoPage.xbf</PackagePath>
@@ -614,15 +614,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\StationList.xbf">
       <PackagePath>StationList.xbf</PackagePath>
-      <Modified>2015-03-24T09:55:53.177</Modified>
+      <Modified>2015-03-24T11:30:55.148</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\StationPage.xbf">
       <PackagePath>StationPage.xbf</PackagePath>
-      <Modified>2015-03-19T15:22:28.880</Modified>
+      <Modified>2015-03-24T11:30:55.149</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2015-03-24T09:55:53.291</Modified>
+      <Modified>2015-03-25T17:48:56.091</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
@@ -630,7 +630,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-03-24T09:05:09.294</Modified>
+      <Modified>2015-03-25T17:48:58.517</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

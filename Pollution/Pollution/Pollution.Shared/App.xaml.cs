@@ -20,7 +20,9 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 #if WINDOWS_APP
 using Pollution.Flyouts;
-using Windows.UI.ApplicationSettings; 
+using Windows.UI.ApplicationSettings;
+using Windows.UI.Core;
+using Windows.ApplicationModel.Core; 
 #endif
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
@@ -81,6 +83,9 @@ namespace Pollution
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+
+
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -185,6 +190,7 @@ namespace Pollution
         protected override void OnWindowCreated(WindowCreatedEventArgs args)
         {
             SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+
         }
 
         private void OnCommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)

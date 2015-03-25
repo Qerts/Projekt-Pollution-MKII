@@ -329,10 +329,8 @@
 							<ColumnDefinition Width="8*"/>
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
-                    	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
-                    		<Grid Height="60" Width="90">
-                    			<TextBlock x:Name="menuPanelButton1Txt" x:Uid="BtnStationList" TextWrapping="Wrap" Text="Seznam stanic" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    		</Grid>
+                    	<Viewbox Margin="0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    		<TextBlock x:Name="menuPanelButton1Txt" x:Uid="BtnStationList" TextWrapping="WrapWholeWords" Text="Seznam&#xA;stanic" FontSize="13.333" TextAlignment="Center" Height="32" Width="58"/>
                     	</Viewbox>
 					</Grid>
                     <Grid x:Name="menuPanelButton2" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="2" Margin="5" Tapped="menuPanelButton2_Tapped">
@@ -346,10 +344,8 @@
 							<ColumnDefinition Width="8*"/>
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
-                    	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
-                    		<Grid Height="60" Width="90">
-                    			<TextBlock x:Name="menuPanelButton2Txt" x:Uid="BtnDetailStation" TextWrapping="Wrap" Text="Detail stanice" FontSize="18.667" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    		</Grid>
+                    	<Viewbox Margin="0" Grid.Row="1" Grid.Column="1" >
+                    		<TextBlock x:Name="menuPanelButton2Txt" x:Uid="BtnDetailStation" TextWrapping="WrapWholeWords" Text="Detail" FontSize="13.333" TextAlignment="Center" Width="58" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,16,0,0"/>
                     	</Viewbox>
 					</Grid>
                     <Grid x:Name="menuPanelButton3" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="3" Margin="5" Tapped="menuPanelButton3_Tapped" Visibility="Collapsed" d:IsHidden="True">
@@ -365,7 +361,7 @@
 						</Grid.ColumnDefinitions>
                     	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,13,0" Grid.Row="1" Grid.Column="1" >
                     		<Grid Height="60" Width="90">
-                    			<TextBlock x:Name="menuPanelButton3Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    			<TextBlock x:Name="menuPanelButton3Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" FontSize="13.333" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     		</Grid>
                     	</Viewbox>
 					</Grid>
@@ -381,9 +377,7 @@
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
                     	<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
-                    		<Grid Height="60" Width="90">
-                    			<TextBlock x:Name="menuPanelButton4Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0" Margin="-5,0"/>
-                    		</Grid>
+                    		<TextBlock x:Name="menuPanelButton4Txt" x:Uid="MenuSettings" TextWrapping="WrapWholeWords" Text="Nastavení" FontSize="13.333" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0" Height="32" Width="58" Margin="0,16,0,0"/>
                     	</Viewbox>
 					</Grid>
                     <Grid x:Name="menuPanelButton5" Background="{Binding CurrentStation.Quality, Converter={StaticResource ColorQualityConverter}}" Grid.Row="1" Grid.Column="5" Margin="5" Tapped="menuPanelButton5_Tapped">
@@ -398,9 +392,7 @@
 							<ColumnDefinition/>
 						</Grid.ColumnDefinitions>
 						<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Row="1" Grid.Column="1" >
-                    		<Grid Height="60" Width="90">
-                    			<TextBlock x:Name="menuPanelButton5Txt" x:Uid="MenuAboutApp" Text="Nastavení" FontSize="18.667" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-5,0"/>
-                    		</Grid>
+                    		<TextBlock x:Name="menuPanelButton5Txt" x:Uid="MenuAboutApp" Text="O aplikaci" FontSize="13.333" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="57" Margin="0,16,0,0"/>
                     	</Viewbox>
 					</Grid>
 				</Grid>

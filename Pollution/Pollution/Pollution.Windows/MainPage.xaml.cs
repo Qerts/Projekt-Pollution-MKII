@@ -104,12 +104,15 @@ namespace Pollution
             //nastavení datacontextu
             rootPage.DataContext = App.ViewModel;
 
-
+            
             //stažení dat
-            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            if (!App.ViewModel.IsLoaded)
             {
-                LoadData();
-            });
+                this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    LoadData();
+                });
+            }
             
             //stažení dat každých 60s
             var afterStartLoad = Task.Run(async delegate
@@ -120,7 +123,10 @@ namespace Pollution
                     this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         LoadData();
+                        
                     });
+                    
+                    
                 }
             });
             
@@ -142,22 +148,6 @@ namespace Pollution
             //Přiřazení události, která nastane, pokud se změní property ViewModelu.
             App.ViewModel.PropertyChanged += new PropertyChangedEventHandler(ViewModel_PropertyChanged);
 
-            /*
-            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
-            {
-
-
-                MessageDialog msg = new MessageDialog("main");
-                await msg.ShowAsync();
-
-                MessageDialog msg2 = new MessageDialog("main");
-                await msg2.ShowAsync();
-
-                //MessageDialog sss = new MessageDialog(_resourceLoader.GetString("MsgGPSDisabled"));
-                //await sss.ShowAsync();
-                await msgTest();
-
-            });*/
             
 
             
@@ -650,6 +640,11 @@ namespace Pollution
             Grid.SetRow(menuPanelButton2, 2);
             Grid.SetColumn(menuPanelButton3, 1);
             Grid.SetRow(menuPanelButton3, 3);
+            Grid.SetColumn(menuPanelButton4, 1);
+            Grid.SetRow(menuPanelButton4, 4);
+            Grid.SetColumn(menuPanelButton5, 1);
+            Grid.SetRow(menuPanelButton5, 5);
+
 
             Grid.SetColumn(menuPanelInfoGrid, 0);
             Grid.SetRow(menuPanelInfoGrid, 1);
@@ -1279,7 +1274,7 @@ namespace Pollution
             MenuPanel.RowDefinitions.Clear();
 
             RowDefinition rowdef32 = new RowDefinition();
-            rowdef32.Height = new GridLength(4, GridUnitType.Star);
+            rowdef32.Height = new GridLength(2, GridUnitType.Star);
             MenuPanel.RowDefinitions.Add(rowdef32);
             RowDefinition rowdef33 = new RowDefinition();
             rowdef33.Height = new GridLength(1, GridUnitType.Star);
@@ -1328,6 +1323,15 @@ namespace Pollution
             ColumnDefinition rowdef54 = new ColumnDefinition();
             rowdef54.Width = new GridLength(2, GridUnitType.Star);
             menuPanelButtonGrid.ColumnDefinitions.Add(rowdef54);
+            ColumnDefinition rowdef55 = new ColumnDefinition();
+            rowdef55.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef55);
+            ColumnDefinition rowdef56 = new ColumnDefinition();
+            rowdef56.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef56);
+            ColumnDefinition rowdef57 = new ColumnDefinition();
+            rowdef57.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef57);
             ColumnDefinition rowdef58 = new ColumnDefinition();
             rowdef58.Width = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.ColumnDefinitions.Add(rowdef58);
@@ -1339,11 +1343,6 @@ namespace Pollution
             coldef51.Height = new GridLength(2, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef51);
             RowDefinition coldef52 = new RowDefinition();
-            coldef52.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef52);
-            RowDefinition coldef53 = new RowDefinition();
-            coldef53.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef53);
             RowDefinition coldef54 = new RowDefinition();
             coldef54.Height = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef54);
@@ -1357,12 +1356,12 @@ namespace Pollution
             Grid.SetRow(menuPanelButton1, 1);
             Grid.SetColumn(menuPanelButton2, 2);
             Grid.SetRow(menuPanelButton2, 1);
-            Grid.SetColumn(menuPanelButton3, 1);
-            Grid.SetRow(menuPanelButton3, 2);
-            Grid.SetColumn(menuPanelButton4, 2);
-            Grid.SetRow(menuPanelButton4, 2);
-            Grid.SetColumn(menuPanelButton5, 1);
-            Grid.SetRow(menuPanelButton5, 3);
+            Grid.SetColumn(menuPanelButton3, 3);
+            Grid.SetRow(menuPanelButton3, 1);
+            Grid.SetColumn(menuPanelButton4, 4);
+            Grid.SetRow(menuPanelButton4, 1);
+            Grid.SetColumn(menuPanelButton5, 5);
+            Grid.SetRow(menuPanelButton5, 1);
 
             Grid.SetColumn(menuPanelInfoGrid, 1);
             Grid.SetRow(menuPanelInfoGrid, 0);
@@ -1376,7 +1375,7 @@ namespace Pollution
             //POSUNUTI PANELU
             MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 5) * 8), 0, ((Window.Current.Bounds.Width / 5) * 8), 0);
             DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
-            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
+            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 2), 0, ((Window.Current.Bounds.Height / 6) * 2));
 
             //UMISTENI BUTTONU
             Grid.SetColumn(menubutton, 1);
@@ -1581,7 +1580,7 @@ namespace Pollution
             MenuPanel.RowDefinitions.Clear();
 
             RowDefinition rowdef32 = new RowDefinition();
-            rowdef32.Height = new GridLength(4, GridUnitType.Star);
+            rowdef32.Height = new GridLength(2, GridUnitType.Star);
             MenuPanel.RowDefinitions.Add(rowdef32);
             RowDefinition rowdef33 = new RowDefinition();
             rowdef33.Height = new GridLength(1, GridUnitType.Star);
@@ -1601,17 +1600,14 @@ namespace Pollution
             Grid.SetColumn(MenuPanel, 0);
             Grid.SetColumnSpan(MenuPanel, 5);
             Grid.SetRow(MenuPanel, 0);
-            Grid.SetRowSpan(MenuPanel, 5);
+            Grid.SetRowSpan(MenuPanel, 3);
 
             MenuPanelSubGrid.ColumnDefinitions.Clear();
             MenuPanelSubGrid.RowDefinitions.Clear();
 
             ColumnDefinition coldef42 = new ColumnDefinition();
-            coldef42.Width = new GridLength(3, GridUnitType.Star);
+            coldef42.Width = new GridLength(5, GridUnitType.Star);
             MenuPanelSubGrid.ColumnDefinitions.Add(coldef42);
-            ColumnDefinition coldef43 = new ColumnDefinition();
-            coldef43.Width = new GridLength(2, GridUnitType.Star);
-            MenuPanelSubGrid.ColumnDefinitions.Add(coldef43);
 
             Grid.SetColumn(MenuPanelSubGrid, 0);
             Grid.SetColumnSpan(MenuPanelSubGrid, 3);
@@ -1630,6 +1626,15 @@ namespace Pollution
             ColumnDefinition rowdef54 = new ColumnDefinition();
             rowdef54.Width = new GridLength(2, GridUnitType.Star);
             menuPanelButtonGrid.ColumnDefinitions.Add(rowdef54);
+            ColumnDefinition rowdef55 = new ColumnDefinition();
+            rowdef55.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef55);
+            ColumnDefinition rowdef56 = new ColumnDefinition();
+            rowdef56.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef56);
+            ColumnDefinition rowdef57 = new ColumnDefinition();
+            rowdef57.Width = new GridLength(2, GridUnitType.Star);
+            menuPanelButtonGrid.ColumnDefinitions.Add(rowdef57);
             ColumnDefinition rowdef58 = new ColumnDefinition();
             rowdef58.Width = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.ColumnDefinitions.Add(rowdef58);
@@ -1640,12 +1645,6 @@ namespace Pollution
             RowDefinition coldef51 = new RowDefinition();
             coldef51.Height = new GridLength(2, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef51);
-            RowDefinition coldef52 = new RowDefinition();
-            coldef52.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef52);
-            RowDefinition coldef53 = new RowDefinition();
-            coldef53.Height = new GridLength(2, GridUnitType.Star);
-            menuPanelButtonGrid.RowDefinitions.Add(coldef53);
             RowDefinition coldef54 = new RowDefinition();
             coldef54.Height = new GridLength(1, GridUnitType.Star);
             menuPanelButtonGrid.RowDefinitions.Add(coldef54);
@@ -1659,12 +1658,12 @@ namespace Pollution
             Grid.SetRow(menuPanelButton1, 1);
             Grid.SetColumn(menuPanelButton2, 2);
             Grid.SetRow(menuPanelButton2, 1);
-            Grid.SetColumn(menuPanelButton3, 1);
-            Grid.SetRow(menuPanelButton3, 2);
-            Grid.SetColumn(menuPanelButton4, 2);
-            Grid.SetRow(menuPanelButton4, 2);
-            Grid.SetColumn(menuPanelButton5, 1);
-            Grid.SetRow(menuPanelButton5, 3);
+            Grid.SetColumn(menuPanelButton3, 3);
+            Grid.SetRow(menuPanelButton3, 1);
+            Grid.SetColumn(menuPanelButton4, 4);
+            Grid.SetRow(menuPanelButton4, 1);
+            Grid.SetColumn(menuPanelButton5, 5);
+            Grid.SetRow(menuPanelButton5, 1);
 
             Grid.SetColumn(menuPanelInfoGrid, 1);
             Grid.SetRow(menuPanelInfoGrid, 0);
@@ -1678,7 +1677,7 @@ namespace Pollution
             //POSUNUTI PANELU
             MapPanel.Margin = new Thickness(-((Window.Current.Bounds.Width / 5) * 8), 0, ((Window.Current.Bounds.Width / 5) * 8), 0);
             DataPanel.Margin = new Thickness(0, ((Window.Current.Bounds.Height / 6) * 4), 0, -((Window.Current.Bounds.Height / 6) * 4));
-            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 4), 0, ((Window.Current.Bounds.Height / 6) * 4));
+            MenuPanel.Margin = new Thickness(0, -((Window.Current.Bounds.Height / 6) * 2), 0, ((Window.Current.Bounds.Height / 6) * 2));
 
             //UMISTENI BUTTONU
             Grid.SetColumn(menubutton, 1);
@@ -1958,13 +1957,6 @@ namespace Pollution
             legendTxt6.FontSize = Data.getFontSize_SmallText();
             legendTxt7.FontSize = Data.getFontSize_SmallText();
             legendTxt8.FontSize = Data.getFontSize_SmallText();
-            menuPanelButton1Txt.FontSize = Data.getFontSize_LargeText();
-            menuPanelButton2Txt.FontSize = Data.getFontSize_LargeText();
-            menuPanelButton3Txt.FontSize = Data.getFontSize_LargeText();
-            menuPanelButton4Txt.FontSize = Data.getFontSize_LargeText();
-            menuPanelButton5Txt.FontSize = Data.getFontSize_LargeText();
-            menuPanelInfoTitleTxt.FontSize = Data.getFontSize_CommonText();
-            menuPanelInfoValueTxt.FontSize = Data.getFontSize_CommonText();
             
         }
         #region STATUSES POSITION
