@@ -215,7 +215,6 @@
       <RootProperty Name="Color" />
     </RootType>
     <RootType FullName="Pollution.PElementGraph" />
-    <RootType FullName="Pollution.Pins.PinConverters" />
     <RootType FullName="PollutionAgent.PollutionTile" />
     <RootType FullName="Windows.UI.Xaml.Media.EllipseGeometry">
       <RootProperty Name="RadiusX" />

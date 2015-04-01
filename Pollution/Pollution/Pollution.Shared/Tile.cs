@@ -79,17 +79,23 @@ namespace Pollution
             catch (Exception)            {            }
 
             RowDefinition rowdef1 = new RowDefinition();
-            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            rowdef1.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(2, GridUnitType.Star);
+            rowdef2.Height = new GridLength(4, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
-            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            rowdef3.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(2, GridUnitType.Star);
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
+            RowDefinition rowdef5 = new RowDefinition();
+            rowdef5.Height = new GridLength(2, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef5); 
+            RowDefinition rowdef6 = new RowDefinition();
+            rowdef6.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef6);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
             coldef1.Width = new GridLength(1, GridUnitType.Star);
@@ -165,21 +171,20 @@ namespace Pollution
             TextBlock nameString = new TextBlock();
             nameString.Text = "SO\x2082";
             nameString.Foreground = new SolidColorBrush(Colors.White);
-            nameString.FontSize = Data.getFontSize_CommonText();
             nameString.TextAlignment = TextAlignment.Center;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
 
 
-            nameString.FontSize = 10;
+            nameString.FontSize = 20;
             Viewbox view2 = new Viewbox();
             view2.Child = nameString;
-            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.HorizontalAlignment = HorizontalAlignment.Left;
             view2.VerticalAlignment = VerticalAlignment.Center;
-            view2.Margin = new Thickness(0,10,0,10);
-            Grid.SetColumnSpan(view2, 2);
-            Grid.SetRow(view2, 3);
+            view2.Margin = new Thickness(10, 0, 0, 0);
+            Grid.SetRow(view2, 4);
+            Grid.SetColumnSpan(view2, 3);
 
             tile.Children.Add(view2);
 
@@ -214,17 +219,23 @@ namespace Pollution
             }
 
             RowDefinition rowdef1 = new RowDefinition();
-            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            rowdef1.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(2, GridUnitType.Star);
+            rowdef2.Height = new GridLength(4, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
-            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            rowdef3.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(2, GridUnitType.Star);
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
+            RowDefinition rowdef5 = new RowDefinition();
+            rowdef5.Height = new GridLength(2, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef5);
+            RowDefinition rowdef6 = new RowDefinition();
+            rowdef6.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef6);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
             coldef1.Width = new GridLength(1, GridUnitType.Star);
@@ -309,14 +320,14 @@ namespace Pollution
             nameString.FontWeight = FontWeights.Bold;
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            nameString.FontSize = 10;
+            nameString.FontSize = 20;
             Viewbox view2 = new Viewbox();
             view2.Child = nameString;
-            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.HorizontalAlignment = HorizontalAlignment.Left;
             view2.VerticalAlignment = VerticalAlignment.Center;
-            view2.Margin = new Thickness(0, 10, 0, 10);
-            Grid.SetColumnSpan(view2, 2);
-            Grid.SetRow(view2, 3);
+            view2.Margin = new Thickness(10, 0, 0, 0);
+            Grid.SetRow(view2, 4);
+            Grid.SetColumnSpan(view2, 3);
 
             tile.Children.Add(view2);
 
@@ -348,17 +359,23 @@ namespace Pollution
             }
 
             RowDefinition rowdef1 = new RowDefinition();
-            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            rowdef1.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(2, GridUnitType.Star);
+            rowdef2.Height = new GridLength(4, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
-            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            rowdef3.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(2, GridUnitType.Star);
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
+            RowDefinition rowdef5 = new RowDefinition();
+            rowdef5.Height = new GridLength(2, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef5);
+            RowDefinition rowdef6 = new RowDefinition();
+            rowdef6.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef6);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
             coldef1.Width = new GridLength(1, GridUnitType.Star);
@@ -442,14 +459,14 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            nameString.FontSize = 10;
+            nameString.FontSize = 20;
             Viewbox view2 = new Viewbox();
             view2.Child = nameString;
-            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.HorizontalAlignment = HorizontalAlignment.Left;
             view2.VerticalAlignment = VerticalAlignment.Center;
-            view2.Margin = new Thickness(0, 10, 0, 10);
-            Grid.SetColumnSpan(view2, 2);
-            Grid.SetRow(view2, 3);
+            view2.Margin = new Thickness(10, 0, 0, 0);
+            Grid.SetRow(view2, 4);
+            Grid.SetColumnSpan(view2, 3);
 
             tile.Children.Add(view2);
 
@@ -480,17 +497,23 @@ namespace Pollution
             {
             }
             RowDefinition rowdef1 = new RowDefinition();
-            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            rowdef1.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(2, GridUnitType.Star);
+            rowdef2.Height = new GridLength(4, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
-            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            rowdef3.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(2, GridUnitType.Star);
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
+            RowDefinition rowdef5 = new RowDefinition();
+            rowdef5.Height = new GridLength(2, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef5);
+            RowDefinition rowdef6 = new RowDefinition();
+            rowdef6.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef6);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
             coldef1.Width = new GridLength(1, GridUnitType.Star);
@@ -572,14 +595,14 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
             nameString.VerticalAlignment = VerticalAlignment.Center;
-            nameString.FontSize = 10;
+            nameString.FontSize = 20;
             Viewbox view2 = new Viewbox();
             view2.Child = nameString;
-            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.HorizontalAlignment = HorizontalAlignment.Left;
             view2.VerticalAlignment = VerticalAlignment.Center;
-            view2.Margin = new Thickness(0, 10, 0, 10);
-            Grid.SetColumnSpan(view2, 2);
-            Grid.SetRow(view2, 3);
+            view2.Margin = new Thickness(10, 0, 0, 0);
+            Grid.SetRow(view2, 4);
+            Grid.SetColumnSpan(view2, 3);
 
             tile.Children.Add(view2);
 
@@ -607,19 +630,25 @@ namespace Pollution
             }
             catch (Exception)
             {
-            }            
+            }
             RowDefinition rowdef1 = new RowDefinition();
-            rowdef1.Height = new GridLength(1, GridUnitType.Star);
+            rowdef1.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef1);
             RowDefinition rowdef2 = new RowDefinition();
-            rowdef2.Height = new GridLength(2, GridUnitType.Star);
+            rowdef2.Height = new GridLength(4, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef2);
             RowDefinition rowdef3 = new RowDefinition();
-            rowdef3.Height = new GridLength(1, GridUnitType.Star);
+            rowdef3.Height = new GridLength(2, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef3);
             RowDefinition rowdef4 = new RowDefinition();
-            rowdef4.Height = new GridLength(2, GridUnitType.Star);
+            rowdef4.Height = new GridLength(1, GridUnitType.Star);
             tile.RowDefinitions.Add(rowdef4);
+            RowDefinition rowdef5 = new RowDefinition();
+            rowdef5.Height = new GridLength(2, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef5);
+            RowDefinition rowdef6 = new RowDefinition();
+            rowdef6.Height = new GridLength(1, GridUnitType.Star);
+            tile.RowDefinitions.Add(rowdef6);
 
             ColumnDefinition coldef1 = new ColumnDefinition();
             coldef1.Width = new GridLength(1, GridUnitType.Star);
@@ -700,14 +729,14 @@ namespace Pollution
             nameString.HorizontalAlignment = HorizontalAlignment.Center;
             nameString.VerticalAlignment = VerticalAlignment.Center;
             nameString.FontWeight = FontWeights.Bold;
-            nameString.FontSize = 10;
+            nameString.FontSize = 20;
             Viewbox view2 = new Viewbox();
             view2.Child = nameString;
-            view2.HorizontalAlignment = HorizontalAlignment.Center;
+            view2.HorizontalAlignment = HorizontalAlignment.Left;
             view2.VerticalAlignment = VerticalAlignment.Center;
-            view2.Margin = new Thickness(0, 10, 0, 10);
+            view2.Margin = new Thickness(10, 0, 0, 0);
             Grid.SetColumnSpan(view2, 2);
-            Grid.SetRow(view2, 3);
+            Grid.SetRow(view2, 4);
 
             tile.Children.Add(view2);
 
@@ -1018,6 +1047,27 @@ namespace Pollution
 
             return tile;
 
+        }
+
+        public Grid GPSStatusTile(int rowNum, int colNum) 
+        {
+            Grid tile = new Grid();
+            tile.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
+            tile.Name = "GPSStatusTile";
+            tile.Children.Clear();
+            Grid.SetRow(tile, rowNum);
+            Grid.SetColumn(tile, colNum);
+
+            Viewbox view = new Viewbox();
+            view.HorizontalAlignment = HorizontalAlignment.Stretch;
+            view.VerticalAlignment = VerticalAlignment.Stretch;
+
+            Grid tileGrid = new Grid();
+            tileGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            tileGrid.VerticalAlignment = VerticalAlignment.Stretch;
+
+            tileGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+            return tile;
         }
     }
 }

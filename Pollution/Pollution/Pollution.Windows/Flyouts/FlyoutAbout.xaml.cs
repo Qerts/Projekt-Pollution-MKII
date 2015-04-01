@@ -87,7 +87,7 @@ namespace Pollution.Flyouts
         /// <param name="e"></param>
         private async void ButtonReview_Click(object sender, RoutedEventArgs e)
         {
-            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:REVIEW?PFN=9d25fef6-d64d-4963-92da-ee8d102f3b6b"));
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:REVIEW?PFN=69cee4e3-c46f-47c7-80a6-bf69eba36662"));//ms-windows-store:REVIEW?PFN=9d25fef6-d64d-4963-92da-ee8d102f3b6b"));
         }
     }
 }

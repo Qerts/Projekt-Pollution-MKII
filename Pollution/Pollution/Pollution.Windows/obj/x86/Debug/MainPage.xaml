@@ -112,7 +112,7 @@
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 		</Grid>
-		<Grid x:Name="DataPanel" Margin="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+		<Grid x:Name="DataPanel" Margin="0" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="11" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.5,0.5">
 			<Grid.RenderTransform>
 				<CompositeTransform/>
 			</Grid.RenderTransform>
@@ -142,61 +142,121 @@
                         <TextBlock x:Name="stationCoords" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding CurrentStation.Location}" VerticalAlignment="Center" FontSize="20.667" Grid.Row="1" Grid.Column="1" Margin="0,50,0,0" Padding="0,30,0,0"/>
 
                         <StackPanel x:Name="statusesStackPanel" Grid.RowSpan="2" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Center">
-							<StackPanel x:Name="statusSOStackPanel">
-                                <Viewbox Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-									<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" Height="26" Width="39"/>
-								</Viewbox>
-                                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" >
-                                	<Grid x:Name="statusSOClr" Background="{Binding CurrentStation.So2.State, Converter={StaticResource ColorQualityConverter}}" Width="100" Height="100" Margin="10">
-                                		<TextBlock x:Name="statusSOValueTxt" Text="{Binding CurrentStation.So2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" AllowDrop="True" Padding="0"/>
-                                		<TextBlock x:Name="unit" HorizontalAlignment="Right" TextWrapping="Wrap" Text="µg/m³" VerticalAlignment="Bottom" FontSize="10.667"/>
-                                	</Grid>
-                                </Viewbox>
-							</StackPanel>
-							<StackPanel x:Name="statusPOStackPanel_Copy">
-                                <Viewbox Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-									<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="PM10" FontSize="21.333" Height="26" Width="55"/>
-								</Viewbox>
-                                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" >
-                                	<Grid x:Name="statusPOClr" Background="{Binding CurrentStation.Pm10.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-                                		<TextBlock x:Name="statusPOValue" Text="{Binding CurrentStation.Pm10.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" TextAlignment="Center"/>
-                                		<TextBlock x:Name="unit_Copy" HorizontalAlignment="Right" TextWrapping="Wrap" Text="µg/m³" VerticalAlignment="Bottom" FontSize="10.667" Margin="0"/>
-                                	</Grid>
-                                </Viewbox>
-							</StackPanel>
-							<StackPanel x:Name="statusCOStackPanel_Copy1">
-                                <Viewbox Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-									<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="CO" FontSize="21.333" Height="26" Width="30"/>
-								</Viewbox>
-                                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" >
-                                	<Grid x:Name="statusCOClr" Background="{Binding CurrentStation.Co.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-                                		<TextBlock x:Name="statusCOValue" Text="{Binding CurrentStation.Co.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                                		<TextBlock x:Name="unit_Copy1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="µg/m³" VerticalAlignment="Bottom" FontSize="10.667" Margin="0"/>
-                                	</Grid>
-                                </Viewbox>
-							</StackPanel>
-							<StackPanel x:Name="statusNOStackPanel_Copy2">
-                                <Viewbox Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-									<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="NO2" FontSize="21.333" Height="26" Width="44"/>
-								</Viewbox>
-                                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" >
-                                	<Grid x:Name="statusNOClr" Background="{Binding CurrentStation.No2.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-                                		<TextBlock x:Name="statusNOValue" Text="{Binding CurrentStation.No2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                                		<TextBlock x:Name="unit_Copy2" HorizontalAlignment="Right" TextWrapping="Wrap" Text="µg/m³" VerticalAlignment="Bottom" FontSize="10.667" Margin="0"/>
-                                	</Grid>
-                                </Viewbox>
-							</StackPanel>
-							<StackPanel x:Name="statusOStackPanel_Copy3">
-                                <Viewbox Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-									<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="O3" FontSize="21.333" Height="26" Width="28"/>
-								</Viewbox>
-                                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" >
-                                	<Grid x:Name="statusOClr" Background="{Binding CurrentStation.O3.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualWidth, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
-                                		<TextBlock x:Name="statusOValue" Text="{Binding CurrentStation.O3.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                                		<TextBlock x:Name="unit_Copy3" HorizontalAlignment="Right" TextWrapping="Wrap" Text="µg/m³" VerticalAlignment="Bottom" FontSize="10.667" Margin="0"/>
-                                	</Grid>
-                                </Viewbox>
-							</StackPanel>
+                        	<Grid Height="126" Width="500">
+                        		<Grid.RowDefinitions>
+                        			<RowDefinition Height="2*"/>
+                        			<RowDefinition Height="2*"/>
+                        			<RowDefinition Height="4*"/>
+                        			<RowDefinition Height="4*"/>
+                        		</Grid.RowDefinitions>
+                        		<Grid.ColumnDefinitions>
+                        			<ColumnDefinition/>
+                        			<ColumnDefinition/>
+                        			<ColumnDefinition/>
+                        			<ColumnDefinition/>
+                        			<ColumnDefinition/>
+                        		</Grid.ColumnDefinitions>
+                        		<Viewbox x:Name="sosvb" Margin="0" Grid.Row="1">
+                        			<TextBlock x:Name="statusSOTxt" TextWrapping="Wrap" Text="SO2" FontSize="21.333" TextAlignment="Center"/>
+                        		</Viewbox>
+                        		<Viewbox x:Name="sovvb" Margin="0" Grid.RowSpan="2" Grid.Row="2" >
+                        			<Grid x:Name="statusSOClr" Background="{Binding CurrentStation.So2.State, Converter={StaticResource ColorQualityConverter}}" Width="100" Height="100" Margin="10">
+                        				<Grid.RowDefinitions>
+                        					<RowDefinition Height="7*"/>
+                        					<RowDefinition Height="8*"/>
+                        					<RowDefinition Height="5*"/>
+                        					<RowDefinition Height="4*"/>
+                        					<RowDefinition/>
+                        				</Grid.RowDefinitions>
+                        				<Viewbox Margin="0" Grid.Row="1">
+                        					<TextBlock x:Name="statusSOValueTxt" Text="{Binding CurrentStation.So2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" TextAlignment="Center" AllowDrop="True" Padding="0"/>
+                        				</Viewbox>
+                        				<Viewbox Margin="0" Grid.Row="3" HorizontalAlignment="Right">
+                        					<TextBlock x:Name="unit" TextWrapping="Wrap" Text="µg/m³" FontSize="10.667"/>
+                        				</Viewbox>
+                        			</Grid>
+                        		</Viewbox>
+                        		<Viewbox x:Name="cosvb" Margin="0" Grid.Column="2" Grid.Row="1">
+                        			<TextBlock x:Name="statusCOTxt" TextWrapping="Wrap" Text="CO" FontSize="21.333" TextAlignment="Center"/>
+                        		</Viewbox>
+                        		<Viewbox x:Name="covvb" Margin="0" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" >
+                        			<Grid x:Name="statusCOClr" Background="{Binding CurrentStation.Co.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                        				<Grid.RowDefinitions>
+                        					<RowDefinition Height="7*"/>
+                        					<RowDefinition Height="8*"/>
+                        					<RowDefinition Height="5*"/>
+                        					<RowDefinition Height="4*"/>
+                        					<RowDefinition/>
+                        				</Grid.RowDefinitions>
+                        				<Viewbox Margin="0" Grid.Row="1" >
+                        					<TextBlock x:Name="statusCOValue" Text="{Binding CurrentStation.Co.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" TextAlignment="Center"/>
+                        				</Viewbox>
+                        				<Viewbox HorizontalAlignment="Right" Margin="0" Grid.Row="3">
+                        					<TextBlock x:Name="unit_Copy1" TextWrapping="Wrap" Text="µg/m³" FontSize="10.667"/>
+                        				</Viewbox>
+                        			</Grid>
+                        		</Viewbox>
+                        		<Viewbox x:Name="nosvb" Margin="0" Grid.Column="3" Grid.Row="1">
+                        			<TextBlock x:Name="statusNOTxt" TextWrapping="Wrap" Text="NO2" FontSize="21.333" TextAlignment="Center"/>
+                        		</Viewbox>
+                        		<Viewbox x:Name="novvb" Margin="0" Grid.Row="2" Grid.RowSpan="2" Grid.Column="3" >
+                        			<Grid x:Name="statusNOClr" Background="{Binding CurrentStation.No2.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                        				<Grid.RowDefinitions>
+                        					<RowDefinition Height="7*"/>
+                        					<RowDefinition Height="8*"/>
+                        					<RowDefinition Height="5*"/>
+                        					<RowDefinition Height="4*"/>
+                        					<RowDefinition/>
+                        				</Grid.RowDefinitions>
+                        				<Viewbox Margin="0" Grid.Row="1" >
+                        					<TextBlock x:Name="statusNOValue" Text="{Binding CurrentStation.No2.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" TextAlignment="Center"/>
+                        				</Viewbox>
+                        				<Viewbox HorizontalAlignment="Right" Margin="0" Grid.Row="3">
+                        					<TextBlock x:Name="unit_Copy2" TextWrapping="Wrap" Text="µg/m³" FontSize="10.667"/>
+                        				</Viewbox>
+                        			</Grid>
+                        		</Viewbox>
+                        		<Viewbox x:Name="osvb" Margin="0" Grid.Column="4" Grid.Row="1">
+                        			<TextBlock x:Name="statusOTxt" TextWrapping="Wrap" Text="O3" FontSize="21.333" TextAlignment="Center"/>
+                        		</Viewbox>
+                        		<Viewbox x:Name="ovvb" Margin="0" Grid.Row="2" Grid.Column="4" Grid.RowSpan="2" >
+                        			<Grid x:Name="statusOClr" Background="{Binding CurrentStation.O3.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualWidth, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                        				<Grid.RowDefinitions>
+                        					<RowDefinition Height="7*"/>
+                        					<RowDefinition Height="8*"/>
+                        					<RowDefinition Height="5*"/>
+                        					<RowDefinition Height="4*"/>
+                        					<RowDefinition/>
+                        				</Grid.RowDefinitions>
+                        				<Viewbox Margin="0" Grid.Row="1" >
+                        					<TextBlock x:Name="statusOValue" Text="{Binding CurrentStation.O3.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" TextAlignment="Center"/>
+                        				</Viewbox>
+                        				<Viewbox HorizontalAlignment="Right" Margin="0" Grid.Row="3">
+                        					<TextBlock x:Name="unit_Copy3" TextWrapping="Wrap" Text="µg/m³" FontSize="10.667"/>
+                        				</Viewbox>
+                        			</Grid>
+                        		</Viewbox>
+                        		<Viewbox x:Name="posvb" Margin="0" Grid.Column="1" Grid.Row="1">
+                        			<TextBlock x:Name="statusPOTxt" TextWrapping="Wrap" Text="PM10" FontSize="21.333" TextAlignment="Center"/>
+                        		</Viewbox>
+                        		<Viewbox x:Name="povvb" Margin="0" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" >
+                        			<Grid x:Name="statusPOClr" Background="{Binding CurrentStation.Pm10.State, Converter={StaticResource ColorQualityConverter}}" Width="{Binding ActualWidth, ElementName=statusSOClr}" Height="{Binding ActualHeight, ElementName=statusSOClr}" Margin="{Binding Margin, ElementName=statusSOClr}">
+                        				<Grid.RowDefinitions>
+                        					<RowDefinition Height="7*"/>
+                        					<RowDefinition Height="8*"/>
+                        					<RowDefinition Height="5*"/>
+                        					<RowDefinition Height="4*"/>
+                        					<RowDefinition/>
+                        				</Grid.RowDefinitions>
+                        				<Viewbox Margin="0" Grid.Row="1" >
+                        					<TextBlock x:Name="statusPOValue" Text="{Binding CurrentStation.Pm10.Value, Converter={StaticResource NegativeValueConverter}}" FontSize="21.333" TextAlignment="Center"/>
+                        				</Viewbox>
+                        				<Viewbox HorizontalAlignment="Right" Margin="0" Grid.Row="3">
+                        					<TextBlock x:Name="unit_Copy" TextWrapping="Wrap" Text="µg/m³" FontSize="10.667"/>
+                        				</Viewbox>
+                        			</Grid>
+                        		</Viewbox>
+                        	</Grid>
 						</StackPanel>
 					</Grid>
 					<Grid x:Name="bars" Margin="20" MinHeight="300" MinWidth="300">
@@ -285,7 +345,7 @@
 				</StackPanel>
 			</ScrollViewer>
 		</Grid>
-		<Grid x:Name="MenuPanel" Margin="0" Grid.RowSpan="3" Grid.ColumnSpan="11">
+		<Grid x:Name="MenuPanel" Margin="0" Grid.RowSpan="3" Grid.ColumnSpan="11" d:IsHidden="True">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="2*"/>
 				<RowDefinition/>
