@@ -617,4 +617,16 @@ Vyzkoušejte také náš nový projekt na www.resnap.it!
   <data name="MenuAboutApp.Text" xml:space="preserve">
     <value>O aplikaci</value>
   </data>
+  <data name="GPSisActive" xml:space="preserve">
+    <value>GPS je aktivní</value>
+  </data>
+  <data name="GPSisDisabled" xml:space="preserve">
+    <value>GPS není povoleno</value>
+  </data>
+  <data name="GPSisNotActive" xml:space="preserve">
+    <value>GPS není aktivní</value>
+  </data>
+  <data name="GPSisEnabled" xml:space="preserve">
+    <value>GPS je povoleno</value>
+  </data>
 </root>

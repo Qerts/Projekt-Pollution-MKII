@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -60,16 +61,106 @@ namespace BackgroundTask
                 source = null;
             }
             //endGeolokace
-
+            
 
                 // Update the live tile with the feed items.
             UpdateTile();
-
+            //UpdateTileQuick();
             
 
             // Inform the system that the task is finished.
             deferral.Complete();
             
+
+        }
+
+        private void UpdateTileQuick()
+        {
+            //localsettings
+            Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            object tmpObject = null;
+            string station = string.Empty;
+            string region = string.Empty;
+            string image = string.Empty;
+            int status = 8;
+            localSettings.Containers["AppSettings"].Values.TryGetValue("StationForTile", out tmpObject);
+            if (tmpObject != null)
+            {
+                station = tmpObject.ToString();
+            }
+            tmpObject = null;
+            localSettings.Containers["AppSettings"].Values.TryGetValue("RegionForTile", out tmpObject);
+            if (tmpObject != null)
+            {
+                region = tmpObject.ToString();
+            }
+            tmpObject = null;
+            localSettings.Containers["AppSettings"].Values.TryGetValue("StatusForTile", out tmpObject);
+            if (tmpObject != null)
+            {
+                status = Int32.Parse(tmpObject.ToString());
+            }
+            tmpObject = null;
+
+
+
+            //naplnit hodnoty            
+            switch (status)
+            {
+                case 1:
+                    image = @"ms-appx:///SharedAssets/Smiley7.png";
+                    break;
+                case 2:
+                    image = @"ms-appx:///SharedAssets/Smiley6.png";
+                    break;
+                case 3:
+                    image = @"ms-appx:///SharedAssets/Smiley5.png";
+                    break;
+                case 4:
+                    image = @"ms-appx:///SharedAssets/Smiley4.png";
+                    break;
+                case 5:
+                    image = @"ms-appx:///SharedAssets/Smiley3.png";
+                    break;
+                case 6:
+                    image = @"ms-appx:///SharedAssets/Smiley2.png";
+                    break;
+                case 7:
+                    image = @"ms-appx:///SharedAssets/Smiley0.png";
+                    break;
+                case 8:
+                    image = @"ms-appx:///SharedAssets/Smiley0.png";
+                    break;
+            }
+
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            #region MEDIUM TILE
+            //TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueueForSquare150x150(true);
+            XmlDocument contentSmall2 = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText04);
+            contentSmall2.GetElementsByTagName("text")[0].InnerText = station + "\n" + region;
+            //contentSmall2.GetElementsByTagName("text")[1].InnerText = stationRegion;
+            contentSmall2.GetElementsByTagName("image")[0].Attributes[1].InnerText = image;
+            TileNotification notifSmall2 = new TileNotification(contentSmall2);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifSmall2);
+            #endregion
+            #region WIDE TILE
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueueForWide310x150(true);
+            XmlDocument contentWide = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150SmallImageAndText03);
+            contentSmall2.GetElementsByTagName("text")[0].InnerText = "sss";// station + "\n" + region;
+            contentSmall2.GetElementsByTagName("image")[0].Attributes[1].InnerText = image;
+            TileNotification notifWide = new TileNotification(contentWide);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifWide);
+            #endregion
+            #region LARGE
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueueForSquare310x310(true);
+            XmlDocument contentBig = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare310x310ImageAndText01);
+            contentSmall2.GetElementsByTagName("text")[0].InnerText = "sss";//station + "\n" + region;
+            //contentBig.GetElementsByTagName("text")[1].InnerText = stationRegion;
+            contentBig.GetElementsByTagName("image")[0].Attributes[1].InnerText = image;
+            TileNotification notifBig = new TileNotification(contentBig);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifBig);
+            #endregion
 
         }
 

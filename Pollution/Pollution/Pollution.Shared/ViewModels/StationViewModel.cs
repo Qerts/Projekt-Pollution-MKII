@@ -28,6 +28,12 @@ namespace Pollution.ViewModels
         ALPHA = 0, DISTANCE, GOOD, POOR
     }
 
+    public enum GPSSTATUS
+    {
+        GPSactive, GPSdisabled, GPSnotactive,
+        GPSenabled
+    }
+
     public class StationViewModel : INotifyPropertyChanged
     {
         #region /// PROPERTIES ///
@@ -325,6 +331,34 @@ namespace Pollution.ViewModels
                 {
                     isGPS = value;
                     NotifyPropertyChanged("IsGPS");
+                }
+            }
+        }
+        private string gPSStatus = GPSSTATUS.GPSnotactive.ToString();
+        public string GPSStatus 
+        {
+            get
+            {
+                switch (gPSStatus)
+                {
+                    case "GPSactive":
+                        return _resourceLoader.GetString("GPSisActive");
+                    case "GPSdisabled":
+                        return _resourceLoader.GetString("GPSisDisabled");
+                    case "GPSnotactive":
+                        return _resourceLoader.GetString("GPSisNotActive");
+                    case "GPSenabled":
+                        return _resourceLoader.GetString("GPSisEnabled");
+                    default:
+                        return "error";
+                }
+            }
+            set
+            {
+                if (value != gPSStatus)
+                {
+                    gPSStatus = value;
+                    NotifyPropertyChanged("GPSStatus");
                 }
             }
         }
@@ -707,11 +741,10 @@ namespace Pollution.ViewModels
         /// </summary>
         public void StopGeolocator()
         {
-            if (IsGPSBusy == true && locator != null)
-            {
+
                 IsGPSBusy = false;
                 locator = null;
-            }
+
         }
 
         void locator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
@@ -747,6 +780,7 @@ namespace Pollution.ViewModels
             //Výpočet vzdálenosti vůči všm stanicím.
                 _gpsService.SetPosition();
 #endif
+
 
         }
         /// <summary>
@@ -851,6 +885,8 @@ namespace Pollution.ViewModels
 
                         IsGPSBusy = false;
                         IsGPS = false;
+
+                        App.ViewModel.GPSStatus = GPSSTATUS.GPSdisabled.ToString();
                     });
                     
                     if (s != null)
@@ -862,6 +898,7 @@ namespace Pollution.ViewModels
                         });
                     }
                     
+                    
                     break;
 
                 case Windows.Devices.Geolocation.PositionStatus.NoData:
@@ -872,11 +909,30 @@ namespace Pollution.ViewModels
 
                         IsGPSBusy = false;
                         IsGPS = false;
-                    });         
+                        App.ViewModel.GPSStatus = GPSSTATUS.GPSnotactive.ToString();
+                    });
+
                     
 
                     if (s != null) App.ViewModel.CurrentStation = App.ViewModel.GetStation(s);
 
+                    break;
+                case Windows.Devices.Geolocation.PositionStatus.Ready:
+                    var nearestStation = true;
+                    object tmpObject = null;
+                    Windows.Storage.ApplicationData.Current.LocalSettings.Containers["AppSettings"].Values.TryGetValue("nearestStation", out tmpObject);            
+                    bool? x = tmpObject as bool?;
+                    if (x != null)
+                    {
+                        nearestStation = x.Value;
+                    }
+                    if (nearestStation)
+                    {
+                        CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                                    {
+                                        App.ViewModel.GPSStatus = GPSSTATUS.GPSactive.ToString();
+                                    }); 
+                    }
                     break;
             }
         }

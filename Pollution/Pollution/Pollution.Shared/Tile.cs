@@ -1067,6 +1067,39 @@ namespace Pollution
             tileGrid.VerticalAlignment = VerticalAlignment.Stretch;
 
             tileGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+            tileGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+            tileGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
+
+            tileGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) });
+            tileGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) });
+            tileGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Auto) });
+
+            Binding locationBinding = new Binding()
+            {
+                Source = App.ViewModel,
+                Path = new PropertyPath("GPSStatus"),
+                
+            };
+            locationBinding.Source = App.ViewModel;
+            locationBinding.Path = new PropertyPath("GPSStatus");
+
+            TextBlock text = new TextBlock()
+            {
+                FontSize = 10,
+                Height = 32,
+                Width = 80,
+                Margin = new Thickness(0, 16, 0, 0),
+                TextWrapping = TextWrapping.WrapWholeWords,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                TextAlignment = TextAlignment.Center,
+            };
+            text.SetBinding(TextBlock.TextProperty, locationBinding);
+            Grid.SetColumn(text, 1);
+            Grid.SetRow(text, 1);
+            tileGrid.Children.Add(text);
+            view.Child = tileGrid;
+            tile.Children.Add(view);
             return tile;
         }
     }

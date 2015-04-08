@@ -83,8 +83,10 @@ namespace Pollution
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-
-
+#if WINDOWS_APP
+            //BackgroundService.RegisterTileTask();   //mělo by zavolat a spustit úlohu na pozadí
+            BackgroundService.RegisterTask();
+#endif
 
 
             Frame rootFrame = Window.Current.Content as Frame;
@@ -203,6 +205,8 @@ namespace Pollution
             args.Request.ApplicationCommands.Add(new SettingsCommand(
                 "MenuInformations", _resourceLoader.GetString("MenuInfo"), (handler) => ShowCustomSettingFlyout3()));
         } 
+
+
 #endif
         
     }

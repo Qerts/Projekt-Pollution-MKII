@@ -596,4 +596,16 @@ Try our new project at www.resnap.it!</value>
   <data name="MenuAboutApp.Text" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="GPSisActive" xml:space="preserve">
+    <value>GPS is active</value>
+  </data>
+  <data name="GPSisDisabled" xml:space="preserve">
+    <value>GPS is diasabled</value>
+  </data>
+  <data name="GPSisNotActive" xml:space="preserve">
+    <value>GPS is not active</value>
+  </data>
+  <data name="GPSisEnabled" xml:space="preserve">
+    <value>GPS is enabled</value>
+  </data>
 </root>

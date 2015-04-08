@@ -60,12 +60,29 @@ namespace Pollution.Flyouts
             //if(checkNearest.IsChecked == false)
             App.ViewModel.CurrentStation = (listStations.SelectedItem as Station);
             _localSettings.Containers["AppSettings"].Values["infoStation"] = infoStation;
+
+            //naplnění hodnot pro live tile
+            if (!nearestStation)
+            {
+                _localSettings.Containers["AppSettings"].Values["StationForTile"] = (listStations.SelectedItem as Station).Name;
+                _localSettings.Containers["AppSettings"].Values["RegionForTile"] = (listStations.SelectedItem as Station).Region;
+                _localSettings.Containers["AppSettings"].Values["StatusForTile"] = (listStations.SelectedItem as Station).Quality;
+            }
         }
 
         private void checkNearest_Checked(object sender, RoutedEventArgs e)
         {
             nearestStation = checkNearest.IsChecked ?? false;
             _localSettings.Containers["AppSettings"].Values["nearestStation"] = nearestStation;
+            if (nearestStation)
+            {
+                App.ViewModel.GPSStatus = GPSSTATUS.GPSenabled.ToString();
+            }
+            else
+            {
+                App.ViewModel.GPSStatus = GPSSTATUS.GPSdisabled.ToString();
+            }
+
         }
 
         private void checkNearestWithoutQuality_Checked(object sender, RoutedEventArgs e)
