@@ -27,6 +27,8 @@ using Windows.UI.Core;
 using Windows.Networking.Connectivity;
 using Windows.ApplicationModel.Core;
 using WinRTXamlToolkit.Controls.Extensions;
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
 
 namespace Pollution
 {
@@ -81,7 +83,7 @@ namespace Pollution
                 }
 
                 //původně load data async
-                await App.ViewModel.LoadDataToModel();    //zavedení dat do modelu
+                App.ViewModel.LoadDataToModel();    //zavedení dat do modelu
                 LoadData_RunWorkerCompleted();
                
                 try
@@ -109,13 +111,168 @@ namespace Pollution
                 }
                 
                 
-                await App.ViewModel.LoadDataToModel();      //načtení dat do modelu
+                App.ViewModel.LoadDataToModel();      //načtení dat do modelu
 
                 
 
                 //vytvořit vlákno, které bude kontrolovat připojení k internetu a při připojení načte data
                 //todo
                 
+            }
+
+            //_gpsService.SetGeolocator(); zakomentováno z důvodu redundance
+            setMapDetails();    //nastavení mapy
+            App.ViewModel.IsLoaded = true;
+            //ReloadTiles();
+        }
+
+        private void ReloadTiles() 
+        {
+            var tmpObject = new Object();
+            var useLiveTile = true;
+            //IsolatedStorageSettings.ApplicationSettings.TryGetValue("useLiveTile", out useLiveTile);
+            localSettings.Containers["AppSettings"].Values.TryGetValue("useLiveTile", out tmpObject);
+            var x = tmpObject as bool?;
+            if (x != null)
+            {
+                useLiveTile = x.Value;
+            }
+
+            if (!useLiveTile)
+            {
+                TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+                return;
+            }
+            var stationName = string.Empty;
+            var stationRegion = string.Empty;
+            var stationImage = string.Empty;
+            try
+            {
+                stationName = App.ViewModel.CurrentStation.Name;
+                stationRegion = App.ViewModel.CurrentStation.Region;
+                stationImage = string.Empty;
+                switch (App.ViewModel.CurrentStation.Quality)
+                {
+                    case 1:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley7.png";
+                        break;
+                    case 2:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley6.png";
+                        break;
+                    case 3:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley5.png";
+                        break;
+                    case 4:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley4.png";
+                        break;
+                    case 5:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley3.png";
+                        break;
+                    case 6:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley2.png";
+                        break;
+                    case 7:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley0.png";
+                        break;
+                    case 8:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley0.png";
+                        break;
+                    default:
+                        stationImage = @"ms-appx:///SharedAssets/Smiley0.png";
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            #region MEDIUM TILE
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);
+            XmlDocument contentSmall2 = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText04);
+            contentSmall2.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentSmall2.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifSmall2 = new TileNotification(contentSmall2);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifSmall2);
+            #endregion
+            #region WIDE TILE
+            XmlDocument contentWide = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150SmallImageAndText03);
+            contentWide.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentWide.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifWide = new TileNotification(contentWide);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifWide);
+            #endregion
+            #region LARGE
+            XmlDocument contentBig = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare310x310ImageAndText01);
+            contentBig.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentBig.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifBig = new TileNotification(contentBig);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifBig);
+            #endregion
+        }
+
+        public async Task ReloadData()
+        {
+
+            //příznak možnosti připojení a stažení
+            bool _newDownload = true;
+
+
+            //kontrola připojení k internetu
+            if (NetworkInformation.GetInternetConnectionProfile() == null || NetworkInformation.GetInternetConnectionProfile().GetNetworkConnectivityLevel() != NetworkConnectivityLevel.InternetAccess)
+            {
+                _newDownload = false;
+            }
+
+            //stažení nových dat
+            if (_newDownload)
+            {
+                try
+                {
+                    var content = await _downloadService.DownloadData();        //stažení dat
+                    App.ViewModel.RawData = content;                            //uložení dat do zdroje
+                }
+                catch (Exception e)
+                {
+                    _fileService.LoadDataFromFile(RAW_DATA_FILE);               //načtení dat ze souboru a uložení jako zdroj do view modelu
+                }
+
+                //původně load data async
+                App.ViewModel.LoadDataToModel();    //zavedení dat do modelu
+                LoadData_RunWorkerCompleted();
+
+                try
+                {
+                    var content = await _downloadService.DownloadPhotos();      //stažení fotek
+                    _downloadService.ProcessDonwloadedPhotos(content);          //zpracování stažených fotek
+                }
+                catch
+                {
+                    //photosDownloadInterrupted();
+                }
+            }
+            else
+            {
+                await _fileService.LoadDataFromFile(RAW_DATA_FILE);         //načtení dat ze souboru a uložení jako zdroj do view modelu
+
+                if (App.ViewModel.NearestStation == null)                   //nastavení nejbližší stanice, jelikož není možné jí dosáhnout skrze wifi
+                {
+                    App.ViewModel.NearestStation = App.ViewModel.GetStation("AKALA");
+
+                }
+                if (App.ViewModel.CurrentStation == null)                   //nastavení aktuální stanice, jelikož není možné jí dosáhnout skrze wifi
+                {
+                    App.ViewModel.CurrentStation = App.ViewModel.GetStation("AKALA");
+                }
+
+
+                App.ViewModel.LoadDataToModel();      //načtení dat do modelu
+
+
+
+                //vytvořit vlákno, které bude kontrolovat připojení k internetu a při připojení načte data
+                //todo
+
             }
 
             //_gpsService.SetGeolocator(); zakomentováno z důvodu redundance
@@ -154,6 +311,7 @@ namespace Pollution
                     pin.IsSelected = false;
                 }
             }
+            App.ViewModel.IsReady = true;
 
         }
 
@@ -167,7 +325,7 @@ namespace Pollution
             if (App.ViewModel.IsLoaded) return;
 
             await _fileService.LoadDataFromFile(RAW_DATA_FILE);            
-            await App.ViewModel.LoadDataToModel();
+            App.ViewModel.LoadDataToModel();
 
             //udání defaultní polohy z důvodu nemožnosti načtení aktuální polohy
             if ((App.ViewModel.NearestStation == null) || (App.ViewModel.NearestStation.Name.Length == 0))                   //nastavení nejbližší stanice, jelikož není možné jí dosáhnout skrze wifi
@@ -230,6 +388,7 @@ namespace Pollution
             _gpsService.SetGeolocator();
             //nastavení mapy
             setMapDetails();
+            
 
         }
 
@@ -675,6 +834,8 @@ namespace Pollution
                 tmpPos.Longitude = tmp.Position.Longitude;
                 tmpPos.Latitude = tmp.Position.Latitude;
                 infoMap.SetView(tmpPos, 9);
+
+                ReloadTiles();
             }
 
             if (e.PropertyName == "NearestStation")

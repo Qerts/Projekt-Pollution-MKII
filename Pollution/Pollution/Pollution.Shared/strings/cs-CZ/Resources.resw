@@ -151,7 +151,7 @@
     <value>Používat lokalizaci zařízení</value>
   </data>
   <data name="CheckLiveTile.Content" xml:space="preserve">
-    <value>Používat živou dlaždici</value>
+    <value>Používat dlaždici</value>
   </data>
   <data name="CheckNearest.Content" xml:space="preserve">
     <value>Autolokalizace nejbliší stanice</value>
@@ -366,7 +366,7 @@ Povolený imisní limit: 200 µg/m3.</value>
     <value>podle systému</value>
   </data>
   <data name="TextLiveTile.Text" xml:space="preserve">
-    <value>Dlaždice je aktualizována v intervalu cca 30 minut. Pokud se dlaždice přestane sama aktualizovat, spusťte znovu tuto aplikaci. Pro automatickou aktualizaci dlaždice je nezbytné datové připojení!</value>
+    <value>Dlaždice je aktualizována vždy při spuštění aplikace. Pro aktualizaci dlaždice je nezbytné datové připojení!</value>
   </data>
   <data name="TextLoading" xml:space="preserve">
     <value>načítání ...</value>
@@ -628,5 +628,25 @@ Vyzkoušejte také náš nový projekt na www.resnap.it!
   </data>
   <data name="GPSisEnabled" xml:space="preserve">
     <value>GPS je povoleno</value>
+  </data>
+  <data name="MenuTerms" xml:space="preserve">
+    <value>Ochrana soukromí</value>
+  </data>
+  <data name="MenuTermsTitle.Title" xml:space="preserve">
+    <value>Soukromí</value>
+  </data>
+  <data name="TermsBody.Text" xml:space="preserve">
+    <value>Svým použitím této aplikace, souhlasíte, že jste obeznámeni s těmito zásadami ochrany osobních údajů. Pokud nesouhlasíte s těmito zásadami, nepoužívejte tuto aplikaci.
+Pro chod Aplikace sbíráme některé informace specifikované níže, tyto informace však nemají charakter osobních údajů:
+    •    Shromažďujeme informace o Vaší interakci s Aplikací, aniž bychom Vás identifikovali jako jednotlivce. Například dostáváme určité standardní informace, které Vaše zařízení poskytuje, jako je Vaše IP adresa, jazyk, identifikátor uživatele, apod.
+    •    Pro svůj chod aplikace využívá informace o Vaši poloze. Tuto funkcionalitu můžete omezit či vypnout v rámci nastavení aplikace či jejího oprávnění tyto služby používat. Informace o poloze jsou shromažďována a využívána aniž bychom Vás identifikovali jako jednotlivce.
+Využívání informací
+    •    Shromažďovaná data slouží pouze k účelům provozu Aplikace a příp. jejímu vylepšování a analyzování jejího používání.
+    •    Statistická data získaná o provozu a používání Aplikace mohou být v agregované podobě medializována a využívána k dalším, např. marketingovým účelům. 
+•	Údaje takto shromážděné mohou být uloženy a zpracovány na území České republiky nebo jiné země, ve které sídlí poskytovatel aplikace, nebo poskytovatelé služeb spravují svá zařízení.
+Pokud máte jakýkoliv dotaz, prosím, neváhejte nás kontaktovat prostřednictvím e-mailu (helpdesk@garvis.cz).</value>
+  </data>
+  <data name="TermsTitle.Text" xml:space="preserve">
+    <value>Zásady ochrany osobních údajů</value>
   </data>
 </root>

@@ -1,8 +1,8 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="d:\git\projekt-pollution-mkii\pollution\pollution\pollution.windows\obj\x86\debug\intermediatexaml\pollution.windows.exe" HashGuid="832988cb-c30b-f168-fe57-73a0afaaf075" />
+    <LocalAssembly PathName="d:\git\projekt-pollution-mkii\pollution\pollution\pollution.windows\obj\x86\debug\intermediatexaml\pollution.windows.exe" HashGuid="00313e12-fb12-efe4-4a63-da3cc7360bdd" />
     <ReferenceAssembly PathName="c:\users\admin\appdata\local\microsoft sdks\windows\v8.1\extensionsdks\bing.maps.xaml\1.313.0825.0\references\commonconfiguration\neutral\bing.maps.winmd" HashGuid="dcdce9e5-521a-6d20-3956-9df814dff813" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
-    <ReferenceAssembly PathName="d:\git\projekt-pollution-mkii\pollution\backgroundtask\bin\debug\backgroundtask.winmd" HashGuid="bd78907e-a503-e894-baf7-8c7df1b1478c" />
+    <ReferenceAssembly PathName="d:\git\projekt-pollution-mkii\pollution\backgroundtask\bin\debug\backgroundtask.winmd" HashGuid="1386a86b-9d50-4cb5-3228-175798e8153f" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

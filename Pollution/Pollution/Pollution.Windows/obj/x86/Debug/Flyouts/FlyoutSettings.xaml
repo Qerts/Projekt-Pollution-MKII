@@ -37,10 +37,10 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<StackPanel Margin="0" Grid.Row="2">
-			<TextBlock TextWrapping="Wrap"  x:Uid="TextAppSetting"  Text="Design text" FontWeight="Bold" FontSize="18.667" VerticalAlignment="Top" Margin="0,30,0,0"/>
-			<CheckBox x:ConnectionId='2' x:Name="checkLiveTile"  x:Uid="CheckLiveTile"  Content="Design text"                                                                   VerticalAlignment="Top" FontSize="13.333" />
-			<TextBlock TextWrapping="Wrap"  x:Uid="TextLiveTile" Text="Design text" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333" Margin="15,0,0,0"/>
-			<TextBlock TextWrapping="Wrap"  x:Uid="TextLanguage"  Text="Design text" FontSize="18.667" FontWeight="Bold" Height="39"/>
+			<TextBlock TextWrapping="Wrap"  x:Uid="TextAppSetting"  Text="Design text" FontWeight="Bold" FontSize="18.667" VerticalAlignment="Top" Margin="0,30,0,0" Visibility="Collapsed"/>
+			<CheckBox x:ConnectionId='2' x:Name="checkLiveTile"  x:Uid="CheckLiveTile"  Content="Design text"                                                                   VerticalAlignment="Top" FontSize="13.333" Visibility="Collapsed" />
+			<TextBlock TextWrapping="Wrap"  x:Uid="TextLiveTile" Text="Design text" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="13.333" Margin="15,0,0,0" Visibility="Collapsed"/>
+			<TextBlock TextWrapping="Wrap"  x:Uid="TextLanguage"  Text="Design text" FontSize="18.667" FontWeight="Bold" Height="39" Margin="0,20,0,0"/>
 			<ComboBox x:ConnectionId='3' x:Name="listLang"                                              Margin="10,0" Height="48">
 					<!--<ComboBoxItem  x:Uid="TextLanguageSystem"  Content="Design text"/>-->
 				<ComboBoxItem Content="čeština"/>

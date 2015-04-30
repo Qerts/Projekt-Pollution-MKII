@@ -148,195 +148,201 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[93];
+            _typeNameTable = new string[96];
             _typeNameTable[0] = "Bing.Maps.Pushpin";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "String";
-            _typeNameTable[5] = "Pollution.Flyouts.FlyoutAbout";
-            _typeNameTable[6] = "Windows.UI.Xaml.Controls.SettingsFlyout";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[8] = "Pollution.Flyouts.FlyoutInformations";
-            _typeNameTable[9] = "Pollution.Flyouts.FlyoutSettings";
-            _typeNameTable[10] = "Utils.ColorQualityConverter";
-            _typeNameTable[11] = "Utils.NegativeValueConverter";
-            _typeNameTable[12] = "Utils.SevenEightConverter";
-            _typeNameTable[13] = "Pollution.PinTypeToStyleConverter";
-            _typeNameTable[14] = "Pollution.CzechMap";
-            _typeNameTable[15] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[16] = "Bing.Maps.Map";
-            _typeNameTable[17] = "Bing.Maps.MapUIElementCollection";
-            _typeNameTable[18] = "Windows.UI.Xaml.UIElement";
-            _typeNameTable[19] = "Double";
-            _typeNameTable[20] = "Bing.Maps.Location";
-            _typeNameTable[21] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[22] = "Bing.Maps.Search.SearchManager";
-            _typeNameTable[23] = "Bing.Maps.Traffic.TrafficManager";
-            _typeNameTable[24] = "Bing.Maps.Directions.DirectionsManager";
-            _typeNameTable[25] = "Bing.Maps.VenueMaps.VenueManager";
-            _typeNameTable[26] = "Bing.Maps.MapForegroundPosition";
-            _typeNameTable[27] = "System.Enum";
-            _typeNameTable[28] = "System.ValueType";
-            _typeNameTable[29] = "Bing.Maps.MapTileLayerCollection";
-            _typeNameTable[30] = "Bing.Maps.MapTileLayer";
-            _typeNameTable[31] = "Bing.Maps.LocationRectCollection";
-            _typeNameTable[32] = "Bing.Maps.LocationRect";
-            _typeNameTable[33] = "Int32";
-            _typeNameTable[34] = "Bing.Maps.MapShapeLayerCollection";
-            _typeNameTable[35] = "Bing.Maps.MapShapeLayer";
-            _typeNameTable[36] = "Bing.Maps.MapShapeCollection";
-            _typeNameTable[37] = "Bing.Maps.MapShape";
-            _typeNameTable[38] = "Bing.Maps.Traffic.TrafficIncidentPushpinOptions";
-            _typeNameTable[39] = "Bing.Maps.Directions.DirectionsUIEventManager";
-            _typeNameTable[40] = "Bing.Maps.Directions.DirectionsRenderOptions";
-            _typeNameTable[41] = "Bing.Maps.PreloadArea";
-            _typeNameTable[42] = "Bing.Maps.MapViewRestriction";
-            _typeNameTable[43] = "Bing.Maps.MapType";
-            _typeNameTable[44] = "Bing.Maps.MapLayer";
-            _typeNameTable[45] = "Windows.UI.Xaml.Controls.Panel";
-            _typeNameTable[46] = "Windows.Foundation.Point";
-            _typeNameTable[47] = "Bing.Maps.MapItemsControl";
-            _typeNameTable[48] = "Windows.UI.Xaml.Controls.ItemsControl";
-            _typeNameTable[49] = "Pollution.PElementGraph";
-            _typeNameTable[50] = "Pollution.MainPage";
-            _typeNameTable[51] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[52] = "Pollution.PhotoPage";
-            _typeNameTable[53] = "Pollution.Common.ObservableDictionary";
-            _typeNameTable[54] = "Pollution.Common.NavigationHelper";
-            _typeNameTable[55] = "Utils.QualityValueConverter";
-            _typeNameTable[56] = "Pollution.StationList";
-            _typeNameTable[57] = "Utils.ImageOrientationTemplateSelector";
-            _typeNameTable[58] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[59] = "Pollution.HistoryElementGraph";
-            _typeNameTable[60] = "Pollution.HistoryQualityGraph";
-            _typeNameTable[61] = "Pollution.StationPage";
-            _typeNameTable[62] = "Pollution.Pins.PinConverters";
-            _typeNameTable[63] = "PollutionAgent.PollutionTile";
-            _typeNameTable[64] = "PollutionAgent.PollutionTile8";
-            _typeNameTable[65] = "PollutionAgent.PollutionTileHD";
-            _typeNameTable[66] = "Pollution.Utils.ImageVisualisation";
-            _typeNameTable[67] = "Bing.Maps.Directions.DirectionsPolylineRenderOptions";
-            _typeNameTable[68] = "Bing.Maps.Directions.DirectionsPushpinRenderOptions";
-            _typeNameTable[69] = "Windows.UI.Xaml.Media.Brush";
-            _typeNameTable[70] = "Windows.UI.Xaml.Controls.ControlTemplate";
-            _typeNameTable[71] = "Bing.Maps.VenueMaps.VenueFloorDataSource";
-            _typeNameTable[72] = "Windows.Foundation.Collections.IObservableVector`1<Object>";
-            _typeNameTable[73] = "Bing.Maps.VenueMaps.VenueEntity";
-            _typeNameTable[74] = "Windows.UI.Color";
-            _typeNameTable[75] = "Bing.Maps.VenueMaps.VenueEntityType";
-            _typeNameTable[76] = "Bing.Maps.LocationCollection";
-            _typeNameTable[77] = "Bing.Maps.VenueMaps.Floor";
-            _typeNameTable[78] = "Bing.Maps.VenueMaps.VenueAddress";
-            _typeNameTable[79] = "Bing.Maps.MapAddress";
-            _typeNameTable[80] = "Bing.Maps.PushpinOffset";
-            _typeNameTable[81] = "Bing.Maps.Directions.ItineraryItemDataSource";
-            _typeNameTable[82] = "UInt32";
-            _typeNameTable[83] = "Bing.Maps.Directions.RouteLegDataSource";
-            _typeNameTable[84] = "Bing.Maps.Directions.TransitRouteDataSource";
-            _typeNameTable[85] = "Bing.Maps.Directions.RouteLegDataTemplateSelector";
-            _typeNameTable[86] = "Windows.UI.Xaml.DataTemplate";
-            _typeNameTable[87] = "Bing.Maps.Directions.DirectionsContainerSelector";
-            _typeNameTable[88] = "Windows.UI.Xaml.Controls.StyleSelector";
-            _typeNameTable[89] = "Windows.UI.Xaml.Style";
-            _typeNameTable[90] = "Bing.Maps.Directions.Warning";
-            _typeNameTable[91] = "Bing.Maps.Directions.WarningType";
-            _typeNameTable[92] = "Bing.Maps.Directions.WarningSeverity";
+            _typeNameTable[5] = "Pollution.ExtendedSplash";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[8] = "Pollution.Flyouts.FlyoutAbout";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.SettingsFlyout";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[11] = "Pollution.Flyouts.FlyoutInformations";
+            _typeNameTable[12] = "Pollution.Flyouts.FlyoutSettings";
+            _typeNameTable[13] = "Pollution.Flyouts.FlyoutTerms";
+            _typeNameTable[14] = "Utils.ColorQualityConverter";
+            _typeNameTable[15] = "Utils.NegativeValueConverter";
+            _typeNameTable[16] = "Utils.SevenEightConverter";
+            _typeNameTable[17] = "Pollution.PinTypeToStyleConverter";
+            _typeNameTable[18] = "Pollution.CzechMap";
+            _typeNameTable[19] = "Bing.Maps.Map";
+            _typeNameTable[20] = "Bing.Maps.MapUIElementCollection";
+            _typeNameTable[21] = "Windows.UI.Xaml.UIElement";
+            _typeNameTable[22] = "Double";
+            _typeNameTable[23] = "Bing.Maps.Location";
+            _typeNameTable[24] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[25] = "Bing.Maps.Search.SearchManager";
+            _typeNameTable[26] = "Bing.Maps.Traffic.TrafficManager";
+            _typeNameTable[27] = "Bing.Maps.Directions.DirectionsManager";
+            _typeNameTable[28] = "Bing.Maps.VenueMaps.VenueManager";
+            _typeNameTable[29] = "Bing.Maps.MapForegroundPosition";
+            _typeNameTable[30] = "System.Enum";
+            _typeNameTable[31] = "System.ValueType";
+            _typeNameTable[32] = "Bing.Maps.MapTileLayerCollection";
+            _typeNameTable[33] = "Bing.Maps.MapTileLayer";
+            _typeNameTable[34] = "Bing.Maps.LocationRectCollection";
+            _typeNameTable[35] = "Bing.Maps.LocationRect";
+            _typeNameTable[36] = "Int32";
+            _typeNameTable[37] = "Bing.Maps.MapShapeLayerCollection";
+            _typeNameTable[38] = "Bing.Maps.MapShapeLayer";
+            _typeNameTable[39] = "Bing.Maps.MapShapeCollection";
+            _typeNameTable[40] = "Bing.Maps.MapShape";
+            _typeNameTable[41] = "Bing.Maps.Traffic.TrafficIncidentPushpinOptions";
+            _typeNameTable[42] = "Bing.Maps.Directions.DirectionsUIEventManager";
+            _typeNameTable[43] = "Bing.Maps.Directions.DirectionsRenderOptions";
+            _typeNameTable[44] = "Bing.Maps.PreloadArea";
+            _typeNameTable[45] = "Bing.Maps.MapViewRestriction";
+            _typeNameTable[46] = "Bing.Maps.MapType";
+            _typeNameTable[47] = "Bing.Maps.MapLayer";
+            _typeNameTable[48] = "Windows.UI.Xaml.Controls.Panel";
+            _typeNameTable[49] = "Windows.Foundation.Point";
+            _typeNameTable[50] = "Bing.Maps.MapItemsControl";
+            _typeNameTable[51] = "Windows.UI.Xaml.Controls.ItemsControl";
+            _typeNameTable[52] = "Pollution.PElementGraph";
+            _typeNameTable[53] = "Pollution.MainPage";
+            _typeNameTable[54] = "Pollution.MyExtend1";
+            _typeNameTable[55] = "Pollution.PhotoPage";
+            _typeNameTable[56] = "Pollution.Common.ObservableDictionary";
+            _typeNameTable[57] = "Pollution.Common.NavigationHelper";
+            _typeNameTable[58] = "Utils.QualityValueConverter";
+            _typeNameTable[59] = "Pollution.StationList";
+            _typeNameTable[60] = "Utils.ImageOrientationTemplateSelector";
+            _typeNameTable[61] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[62] = "Pollution.HistoryElementGraph";
+            _typeNameTable[63] = "Pollution.HistoryQualityGraph";
+            _typeNameTable[64] = "Pollution.StationPage";
+            _typeNameTable[65] = "Pollution.Pins.PinConverters";
+            _typeNameTable[66] = "PollutionAgent.PollutionTile";
+            _typeNameTable[67] = "PollutionAgent.PollutionTile8";
+            _typeNameTable[68] = "PollutionAgent.PollutionTileHD";
+            _typeNameTable[69] = "Pollution.Utils.ImageVisualisation";
+            _typeNameTable[70] = "Bing.Maps.Directions.DirectionsPolylineRenderOptions";
+            _typeNameTable[71] = "Bing.Maps.Directions.DirectionsPushpinRenderOptions";
+            _typeNameTable[72] = "Windows.UI.Xaml.Media.Brush";
+            _typeNameTable[73] = "Windows.UI.Xaml.Controls.ControlTemplate";
+            _typeNameTable[74] = "Bing.Maps.VenueMaps.VenueFloorDataSource";
+            _typeNameTable[75] = "Windows.Foundation.Collections.IObservableVector`1<Object>";
+            _typeNameTable[76] = "Bing.Maps.VenueMaps.VenueEntity";
+            _typeNameTable[77] = "Windows.UI.Color";
+            _typeNameTable[78] = "Bing.Maps.VenueMaps.VenueEntityType";
+            _typeNameTable[79] = "Bing.Maps.LocationCollection";
+            _typeNameTable[80] = "Bing.Maps.VenueMaps.Floor";
+            _typeNameTable[81] = "Bing.Maps.VenueMaps.VenueAddress";
+            _typeNameTable[82] = "Bing.Maps.MapAddress";
+            _typeNameTable[83] = "Bing.Maps.PushpinOffset";
+            _typeNameTable[84] = "Bing.Maps.Directions.ItineraryItemDataSource";
+            _typeNameTable[85] = "UInt32";
+            _typeNameTable[86] = "Bing.Maps.Directions.RouteLegDataSource";
+            _typeNameTable[87] = "Bing.Maps.Directions.TransitRouteDataSource";
+            _typeNameTable[88] = "Bing.Maps.Directions.RouteLegDataTemplateSelector";
+            _typeNameTable[89] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[90] = "Bing.Maps.Directions.DirectionsContainerSelector";
+            _typeNameTable[91] = "Windows.UI.Xaml.Controls.StyleSelector";
+            _typeNameTable[92] = "Windows.UI.Xaml.Style";
+            _typeNameTable[93] = "Bing.Maps.Directions.Warning";
+            _typeNameTable[94] = "Bing.Maps.Directions.WarningType";
+            _typeNameTable[95] = "Bing.Maps.Directions.WarningSeverity";
 
-            _typeTable = new global::System.Type[93];
+            _typeTable = new global::System.Type[96];
             _typeTable[0] = typeof(global::Bing.Maps.Pushpin);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::System.String);
-            _typeTable[5] = typeof(global::Pollution.Flyouts.FlyoutAbout);
-            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.SettingsFlyout);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
-            _typeTable[8] = typeof(global::Pollution.Flyouts.FlyoutInformations);
-            _typeTable[9] = typeof(global::Pollution.Flyouts.FlyoutSettings);
-            _typeTable[10] = typeof(global::Utils.ColorQualityConverter);
-            _typeTable[11] = typeof(global::Utils.NegativeValueConverter);
-            _typeTable[12] = typeof(global::Utils.SevenEightConverter);
-            _typeTable[13] = typeof(global::Pollution.PinTypeToStyleConverter);
-            _typeTable[14] = typeof(global::Pollution.CzechMap);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[16] = typeof(global::Bing.Maps.Map);
-            _typeTable[17] = typeof(global::Bing.Maps.MapUIElementCollection);
-            _typeTable[18] = typeof(global::Windows.UI.Xaml.UIElement);
-            _typeTable[19] = typeof(global::System.Double);
-            _typeTable[20] = typeof(global::Bing.Maps.Location);
-            _typeTable[21] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[22] = typeof(global::Bing.Maps.Search.SearchManager);
-            _typeTable[23] = typeof(global::Bing.Maps.Traffic.TrafficManager);
-            _typeTable[24] = typeof(global::Bing.Maps.Directions.DirectionsManager);
-            _typeTable[25] = typeof(global::Bing.Maps.VenueMaps.VenueManager);
-            _typeTable[26] = typeof(global::Bing.Maps.MapForegroundPosition);
-            _typeTable[27] = typeof(global::System.Enum);
-            _typeTable[28] = typeof(global::System.ValueType);
-            _typeTable[29] = typeof(global::Bing.Maps.MapTileLayerCollection);
-            _typeTable[30] = typeof(global::Bing.Maps.MapTileLayer);
-            _typeTable[31] = typeof(global::Bing.Maps.LocationRectCollection);
-            _typeTable[32] = typeof(global::Bing.Maps.LocationRect);
-            _typeTable[33] = typeof(global::System.Int32);
-            _typeTable[34] = typeof(global::Bing.Maps.MapShapeLayerCollection);
-            _typeTable[35] = typeof(global::Bing.Maps.MapShapeLayer);
-            _typeTable[36] = typeof(global::Bing.Maps.MapShapeCollection);
-            _typeTable[37] = typeof(global::Bing.Maps.MapShape);
-            _typeTable[38] = typeof(global::Bing.Maps.Traffic.TrafficIncidentPushpinOptions);
-            _typeTable[39] = typeof(global::Bing.Maps.Directions.DirectionsUIEventManager);
-            _typeTable[40] = typeof(global::Bing.Maps.Directions.DirectionsRenderOptions);
-            _typeTable[41] = typeof(global::Bing.Maps.PreloadArea);
-            _typeTable[42] = typeof(global::Bing.Maps.MapViewRestriction);
-            _typeTable[43] = typeof(global::Bing.Maps.MapType);
-            _typeTable[44] = typeof(global::Bing.Maps.MapLayer);
-            _typeTable[45] = typeof(global::Windows.UI.Xaml.Controls.Panel);
-            _typeTable[46] = typeof(global::Windows.Foundation.Point);
-            _typeTable[47] = typeof(global::Bing.Maps.MapItemsControl);
-            _typeTable[48] = typeof(global::Windows.UI.Xaml.Controls.ItemsControl);
-            _typeTable[49] = typeof(global::Pollution.PElementGraph);
-            _typeTable[50] = typeof(global::Pollution.MainPage);
-            _typeTable[51] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[52] = typeof(global::Pollution.PhotoPage);
-            _typeTable[53] = typeof(global::Pollution.Common.ObservableDictionary);
-            _typeTable[54] = typeof(global::Pollution.Common.NavigationHelper);
-            _typeTable[55] = typeof(global::Utils.QualityValueConverter);
-            _typeTable[56] = typeof(global::Pollution.StationList);
-            _typeTable[57] = typeof(global::Utils.ImageOrientationTemplateSelector);
-            _typeTable[58] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[59] = typeof(global::Pollution.HistoryElementGraph);
-            _typeTable[60] = typeof(global::Pollution.HistoryQualityGraph);
-            _typeTable[61] = typeof(global::Pollution.StationPage);
-            _typeTable[62] = typeof(global::Pollution.Pins.PinConverters);
-            _typeTable[63] = typeof(global::PollutionAgent.PollutionTile);
-            _typeTable[64] = typeof(global::PollutionAgent.PollutionTile8);
-            _typeTable[65] = typeof(global::PollutionAgent.PollutionTileHD);
-            _typeTable[66] = typeof(global::Pollution.Utils.ImageVisualisation);
-            _typeTable[67] = typeof(global::Bing.Maps.Directions.DirectionsPolylineRenderOptions);
-            _typeTable[68] = typeof(global::Bing.Maps.Directions.DirectionsPushpinRenderOptions);
-            _typeTable[69] = typeof(global::Windows.UI.Xaml.Media.Brush);
-            _typeTable[70] = typeof(global::Windows.UI.Xaml.Controls.ControlTemplate);
-            _typeTable[71] = typeof(global::Bing.Maps.VenueMaps.VenueFloorDataSource);
-            _typeTable[72] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::System.Object>);
-            _typeTable[73] = typeof(global::Bing.Maps.VenueMaps.VenueEntity);
-            _typeTable[74] = typeof(global::Windows.UI.Color);
-            _typeTable[75] = typeof(global::Bing.Maps.VenueMaps.VenueEntityType);
-            _typeTable[76] = typeof(global::Bing.Maps.LocationCollection);
-            _typeTable[77] = typeof(global::Bing.Maps.VenueMaps.Floor);
-            _typeTable[78] = typeof(global::Bing.Maps.VenueMaps.VenueAddress);
-            _typeTable[79] = typeof(global::Bing.Maps.MapAddress);
-            _typeTable[80] = typeof(global::Bing.Maps.PushpinOffset);
-            _typeTable[81] = typeof(global::Bing.Maps.Directions.ItineraryItemDataSource);
-            _typeTable[82] = typeof(global::System.UInt32);
-            _typeTable[83] = typeof(global::Bing.Maps.Directions.RouteLegDataSource);
-            _typeTable[84] = typeof(global::Bing.Maps.Directions.TransitRouteDataSource);
-            _typeTable[85] = typeof(global::Bing.Maps.Directions.RouteLegDataTemplateSelector);
-            _typeTable[86] = typeof(global::Windows.UI.Xaml.DataTemplate);
-            _typeTable[87] = typeof(global::Bing.Maps.Directions.DirectionsContainerSelector);
-            _typeTable[88] = typeof(global::Windows.UI.Xaml.Controls.StyleSelector);
-            _typeTable[89] = typeof(global::Windows.UI.Xaml.Style);
-            _typeTable[90] = typeof(global::Bing.Maps.Directions.Warning);
-            _typeTable[91] = typeof(global::Bing.Maps.Directions.WarningType);
-            _typeTable[92] = typeof(global::Bing.Maps.Directions.WarningSeverity);
+            _typeTable[5] = typeof(global::Pollution.ExtendedSplash);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[8] = typeof(global::Pollution.Flyouts.FlyoutAbout);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.SettingsFlyout);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[11] = typeof(global::Pollution.Flyouts.FlyoutInformations);
+            _typeTable[12] = typeof(global::Pollution.Flyouts.FlyoutSettings);
+            _typeTable[13] = typeof(global::Pollution.Flyouts.FlyoutTerms);
+            _typeTable[14] = typeof(global::Utils.ColorQualityConverter);
+            _typeTable[15] = typeof(global::Utils.NegativeValueConverter);
+            _typeTable[16] = typeof(global::Utils.SevenEightConverter);
+            _typeTable[17] = typeof(global::Pollution.PinTypeToStyleConverter);
+            _typeTable[18] = typeof(global::Pollution.CzechMap);
+            _typeTable[19] = typeof(global::Bing.Maps.Map);
+            _typeTable[20] = typeof(global::Bing.Maps.MapUIElementCollection);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.UIElement);
+            _typeTable[22] = typeof(global::System.Double);
+            _typeTable[23] = typeof(global::Bing.Maps.Location);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[25] = typeof(global::Bing.Maps.Search.SearchManager);
+            _typeTable[26] = typeof(global::Bing.Maps.Traffic.TrafficManager);
+            _typeTable[27] = typeof(global::Bing.Maps.Directions.DirectionsManager);
+            _typeTable[28] = typeof(global::Bing.Maps.VenueMaps.VenueManager);
+            _typeTable[29] = typeof(global::Bing.Maps.MapForegroundPosition);
+            _typeTable[30] = typeof(global::System.Enum);
+            _typeTable[31] = typeof(global::System.ValueType);
+            _typeTable[32] = typeof(global::Bing.Maps.MapTileLayerCollection);
+            _typeTable[33] = typeof(global::Bing.Maps.MapTileLayer);
+            _typeTable[34] = typeof(global::Bing.Maps.LocationRectCollection);
+            _typeTable[35] = typeof(global::Bing.Maps.LocationRect);
+            _typeTable[36] = typeof(global::System.Int32);
+            _typeTable[37] = typeof(global::Bing.Maps.MapShapeLayerCollection);
+            _typeTable[38] = typeof(global::Bing.Maps.MapShapeLayer);
+            _typeTable[39] = typeof(global::Bing.Maps.MapShapeCollection);
+            _typeTable[40] = typeof(global::Bing.Maps.MapShape);
+            _typeTable[41] = typeof(global::Bing.Maps.Traffic.TrafficIncidentPushpinOptions);
+            _typeTable[42] = typeof(global::Bing.Maps.Directions.DirectionsUIEventManager);
+            _typeTable[43] = typeof(global::Bing.Maps.Directions.DirectionsRenderOptions);
+            _typeTable[44] = typeof(global::Bing.Maps.PreloadArea);
+            _typeTable[45] = typeof(global::Bing.Maps.MapViewRestriction);
+            _typeTable[46] = typeof(global::Bing.Maps.MapType);
+            _typeTable[47] = typeof(global::Bing.Maps.MapLayer);
+            _typeTable[48] = typeof(global::Windows.UI.Xaml.Controls.Panel);
+            _typeTable[49] = typeof(global::Windows.Foundation.Point);
+            _typeTable[50] = typeof(global::Bing.Maps.MapItemsControl);
+            _typeTable[51] = typeof(global::Windows.UI.Xaml.Controls.ItemsControl);
+            _typeTable[52] = typeof(global::Pollution.PElementGraph);
+            _typeTable[53] = typeof(global::Pollution.MainPage);
+            _typeTable[54] = typeof(global::Pollution.MyExtend1);
+            _typeTable[55] = typeof(global::Pollution.PhotoPage);
+            _typeTable[56] = typeof(global::Pollution.Common.ObservableDictionary);
+            _typeTable[57] = typeof(global::Pollution.Common.NavigationHelper);
+            _typeTable[58] = typeof(global::Utils.QualityValueConverter);
+            _typeTable[59] = typeof(global::Pollution.StationList);
+            _typeTable[60] = typeof(global::Utils.ImageOrientationTemplateSelector);
+            _typeTable[61] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[62] = typeof(global::Pollution.HistoryElementGraph);
+            _typeTable[63] = typeof(global::Pollution.HistoryQualityGraph);
+            _typeTable[64] = typeof(global::Pollution.StationPage);
+            _typeTable[65] = typeof(global::Pollution.Pins.PinConverters);
+            _typeTable[66] = typeof(global::PollutionAgent.PollutionTile);
+            _typeTable[67] = typeof(global::PollutionAgent.PollutionTile8);
+            _typeTable[68] = typeof(global::PollutionAgent.PollutionTileHD);
+            _typeTable[69] = typeof(global::Pollution.Utils.ImageVisualisation);
+            _typeTable[70] = typeof(global::Bing.Maps.Directions.DirectionsPolylineRenderOptions);
+            _typeTable[71] = typeof(global::Bing.Maps.Directions.DirectionsPushpinRenderOptions);
+            _typeTable[72] = typeof(global::Windows.UI.Xaml.Media.Brush);
+            _typeTable[73] = typeof(global::Windows.UI.Xaml.Controls.ControlTemplate);
+            _typeTable[74] = typeof(global::Bing.Maps.VenueMaps.VenueFloorDataSource);
+            _typeTable[75] = typeof(global::Windows.Foundation.Collections.IObservableVector<global::System.Object>);
+            _typeTable[76] = typeof(global::Bing.Maps.VenueMaps.VenueEntity);
+            _typeTable[77] = typeof(global::Windows.UI.Color);
+            _typeTable[78] = typeof(global::Bing.Maps.VenueMaps.VenueEntityType);
+            _typeTable[79] = typeof(global::Bing.Maps.LocationCollection);
+            _typeTable[80] = typeof(global::Bing.Maps.VenueMaps.Floor);
+            _typeTable[81] = typeof(global::Bing.Maps.VenueMaps.VenueAddress);
+            _typeTable[82] = typeof(global::Bing.Maps.MapAddress);
+            _typeTable[83] = typeof(global::Bing.Maps.PushpinOffset);
+            _typeTable[84] = typeof(global::Bing.Maps.Directions.ItineraryItemDataSource);
+            _typeTable[85] = typeof(global::System.UInt32);
+            _typeTable[86] = typeof(global::Bing.Maps.Directions.RouteLegDataSource);
+            _typeTable[87] = typeof(global::Bing.Maps.Directions.TransitRouteDataSource);
+            _typeTable[88] = typeof(global::Bing.Maps.Directions.RouteLegDataTemplateSelector);
+            _typeTable[89] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[90] = typeof(global::Bing.Maps.Directions.DirectionsContainerSelector);
+            _typeTable[91] = typeof(global::Windows.UI.Xaml.Controls.StyleSelector);
+            _typeTable[92] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[93] = typeof(global::Bing.Maps.Directions.Warning);
+            _typeTable[94] = typeof(global::Bing.Maps.Directions.WarningType);
+            _typeTable[95] = typeof(global::Bing.Maps.Directions.WarningSeverity);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -372,95 +378,96 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
         }
 
         private object Activate_0_Pushpin() { return new global::Bing.Maps.Pushpin(); }
-        private object Activate_5_FlyoutAbout() { return new global::Pollution.Flyouts.FlyoutAbout(); }
-        private object Activate_8_FlyoutInformations() { return new global::Pollution.Flyouts.FlyoutInformations(); }
-        private object Activate_9_FlyoutSettings() { return new global::Pollution.Flyouts.FlyoutSettings(); }
-        private object Activate_10_ColorQualityConverter() { return new global::Utils.ColorQualityConverter(); }
-        private object Activate_11_NegativeValueConverter() { return new global::Utils.NegativeValueConverter(); }
-        private object Activate_12_SevenEightConverter() { return new global::Utils.SevenEightConverter(); }
-        private object Activate_13_PinTypeToStyleConverter() { return new global::Pollution.PinTypeToStyleConverter(); }
-        private object Activate_14_CzechMap() { return new global::Pollution.CzechMap(); }
-        private object Activate_16_Map() { return new global::Bing.Maps.Map(); }
-        private object Activate_17_MapUIElementCollection() { return new global::Bing.Maps.MapUIElementCollection(); }
-        private object Activate_20_Location() { return new global::Bing.Maps.Location(); }
-        private object Activate_29_MapTileLayerCollection() { return new global::Bing.Maps.MapTileLayerCollection(); }
-        private object Activate_30_MapTileLayer() { return new global::Bing.Maps.MapTileLayer(); }
-        private object Activate_31_LocationRectCollection() { return new global::Bing.Maps.LocationRectCollection(); }
-        private object Activate_32_LocationRect() { return new global::Bing.Maps.LocationRect(); }
-        private object Activate_34_MapShapeLayerCollection() { return new global::Bing.Maps.MapShapeLayerCollection(); }
-        private object Activate_35_MapShapeLayer() { return new global::Bing.Maps.MapShapeLayer(); }
-        private object Activate_36_MapShapeCollection() { return new global::Bing.Maps.MapShapeCollection(); }
-        private object Activate_38_TrafficIncidentPushpinOptions() { return new global::Bing.Maps.Traffic.TrafficIncidentPushpinOptions(); }
-        private object Activate_39_DirectionsUIEventManager() { return new global::Bing.Maps.Directions.DirectionsUIEventManager(); }
-        private object Activate_40_DirectionsRenderOptions() { return new global::Bing.Maps.Directions.DirectionsRenderOptions(); }
-        private object Activate_44_MapLayer() { return new global::Bing.Maps.MapLayer(); }
-        private object Activate_47_MapItemsControl() { return new global::Bing.Maps.MapItemsControl(); }
-        private object Activate_49_PElementGraph() { return new global::Pollution.PElementGraph(); }
-        private object Activate_50_MainPage() { return new global::Pollution.MainPage(); }
-        private object Activate_52_PhotoPage() { return new global::Pollution.PhotoPage(); }
-        private object Activate_53_ObservableDictionary() { return new global::Pollution.Common.ObservableDictionary(); }
-        private object Activate_55_QualityValueConverter() { return new global::Utils.QualityValueConverter(); }
-        private object Activate_56_StationList() { return new global::Pollution.StationList(); }
-        private object Activate_57_ImageOrientationTemplateSelector() { return new global::Utils.ImageOrientationTemplateSelector(); }
-        private object Activate_59_HistoryElementGraph() { return new global::Pollution.HistoryElementGraph(); }
-        private object Activate_60_HistoryQualityGraph() { return new global::Pollution.HistoryQualityGraph(); }
-        private object Activate_61_StationPage() { return new global::Pollution.StationPage(); }
-        private object Activate_62_PinConverters() { return new global::Pollution.Pins.PinConverters(); }
-        private object Activate_63_PollutionTile() { return new global::PollutionAgent.PollutionTile(); }
-        private object Activate_64_PollutionTile8() { return new global::PollutionAgent.PollutionTile8(); }
-        private object Activate_65_PollutionTileHD() { return new global::PollutionAgent.PollutionTileHD(); }
-        private object Activate_67_DirectionsPolylineRenderOptions() { return new global::Bing.Maps.Directions.DirectionsPolylineRenderOptions(); }
-        private object Activate_68_DirectionsPushpinRenderOptions() { return new global::Bing.Maps.Directions.DirectionsPushpinRenderOptions(); }
-        private object Activate_71_VenueFloorDataSource() { return new global::Bing.Maps.VenueMaps.VenueFloorDataSource(); }
-        private object Activate_76_LocationCollection() { return new global::Bing.Maps.LocationCollection(); }
-        private object Activate_83_RouteLegDataSource() { return new global::Bing.Maps.Directions.RouteLegDataSource(); }
-        private object Activate_84_TransitRouteDataSource() { return new global::Bing.Maps.Directions.TransitRouteDataSource(); }
-        private object Activate_85_RouteLegDataTemplateSelector() { return new global::Bing.Maps.Directions.RouteLegDataTemplateSelector(); }
-        private object Activate_87_DirectionsContainerSelector() { return new global::Bing.Maps.Directions.DirectionsContainerSelector(); }
-        private void VectorAdd_17_MapUIElementCollection(object instance, object item)
+        private object Activate_8_FlyoutAbout() { return new global::Pollution.Flyouts.FlyoutAbout(); }
+        private object Activate_11_FlyoutInformations() { return new global::Pollution.Flyouts.FlyoutInformations(); }
+        private object Activate_12_FlyoutSettings() { return new global::Pollution.Flyouts.FlyoutSettings(); }
+        private object Activate_13_FlyoutTerms() { return new global::Pollution.Flyouts.FlyoutTerms(); }
+        private object Activate_14_ColorQualityConverter() { return new global::Utils.ColorQualityConverter(); }
+        private object Activate_15_NegativeValueConverter() { return new global::Utils.NegativeValueConverter(); }
+        private object Activate_16_SevenEightConverter() { return new global::Utils.SevenEightConverter(); }
+        private object Activate_17_PinTypeToStyleConverter() { return new global::Pollution.PinTypeToStyleConverter(); }
+        private object Activate_18_CzechMap() { return new global::Pollution.CzechMap(); }
+        private object Activate_19_Map() { return new global::Bing.Maps.Map(); }
+        private object Activate_20_MapUIElementCollection() { return new global::Bing.Maps.MapUIElementCollection(); }
+        private object Activate_23_Location() { return new global::Bing.Maps.Location(); }
+        private object Activate_32_MapTileLayerCollection() { return new global::Bing.Maps.MapTileLayerCollection(); }
+        private object Activate_33_MapTileLayer() { return new global::Bing.Maps.MapTileLayer(); }
+        private object Activate_34_LocationRectCollection() { return new global::Bing.Maps.LocationRectCollection(); }
+        private object Activate_35_LocationRect() { return new global::Bing.Maps.LocationRect(); }
+        private object Activate_37_MapShapeLayerCollection() { return new global::Bing.Maps.MapShapeLayerCollection(); }
+        private object Activate_38_MapShapeLayer() { return new global::Bing.Maps.MapShapeLayer(); }
+        private object Activate_39_MapShapeCollection() { return new global::Bing.Maps.MapShapeCollection(); }
+        private object Activate_41_TrafficIncidentPushpinOptions() { return new global::Bing.Maps.Traffic.TrafficIncidentPushpinOptions(); }
+        private object Activate_42_DirectionsUIEventManager() { return new global::Bing.Maps.Directions.DirectionsUIEventManager(); }
+        private object Activate_43_DirectionsRenderOptions() { return new global::Bing.Maps.Directions.DirectionsRenderOptions(); }
+        private object Activate_47_MapLayer() { return new global::Bing.Maps.MapLayer(); }
+        private object Activate_50_MapItemsControl() { return new global::Bing.Maps.MapItemsControl(); }
+        private object Activate_52_PElementGraph() { return new global::Pollution.PElementGraph(); }
+        private object Activate_53_MainPage() { return new global::Pollution.MainPage(); }
+        private object Activate_55_PhotoPage() { return new global::Pollution.PhotoPage(); }
+        private object Activate_56_ObservableDictionary() { return new global::Pollution.Common.ObservableDictionary(); }
+        private object Activate_58_QualityValueConverter() { return new global::Utils.QualityValueConverter(); }
+        private object Activate_59_StationList() { return new global::Pollution.StationList(); }
+        private object Activate_60_ImageOrientationTemplateSelector() { return new global::Utils.ImageOrientationTemplateSelector(); }
+        private object Activate_62_HistoryElementGraph() { return new global::Pollution.HistoryElementGraph(); }
+        private object Activate_63_HistoryQualityGraph() { return new global::Pollution.HistoryQualityGraph(); }
+        private object Activate_64_StationPage() { return new global::Pollution.StationPage(); }
+        private object Activate_65_PinConverters() { return new global::Pollution.Pins.PinConverters(); }
+        private object Activate_66_PollutionTile() { return new global::PollutionAgent.PollutionTile(); }
+        private object Activate_67_PollutionTile8() { return new global::PollutionAgent.PollutionTile8(); }
+        private object Activate_68_PollutionTileHD() { return new global::PollutionAgent.PollutionTileHD(); }
+        private object Activate_70_DirectionsPolylineRenderOptions() { return new global::Bing.Maps.Directions.DirectionsPolylineRenderOptions(); }
+        private object Activate_71_DirectionsPushpinRenderOptions() { return new global::Bing.Maps.Directions.DirectionsPushpinRenderOptions(); }
+        private object Activate_74_VenueFloorDataSource() { return new global::Bing.Maps.VenueMaps.VenueFloorDataSource(); }
+        private object Activate_79_LocationCollection() { return new global::Bing.Maps.LocationCollection(); }
+        private object Activate_86_RouteLegDataSource() { return new global::Bing.Maps.Directions.RouteLegDataSource(); }
+        private object Activate_87_TransitRouteDataSource() { return new global::Bing.Maps.Directions.TransitRouteDataSource(); }
+        private object Activate_88_RouteLegDataTemplateSelector() { return new global::Bing.Maps.Directions.RouteLegDataTemplateSelector(); }
+        private object Activate_90_DirectionsContainerSelector() { return new global::Bing.Maps.Directions.DirectionsContainerSelector(); }
+        private void VectorAdd_20_MapUIElementCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.UIElement>)instance;
             var newItem = (global::Windows.UI.Xaml.UIElement)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_29_MapTileLayerCollection(object instance, object item)
+        private void VectorAdd_32_MapTileLayerCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.MapTileLayer>)instance;
             var newItem = (global::Bing.Maps.MapTileLayer)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_31_LocationRectCollection(object instance, object item)
+        private void VectorAdd_34_LocationRectCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.LocationRect>)instance;
             var newItem = (global::Bing.Maps.LocationRect)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_34_MapShapeLayerCollection(object instance, object item)
+        private void VectorAdd_37_MapShapeLayerCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.MapShapeLayer>)instance;
             var newItem = (global::Bing.Maps.MapShapeLayer)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_36_MapShapeCollection(object instance, object item)
+        private void VectorAdd_39_MapShapeCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.MapShape>)instance;
             var newItem = (global::Bing.Maps.MapShape)item;
             collection.Add(newItem);
         }
-        private void MapAdd_53_ObservableDictionary(object instance, object key, object item)
+        private void MapAdd_56_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_72_IObservableVector(object instance, object item)
+        private void VectorAdd_75_IObservableVector(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_76_LocationCollection(object instance, object item)
+        private void VectorAdd_79_LocationCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Bing.Maps.Location>)instance;
             var newItem = (global::Bing.Maps.Location)item;
@@ -503,77 +510,94 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Pollution.Flyouts.FlyoutAbout
-                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
-                userType.Activator = Activate_5_FlyoutAbout;
+            case 5:   //  Pollution.ExtendedSplash
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Windows.UI.Xaml.Controls.SettingsFlyout
+            case 6:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.ContentControl
+            case 7:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Pollution.Flyouts.FlyoutInformations
+            case 8:   //  Pollution.Flyouts.FlyoutAbout
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
-                userType.Activator = Activate_8_FlyoutInformations;
+                userType.Activator = Activate_8_FlyoutAbout;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Pollution.Flyouts.FlyoutSettings
+            case 9:   //  Windows.UI.Xaml.Controls.SettingsFlyout
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  Pollution.Flyouts.FlyoutInformations
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
-                userType.Activator = Activate_9_FlyoutSettings;
+                userType.Activator = Activate_11_FlyoutInformations;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Utils.ColorQualityConverter
+            case 12:   //  Pollution.Flyouts.FlyoutSettings
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_12_FlyoutSettings;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Pollution.Flyouts.FlyoutTerms
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_13_FlyoutTerms;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Utils.ColorQualityConverter
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_10_ColorQualityConverter;
+                userType.Activator = Activate_14_ColorQualityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Utils.NegativeValueConverter
+            case 15:   //  Utils.NegativeValueConverter
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_11_NegativeValueConverter;
+                userType.Activator = Activate_15_NegativeValueConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Utils.SevenEightConverter
+            case 16:   //  Utils.SevenEightConverter
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_12_SevenEightConverter;
+                userType.Activator = Activate_16_SevenEightConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  Pollution.PinTypeToStyleConverter
+            case 17:   //  Pollution.PinTypeToStyleConverter
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_13_PinTypeToStyleConverter;
+                userType.Activator = Activate_17_PinTypeToStyleConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 14:   //  Pollution.CzechMap
+            case 18:   //  Pollution.CzechMap
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_14_CzechMap;
+                userType.Activator = Activate_18_CzechMap;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 16:   //  Bing.Maps.Map
+            case 19:   //  Bing.Maps.Map
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_16_Map;
+                userType.Activator = Activate_19_Map;
                 userType.SetContentPropertyName("Bing.Maps.Map.Children");
                 userType.AddMemberName("Children");
                 userType.AddMemberName("ZoomLevel");
@@ -617,58 +641,58 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  Bing.Maps.MapUIElementCollection
+            case 20:   //  Bing.Maps.MapUIElementCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_17_MapUIElementCollection;
+                userType.CollectionAdd = VectorAdd_20_MapUIElementCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 18:   //  Windows.UI.Xaml.UIElement
+            case 21:   //  Windows.UI.Xaml.UIElement
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Double
+            case 22:   //  Double
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 20:   //  Bing.Maps.Location
+            case 23:   //  Bing.Maps.Location
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_20_Location;
+                userType.Activator = Activate_23_Location;
                 userType.AddMemberName("Latitude");
                 userType.AddMemberName("Longitude");
                 xamlType = userType;
                 break;
 
-            case 21:   //  Windows.UI.Xaml.DependencyObject
+            case 24:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Bing.Maps.Search.SearchManager
+            case 25:   //  Bing.Maps.Search.SearchManager
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 23:   //  Bing.Maps.Traffic.TrafficManager
+            case 26:   //  Bing.Maps.Traffic.TrafficManager
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 24:   //  Bing.Maps.Directions.DirectionsManager
+            case 27:   //  Bing.Maps.Directions.DirectionsManager
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 25:   //  Bing.Maps.VenueMaps.VenueManager
+            case 28:   //  Bing.Maps.VenueMaps.VenueManager
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 26:   //  Bing.Maps.MapForegroundPosition
+            case 29:   //  Bing.Maps.MapForegroundPosition
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("TopRight", global::Bing.Maps.MapForegroundPosition.TopRight);
                 userType.AddEnumValue("TopLeft", global::Bing.Maps.MapForegroundPosition.TopLeft);
@@ -677,26 +701,26 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 27:   //  System.Enum
+            case 30:   //  System.Enum
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 28:   //  System.ValueType
+            case 31:   //  System.ValueType
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 29:   //  Bing.Maps.MapTileLayerCollection
+            case 32:   //  Bing.Maps.MapTileLayerCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_29_MapTileLayerCollection;
+                userType.CollectionAdd = VectorAdd_32_MapTileLayerCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 30:   //  Bing.Maps.MapTileLayer
+            case 33:   //  Bing.Maps.MapTileLayer
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_30_MapTileLayer;
+                userType.Activator = Activate_33_MapTileLayer;
                 userType.AddMemberName("Bounds");
                 userType.AddMemberName("FillMissingTiles");
                 userType.AddMemberName("MaxZoomLevel");
@@ -708,16 +732,16 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 31:   //  Bing.Maps.LocationRectCollection
+            case 34:   //  Bing.Maps.LocationRectCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_31_LocationRectCollection;
+                userType.CollectionAdd = VectorAdd_34_LocationRectCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 32:   //  Bing.Maps.LocationRect
+            case 35:   //  Bing.Maps.LocationRect
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_32_LocationRect;
+                userType.Activator = Activate_35_LocationRect;
                 userType.AddMemberName("West");
                 userType.AddMemberName("Southeast");
                 userType.AddMemberName("South");
@@ -730,42 +754,42 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 33:   //  Int32
+            case 36:   //  Int32
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 34:   //  Bing.Maps.MapShapeLayerCollection
+            case 37:   //  Bing.Maps.MapShapeLayerCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_34_MapShapeLayerCollection;
+                userType.CollectionAdd = VectorAdd_37_MapShapeLayerCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 35:   //  Bing.Maps.MapShapeLayer
+            case 38:   //  Bing.Maps.MapShapeLayer
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_35_MapShapeLayer;
+                userType.Activator = Activate_38_MapShapeLayer;
                 userType.AddMemberName("Visible");
                 userType.AddMemberName("ZIndex");
                 userType.AddMemberName("Shapes");
                 xamlType = userType;
                 break;
 
-            case 36:   //  Bing.Maps.MapShapeCollection
+            case 39:   //  Bing.Maps.MapShapeCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_36_MapShapeCollection;
+                userType.CollectionAdd = VectorAdd_39_MapShapeCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 37:   //  Bing.Maps.MapShape
+            case 40:   //  Bing.Maps.MapShape
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.AddMemberName("Visible");
                 xamlType = userType;
                 break;
 
-            case 38:   //  Bing.Maps.Traffic.TrafficIncidentPushpinOptions
+            case 41:   //  Bing.Maps.Traffic.TrafficIncidentPushpinOptions
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_38_TrafficIncidentPushpinOptions;
+                userType.Activator = Activate_41_TrafficIncidentPushpinOptions;
                 userType.AddMemberName("WeatherPushpinTemplate");
                 userType.AddMemberName("AlertPushpinTemplate");
                 userType.AddMemberName("ConstructionPushpinTemplate");
@@ -781,16 +805,16 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 39:   //  Bing.Maps.Directions.DirectionsUIEventManager
+            case 42:   //  Bing.Maps.Directions.DirectionsUIEventManager
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_39_DirectionsUIEventManager;
+                userType.Activator = Activate_42_DirectionsUIEventManager;
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 40:   //  Bing.Maps.Directions.DirectionsRenderOptions
+            case 43:   //  Bing.Maps.Directions.DirectionsRenderOptions
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_40_DirectionsRenderOptions;
+                userType.Activator = Activate_43_DirectionsRenderOptions;
                 userType.AddMemberName("WalkingPolylineOptions");
                 userType.AddMemberName("TransitPolylineOptions");
                 userType.AddMemberName("DrivingPolylineOptions");
@@ -814,7 +838,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 41:   //  Bing.Maps.PreloadArea
+            case 44:   //  Bing.Maps.PreloadArea
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Bing.Maps.PreloadArea.None);
                 userType.AddEnumValue("Small", global::Bing.Maps.PreloadArea.Small);
@@ -823,7 +847,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 42:   //  Bing.Maps.MapViewRestriction
+            case 45:   //  Bing.Maps.MapViewRestriction
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Bing.Maps.MapViewRestriction.None);
                 userType.AddEnumValue("ZoomOutToWholeWorld", global::Bing.Maps.MapViewRestriction.ZoomOutToWholeWorld);
@@ -832,7 +856,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 43:   //  Bing.Maps.MapType
+            case 46:   //  Bing.Maps.MapType
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Road", global::Bing.Maps.MapType.Road);
                 userType.AddEnumValue("Aerial", global::Bing.Maps.MapType.Aerial);
@@ -842,162 +866,164 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 44:   //  Bing.Maps.MapLayer
+            case 47:   //  Bing.Maps.MapLayer
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Panel"));
-                userType.Activator = Activate_44_MapLayer;
+                userType.Activator = Activate_47_MapLayer;
                 userType.AddMemberName("Position");
                 userType.AddMemberName("PositionAnchor");
                 xamlType = userType;
                 break;
 
-            case 45:   //  Windows.UI.Xaml.Controls.Panel
+            case 48:   //  Windows.UI.Xaml.Controls.Panel
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 46:   //  Windows.Foundation.Point
+            case 49:   //  Windows.Foundation.Point
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 47:   //  Bing.Maps.MapItemsControl
+            case 50:   //  Bing.Maps.MapItemsControl
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ItemsControl"));
-                userType.Activator = Activate_47_MapItemsControl;
+                userType.Activator = Activate_50_MapItemsControl;
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 48:   //  Windows.UI.Xaml.Controls.ItemsControl
+            case 51:   //  Windows.UI.Xaml.Controls.ItemsControl
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 49:   //  Pollution.PElementGraph
+            case 52:   //  Pollution.PElementGraph
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_49_PElementGraph;
+                userType.Activator = Activate_52_PElementGraph;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 50:   //  Pollution.MainPage
+            case 53:   //  Pollution.MainPage
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_50_MainPage;
+                userType.Activator = Activate_53_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 51:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 54:   //  Pollution.MyExtend1
+                userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
-            case 52:   //  Pollution.PhotoPage
+            case 55:   //  Pollution.PhotoPage
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_52_PhotoPage;
+                userType.Activator = Activate_55_PhotoPage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 53:   //  Pollution.Common.ObservableDictionary
+            case 56:   //  Pollution.Common.ObservableDictionary
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_53_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_56_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 54:   //  Pollution.Common.NavigationHelper
+            case 57:   //  Pollution.Common.NavigationHelper
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 55:   //  Utils.QualityValueConverter
+            case 58:   //  Utils.QualityValueConverter
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_55_QualityValueConverter;
+                userType.Activator = Activate_58_QualityValueConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 56:   //  Pollution.StationList
+            case 59:   //  Pollution.StationList
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_56_StationList;
+                userType.Activator = Activate_59_StationList;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 57:   //  Utils.ImageOrientationTemplateSelector
+            case 60:   //  Utils.ImageOrientationTemplateSelector
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
-                userType.Activator = Activate_57_ImageOrientationTemplateSelector;
+                userType.Activator = Activate_60_ImageOrientationTemplateSelector;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 58:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+            case 61:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 59:   //  Pollution.HistoryElementGraph
+            case 62:   //  Pollution.HistoryElementGraph
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_59_HistoryElementGraph;
+                userType.Activator = Activate_62_HistoryElementGraph;
                 userType.AddMemberName("ElementType");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 60:   //  Pollution.HistoryQualityGraph
+            case 63:   //  Pollution.HistoryQualityGraph
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_60_HistoryQualityGraph;
+                userType.Activator = Activate_63_HistoryQualityGraph;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 61:   //  Pollution.StationPage
+            case 64:   //  Pollution.StationPage
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_61_StationPage;
+                userType.Activator = Activate_64_StationPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 62:   //  Pollution.Pins.PinConverters
+            case 65:   //  Pollution.Pins.PinConverters
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_62_PinConverters;
+                userType.Activator = Activate_65_PinConverters;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 63:   //  PollutionAgent.PollutionTile
+            case 66:   //  PollutionAgent.PollutionTile
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_63_PollutionTile;
+                userType.Activator = Activate_66_PollutionTile;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 64:   //  PollutionAgent.PollutionTile8
+            case 67:   //  PollutionAgent.PollutionTile8
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_64_PollutionTile8;
+                userType.Activator = Activate_67_PollutionTile8;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 65:   //  PollutionAgent.PollutionTileHD
+            case 68:   //  PollutionAgent.PollutionTileHD
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_65_PollutionTileHD;
+                userType.Activator = Activate_68_PollutionTileHD;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 66:   //  Pollution.Utils.ImageVisualisation
+            case 69:   //  Pollution.Utils.ImageVisualisation
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 67:   //  Bing.Maps.Directions.DirectionsPolylineRenderOptions
+            case 70:   //  Bing.Maps.Directions.DirectionsPolylineRenderOptions
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_67_DirectionsPolylineRenderOptions;
+                userType.Activator = Activate_70_DirectionsPolylineRenderOptions;
                 userType.AddMemberName("Visible");
                 userType.AddMemberName("LineWidth");
                 userType.AddMemberName("LineColor");
@@ -1005,9 +1031,9 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 68:   //  Bing.Maps.Directions.DirectionsPushpinRenderOptions
+            case 71:   //  Bing.Maps.Directions.DirectionsPushpinRenderOptions
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_68_DirectionsPushpinRenderOptions;
+                userType.Activator = Activate_71_DirectionsPushpinRenderOptions;
                 userType.AddMemberName("Visible");
                 userType.AddMemberName("Offset");
                 userType.AddMemberName("PushpinTemplate");
@@ -1015,31 +1041,31 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 69:   //  Windows.UI.Xaml.Media.Brush
+            case 72:   //  Windows.UI.Xaml.Media.Brush
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 70:   //  Windows.UI.Xaml.Controls.ControlTemplate
+            case 73:   //  Windows.UI.Xaml.Controls.ControlTemplate
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 71:   //  Bing.Maps.VenueMaps.VenueFloorDataSource
+            case 74:   //  Bing.Maps.VenueMaps.VenueFloorDataSource
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_71_VenueFloorDataSource;
+                userType.Activator = Activate_74_VenueFloorDataSource;
                 userType.AddMemberName("Items");
                 userType.AddMemberName("Name");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 72:   //  Windows.Foundation.Collections.IObservableVector`1<Object>
+            case 75:   //  Windows.Foundation.Collections.IObservableVector`1<Object>
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_72_IObservableVector;
+                userType.CollectionAdd = VectorAdd_75_IObservableVector;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 73:   //  Bing.Maps.VenueMaps.VenueEntity
+            case 76:   //  Bing.Maps.VenueMaps.VenueEntity
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Highlighted");
                 userType.AddMemberName("LineWidth");
@@ -1063,13 +1089,13 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 74:   //  Windows.UI.Color
+            case 77:   //  Windows.UI.Color
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 75:   //  Bing.Maps.VenueMaps.VenueEntityType
+            case 78:   //  Bing.Maps.VenueMaps.VenueEntityType
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Unknown", global::Bing.Maps.VenueMaps.VenueEntityType.Unknown);
                 userType.AddEnumValue("AccessibleEntrance", global::Bing.Maps.VenueMaps.VenueEntityType.AccessibleEntrance);
@@ -1105,31 +1131,31 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 76:   //  Bing.Maps.LocationCollection
+            case 79:   //  Bing.Maps.LocationCollection
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_76_LocationCollection;
+                userType.CollectionAdd = VectorAdd_79_LocationCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 77:   //  Bing.Maps.VenueMaps.Floor
+            case 80:   //  Bing.Maps.VenueMaps.Floor
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 78:   //  Bing.Maps.VenueMaps.VenueAddress
+            case 81:   //  Bing.Maps.VenueMaps.VenueAddress
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Bing.Maps.MapAddress"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 79:   //  Bing.Maps.MapAddress
+            case 82:   //  Bing.Maps.MapAddress
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 xamlType = userType;
                 break;
 
-            case 80:   //  Bing.Maps.PushpinOffset
+            case 83:   //  Bing.Maps.PushpinOffset
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("TopLeft", global::Bing.Maps.PushpinOffset.TopLeft);
                 userType.AddEnumValue("TopCenter", global::Bing.Maps.PushpinOffset.TopCenter);
@@ -1143,7 +1169,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 81:   //  Bing.Maps.Directions.ItineraryItemDataSource
+            case 84:   //  Bing.Maps.Directions.ItineraryItemDataSource
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Warnings");
                 userType.AddMemberName("IconColor");
@@ -1165,13 +1191,13 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 82:   //  UInt32
+            case 85:   //  UInt32
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 83:   //  Bing.Maps.Directions.RouteLegDataSource
+            case 86:   //  Bing.Maps.Directions.RouteLegDataSource
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_83_RouteLegDataSource;
+                userType.Activator = Activate_86_RouteLegDataSource;
                 userType.AddMemberName("Items");
                 userType.AddMemberName("AutomationName");
                 userType.AddMemberName("Header");
@@ -1179,9 +1205,9 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 84:   //  Bing.Maps.Directions.TransitRouteDataSource
+            case 87:   //  Bing.Maps.Directions.TransitRouteDataSource
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_84_TransitRouteDataSource;
+                userType.Activator = Activate_87_TransitRouteDataSource;
                 userType.AddMemberName("AutomationName");
                 userType.AddMemberName("Icon");
                 userType.AddMemberName("Summary");
@@ -1189,9 +1215,9 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 85:   //  Bing.Maps.Directions.RouteLegDataTemplateSelector
+            case 88:   //  Bing.Maps.Directions.RouteLegDataTemplateSelector
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
-                userType.Activator = Activate_85_RouteLegDataTemplateSelector;
+                userType.Activator = Activate_88_RouteLegDataTemplateSelector;
                 userType.AddMemberName("RouteLegHeaderItemTemplate");
                 userType.AddMemberName("GroupRouteLegHeaderItemTemplate");
                 userType.AddMemberName("WalkItineraryItemTemplate");
@@ -1203,28 +1229,28 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 86:   //  Windows.UI.Xaml.DataTemplate
+            case 89:   //  Windows.UI.Xaml.DataTemplate
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 87:   //  Bing.Maps.Directions.DirectionsContainerSelector
+            case 90:   //  Bing.Maps.Directions.DirectionsContainerSelector
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.StyleSelector"));
-                userType.Activator = Activate_87_DirectionsContainerSelector;
+                userType.Activator = Activate_90_DirectionsContainerSelector;
                 userType.AddMemberName("UnSelectableStyle");
                 userType.AddMemberName("SelectableStyle");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 88:   //  Windows.UI.Xaml.Controls.StyleSelector
+            case 91:   //  Windows.UI.Xaml.Controls.StyleSelector
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 89:   //  Windows.UI.Xaml.Style
+            case 92:   //  Windows.UI.Xaml.Style
                 xamlType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 90:   //  Bing.Maps.Directions.Warning
+            case 93:   //  Bing.Maps.Directions.Warning
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Type");
                 userType.AddMemberName("Severity");
@@ -1233,7 +1259,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 91:   //  Bing.Maps.Directions.WarningType
+            case 94:   //  Bing.Maps.Directions.WarningType
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Bing.Maps.Directions.WarningType.None);
                 userType.AddEnumValue("Accident", global::Bing.Maps.Directions.WarningType.Accident);
@@ -1271,7 +1297,7 @@ namespace Pollution.Pollution_Windows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 92:   //  Bing.Maps.Directions.WarningSeverity
+            case 95:   //  Bing.Maps.Directions.WarningSeverity
                 userType = new global::Pollution.Pollution_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Bing.Maps.Directions.WarningSeverity.None);
                 userType.AddEnumValue("LowImpact", global::Bing.Maps.Directions.WarningSeverity.LowImpact);

@@ -223,6 +223,8 @@
     </RootType>
     <RootType FullName="PollutionAgent.PollutionTile8" />
     <RootType FullName="PollutionAgent.PollutionTileHD" />
+    <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
+    <RootType FullName="Pollution.PinTypeToStyleConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image" />
     <RootType FullName="Pollution.Utils.ImageVisualisation" />
   </Roots.RootTypes>

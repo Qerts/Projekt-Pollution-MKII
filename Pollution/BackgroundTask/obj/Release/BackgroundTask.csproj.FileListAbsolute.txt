@@ -16,4 +16,3 @@ D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\obj\Release\pri.resfiles.
 D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\obj\Release\qualifiers.txt
 D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\obj\Release\qualifiers.txt.intermediate
 D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\obj\Release\MultipleQualifiersPerDimensionFound.txt
-D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\obj\Release\BackgroundTask.csprojResolveAssemblyReference.cache

@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Pollution.ExtendedSplash"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Pollution"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#008c00">
+        <Canvas>
+            <Image x:Name="extendedSplashImage" Source="Assets/SplashScreenLogo620x300.png" ImageOpened="extendedSplashImage_ImageOpened"/>
+            <ProgressRing Name="splashProgressRing" IsActive="True" Width="50" Height="50" HorizontalAlignment="Center" Foreground="White"></ProgressRing>
+        </Canvas>
+    </Grid>
+</Page>

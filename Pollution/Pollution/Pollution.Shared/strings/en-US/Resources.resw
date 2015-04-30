@@ -151,7 +151,7 @@
     <value>Can use localization features</value>
   </data>
   <data name="CheckLiveTile.Content" xml:space="preserve">
-    <value>Use dynamic Live Tile</value>
+    <value>Use Live Tile</value>
   </data>
   <data name="CheckNearest.Content" xml:space="preserve">
     <value>Auto localize the nearest station</value>
@@ -347,7 +347,7 @@ Sulfur dioxide (SO2) is released primarily from burning fuels that contains sulf
     <value>based on system</value>
   </data>
   <data name="TextLiveTile.Text" xml:space="preserve">
-    <value>The live tile is updated at intervals of approx. 30 minutes. If the tile is not updated, you should restart this application. The data connection is necessary for automatic tile update! </value>
+    <value>The live tile is updated when application runs. The data connection is necessary for tile update! </value>
   </data>
   <data name="TextLoading" xml:space="preserve">
     <value>loading ...</value>
@@ -607,5 +607,25 @@ Try our new project at www.resnap.it!</value>
   </data>
   <data name="GPSisEnabled" xml:space="preserve">
     <value>GPS is enabled</value>
+  </data>
+  <data name="MenuTerms" xml:space="preserve">
+    <value>PrivacyPolicy</value>
+  </data>
+  <data name="MenuTermsTitle.Title" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="TermsBody.Text" xml:space="preserve">
+    <value>By using this appliacation you agree that you are familiar with these Privacy Policy If you do not accept these policy, do not use this Application.
+We collect some information defined below as part of operating this Application, this information is not labeled as secured personal information: 
+    •    We collect additional information about your interaction with Application without identifying you as an individual. For example, we receive certain standard information that your device provides, such as your IP address, language, user identification, etc.
+    •    Application operation uses information about your location. This functionality can be reduced or shuted down within the application settings or specification of the permissions to use these Application. The location information is collected and used without identifying you as an individual.
+Usage of information
+    •    The collected data is used only for the purposes of application operation and, if necessary, its improvement and analyzing of its usage.
+    •    Statistical data about the operation and usage of the application may be (in aggregate form) publicized and used for other purposes, eg. for marketing.
+    •    The collected data may be stored and processed in the Czech Republic or any other country that is home of the application provider, or service providers manage their facilities.
+If you have any question, please, do not hesitate to contact us via e-mail (helpdesk@garvis.cz).</value>
+  </data>
+  <data name="TermsTitle.Text" xml:space="preserve">
+    <value>Privacy Policy</value>
   </data>
 </root>

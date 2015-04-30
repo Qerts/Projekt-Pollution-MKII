@@ -64,8 +64,9 @@ namespace BackgroundTask
             
 
                 // Update the live tile with the feed items.
-            UpdateTile();
+            //UpdateTile();
             //UpdateTileQuick();
+            //UpdateTileTest();
             
 
             // Inform the system that the task is finished.
@@ -74,15 +75,45 @@ namespace BackgroundTask
 
         }
 
+        private void UpdateTileTest() 
+        {
+            var stationName = "Test";
+            var stationRegion = "Testovací";
+            var stationImage = @"ms-appx:///SharedAssets/Smiley0.png";
+
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            #region MEDIUM TILE
+            XmlDocument contentSmall = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText04);
+            contentSmall.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentSmall.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifSmall2 = new TileNotification(contentSmall);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifSmall2);
+            #endregion
+            #region WIDE TILE
+            XmlDocument contentWide = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150SmallImageAndText03);
+            contentWide.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentWide.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifWide = new TileNotification(contentWide);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifWide);
+            #endregion
+            #region LARGE
+            XmlDocument contentBig = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare310x310ImageAndText01);
+            contentBig.GetElementsByTagName("text")[0].InnerText = stationName + "\n" + stationRegion;
+            contentBig.GetElementsByTagName("image")[0].Attributes[1].InnerText = stationImage;
+            TileNotification notifBig = new TileNotification(contentBig);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notifBig);
+            #endregion
+        }
+
         private void UpdateTileQuick()
         {
             //localsettings
             Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             object tmpObject = null;
-            string station = string.Empty;
-            string region = string.Empty;
-            string image = string.Empty;
+            string station = "error";
+            string region = "error";
+            string image = "error";
             int status = 8;
             localSettings.Containers["AppSettings"].Values.TryGetValue("StationForTile", out tmpObject);
             if (tmpObject != null)

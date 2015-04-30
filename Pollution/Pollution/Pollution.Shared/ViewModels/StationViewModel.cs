@@ -129,6 +129,9 @@ namespace Pollution.ViewModels
             get { return isLoaded; }
             set { isLoaded = value; }
         }
+        private bool isReady = false;
+        public bool IsReady
+        { get { return isReady; } set { isReady = value; } }
         private MyGeocoordinate myPosition;
         public MyGeocoordinate MyPosition
         {
@@ -188,10 +191,10 @@ namespace Pollution.ViewModels
             set
             {
                 if (value != currentStation)
-                {
-                    currentStation = value;
-                    if (value != null)
+                {                    
+                    if (value != null && value.Name != "")
                     {
+                        currentStation = value;
                         CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
                             NotifyPropertyChanged("CurrentStation");
@@ -342,13 +345,13 @@ namespace Pollution.ViewModels
                 switch (gPSStatus)
                 {
                     case "GPSactive":
-                        return _resourceLoader.GetString("GPSisActive");
+                        return @"Assets/gpsavailable-white.png";//_resourceLoader.GetString("GPSisActive");
                     case "GPSdisabled":
-                        return _resourceLoader.GetString("GPSisDisabled");
+                        return @"Assets/reducedgps-white.png";//_resourceLoader.GetString("GPSisDisabled");
                     case "GPSnotactive":
-                        return _resourceLoader.GetString("GPSisNotActive");
+                        return @"Assets/nogps-white.png";//_resourceLoader.GetString("GPSisNotActive");
                     case "GPSenabled":
-                        return _resourceLoader.GetString("GPSisEnabled");
+                        return @"Assets/gpsavailable-white.png";//_resourceLoader.GetString("GPSisEnabled");
                     default:
                         return "error";
                 }
@@ -486,7 +489,8 @@ namespace Pollution.ViewModels
 
                     try
                     {
-                        await SerializationStorage.Save("stations.serial", stationsDict);
+                        //zakomentováno pro účely debuggu
+                        //await SerializationStorage.Save("stations.serial", stationsDict);
                     }
                     catch (Exception e)
                     {

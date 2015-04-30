@@ -17,7 +17,17 @@ namespace Pollution
         {
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             StorageFile file = await folder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            await Windows.Storage.FileIO.WriteTextAsync(file, content);
+            try
+            {
+                await Windows.Storage.FileIO.WriteTextAsync(file, content);
+            }
+            catch (Exception)
+            {
+
+                Task waitTask = Task.Run(() => { Task.Delay(1000);});
+                waitTask.Wait();
+                SaveDataToFile(content, fileName);
+            }
         }
 
         /// <summary>

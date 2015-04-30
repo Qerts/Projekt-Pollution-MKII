@@ -38,11 +38,15 @@ namespace Utils
                  var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                  var file = await folder.GetFileAsync(filename);
 
-                 var stream = await file.OpenReadAsync();
-                 
-                 object o = Deserialize(stream.AsStream(), objectType);
+                 using (var stream = await file.OpenReadAsync())
+                 {
 
-                 return o;
+                     object o = Deserialize(stream.AsStream(), objectType);
+
+                     stream.Dispose();
+
+                     return o;
+                 }
 
 	        }
 	        catch (Exception e)
@@ -55,19 +59,21 @@ namespace Utils
         {
             try
             {
-                Stream stream;
                 var folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 var file = await folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-                stream = await file.OpenStreamForWriteAsync();
-                if (o == null || stream == null)
-                { }
-                else
+                using (var stream = await file.OpenStreamForWriteAsync())
                 {
-                    DataContractSerializer ser = new DataContractSerializer(o.GetType());
-                    ser.WriteObject(stream, o);
+                    if (o == null || stream == null)
+                    {
+                    }
+                    else
+                    {
+                        DataContractSerializer ser = new DataContractSerializer(o.GetType());
+                        ser.WriteObject(stream, o);
+                    }
                     stream.Dispose();
-                }     
-                return true;
+                    return true;
+                }
             }
             catch (Exception e)
             {

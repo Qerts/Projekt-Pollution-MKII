@@ -49,7 +49,7 @@ namespace Pollution
         private Tile tileGenerator;
 
         //"ploše" řešená tlačítka panelů
-        Grid mapbutton, databutton, menubutton, mainstatus, infoTile, gpsTile;
+        Grid mapbutton, databutton, menubutton, mainstatus, infoTile;
 
         //aktuální orientace
         private string currentState;
@@ -87,7 +87,7 @@ namespace Pollution
 
             
             this.InitializeComponent();
-            //spuštění tasku
+            
 
 
             //localsettings definition
@@ -95,40 +95,41 @@ namespace Pollution
 
             
             //Přednačtení dat
-            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
-                DataPreLoad();
+                await DataPreLoad();
             });
             
-
+            
             //nastavení datacontextu
             rootPage.DataContext = App.ViewModel;
-
             
+            /*
             //stažení dat
             if (!App.ViewModel.IsLoaded)
             {
-                this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
                 {
-                    LoadData();
+                    await LoadData();
                 });
             }
+            
             
             //stažení dat každých 60s
             var afterStartLoad = Task.Run(async delegate
             {
+                //App.ViewModel.IsReady = true;
                 while (true)
-                {           
+                {
                     await Task.Delay(600000);
                     this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         LoadData();
-                        
+
                     });
-                    
                 }
             });
-            
+            */
             
             //prirazeni udalosti 
             this.Loaded += MainPage_Loaded;
@@ -249,7 +250,11 @@ namespace Pollution
         /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                ReloadData();
+            });
+
             for (int a = 0; a < 66; a++)
             {
                 var tile = tileGenerator.RandomizedBlankTile(a / 11, a % 11);
@@ -310,8 +315,8 @@ namespace Pollution
             //informační panel
             infoTile = tileGenerator.InfoTile(1, 1);
             LayoutGrid.Children.Add(infoTile);
-            gpsTile = tileGenerator.GPSStatusTile(5, 8);
-            LayoutGrid.Children.Add(gpsTile);
+            //gpsTile = tileGenerator.GPSStatusTile(5, 8);
+            //LayoutGrid.Children.Add(gpsTile);
 
             //nabindování obrázku na pozadí
             Binding layoutGridBinding = new Binding();
@@ -699,8 +704,8 @@ namespace Pollution
             //infopanel
             Grid.SetRow(infoTile, 10);
             Grid.SetColumn(infoTile, 0);
-            Grid.SetRow(gpsTile, 8);
-            Grid.SetColumn(gpsTile, 0);
+            //Grid.SetRow(gpsTile, 8);
+            //Grid.SetColumn(gpsTile, 0);
 
         }
         /// <summary>
@@ -1079,8 +1084,8 @@ namespace Pollution
             //infopanel
             Grid.SetRow(infoTile, 5);
             Grid.SetColumn(infoTile, 10);
-            Grid.SetRow(gpsTile, 5);
-            Grid.SetColumn(gpsTile, 8);
+            //Grid.SetRow(gpsTile, 5);
+            //Grid.SetColumn(gpsTile, 8);
         }
         /// <summary>
         /// Funkce obsluhujici zmeny v zobrazeni pri horizontalnim stavu. Jedna se hlavne o zmeny vlastnosti gridu, panelu
@@ -1390,8 +1395,8 @@ namespace Pollution
             //infopanel
             Grid.SetRow(infoTile, 5);
             Grid.SetColumn(infoTile, 4);
-            Grid.SetRow(gpsTile, 3);
-            Grid.SetColumn(gpsTile, 4);
+            //Grid.SetRow(gpsTile, 3);
+            //Grid.SetColumn(gpsTile, 4);
              
         }
         private void setNarrowChanges() 
@@ -1694,8 +1699,8 @@ namespace Pollution
             //infopanel
             Grid.SetRow(infoTile, 5);
             Grid.SetColumn(infoTile, 4);
-            Grid.SetRow(gpsTile, 3);
-            Grid.SetColumn(gpsTile, 4);
+           // Grid.SetRow(gpsTile, 3);
+            //Grid.SetColumn(gpsTile, 4);
         }
         private void setFilledChanges() { }
         #endregion

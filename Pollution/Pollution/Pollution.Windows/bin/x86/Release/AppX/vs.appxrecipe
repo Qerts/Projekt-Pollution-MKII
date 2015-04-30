@@ -8,7 +8,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>9d25fef6-d64d-4963-92da-ee8d102f3b6b</PackageIdentityName>
     <IntermediateOutputPath>D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\obj\x86\Release\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>14DF95AFB0E5DD5104DA6A793B1BFE13BBBBDBFA68F05E6702712B0A288EAC4A</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>2058178AFFE6848CBE0F2DB12E33F7AB0D83B6F75F40A2699A20E4564D1F8BCF</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>9d25fef6-d64d-4963-92da-ee8d102f3b6b_1.0.0.4_x86__5gyrq6psz227t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>9d25fef6-d64d-4963-92da-ee8d102f3b6b_5gyrq6psz227t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>9d25fef6-d64d-4963-92da-ee8d102f3b6b</RegisteredPackageID>
@@ -20,13 +20,13 @@
     <AppXManifest Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-04-02T11:47:12.908</Modified>
+      <Modified>2015-04-29T20:56:15.009</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pollution.Windows.exe">
       <PackagePath>Pollution.Windows.exe</PackagePath>
-      <Modified>2015-04-02T11:47:08.538</Modified>
+      <Modified>2015-04-30T06:59:24.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\References\commonconfiguration\neutral\Bing.Maps.winmd">
       <PackagePath>Bing.Maps.winmd</PackagePath>
@@ -34,7 +34,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\BackgroundTask\bin\Release\BackgroundTask.winmd">
       <PackagePath>BackgroundTask.winmd</PackagePath>
-      <Modified>2015-04-02T11:47:03.688</Modified>
+      <Modified>2015-04-29T20:55:44.117</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Admin\AppData\Local\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Bing.Maps.Xaml\1.313.0825.0\Redist\retail\x86\Bing.Maps.dll">
       <PackagePath>Bing.Maps.dll</PackagePath>
@@ -367,10 +367,22 @@
       <PackagePath>Assets\billboard-blank.png</PackagePath>
       <Modified>2014-10-26T12:40:26.151</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\gpsavailable-white.png">
+      <PackagePath>Assets\gpsavailable-white.png</PackagePath>
+      <Modified>2015-04-09T04:17:24.459</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-02-12T14:50:04.697</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\nogps-white.png">
+      <PackagePath>Assets\nogps-white.png</PackagePath>
+      <Modified>2015-04-09T04:17:24.478</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\reducedgps-white.png">
+      <PackagePath>Assets\reducedgps-white.png</PackagePath>
+      <Modified>2015-04-09T04:17:24.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
@@ -385,17 +397,11 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-02-12T14:40:11.577</Modified>
+      <Modified>2015-04-09T04:13:51.716</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-140.png">
-      <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-02-12T14:39:40.444</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-180.png">
-      <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-02-12T10:27:00.000</Modified>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreenLogo620x300.png">
+      <PackagePath>Assets\SplashScreenLogo620x300.png</PackagePath>
+      <Modified>2015-04-09T04:14:23.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square310x310Logo.scale-100.png">
       <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
@@ -555,87 +561,99 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-03-20T10:22:23.438</Modified>
+      <Modified>2015-04-29T20:55:55.599</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\CzechMap.xbf">
       <PackagePath>CzechMap.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.113</Modified>
+      <Modified>2015-04-29T20:55:55.609</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\HistoryElementGraph.xbf">
       <PackagePath>HistoryElementGraph.xbf</PackagePath>
-      <Modified>2015-03-20T10:22:23.443</Modified>
+      <Modified>2015-04-29T20:55:55.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\HistoryQualityGraph.xbf">
       <PackagePath>HistoryQualityGraph.xbf</PackagePath>
-      <Modified>2015-03-20T10:22:23.444</Modified>
+      <Modified>2015-04-29T20:55:55.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PElementGraph.xbf">
       <PackagePath>PElementGraph.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.116</Modified>
+      <Modified>2015-04-29T20:55:55.612</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pins\PinConverters.xbf">
       <PackagePath>Pins\PinConverters.xbf</PackagePath>
-      <Modified>2015-03-20T10:22:23.445</Modified>
+      <Modified>2015-04-29T20:55:55.613</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PollutionAgent\PollutionTile.xbf">
       <PackagePath>PollutionAgent\PollutionTile.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.117</Modified>
+      <Modified>2015-04-29T20:55:55.613</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PollutionAgent\PollutionTile8.xbf">
       <PackagePath>PollutionAgent\PollutionTile8.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.118</Modified>
+      <Modified>2015-04-29T20:55:55.614</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PollutionAgent\PollutionTileHD.xbf">
       <PackagePath>PollutionAgent\PollutionTileHD.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.119</Modified>
+      <Modified>2015-04-29T20:55:55.615</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Resources\DefaultStyle.xbf">
       <PackagePath>Resources\DefaultStyle.xbf</PackagePath>
-      <Modified>2015-02-02T02:45:42.676</Modified>
+      <Modified>2015-04-29T20:55:55.616</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Utils\ImageVisualisation.xbf">
       <PackagePath>Utils\ImageVisualisation.xbf</PackagePath>
-      <Modified>2015-02-02T00:58:15.120</Modified>
+      <Modified>2015-04-29T20:55:55.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\ExtendedSplash.xbf">
+      <PackagePath>ExtendedSplash.xbf</PackagePath>
+      <Modified>2015-04-29T20:55:55.600</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutAbout.xbf">
       <PackagePath>Flyouts\FlyoutAbout.xbf</PackagePath>
-      <Modified>2015-03-20T10:22:23.439</Modified>
+      <Modified>2015-04-29T20:55:55.601</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutInformations.xbf">
       <PackagePath>Flyouts\FlyoutInformations.xbf</PackagePath>
-      <Modified>2015-02-02T01:56:02.737</Modified>
+      <Modified>2015-04-29T20:55:55.602</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutSettings.xbf">
       <PackagePath>Flyouts\FlyoutSettings.xbf</PackagePath>
-      <Modified>2015-04-02T10:08:16.115</Modified>
+      <Modified>2015-04-29T20:55:55.603</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Flyouts\FlyoutTerms.xbf">
+      <PackagePath>Flyouts\FlyoutTerms.xbf</PackagePath>
+      <Modified>2015-04-29T20:55:55.604</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-04-02T10:08:16.115</Modified>
+      <Modified>2015-04-29T20:55:55.605</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\MyExtend1.xbf">
+      <PackagePath>MyExtend1.xbf</PackagePath>
+      <Modified>2015-04-29T20:55:55.605</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\PhotoPage.xbf">
       <PackagePath>PhotoPage.xbf</PackagePath>
-      <Modified>2015-02-02T02:36:57.985</Modified>
+      <Modified>2015-04-29T20:55:55.607</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\StationList.xbf">
       <PackagePath>StationList.xbf</PackagePath>
-      <Modified>2015-03-24T10:25:19.960</Modified>
+      <Modified>2015-04-29T20:55:55.608</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\StationPage.xbf">
       <PackagePath>StationPage.xbf</PackagePath>
-      <Modified>2015-03-24T10:25:19.961</Modified>
+      <Modified>2015-04-29T20:55:55.609</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Bing.Maps\Themes\Generic.xbf">
       <PackagePath>Bing.Maps\Themes\Generic.xbf</PackagePath>
-      <Modified>2015-04-02T11:47:07.598</Modified>
+      <Modified>2015-04-30T06:59:23.429</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\Pollution.Windows.xr.xml">
       <PackagePath>Pollution.Windows.xr.xml</PackagePath>
-      <Modified>2015-04-02T10:08:15.955</Modified>
+      <Modified>2015-04-25T09:02:11.108</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-04-02T10:08:21.092</Modified>
+      <Modified>2015-04-29T20:56:02.367</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -983,84 +983,47 @@ namespace Pollution
         {
 
             Grid tile = new Grid();
-            tile.Background = new SolidColorBrush(Color.FromArgb(255,50,50,50));
-            tile.Name = "InfoTile";
-            tile.Children.Clear();
-            Grid.SetRow(tile, rowNum);
-            Grid.SetColumn(tile, colNum);
-
-            RowDefinition row1 = new RowDefinition();
-            row1.Height = new GridLength(1, GridUnitType.Auto);
-            tile.RowDefinitions.Add(row1);
-            RowDefinition row2 = new RowDefinition();
-            row2.Height = new GridLength(1, GridUnitType.Auto);
-            tile.RowDefinitions.Add(row2);
-            RowDefinition row3 = new RowDefinition();
-            row3.Height = new GridLength(1, GridUnitType.Auto);
-            tile.RowDefinitions.Add(row3);
-
-            /*
-            StackPanel versionStackPanel = new StackPanel();
-            versionStackPanel.Margin = new Thickness(5, 5, 5, 0);
-            Grid.SetRow(versionStackPanel, 1);
-            tile.Children.Add(versionStackPanel);
-            
-            TextBlock versionTitle = new TextBlock();
-            versionTitle.Text = _resourceLoader.GetString("TextVersion/Text") + ": ";
-            versionTitle.FontSize = Data.getFontSize_SmallText();
-            versionTitle.FontWeight = FontWeights.Bold;
-            versionTitle.Padding = new Thickness(5, 5, 5, 0);
-            versionStackPanel.Children.Add(versionTitle);
-            TextBlock versionValue = new TextBlock();
-            versionValue.Text = Package.Current.Id.Version.Major + "." + Package.Current.Id.Version.Minor + "." + Package.Current.Id.Version.Build + "." + Package.Current.Id.Version.Revision;
-            versionValue.FontSize = Data.getFontSize_SmallText();
-            versionValue.FontWeight = FontWeights.Bold;
-            versionValue.Padding = new Thickness(5, 5, 5, 0);
-            versionStackPanel.Children.Add(versionValue);
-            */
-
-            StackPanel lastUpdateStackPanel = new StackPanel();
-            lastUpdateStackPanel.Margin = new Thickness(5, 5, 5, 0);
-            Grid.SetRow(lastUpdateStackPanel, 0);
-            tile.Children.Add(lastUpdateStackPanel);
-
-            TextBlock lastLocationTitle = new TextBlock();
-            lastLocationTitle.Text = _resourceLoader.GetString("TextUpdateTime");
-            lastLocationTitle.FontSize = Data.getFontSize_SmallText();
-            //lastLocationTitle.FontWeight = FontWeights.Bold;
-            lastLocationTitle.TextWrapping = TextWrapping.WrapWholeWords;
-            lastLocationTitle.Padding = new Thickness(5, 5, 5, 0);
-            lastUpdateStackPanel.Children.Add(lastLocationTitle);
-            TextBlock lastLocationUpdate = new TextBlock();
-            lastLocationUpdate.FontSize = Data.getFontSize_SmallText();
-            //lastLocationUpdate.FontWeight = FontWeights.Bold;
-            lastLocationUpdate.TextWrapping = TextWrapping.WrapWholeWords;
-            lastLocationUpdate.Padding = new Thickness(5, 5, 5, 0);
-            Binding locationBinding = new Binding();
-            locationBinding.Source = App.ViewModel;
-            locationBinding.Path = new PropertyPath("LastPositionTime");
-            lastLocationUpdate.SetBinding(TextBlock.TextProperty, locationBinding);
-            lastUpdateStackPanel.Children.Add(lastLocationUpdate);
-
-
-
-
-            return tile;
-
-        }
-
-        public Grid GPSStatusTile(int rowNum, int colNum) 
-        {
-            Grid tile = new Grid();
             tile.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
             tile.Name = "GPSStatusTile";
             tile.Children.Clear();
             Grid.SetRow(tile, rowNum);
             Grid.SetColumn(tile, colNum);
 
+            tile.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(3, GridUnitType.Star) });
+            tile.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(4, GridUnitType.Star) });
+            tile.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(2, GridUnitType.Star) });
+
+            //aktualizace
+            Viewbox viewUpdate = new Viewbox();
+            viewUpdate.HorizontalAlignment = HorizontalAlignment.Stretch;
+            viewUpdate.VerticalAlignment = VerticalAlignment.Stretch;
+
+            StackPanel lastUpdateGrid = new StackPanel();
+
+            TextBlock lastLocationTitle = new TextBlock();
+            lastLocationTitle.Text = _resourceLoader.GetString("TextUpdateTime");
+            lastLocationTitle.FontSize = Data.getFontSize_SmallText();
+            lastLocationTitle.TextWrapping = TextWrapping.WrapWholeWords;
+            lastLocationTitle.Padding = new Thickness(5, 5, 5, 0);
+            lastUpdateGrid.Children.Add(lastLocationTitle);
+            TextBlock lastLocationUpdate = new TextBlock();
+            lastLocationUpdate.FontSize = Data.getFontSize_SmallText();
+            lastLocationUpdate.TextWrapping = TextWrapping.WrapWholeWords;
+            lastLocationUpdate.Padding = new Thickness(5, 5, 5, 0);
+            Binding locationBinding2 = new Binding();
+            locationBinding2.Source = App.ViewModel;
+            locationBinding2.Path = new PropertyPath("LastPositionTime");
+            lastLocationUpdate.SetBinding(TextBlock.TextProperty, locationBinding2);
+            lastUpdateGrid.Children.Add(lastLocationUpdate);
+
+            viewUpdate.Child = lastUpdateGrid;
+
+            //gps
             Viewbox view = new Viewbox();
             view.HorizontalAlignment = HorizontalAlignment.Stretch;
             view.VerticalAlignment = VerticalAlignment.Stretch;
+            Grid.SetRow(view, 1);
+            Grid.SetRowSpan(view, 1);
 
             Grid tileGrid = new Grid();
             tileGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -1078,11 +1041,11 @@ namespace Pollution
             {
                 Source = App.ViewModel,
                 Path = new PropertyPath("GPSStatus"),
-                
+
             };
             locationBinding.Source = App.ViewModel;
             locationBinding.Path = new PropertyPath("GPSStatus");
-
+            /*
             TextBlock text = new TextBlock()
             {
                 FontSize = 10,
@@ -1097,10 +1060,24 @@ namespace Pollution
             text.SetBinding(TextBlock.TextProperty, locationBinding);
             Grid.SetColumn(text, 1);
             Grid.SetRow(text, 1);
-            tileGrid.Children.Add(text);
+            tileGrid.Children.Add(text);*/
+            Image image = new Image()
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Stretch = Stretch.UniformToFill,
+            };
+            image.SetBinding(Image.SourceProperty, locationBinding);
+            
+            Grid.SetColumn(image, 1);
+            Grid.SetRow(image, 1);
+            tileGrid.Children.Add(image);
             view.Child = tileGrid;
             tile.Children.Add(view);
+            tile.Children.Add(viewUpdate);
             return tile;
+
         }
+
     }
 }

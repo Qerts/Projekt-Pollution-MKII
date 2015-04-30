@@ -22,7 +22,11 @@ using Windows.UI.Xaml.Navigation;
 using Pollution.Flyouts;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Core;
-using Windows.ApplicationModel.Core; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
+using Pollution.Common;
+using System.Threading.Tasks; 
 #endif
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
@@ -77,6 +81,11 @@ namespace Pollution
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+
+
+        
+
+
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -85,7 +94,7 @@ namespace Pollution
 #endif
 #if WINDOWS_APP
             //BackgroundService.RegisterTileTask();   //mělo by zavolat a spustit úlohu na pozadí
-            BackgroundService.RegisterTask();
+            //BackgroundService.RegisterTask();
 #endif
 
 
@@ -136,8 +145,22 @@ namespace Pollution
                 }
             }
 
+
+#if WINDOWS_APP
+            //přidání extended splash
+            if (e.PreviousExecutionState != ApplicationExecutionState.Running)
+            {
+                bool loadState = (e.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                ExtendedSplash extendedSplash = new ExtendedSplash(e.SplashScreen, loadState);               
+                Window.Current.Content = extendedSplash;
+            }
+#endif
+#if WINDOWS_PHONE_APP
+
+
             // Ensure the current window is active
             Window.Current.Activate();
+#endif
         }
 
 #if WINDOWS_PHONE_APP
@@ -165,7 +188,14 @@ namespace Pollution
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
+#if WINDOWS_APP
             // TODO: Save application state and stop any background activity
+            Task saveState = Task.Run(async () =>
+            {
+                await SuspensionManager.SaveAsync();
+            });
+            
+#endif
             deferral.Complete();
         }
 
@@ -188,6 +218,11 @@ namespace Pollution
             FlyoutInformations CustomSettingFlyout3 = new FlyoutInformations();
             CustomSettingFlyout3.Show();
         }
+        public void ShowCustomSettingFlyout4()
+        {
+            FlyoutTerms CustomSettingFlyout4 = new FlyoutTerms();
+            CustomSettingFlyout4.Show();
+        }
 
         protected override void OnWindowCreated(WindowCreatedEventArgs args)
         {
@@ -203,7 +238,9 @@ namespace Pollution
             args.Request.ApplicationCommands.Add(new SettingsCommand(
                 "MenuSettings", _resourceLoader.GetString("MenuSettings/Text"), (handler) => ShowCustomSettingFlyout2()));
             args.Request.ApplicationCommands.Add(new SettingsCommand(
-                "MenuInformations", _resourceLoader.GetString("MenuInfo"), (handler) => ShowCustomSettingFlyout3()));
+                "MenuInformations", _resourceLoader.GetString("MenuInfo"), (handler) => ShowCustomSettingFlyout3())); 
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                 "MenuTerms", _resourceLoader.GetString("MenuTerms"), (handler) => ShowCustomSettingFlyout4()));
         } 
 
 

@@ -158,8 +158,29 @@ namespace Pollution
         public async Task<string> DownloadData() 
         {
             HttpClient wc = new HttpClient();
-            var response = await wc.GetAsync(CreateURLforData());
-            var content = await response.Content.ReadAsStringAsync();
+            HttpResponseMessage response;
+            string content;
+            try
+            {
+                
+                response = await wc.GetAsync(CreateURLforData());
+                content = await response.Content.ReadAsStringAsync();
+                return content;
+            }
+            catch (Exception)
+            {
+
+                Task delay = Task.Run(() => 
+                {
+                    Task.Delay(1000);
+                });
+                delay.Wait();
+                
+            }
+
+            
+            response = await wc.GetAsync(CreateURLforData());
+            content = await response.Content.ReadAsStringAsync();
             return content;
         }
         public async Task<string> DownloadPhotos() 

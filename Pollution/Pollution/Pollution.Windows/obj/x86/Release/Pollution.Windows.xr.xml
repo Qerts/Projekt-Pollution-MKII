@@ -117,6 +117,59 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Fill" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Resources" />
+      <RootProperty Name="DataContext" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Projection" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="MinHeight" />
+      <RootProperty Name="MinWidth" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="ChildrenTransitions" />
+      <RootProperty Name="IsHitTestVisible" />
+      <RootEvent Name="Tapped" />
+      <RootMethod Name="GetRow" />
+      <RootMethod Name="SetRow" />
+      <RootMethod Name="GetRowSpan" />
+      <RootMethod Name="SetRowSpan" />
+      <RootMethod Name="GetColumnSpan" />
+      <RootMethod Name="SetColumnSpan" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="ImageOpened" />
+      <RootEvent Name="Tapped" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="Name" />
+      <RootProperty Name="IsActive" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Foreground" />
+    </RootType>
+    <RootType FullName="Pollution.ExtendedSplash" />
     <RootType FullName="Windows.UI.Xaml.Controls.SettingsFlyout">
       <RootProperty Name="IconSource" />
       <RootProperty Name="Title" />
@@ -147,9 +200,10 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Width" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Style" />
       <RootProperty Name="Padding" />
       <RootProperty Name="AllowDrop" />
-      <RootProperty Name="Style" />
       <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="FontFamily" />
@@ -189,35 +243,6 @@
       <RootMethod Name="GetHorizontalScrollBarVisibility" />
       <RootMethod Name="SetHorizontalScrollBarVisibility" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="MaxHeight" />
-      <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="RenderTransform" />
-      <RootProperty Name="Projection" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="MinHeight" />
-      <RootProperty Name="MinWidth" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="ChildrenTransitions" />
-      <RootProperty Name="IsHitTestVisible" />
-      <RootEvent Name="Tapped" />
-      <RootMethod Name="GetRow" />
-      <RootMethod Name="SetRow" />
-      <RootMethod Name="GetRowSpan" />
-      <RootMethod Name="SetRowSpan" />
-      <RootMethod Name="GetColumnSpan" />
-      <RootMethod Name="SetColumnSpan" />
-      <RootMethod Name="GetColumn" />
-      <RootMethod Name="SetColumn" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
       <RootProperty Name="Converter" />
@@ -239,6 +264,7 @@
       <RootProperty Name="Content" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Checked" />
       <RootEvent Name="Unchecked" />
     </RootType>
@@ -256,11 +282,7 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Pollution.Flyouts.FlyoutSettings" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Page">
-      <RootProperty Name="Resources" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="DataContext" />
-    </RootType>
+    <RootType FullName="Pollution.Flyouts.FlyoutTerms" />
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Utils.ColorQualityConverter" />
     <RootType FullName="Utils.NegativeValueConverter" />
@@ -346,6 +368,7 @@
       <RootProperty Name="HorizontalContentAlignment" />
     </RootType>
     <RootType FullName="Pollution.MainPage" />
+    <RootType FullName="Pollution.MyExtend1" />
     <RootType FullName="Windows.UI.Xaml.Data.RelativeSource" />
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
@@ -357,15 +380,6 @@
       <RootMethod Name="SetAutomationId" />
       <RootMethod Name="GetItemType" />
       <RootMethod Name="SetItemType" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Source" />
-      <RootProperty Name="Width" />
-      <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Margin" />

@@ -38,3 +38,13 @@ D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\PollutionAgent\PollutionTile8.xbf
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\PollutionAgent\PollutionTileHD.xbf
 D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\XamlSaveStateFile.xml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Pins\PinConverters.g.i.cs
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Pins\PinConverters.g.cs
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Pins\PinConverters.xaml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Pins\PinConverters.xbf
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\App.xaml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Resources\DefaultStyle.xaml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Utils\ImageVisualisation.xaml
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\App.xbf
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Resources\DefaultStyle.xbf
+D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.WindowsPhone\obj\x86\Release\Utils\ImageVisualisation.xbf

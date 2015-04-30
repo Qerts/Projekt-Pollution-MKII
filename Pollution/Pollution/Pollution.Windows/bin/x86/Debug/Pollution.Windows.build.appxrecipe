@@ -274,9 +274,18 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\billboard-blank.png">
       <PackagePath>Assets\billboard-blank.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\gpsavailable-white.png">
+      <PackagePath>Assets\gpsavailable-white.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\nogps-white.png">
+      <PackagePath>Assets\nogps-white.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\reducedgps-white.png">
+      <PackagePath>Assets\reducedgps-white.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
@@ -290,13 +299,8 @@
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-140.png">
-      <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreen.scale-180.png">
-      <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\SplashScreenLogo620x300.png">
+      <PackagePath>Assets\SplashScreenLogo620x300.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\Assets\Square310x310Logo.scale-100.png">
       <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
@@ -449,6 +453,9 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Utils\ImageVisualisation.xbf">
       <PackagePath>Utils\ImageVisualisation.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\ExtendedSplash.xbf">
+      <PackagePath>ExtendedSplash.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Flyouts\FlyoutAbout.xbf">
       <PackagePath>Flyouts\FlyoutAbout.xbf</PackagePath>
     </AppxPackagedFile>
@@ -458,8 +465,14 @@
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Flyouts\FlyoutSettings.xbf">
       <PackagePath>Flyouts\FlyoutSettings.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\Flyouts\FlyoutTerms.xbf">
+      <PackagePath>Flyouts\FlyoutTerms.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\MyExtend1.xbf">
+      <PackagePath>MyExtend1.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Git\Projekt-Pollution-MKII\Pollution\Pollution\Pollution.Windows\bin\x86\Debug\PhotoPage.xbf">
       <PackagePath>PhotoPage.xbf</PackagePath>
